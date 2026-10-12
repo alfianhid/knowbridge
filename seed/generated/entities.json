@@ -1,0 +1,426 @@
+{
+  "projects": [
+    {
+      "id": "HBR",
+      "name": "Project Harbour",
+      "client": "Harbourlight Retail (fictional)",
+      "owner": "Avery Tan"
+    },
+    {
+      "id": "MER",
+      "name": "Project Meridian",
+      "client": "Meridian Trading (fictional)",
+      "owner": "Elena Koh"
+    },
+    {
+      "id": "NTH",
+      "name": "Project Northstar",
+      "client": "Northstar Foods (fictional)",
+      "owner": "Kiran Lim"
+    },
+    {
+      "id": "ORC",
+      "name": "Project Orchard",
+      "client": "Orchard Works (fictional)",
+      "owner": "Sofia Lee"
+    },
+    {
+      "id": "BCN",
+      "name": "Project Beacon",
+      "client": "Beacon Ventures (fictional)",
+      "owner": "Darren Ng"
+    },
+    {
+      "id": "ATL",
+      "name": "Project Atlas",
+      "client": "Atlas Logistics (fictional)",
+      "owner": "Priya Menon"
+    },
+    {
+      "id": "JNP",
+      "name": "Project Juniper",
+      "client": "Juniper Studio (fictional)",
+      "owner": "Noah Goh"
+    },
+    {
+      "id": "CDR",
+      "name": "Project Cedar",
+      "client": "Cedar Commerce (fictional)",
+      "owner": "Mei Chen"
+    }
+  ],
+  "employees": [
+    {
+      "id": "EMP-001",
+      "name": "Avery Tan",
+      "role": "Delivery Manager",
+      "email": "avery.tan@example.com",
+      "team": "Delivery"
+    },
+    {
+      "id": "EMP-002",
+      "name": "Elena Koh",
+      "role": "Operations Manager",
+      "email": "elena.koh@example.com",
+      "team": "Engineering"
+    },
+    {
+      "id": "EMP-003",
+      "name": "Kiran Lim",
+      "role": "Engineering Lead",
+      "email": "kiran.lim@example.com",
+      "team": "Product"
+    },
+    {
+      "id": "EMP-004",
+      "name": "Sofia Lee",
+      "role": "Customer Success Lead",
+      "email": "sofia.lee@example.com",
+      "team": "Security"
+    },
+    {
+      "id": "EMP-005",
+      "name": "Darren Ng",
+      "role": "Security Lead",
+      "email": "darren.ng@example.com",
+      "team": "Operations"
+    },
+    {
+      "id": "EMP-006",
+      "name": "Priya Menon",
+      "role": "People Operations Lead",
+      "email": "priya.menon@example.com",
+      "team": "Customer Success"
+    },
+    {
+      "id": "EMP-007",
+      "name": "Noah Goh",
+      "role": "Partnerships Lead",
+      "email": "noah.goh@example.com",
+      "team": "Finance"
+    },
+    {
+      "id": "EMP-008",
+      "name": "Mei Chen",
+      "role": "Finance Lead",
+      "email": "mei.chen@example.com",
+      "team": "People Operations"
+    },
+    {
+      "id": "EMP-009",
+      "name": "Isabelle Wong",
+      "role": "QA Lead",
+      "email": "isabelle.wong@example.com",
+      "team": "Delivery"
+    },
+    {
+      "id": "EMP-010",
+      "name": "Haris Rahman",
+      "role": "Platform Engineer",
+      "email": "haris.rahman@example.com",
+      "team": "Engineering"
+    },
+    {
+      "id": "EMP-011",
+      "name": "Lena Ong",
+      "role": "Product Manager",
+      "email": "lena.ong@example.com",
+      "team": "Product"
+    },
+    {
+      "id": "EMP-012",
+      "name": "Theo Yeo",
+      "role": "Solutions Architect",
+      "email": "theo.yeo@example.com",
+      "team": "Security"
+    },
+    {
+      "id": "EMP-013",
+      "name": "Nadia Ismail",
+      "role": "Sales Lead",
+      "email": "nadia.ismail@example.com",
+      "team": "Operations"
+    },
+    {
+      "id": "EMP-014",
+      "name": "Marco Chua",
+      "role": "Support Lead",
+      "email": "marco.chua@example.com",
+      "team": "Customer Success"
+    },
+    {
+      "id": "EMP-015",
+      "name": "Jules Teo",
+      "role": "Data Analyst",
+      "email": "jules.teo@example.com",
+      "team": "Finance"
+    },
+    {
+      "id": "EMP-016",
+      "name": "Farah Aziz",
+      "role": "People Partner",
+      "email": "farah.aziz@example.com",
+      "team": "People Operations"
+    },
+    {
+      "id": "EMP-017",
+      "name": "Jun Park",
+      "role": "UX Designer",
+      "email": "jun.park@example.com",
+      "team": "Delivery"
+    },
+    {
+      "id": "EMP-018",
+      "name": "Bella Low",
+      "role": "Account Executive",
+      "email": "bella.low@example.com",
+      "team": "Engineering"
+    },
+    {
+      "id": "EMP-019",
+      "name": "Arun Nair",
+      "role": "Application Engineer",
+      "email": "arun.nair@example.com",
+      "team": "Product"
+    },
+    {
+      "id": "EMP-020",
+      "name": "Eden Ho",
+      "role": "Compliance Analyst",
+      "email": "eden.ho@example.com",
+      "team": "Security"
+    },
+    {
+      "id": "EMP-021",
+      "name": "Ravi Das",
+      "role": "Technical Writer",
+      "email": "ravi.das@example.com",
+      "team": "Operations"
+    },
+    {
+      "id": "EMP-022",
+      "name": "Mira Foo",
+      "role": "Program Coordinator",
+      "email": "mira.foo@example.com",
+      "team": "Customer Success"
+    },
+    {
+      "id": "EMP-023",
+      "name": "Hadi Salleh",
+      "role": "Customer Support",
+      "email": "hadi.salleh@example.com",
+      "team": "Finance"
+    },
+    {
+      "id": "EMP-024",
+      "name": "Chloe Yap",
+      "role": "Operations Analyst",
+      "email": "chloe.yap@example.com",
+      "team": "People Operations"
+    },
+    {
+      "id": "EMP-025",
+      "name": "Leo Tan",
+      "role": "Engineering Manager",
+      "email": "leo.tan@example.com",
+      "team": "Delivery"
+    },
+    {
+      "id": "EMP-026",
+      "name": "Dana Lim",
+      "role": "QA Engineer",
+      "email": "dana.lim@example.com",
+      "team": "Engineering"
+    },
+    {
+      "id": "EMP-027",
+      "name": "Imran Koh",
+      "role": "SRE",
+      "email": "imran.koh@example.com",
+      "team": "Product"
+    },
+    {
+      "id": "EMP-028",
+      "name": "Tessa Chan",
+      "role": "Procurement Lead",
+      "email": "tessa.chan@example.com",
+      "team": "Security"
+    },
+    {
+      "id": "EMP-029",
+      "name": "Selin Ng",
+      "role": "Project Coordinator",
+      "email": "selin.ng@example.com",
+      "team": "Operations"
+    },
+    {
+      "id": "EMP-030",
+      "name": "Omar Aziz",
+      "role": "Business Analyst",
+      "email": "omar.aziz@example.com",
+      "team": "Customer Success"
+    }
+  ],
+  "relationships": [
+    {
+      "subject": "HBR",
+      "predicate": "HAS_CLIENT",
+      "object": "Harbourlight Retail (fictional)"
+    },
+    {
+      "subject": "HBR",
+      "predicate": "OWNED_BY",
+      "object": "Avery Tan"
+    },
+    {
+      "subject": "HBR",
+      "predicate": "DEPENDS_ON_VENDOR",
+      "object": "Horizon Cloud (fictional)"
+    },
+    {
+      "subject": "HBR",
+      "predicate": "HAS_RISK",
+      "object": "R-HBR-01"
+    },
+    {
+      "subject": "MER",
+      "predicate": "HAS_CLIENT",
+      "object": "Meridian Trading (fictional)"
+    },
+    {
+      "subject": "MER",
+      "predicate": "OWNED_BY",
+      "object": "Elena Koh"
+    },
+    {
+      "subject": "MER",
+      "predicate": "DEPENDS_ON_VENDOR",
+      "object": "Beacon Verify (fictional)"
+    },
+    {
+      "subject": "MER",
+      "predicate": "HAS_RISK",
+      "object": "R-MER-01"
+    },
+    {
+      "subject": "NTH",
+      "predicate": "HAS_CLIENT",
+      "object": "Northstar Foods (fictional)"
+    },
+    {
+      "subject": "NTH",
+      "predicate": "OWNED_BY",
+      "object": "Kiran Lim"
+    },
+    {
+      "subject": "NTH",
+      "predicate": "DEPENDS_ON_VENDOR",
+      "object": "Summit Data (fictional)"
+    },
+    {
+      "subject": "NTH",
+      "predicate": "HAS_RISK",
+      "object": "R-NTH-01"
+    },
+    {
+      "subject": "ORC",
+      "predicate": "HAS_CLIENT",
+      "object": "Orchard Works (fictional)"
+    },
+    {
+      "subject": "ORC",
+      "predicate": "OWNED_BY",
+      "object": "Sofia Lee"
+    },
+    {
+      "subject": "ORC",
+      "predicate": "DEPENDS_ON_VENDOR",
+      "object": "Crest Billing (fictional)"
+    },
+    {
+      "subject": "ORC",
+      "predicate": "HAS_RISK",
+      "object": "R-ORC-01"
+    },
+    {
+      "subject": "BCN",
+      "predicate": "HAS_CLIENT",
+      "object": "Beacon Ventures (fictional)"
+    },
+    {
+      "subject": "BCN",
+      "predicate": "OWNED_BY",
+      "object": "Darren Ng"
+    },
+    {
+      "subject": "BCN",
+      "predicate": "DEPENDS_ON_VENDOR",
+      "object": "Harbour IAM (fictional)"
+    },
+    {
+      "subject": "BCN",
+      "predicate": "HAS_RISK",
+      "object": "R-BCN-01"
+    },
+    {
+      "subject": "ATL",
+      "predicate": "HAS_CLIENT",
+      "object": "Atlas Logistics (fictional)"
+    },
+    {
+      "subject": "ATL",
+      "predicate": "OWNED_BY",
+      "object": "Priya Menon"
+    },
+    {
+      "subject": "ATL",
+      "predicate": "DEPENDS_ON_VENDOR",
+      "object": "Mosaic HR (fictional)"
+    },
+    {
+      "subject": "ATL",
+      "predicate": "HAS_RISK",
+      "object": "R-ATL-01"
+    },
+    {
+      "subject": "JNP",
+      "predicate": "HAS_CLIENT",
+      "object": "Juniper Studio (fictional)"
+    },
+    {
+      "subject": "JNP",
+      "predicate": "OWNED_BY",
+      "object": "Noah Goh"
+    },
+    {
+      "subject": "JNP",
+      "predicate": "DEPENDS_ON_VENDOR",
+      "object": "Pioneer Forms (fictional)"
+    },
+    {
+      "subject": "JNP",
+      "predicate": "HAS_RISK",
+      "object": "R-JNP-01"
+    },
+    {
+      "subject": "CDR",
+      "predicate": "HAS_CLIENT",
+      "object": "Cedar Commerce (fictional)"
+    },
+    {
+      "subject": "CDR",
+      "predicate": "OWNED_BY",
+      "object": "Mei Chen"
+    },
+    {
+      "subject": "CDR",
+      "predicate": "DEPENDS_ON_VENDOR",
+      "object": "Aurora Ledger (fictional)"
+    },
+    {
+      "subject": "CDR",
+      "predicate": "HAS_RISK",
+      "object": "R-CDR-01"
+    }
+  ]
+}

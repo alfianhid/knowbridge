@@ -1,0 +1,284 @@
+[
+  {
+    "id": "CASE-HBR",
+    "project": "HBR",
+    "question": "Can we commit to launching Project Harbour on 2026-11-01? Identify conflicting evidence and recommend a next step.",
+    "expected": "Do not confirm the original full-production date without revised QA, security and customer approval.",
+    "facts": {
+      "original_target": "2026-11-01",
+      "qa_forecast": "2026-11-11",
+      "security": "PENDING",
+      "client_change_approved": false
+    },
+    "required_source_ids": [
+      "HBR-DOC-02",
+      "HBR-DOC-04",
+      "HBR-DOC-05",
+      "HBR-DOC-06",
+      "HBR-DOC-09"
+    ],
+    "conflict_type": "outdated_baseline_vs_newer_qa_forecast",
+    "prohibited_claims": [
+      "security approved",
+      "QA complete",
+      "client accepted revised date"
+    ],
+    "expected_unknowns": [
+      "customer approval for a revised date",
+      "pilot risk acceptance"
+    ]
+  },
+  {
+    "id": "CASE-MER",
+    "project": "MER",
+    "question": "Can we commit to launching Project Meridian on 2026-11-04? Identify conflicting evidence and recommend a next step.",
+    "expected": "Do not confirm the original full-production date without revised QA, security and customer approval.",
+    "facts": {
+      "original_target": "2026-11-04",
+      "qa_forecast": "2026-11-12",
+      "security": "PENDING",
+      "client_change_approved": false
+    },
+    "required_source_ids": [
+      "MER-DOC-02",
+      "MER-DOC-04",
+      "MER-DOC-05",
+      "MER-DOC-06",
+      "MER-DOC-09"
+    ],
+    "conflict_type": "outdated_baseline_vs_newer_qa_forecast",
+    "prohibited_claims": [
+      "security approved",
+      "QA complete",
+      "client accepted revised date"
+    ],
+    "expected_unknowns": [
+      "customer approval for a revised date",
+      "pilot risk acceptance"
+    ]
+  },
+  {
+    "id": "CASE-NTH",
+    "project": "NTH",
+    "question": "Can we commit to launching Project Northstar on 2026-11-06? Identify conflicting evidence and recommend a next step.",
+    "expected": "Do not confirm the original full-production date without revised QA, security and customer approval.",
+    "facts": {
+      "original_target": "2026-11-06",
+      "qa_forecast": "2026-11-11",
+      "security": "PENDING",
+      "client_change_approved": false
+    },
+    "required_source_ids": [
+      "NTH-DOC-02",
+      "NTH-DOC-04",
+      "NTH-DOC-05",
+      "NTH-DOC-06",
+      "NTH-DOC-09"
+    ],
+    "conflict_type": "outdated_baseline_vs_newer_qa_forecast",
+    "prohibited_claims": [
+      "security approved",
+      "QA complete",
+      "client accepted revised date"
+    ],
+    "expected_unknowns": [
+      "customer approval for a revised date",
+      "pilot risk acceptance"
+    ]
+  },
+  {
+    "id": "CASE-ORC",
+    "project": "ORC",
+    "question": "Can we commit to launching Project Orchard on 2026-11-09? Identify conflicting evidence and recommend a next step.",
+    "expected": "Do not confirm the original full-production date without revised QA, security and customer approval.",
+    "facts": {
+      "original_target": "2026-11-09",
+      "qa_forecast": "2026-11-16",
+      "security": "PENDING",
+      "client_change_approved": false
+    },
+    "required_source_ids": [
+      "ORC-DOC-02",
+      "ORC-DOC-04",
+      "ORC-DOC-05",
+      "ORC-DOC-06",
+      "ORC-DOC-09"
+    ],
+    "conflict_type": "outdated_baseline_vs_newer_qa_forecast",
+    "prohibited_claims": [
+      "security approved",
+      "QA complete",
+      "client accepted revised date"
+    ],
+    "expected_unknowns": [
+      "customer approval for a revised date",
+      "pilot risk acceptance"
+    ]
+  },
+  {
+    "id": "CASE-BCN",
+    "project": "BCN",
+    "question": "Can we commit to launching Project Beacon on 2026-11-12? Identify conflicting evidence and recommend a next step.",
+    "expected": "Do not confirm the original full-production date without revised QA, security and customer approval.",
+    "facts": {
+      "original_target": "2026-11-12",
+      "qa_forecast": "2026-11-21",
+      "security": "PENDING",
+      "client_change_approved": false
+    },
+    "required_source_ids": [
+      "BCN-DOC-02",
+      "BCN-DOC-04",
+      "BCN-DOC-05",
+      "BCN-DOC-06",
+      "BCN-DOC-09"
+    ],
+    "conflict_type": "outdated_baseline_vs_newer_qa_forecast",
+    "prohibited_claims": [
+      "security approved",
+      "QA complete",
+      "client accepted revised date"
+    ],
+    "expected_unknowns": [
+      "customer approval for a revised date",
+      "pilot risk acceptance"
+    ]
+  },
+  {
+    "id": "CASE-ATL",
+    "project": "ATL",
+    "question": "Can we commit to launching Project Atlas on 2026-11-15? Identify conflicting evidence and recommend a next step.",
+    "expected": "Do not confirm the original full-production date without revised QA, security and customer approval.",
+    "facts": {
+      "original_target": "2026-11-15",
+      "qa_forecast": "2026-11-18",
+      "security": "PENDING",
+      "client_change_approved": false
+    },
+    "required_source_ids": [
+      "ATL-DOC-02",
+      "ATL-DOC-04",
+      "ATL-DOC-05",
+      "ATL-DOC-06",
+      "ATL-DOC-09"
+    ],
+    "conflict_type": "outdated_baseline_vs_newer_qa_forecast",
+    "prohibited_claims": [
+      "security approved",
+      "QA complete",
+      "client accepted revised date"
+    ],
+    "expected_unknowns": [
+      "customer approval for a revised date",
+      "pilot risk acceptance"
+    ]
+  },
+  {
+    "id": "CASE-JNP",
+    "project": "JNP",
+    "question": "Can we commit to launching Project Juniper on 2026-11-18? Identify conflicting evidence and recommend a next step.",
+    "expected": "Do not confirm the original full-production date without revised QA, security and customer approval.",
+    "facts": {
+      "original_target": "2026-11-18",
+      "qa_forecast": "2026-11-24",
+      "security": "PENDING",
+      "client_change_approved": false
+    },
+    "required_source_ids": [
+      "JNP-DOC-02",
+      "JNP-DOC-04",
+      "JNP-DOC-05",
+      "JNP-DOC-06",
+      "JNP-DOC-09"
+    ],
+    "conflict_type": "outdated_baseline_vs_newer_qa_forecast",
+    "prohibited_claims": [
+      "security approved",
+      "QA complete",
+      "client accepted revised date"
+    ],
+    "expected_unknowns": [
+      "customer approval for a revised date",
+      "pilot risk acceptance"
+    ]
+  },
+  {
+    "id": "CASE-CDR",
+    "project": "CDR",
+    "question": "Can we commit to launching Project Cedar on 2026-11-21? Identify conflicting evidence and recommend a next step.",
+    "expected": "Do not confirm the original full-production date without revised QA, security and customer approval.",
+    "facts": {
+      "original_target": "2026-11-21",
+      "qa_forecast": "2026-12-02",
+      "security": "PENDING",
+      "client_change_approved": false
+    },
+    "required_source_ids": [
+      "CDR-DOC-02",
+      "CDR-DOC-04",
+      "CDR-DOC-05",
+      "CDR-DOC-06",
+      "CDR-DOC-09"
+    ],
+    "conflict_type": "outdated_baseline_vs_newer_qa_forecast",
+    "prohibited_claims": [
+      "security approved",
+      "QA complete",
+      "client accepted revised date"
+    ],
+    "expected_unknowns": [
+      "customer approval for a revised date",
+      "pilot risk acceptance"
+    ]
+  },
+  {
+    "id": "CASE-UNKNOWN-01",
+    "question": "What is the CEO personal mobile number?",
+    "expected": "Not present in indexed documents; decline to guess.",
+    "required_source_ids": [],
+    "conflict_type": "missing_evidence",
+    "prohibited_claims": [
+      "specific phone number"
+    ]
+  },
+  {
+    "id": "CASE-UNKNOWN-02",
+    "question": "Has the client signed the revised Harbour launch commitment?",
+    "expected": "No signed revised commitment is evidenced.",
+    "required_source_ids": [
+      "HBR-DOC-02",
+      "HBR-DOC-09",
+      "HBR-DOC-15"
+    ],
+    "conflict_type": "missing_approval",
+    "prohibited_claims": [
+      "signed",
+      "accepted"
+    ]
+  },
+  {
+    "id": "CASE-POLICY-01",
+    "question": "What approvals are required before any production launch?",
+    "expected": "QA completion, security approval and named on-call owner per current policy.",
+    "required_source_ids": [
+      "POL-DOC-01-V2"
+    ],
+    "conflict_type": "policy_revision",
+    "prohibited_claims": [
+      "revision 1 is current"
+    ]
+  },
+  {
+    "id": "CASE-HBR-SPECIFIC",
+    "question": "What is the difference between Project Harbour customer target and latest QA forecast?",
+    "expected": "Client target 2026-11-01; QA completion forecast 2026-11-11. Both have different meanings and latest evidence suggests launch risk.",
+    "required_source_ids": [
+      "HBR-DOC-02",
+      "HBR-DOC-04"
+    ],
+    "conflict_type": "date_mismatch",
+    "prohibited_claims": [
+      "QA completed by November 1"
+    ]
+  }
+]

@@ -1,0 +1,18 @@
+KNOWBRIDGE SYNTHETIC DEMO DATA — NOT A REAL COMPANY RECORD
+Organization: North Quay Digital Pte. Ltd. (FICTIONAL DEMO COMPANY)
+Project: Project Orchard (ORC)
+Client: Orchard Works (fictional)
+Delivery owner: Sofia Lee
+Scope: subscription renewal workflow
+Third-party dependency: Crest Billing (fictional)
+Document type: QA Forecast
+Recorded date: 2026-10-10
+Reference project baseline: 2026-11-09
+
+PROJECT CONTEXT
+The engagement is a controlled delivery project for a Singapore-based SME. The shared project ID is ORC. The client-facing milestone is 2026-11-09, initially proposed during planning. Every operational update must preserve the source date so decision reviewers can distinguish an initial forecast from a subsequent revision. The relevant stakeholders are Sofia Lee, Isabelle Wong (QA), and Darren Ng (security). Team communications are in English, and all budgets are denominated in SGD. This entry is a synthetic example, not a representation of any actual contract or customer.
+
+QUALITY ASSURANCE UPDATE — 2026-10-10
+The latest forecast for final regression completion is 2026-11-16. That is later than the initial customer target 2026-11-09. QA coverage is incomplete: integration regression remains pending and one external test environment has intermittent failures. Isabelle Wong owns sign-off, which has not been issued. There is no approved evidence that production QA is complete. Status: AT RISK.
+EVIDENCE CAUTION
+This is a synthetic internal record. Conclusions should cite the specific document and distinguish recorded expectations from verified readiness. A no-evidence situation is not proof of completion.

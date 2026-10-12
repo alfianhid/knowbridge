@@ -1,0 +1,16 @@
+{
+  "dataset": "KnowBridge Synthetic SME Enterprise-Like Corpus",
+  "version": "1.0.0",
+  "seed": 20261012,
+  "fictional_company": "North Quay Digital Pte. Ltd. (FICTIONAL DEMO COMPANY)",
+  "created_for": "Google Cloud AI Builder Cup 2026",
+  "as_of": "2026-10-11",
+  "warning": "Entirely synthetic. No real clients, employees, vendors or contacts. @example.com domains are reserved.",
+  "projects": 8,
+  "employees": 30,
+  "documents": 168,
+  "sheets": 24,
+  "sheet_data_rows": 1904,
+  "eval_cases": 12,
+  "format": "Google Workspace-like export; see seed_bundle.json and Apps Script uploader"
+}

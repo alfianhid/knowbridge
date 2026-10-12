@@ -1,0 +1,19 @@
+KNOWBRIDGE SYNTHETIC DEMO DATA — NOT A REAL COMPANY RECORD
+Organization: North Quay Digital Pte. Ltd. (FICTIONAL DEMO COMPANY)
+Project: Project Orchard (ORC)
+Client: Orchard Works (fictional)
+Delivery owner: Sofia Lee
+Scope: subscription renewal workflow
+Third-party dependency: Crest Billing (fictional)
+Document type: Project Charter
+Recorded date: 2026-08-19
+Reference project baseline: 2026-11-09
+
+PROJECT CONTEXT
+The engagement is a controlled delivery project for a Singapore-based SME. The shared project ID is ORC. The client-facing milestone is 2026-11-09, initially proposed during planning. Every operational update must preserve the source date so decision reviewers can distinguish an initial forecast from a subsequent revision. The relevant stakeholders are Sofia Lee, Isabelle Wong (QA), and Darren Ng (security). Team communications are in English, and all budgets are denominated in SGD. This entry is a synthetic example, not a representation of any actual contract or customer.
+
+BASELINE AND ASSUMPTIONS
+Project start was approved on 2026-08-19. The initial target for production launch was 2026-11-09, conditional on QA passing, security approval, operational handover and customer acceptance. In the original baseline, a full release was preferable to a pilot. These assumptions have not been independently revalidated since 2026-08-19. The charter is the record of original intent, not the latest operational status.
+Decision owner: Sofia Lee. Finance sponsor: Mei Chen.
+EVIDENCE CAUTION
+This is a synthetic internal record. Conclusions should cite the specific document and distinguish recorded expectations from verified readiness. A no-evidence situation is not proof of completion.

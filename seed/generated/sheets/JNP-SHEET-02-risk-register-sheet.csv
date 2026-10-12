@@ -1,0 +1,64 @@
+risk_id,project_id,risk,severity,status,owner,updated_at
+R-JNP-01,JNP,QA forecast 2026-11-24 later than baseline 2026-11-18,HIGH,OPEN,Noah Goh,2026-10-11
+R-JNP-02,JNP,Security approval not received,HIGH,OPEN,Darren Ng,2026-10-11
+R-JNP-03,JNP,Specialist QA resource capacity,MEDIUM,OPEN,Isabelle Wong,2026-10-09
+R-JNP-04,JNP,Integration test coverage,LOW,MITIGATED,Avery Tan,2026-10-09
+R-JNP-05,JNP,Supplier review,MEDIUM,OPEN,Elena Koh,2026-10-09
+R-JNP-06,JNP,Support documentation,HIGH,MONITORING,Kiran Lim,2026-10-09
+R-JNP-07,JNP,Customer comms,LOW,MITIGATED,Sofia Lee,2026-10-09
+R-JNP-08,JNP,Budget reporting,MEDIUM,OPEN,Darren Ng,2026-10-09
+R-JNP-09,JNP,Integration test coverage,HIGH,MONITORING,Priya Menon,2026-10-09
+R-JNP-10,JNP,Supplier review,LOW,MITIGATED,Noah Goh,2026-10-09
+R-JNP-11,JNP,Support documentation,MEDIUM,OPEN,Mei Chen,2026-10-09
+R-JNP-12,JNP,Customer comms,HIGH,MONITORING,Isabelle Wong,2026-10-09
+R-JNP-13,JNP,Budget reporting,LOW,MITIGATED,Haris Rahman,2026-10-09
+R-JNP-14,JNP,Integration test coverage,MEDIUM,OPEN,Lena Ong,2026-10-09
+R-JNP-15,JNP,Supplier review,HIGH,MONITORING,Theo Yeo,2026-10-09
+R-JNP-16,JNP,Support documentation,LOW,MITIGATED,Nadia Ismail,2026-10-09
+R-JNP-17,JNP,Customer comms,MEDIUM,OPEN,Marco Chua,2026-10-09
+R-JNP-18,JNP,Budget reporting,HIGH,MONITORING,Jules Teo,2026-10-09
+R-JNP-19,JNP,Integration test coverage,LOW,MITIGATED,Farah Aziz,2026-10-09
+R-JNP-20,JNP,Supplier review,MEDIUM,OPEN,Jun Park,2026-10-09
+R-JNP-21,JNP,Support documentation,HIGH,MONITORING,Bella Low,2026-10-09
+R-JNP-22,JNP,Customer comms,LOW,MITIGATED,Arun Nair,2026-10-09
+R-JNP-23,JNP,Budget reporting,MEDIUM,OPEN,Eden Ho,2026-10-09
+R-JNP-24,JNP,Integration test coverage,HIGH,MONITORING,Ravi Das,2026-10-09
+R-JNP-25,JNP,Supplier review,LOW,MITIGATED,Mira Foo,2026-10-09
+R-JNP-26,JNP,Support documentation,MEDIUM,OPEN,Hadi Salleh,2026-10-09
+R-JNP-27,JNP,Customer comms,HIGH,MONITORING,Chloe Yap,2026-10-09
+R-JNP-28,JNP,Budget reporting,LOW,MITIGATED,Leo Tan,2026-10-09
+R-JNP-29,JNP,Integration test coverage,MEDIUM,OPEN,Dana Lim,2026-10-09
+R-JNP-30,JNP,Supplier review,HIGH,MONITORING,Imran Koh,2026-10-09
+R-JNP-31,JNP,Support documentation,LOW,MITIGATED,Tessa Chan,2026-10-09
+R-JNP-32,JNP,Customer comms,MEDIUM,OPEN,Selin Ng,2026-10-09
+R-JNP-33,JNP,Budget reporting,HIGH,MONITORING,Omar Aziz,2026-10-09
+R-JNP-34,JNP,Integration test coverage,LOW,MITIGATED,Avery Tan,2026-10-09
+R-JNP-35,JNP,Supplier review,MEDIUM,OPEN,Elena Koh,2026-10-09
+R-JNP-36,JNP,Support documentation,HIGH,MONITORING,Kiran Lim,2026-10-09
+R-JNP-37,JNP,Customer comms,LOW,MITIGATED,Sofia Lee,2026-10-09
+R-JNP-38,JNP,Budget reporting,MEDIUM,OPEN,Darren Ng,2026-10-09
+R-JNP-39,JNP,Integration test coverage,HIGH,MONITORING,Priya Menon,2026-10-09
+R-JNP-40,JNP,Supplier review,LOW,MITIGATED,Noah Goh,2026-10-09
+R-JNP-41,JNP,Support documentation,MEDIUM,OPEN,Mei Chen,2026-10-09
+R-JNP-42,JNP,Customer comms,HIGH,MONITORING,Isabelle Wong,2026-10-09
+R-JNP-43,JNP,Budget reporting,LOW,MITIGATED,Haris Rahman,2026-10-09
+R-JNP-44,JNP,Integration test coverage,MEDIUM,OPEN,Lena Ong,2026-10-09
+R-JNP-45,JNP,Supplier review,HIGH,MONITORING,Theo Yeo,2026-10-09
+R-JNP-46,JNP,Support documentation,LOW,MITIGATED,Nadia Ismail,2026-10-09
+R-JNP-47,JNP,Customer comms,MEDIUM,OPEN,Marco Chua,2026-10-09
+R-JNP-48,JNP,Budget reporting,HIGH,MONITORING,Jules Teo,2026-10-09
+R-JNP-49,JNP,Integration test coverage,LOW,MITIGATED,Farah Aziz,2026-10-09
+R-JNP-50,JNP,Supplier review,MEDIUM,OPEN,Jun Park,2026-10-09
+R-JNP-51,JNP,Support documentation,HIGH,MONITORING,Bella Low,2026-10-09
+R-JNP-52,JNP,Customer comms,LOW,MITIGATED,Arun Nair,2026-10-09
+R-JNP-53,JNP,Budget reporting,MEDIUM,OPEN,Eden Ho,2026-10-09
+R-JNP-54,JNP,Integration test coverage,HIGH,MONITORING,Ravi Das,2026-10-09
+R-JNP-55,JNP,Supplier review,LOW,MITIGATED,Mira Foo,2026-10-09
+R-JNP-56,JNP,Support documentation,MEDIUM,OPEN,Hadi Salleh,2026-10-09
+R-JNP-57,JNP,Customer comms,HIGH,MONITORING,Chloe Yap,2026-10-09
+R-JNP-58,JNP,Budget reporting,LOW,MITIGATED,Leo Tan,2026-10-09
+R-JNP-59,JNP,Integration test coverage,MEDIUM,OPEN,Dana Lim,2026-10-09
+R-JNP-60,JNP,Supplier review,HIGH,MONITORING,Imran Koh,2026-10-09
+R-JNP-61,JNP,Support documentation,LOW,MITIGATED,Tessa Chan,2026-10-09
+R-JNP-62,JNP,Customer comms,MEDIUM,OPEN,Selin Ng,2026-10-09
+R-JNP-63,JNP,Budget reporting,HIGH,MONITORING,Omar Aziz,2026-10-09

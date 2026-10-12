@@ -1,0 +1,64 @@
+risk_id,project_id,risk,severity,status,owner,updated_at
+R-ATL-01,ATL,QA forecast 2026-11-18 later than baseline 2026-11-15,HIGH,OPEN,Priya Menon,2026-10-11
+R-ATL-02,ATL,Security approval not received,HIGH,OPEN,Darren Ng,2026-10-11
+R-ATL-03,ATL,Specialist QA resource capacity,MEDIUM,OPEN,Isabelle Wong,2026-10-09
+R-ATL-04,ATL,Integration test coverage,LOW,MITIGATED,Avery Tan,2026-10-09
+R-ATL-05,ATL,Supplier review,MEDIUM,OPEN,Elena Koh,2026-10-09
+R-ATL-06,ATL,Support documentation,HIGH,MONITORING,Kiran Lim,2026-10-09
+R-ATL-07,ATL,Customer comms,LOW,MITIGATED,Sofia Lee,2026-10-09
+R-ATL-08,ATL,Budget reporting,MEDIUM,OPEN,Darren Ng,2026-10-09
+R-ATL-09,ATL,Integration test coverage,HIGH,MONITORING,Priya Menon,2026-10-09
+R-ATL-10,ATL,Supplier review,LOW,MITIGATED,Noah Goh,2026-10-09
+R-ATL-11,ATL,Support documentation,MEDIUM,OPEN,Mei Chen,2026-10-09
+R-ATL-12,ATL,Customer comms,HIGH,MONITORING,Isabelle Wong,2026-10-09
+R-ATL-13,ATL,Budget reporting,LOW,MITIGATED,Haris Rahman,2026-10-09
+R-ATL-14,ATL,Integration test coverage,MEDIUM,OPEN,Lena Ong,2026-10-09
+R-ATL-15,ATL,Supplier review,HIGH,MONITORING,Theo Yeo,2026-10-09
+R-ATL-16,ATL,Support documentation,LOW,MITIGATED,Nadia Ismail,2026-10-09
+R-ATL-17,ATL,Customer comms,MEDIUM,OPEN,Marco Chua,2026-10-09
+R-ATL-18,ATL,Budget reporting,HIGH,MONITORING,Jules Teo,2026-10-09
+R-ATL-19,ATL,Integration test coverage,LOW,MITIGATED,Farah Aziz,2026-10-09
+R-ATL-20,ATL,Supplier review,MEDIUM,OPEN,Jun Park,2026-10-09
+R-ATL-21,ATL,Support documentation,HIGH,MONITORING,Bella Low,2026-10-09
+R-ATL-22,ATL,Customer comms,LOW,MITIGATED,Arun Nair,2026-10-09
+R-ATL-23,ATL,Budget reporting,MEDIUM,OPEN,Eden Ho,2026-10-09
+R-ATL-24,ATL,Integration test coverage,HIGH,MONITORING,Ravi Das,2026-10-09
+R-ATL-25,ATL,Supplier review,LOW,MITIGATED,Mira Foo,2026-10-09
+R-ATL-26,ATL,Support documentation,MEDIUM,OPEN,Hadi Salleh,2026-10-09
+R-ATL-27,ATL,Customer comms,HIGH,MONITORING,Chloe Yap,2026-10-09
+R-ATL-28,ATL,Budget reporting,LOW,MITIGATED,Leo Tan,2026-10-09
+R-ATL-29,ATL,Integration test coverage,MEDIUM,OPEN,Dana Lim,2026-10-09
+R-ATL-30,ATL,Supplier review,HIGH,MONITORING,Imran Koh,2026-10-09
+R-ATL-31,ATL,Support documentation,LOW,MITIGATED,Tessa Chan,2026-10-09
+R-ATL-32,ATL,Customer comms,MEDIUM,OPEN,Selin Ng,2026-10-09
+R-ATL-33,ATL,Budget reporting,HIGH,MONITORING,Omar Aziz,2026-10-09
+R-ATL-34,ATL,Integration test coverage,LOW,MITIGATED,Avery Tan,2026-10-09
+R-ATL-35,ATL,Supplier review,MEDIUM,OPEN,Elena Koh,2026-10-09
+R-ATL-36,ATL,Support documentation,HIGH,MONITORING,Kiran Lim,2026-10-09
+R-ATL-37,ATL,Customer comms,LOW,MITIGATED,Sofia Lee,2026-10-09
+R-ATL-38,ATL,Budget reporting,MEDIUM,OPEN,Darren Ng,2026-10-09
+R-ATL-39,ATL,Integration test coverage,HIGH,MONITORING,Priya Menon,2026-10-09
+R-ATL-40,ATL,Supplier review,LOW,MITIGATED,Noah Goh,2026-10-09
+R-ATL-41,ATL,Support documentation,MEDIUM,OPEN,Mei Chen,2026-10-09
+R-ATL-42,ATL,Customer comms,HIGH,MONITORING,Isabelle Wong,2026-10-09
+R-ATL-43,ATL,Budget reporting,LOW,MITIGATED,Haris Rahman,2026-10-09
+R-ATL-44,ATL,Integration test coverage,MEDIUM,OPEN,Lena Ong,2026-10-09
+R-ATL-45,ATL,Supplier review,HIGH,MONITORING,Theo Yeo,2026-10-09
+R-ATL-46,ATL,Support documentation,LOW,MITIGATED,Nadia Ismail,2026-10-09
+R-ATL-47,ATL,Customer comms,MEDIUM,OPEN,Marco Chua,2026-10-09
+R-ATL-48,ATL,Budget reporting,HIGH,MONITORING,Jules Teo,2026-10-09
+R-ATL-49,ATL,Integration test coverage,LOW,MITIGATED,Farah Aziz,2026-10-09
+R-ATL-50,ATL,Supplier review,MEDIUM,OPEN,Jun Park,2026-10-09
+R-ATL-51,ATL,Support documentation,HIGH,MONITORING,Bella Low,2026-10-09
+R-ATL-52,ATL,Customer comms,LOW,MITIGATED,Arun Nair,2026-10-09
+R-ATL-53,ATL,Budget reporting,MEDIUM,OPEN,Eden Ho,2026-10-09
+R-ATL-54,ATL,Integration test coverage,HIGH,MONITORING,Ravi Das,2026-10-09
+R-ATL-55,ATL,Supplier review,LOW,MITIGATED,Mira Foo,2026-10-09
+R-ATL-56,ATL,Support documentation,MEDIUM,OPEN,Hadi Salleh,2026-10-09
+R-ATL-57,ATL,Customer comms,HIGH,MONITORING,Chloe Yap,2026-10-09
+R-ATL-58,ATL,Budget reporting,LOW,MITIGATED,Leo Tan,2026-10-09
+R-ATL-59,ATL,Integration test coverage,MEDIUM,OPEN,Dana Lim,2026-10-09
+R-ATL-60,ATL,Supplier review,HIGH,MONITORING,Imran Koh,2026-10-09
+R-ATL-61,ATL,Support documentation,LOW,MITIGATED,Tessa Chan,2026-10-09
+R-ATL-62,ATL,Customer comms,MEDIUM,OPEN,Selin Ng,2026-10-09
+R-ATL-63,ATL,Budget reporting,HIGH,MONITORING,Omar Aziz,2026-10-09

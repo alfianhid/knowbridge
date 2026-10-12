@@ -1,0 +1,13 @@
+node_modules
+.next
+.env
+.env.*
+!.env.example
+*.log
+coverage
+.DS_Store
+.next-env.d.ts.bak
+*.tsbuildinfo
+service-account*.json
+credentials*.json
+oauth*.json

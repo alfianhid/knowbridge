@@ -1,0 +1,64 @@
+risk_id,project_id,risk,severity,status,owner,updated_at
+R-BCN-01,BCN,QA forecast 2026-11-21 later than baseline 2026-11-12,HIGH,OPEN,Darren Ng,2026-10-11
+R-BCN-02,BCN,Security approval not received,HIGH,OPEN,Darren Ng,2026-10-11
+R-BCN-03,BCN,Specialist QA resource capacity,MEDIUM,OPEN,Isabelle Wong,2026-10-09
+R-BCN-04,BCN,Integration test coverage,LOW,MITIGATED,Avery Tan,2026-10-09
+R-BCN-05,BCN,Supplier review,MEDIUM,OPEN,Elena Koh,2026-10-09
+R-BCN-06,BCN,Support documentation,HIGH,MONITORING,Kiran Lim,2026-10-09
+R-BCN-07,BCN,Customer comms,LOW,MITIGATED,Sofia Lee,2026-10-09
+R-BCN-08,BCN,Budget reporting,MEDIUM,OPEN,Darren Ng,2026-10-09
+R-BCN-09,BCN,Integration test coverage,HIGH,MONITORING,Priya Menon,2026-10-09
+R-BCN-10,BCN,Supplier review,LOW,MITIGATED,Noah Goh,2026-10-09
+R-BCN-11,BCN,Support documentation,MEDIUM,OPEN,Mei Chen,2026-10-09
+R-BCN-12,BCN,Customer comms,HIGH,MONITORING,Isabelle Wong,2026-10-09
+R-BCN-13,BCN,Budget reporting,LOW,MITIGATED,Haris Rahman,2026-10-09
+R-BCN-14,BCN,Integration test coverage,MEDIUM,OPEN,Lena Ong,2026-10-09
+R-BCN-15,BCN,Supplier review,HIGH,MONITORING,Theo Yeo,2026-10-09
+R-BCN-16,BCN,Support documentation,LOW,MITIGATED,Nadia Ismail,2026-10-09
+R-BCN-17,BCN,Customer comms,MEDIUM,OPEN,Marco Chua,2026-10-09
+R-BCN-18,BCN,Budget reporting,HIGH,MONITORING,Jules Teo,2026-10-09
+R-BCN-19,BCN,Integration test coverage,LOW,MITIGATED,Farah Aziz,2026-10-09
+R-BCN-20,BCN,Supplier review,MEDIUM,OPEN,Jun Park,2026-10-09
+R-BCN-21,BCN,Support documentation,HIGH,MONITORING,Bella Low,2026-10-09
+R-BCN-22,BCN,Customer comms,LOW,MITIGATED,Arun Nair,2026-10-09
+R-BCN-23,BCN,Budget reporting,MEDIUM,OPEN,Eden Ho,2026-10-09
+R-BCN-24,BCN,Integration test coverage,HIGH,MONITORING,Ravi Das,2026-10-09
+R-BCN-25,BCN,Supplier review,LOW,MITIGATED,Mira Foo,2026-10-09
+R-BCN-26,BCN,Support documentation,MEDIUM,OPEN,Hadi Salleh,2026-10-09
+R-BCN-27,BCN,Customer comms,HIGH,MONITORING,Chloe Yap,2026-10-09
+R-BCN-28,BCN,Budget reporting,LOW,MITIGATED,Leo Tan,2026-10-09
+R-BCN-29,BCN,Integration test coverage,MEDIUM,OPEN,Dana Lim,2026-10-09
+R-BCN-30,BCN,Supplier review,HIGH,MONITORING,Imran Koh,2026-10-09
+R-BCN-31,BCN,Support documentation,LOW,MITIGATED,Tessa Chan,2026-10-09
+R-BCN-32,BCN,Customer comms,MEDIUM,OPEN,Selin Ng,2026-10-09
+R-BCN-33,BCN,Budget reporting,HIGH,MONITORING,Omar Aziz,2026-10-09
+R-BCN-34,BCN,Integration test coverage,LOW,MITIGATED,Avery Tan,2026-10-09
+R-BCN-35,BCN,Supplier review,MEDIUM,OPEN,Elena Koh,2026-10-09
+R-BCN-36,BCN,Support documentation,HIGH,MONITORING,Kiran Lim,2026-10-09
+R-BCN-37,BCN,Customer comms,LOW,MITIGATED,Sofia Lee,2026-10-09
+R-BCN-38,BCN,Budget reporting,MEDIUM,OPEN,Darren Ng,2026-10-09
+R-BCN-39,BCN,Integration test coverage,HIGH,MONITORING,Priya Menon,2026-10-09
+R-BCN-40,BCN,Supplier review,LOW,MITIGATED,Noah Goh,2026-10-09
+R-BCN-41,BCN,Support documentation,MEDIUM,OPEN,Mei Chen,2026-10-09
+R-BCN-42,BCN,Customer comms,HIGH,MONITORING,Isabelle Wong,2026-10-09
+R-BCN-43,BCN,Budget reporting,LOW,MITIGATED,Haris Rahman,2026-10-09
+R-BCN-44,BCN,Integration test coverage,MEDIUM,OPEN,Lena Ong,2026-10-09
+R-BCN-45,BCN,Supplier review,HIGH,MONITORING,Theo Yeo,2026-10-09
+R-BCN-46,BCN,Support documentation,LOW,MITIGATED,Nadia Ismail,2026-10-09
+R-BCN-47,BCN,Customer comms,MEDIUM,OPEN,Marco Chua,2026-10-09
+R-BCN-48,BCN,Budget reporting,HIGH,MONITORING,Jules Teo,2026-10-09
+R-BCN-49,BCN,Integration test coverage,LOW,MITIGATED,Farah Aziz,2026-10-09
+R-BCN-50,BCN,Supplier review,MEDIUM,OPEN,Jun Park,2026-10-09
+R-BCN-51,BCN,Support documentation,HIGH,MONITORING,Bella Low,2026-10-09
+R-BCN-52,BCN,Customer comms,LOW,MITIGATED,Arun Nair,2026-10-09
+R-BCN-53,BCN,Budget reporting,MEDIUM,OPEN,Eden Ho,2026-10-09
+R-BCN-54,BCN,Integration test coverage,HIGH,MONITORING,Ravi Das,2026-10-09
+R-BCN-55,BCN,Supplier review,LOW,MITIGATED,Mira Foo,2026-10-09
+R-BCN-56,BCN,Support documentation,MEDIUM,OPEN,Hadi Salleh,2026-10-09
+R-BCN-57,BCN,Customer comms,HIGH,MONITORING,Chloe Yap,2026-10-09
+R-BCN-58,BCN,Budget reporting,LOW,MITIGATED,Leo Tan,2026-10-09
+R-BCN-59,BCN,Integration test coverage,MEDIUM,OPEN,Dana Lim,2026-10-09
+R-BCN-60,BCN,Supplier review,HIGH,MONITORING,Imran Koh,2026-10-09
+R-BCN-61,BCN,Support documentation,LOW,MITIGATED,Tessa Chan,2026-10-09
+R-BCN-62,BCN,Customer comms,MEDIUM,OPEN,Selin Ng,2026-10-09
+R-BCN-63,BCN,Budget reporting,HIGH,MONITORING,Omar Aziz,2026-10-09

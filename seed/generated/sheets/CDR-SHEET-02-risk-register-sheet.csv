@@ -1,0 +1,64 @@
+risk_id,project_id,risk,severity,status,owner,updated_at
+R-CDR-01,CDR,QA forecast 2026-12-02 later than baseline 2026-11-21,HIGH,OPEN,Mei Chen,2026-10-11
+R-CDR-02,CDR,Security approval not received,HIGH,OPEN,Darren Ng,2026-10-11
+R-CDR-03,CDR,Specialist QA resource capacity,MEDIUM,OPEN,Isabelle Wong,2026-10-09
+R-CDR-04,CDR,Integration test coverage,LOW,MITIGATED,Avery Tan,2026-10-09
+R-CDR-05,CDR,Supplier review,MEDIUM,OPEN,Elena Koh,2026-10-09
+R-CDR-06,CDR,Support documentation,HIGH,MONITORING,Kiran Lim,2026-10-09
+R-CDR-07,CDR,Customer comms,LOW,MITIGATED,Sofia Lee,2026-10-09
+R-CDR-08,CDR,Budget reporting,MEDIUM,OPEN,Darren Ng,2026-10-09
+R-CDR-09,CDR,Integration test coverage,HIGH,MONITORING,Priya Menon,2026-10-09
+R-CDR-10,CDR,Supplier review,LOW,MITIGATED,Noah Goh,2026-10-09
+R-CDR-11,CDR,Support documentation,MEDIUM,OPEN,Mei Chen,2026-10-09
+R-CDR-12,CDR,Customer comms,HIGH,MONITORING,Isabelle Wong,2026-10-09
+R-CDR-13,CDR,Budget reporting,LOW,MITIGATED,Haris Rahman,2026-10-09
+R-CDR-14,CDR,Integration test coverage,MEDIUM,OPEN,Lena Ong,2026-10-09
+R-CDR-15,CDR,Supplier review,HIGH,MONITORING,Theo Yeo,2026-10-09
+R-CDR-16,CDR,Support documentation,LOW,MITIGATED,Nadia Ismail,2026-10-09
+R-CDR-17,CDR,Customer comms,MEDIUM,OPEN,Marco Chua,2026-10-09
+R-CDR-18,CDR,Budget reporting,HIGH,MONITORING,Jules Teo,2026-10-09
+R-CDR-19,CDR,Integration test coverage,LOW,MITIGATED,Farah Aziz,2026-10-09
+R-CDR-20,CDR,Supplier review,MEDIUM,OPEN,Jun Park,2026-10-09
+R-CDR-21,CDR,Support documentation,HIGH,MONITORING,Bella Low,2026-10-09
+R-CDR-22,CDR,Customer comms,LOW,MITIGATED,Arun Nair,2026-10-09
+R-CDR-23,CDR,Budget reporting,MEDIUM,OPEN,Eden Ho,2026-10-09
+R-CDR-24,CDR,Integration test coverage,HIGH,MONITORING,Ravi Das,2026-10-09
+R-CDR-25,CDR,Supplier review,LOW,MITIGATED,Mira Foo,2026-10-09
+R-CDR-26,CDR,Support documentation,MEDIUM,OPEN,Hadi Salleh,2026-10-09
+R-CDR-27,CDR,Customer comms,HIGH,MONITORING,Chloe Yap,2026-10-09
+R-CDR-28,CDR,Budget reporting,LOW,MITIGATED,Leo Tan,2026-10-09
+R-CDR-29,CDR,Integration test coverage,MEDIUM,OPEN,Dana Lim,2026-10-09
+R-CDR-30,CDR,Supplier review,HIGH,MONITORING,Imran Koh,2026-10-09
+R-CDR-31,CDR,Support documentation,LOW,MITIGATED,Tessa Chan,2026-10-09
+R-CDR-32,CDR,Customer comms,MEDIUM,OPEN,Selin Ng,2026-10-09
+R-CDR-33,CDR,Budget reporting,HIGH,MONITORING,Omar Aziz,2026-10-09
+R-CDR-34,CDR,Integration test coverage,LOW,MITIGATED,Avery Tan,2026-10-09
+R-CDR-35,CDR,Supplier review,MEDIUM,OPEN,Elena Koh,2026-10-09
+R-CDR-36,CDR,Support documentation,HIGH,MONITORING,Kiran Lim,2026-10-09
+R-CDR-37,CDR,Customer comms,LOW,MITIGATED,Sofia Lee,2026-10-09
+R-CDR-38,CDR,Budget reporting,MEDIUM,OPEN,Darren Ng,2026-10-09
+R-CDR-39,CDR,Integration test coverage,HIGH,MONITORING,Priya Menon,2026-10-09
+R-CDR-40,CDR,Supplier review,LOW,MITIGATED,Noah Goh,2026-10-09
+R-CDR-41,CDR,Support documentation,MEDIUM,OPEN,Mei Chen,2026-10-09
+R-CDR-42,CDR,Customer comms,HIGH,MONITORING,Isabelle Wong,2026-10-09
+R-CDR-43,CDR,Budget reporting,LOW,MITIGATED,Haris Rahman,2026-10-09
+R-CDR-44,CDR,Integration test coverage,MEDIUM,OPEN,Lena Ong,2026-10-09
+R-CDR-45,CDR,Supplier review,HIGH,MONITORING,Theo Yeo,2026-10-09
+R-CDR-46,CDR,Support documentation,LOW,MITIGATED,Nadia Ismail,2026-10-09
+R-CDR-47,CDR,Customer comms,MEDIUM,OPEN,Marco Chua,2026-10-09
+R-CDR-48,CDR,Budget reporting,HIGH,MONITORING,Jules Teo,2026-10-09
+R-CDR-49,CDR,Integration test coverage,LOW,MITIGATED,Farah Aziz,2026-10-09
+R-CDR-50,CDR,Supplier review,MEDIUM,OPEN,Jun Park,2026-10-09
+R-CDR-51,CDR,Support documentation,HIGH,MONITORING,Bella Low,2026-10-09
+R-CDR-52,CDR,Customer comms,LOW,MITIGATED,Arun Nair,2026-10-09
+R-CDR-53,CDR,Budget reporting,MEDIUM,OPEN,Eden Ho,2026-10-09
+R-CDR-54,CDR,Integration test coverage,HIGH,MONITORING,Ravi Das,2026-10-09
+R-CDR-55,CDR,Supplier review,LOW,MITIGATED,Mira Foo,2026-10-09
+R-CDR-56,CDR,Support documentation,MEDIUM,OPEN,Hadi Salleh,2026-10-09
+R-CDR-57,CDR,Customer comms,HIGH,MONITORING,Chloe Yap,2026-10-09
+R-CDR-58,CDR,Budget reporting,LOW,MITIGATED,Leo Tan,2026-10-09
+R-CDR-59,CDR,Integration test coverage,MEDIUM,OPEN,Dana Lim,2026-10-09
+R-CDR-60,CDR,Supplier review,HIGH,MONITORING,Imran Koh,2026-10-09
+R-CDR-61,CDR,Support documentation,LOW,MITIGATED,Tessa Chan,2026-10-09
+R-CDR-62,CDR,Customer comms,MEDIUM,OPEN,Selin Ng,2026-10-09
+R-CDR-63,CDR,Budget reporting,HIGH,MONITORING,Omar Aziz,2026-10-09
