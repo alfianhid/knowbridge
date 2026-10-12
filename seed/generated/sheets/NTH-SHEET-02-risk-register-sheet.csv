@@ -1,0 +1,64 @@
+risk_id,project_id,risk,severity,status,owner,updated_at
+R-NTH-01,NTH,QA forecast 2026-11-11 later than baseline 2026-11-06,HIGH,OPEN,Kiran Lim,2026-10-11
+R-NTH-02,NTH,Security approval not received,HIGH,OPEN,Darren Ng,2026-10-11
+R-NTH-03,NTH,Specialist QA resource capacity,MEDIUM,OPEN,Isabelle Wong,2026-10-09
+R-NTH-04,NTH,Integration test coverage,LOW,MITIGATED,Avery Tan,2026-10-09
+R-NTH-05,NTH,Supplier review,MEDIUM,OPEN,Elena Koh,2026-10-09
+R-NTH-06,NTH,Support documentation,HIGH,MONITORING,Kiran Lim,2026-10-09
+R-NTH-07,NTH,Customer comms,LOW,MITIGATED,Sofia Lee,2026-10-09
+R-NTH-08,NTH,Budget reporting,MEDIUM,OPEN,Darren Ng,2026-10-09
+R-NTH-09,NTH,Integration test coverage,HIGH,MONITORING,Priya Menon,2026-10-09
+R-NTH-10,NTH,Supplier review,LOW,MITIGATED,Noah Goh,2026-10-09
+R-NTH-11,NTH,Support documentation,MEDIUM,OPEN,Mei Chen,2026-10-09
+R-NTH-12,NTH,Customer comms,HIGH,MONITORING,Isabelle Wong,2026-10-09
+R-NTH-13,NTH,Budget reporting,LOW,MITIGATED,Haris Rahman,2026-10-09
+R-NTH-14,NTH,Integration test coverage,MEDIUM,OPEN,Lena Ong,2026-10-09
+R-NTH-15,NTH,Supplier review,HIGH,MONITORING,Theo Yeo,2026-10-09
+R-NTH-16,NTH,Support documentation,LOW,MITIGATED,Nadia Ismail,2026-10-09
+R-NTH-17,NTH,Customer comms,MEDIUM,OPEN,Marco Chua,2026-10-09
+R-NTH-18,NTH,Budget reporting,HIGH,MONITORING,Jules Teo,2026-10-09
+R-NTH-19,NTH,Integration test coverage,LOW,MITIGATED,Farah Aziz,2026-10-09
+R-NTH-20,NTH,Supplier review,MEDIUM,OPEN,Jun Park,2026-10-09
+R-NTH-21,NTH,Support documentation,HIGH,MONITORING,Bella Low,2026-10-09
+R-NTH-22,NTH,Customer comms,LOW,MITIGATED,Arun Nair,2026-10-09
+R-NTH-23,NTH,Budget reporting,MEDIUM,OPEN,Eden Ho,2026-10-09
+R-NTH-24,NTH,Integration test coverage,HIGH,MONITORING,Ravi Das,2026-10-09
+R-NTH-25,NTH,Supplier review,LOW,MITIGATED,Mira Foo,2026-10-09
+R-NTH-26,NTH,Support documentation,MEDIUM,OPEN,Hadi Salleh,2026-10-09
+R-NTH-27,NTH,Customer comms,HIGH,MONITORING,Chloe Yap,2026-10-09
+R-NTH-28,NTH,Budget reporting,LOW,MITIGATED,Leo Tan,2026-10-09
+R-NTH-29,NTH,Integration test coverage,MEDIUM,OPEN,Dana Lim,2026-10-09
+R-NTH-30,NTH,Supplier review,HIGH,MONITORING,Imran Koh,2026-10-09
+R-NTH-31,NTH,Support documentation,LOW,MITIGATED,Tessa Chan,2026-10-09
+R-NTH-32,NTH,Customer comms,MEDIUM,OPEN,Selin Ng,2026-10-09
+R-NTH-33,NTH,Budget reporting,HIGH,MONITORING,Omar Aziz,2026-10-09
+R-NTH-34,NTH,Integration test coverage,LOW,MITIGATED,Avery Tan,2026-10-09
+R-NTH-35,NTH,Supplier review,MEDIUM,OPEN,Elena Koh,2026-10-09
+R-NTH-36,NTH,Support documentation,HIGH,MONITORING,Kiran Lim,2026-10-09
+R-NTH-37,NTH,Customer comms,LOW,MITIGATED,Sofia Lee,2026-10-09
+R-NTH-38,NTH,Budget reporting,MEDIUM,OPEN,Darren Ng,2026-10-09
+R-NTH-39,NTH,Integration test coverage,HIGH,MONITORING,Priya Menon,2026-10-09
+R-NTH-40,NTH,Supplier review,LOW,MITIGATED,Noah Goh,2026-10-09
+R-NTH-41,NTH,Support documentation,MEDIUM,OPEN,Mei Chen,2026-10-09
+R-NTH-42,NTH,Customer comms,HIGH,MONITORING,Isabelle Wong,2026-10-09
+R-NTH-43,NTH,Budget reporting,LOW,MITIGATED,Haris Rahman,2026-10-09
+R-NTH-44,NTH,Integration test coverage,MEDIUM,OPEN,Lena Ong,2026-10-09
+R-NTH-45,NTH,Supplier review,HIGH,MONITORING,Theo Yeo,2026-10-09
+R-NTH-46,NTH,Support documentation,LOW,MITIGATED,Nadia Ismail,2026-10-09
+R-NTH-47,NTH,Customer comms,MEDIUM,OPEN,Marco Chua,2026-10-09
+R-NTH-48,NTH,Budget reporting,HIGH,MONITORING,Jules Teo,2026-10-09
+R-NTH-49,NTH,Integration test coverage,LOW,MITIGATED,Farah Aziz,2026-10-09
+R-NTH-50,NTH,Supplier review,MEDIUM,OPEN,Jun Park,2026-10-09
+R-NTH-51,NTH,Support documentation,HIGH,MONITORING,Bella Low,2026-10-09
+R-NTH-52,NTH,Customer comms,LOW,MITIGATED,Arun Nair,2026-10-09
+R-NTH-53,NTH,Budget reporting,MEDIUM,OPEN,Eden Ho,2026-10-09
+R-NTH-54,NTH,Integration test coverage,HIGH,MONITORING,Ravi Das,2026-10-09
+R-NTH-55,NTH,Supplier review,LOW,MITIGATED,Mira Foo,2026-10-09
+R-NTH-56,NTH,Support documentation,MEDIUM,OPEN,Hadi Salleh,2026-10-09
+R-NTH-57,NTH,Customer comms,HIGH,MONITORING,Chloe Yap,2026-10-09
+R-NTH-58,NTH,Budget reporting,LOW,MITIGATED,Leo Tan,2026-10-09
+R-NTH-59,NTH,Integration test coverage,MEDIUM,OPEN,Dana Lim,2026-10-09
+R-NTH-60,NTH,Supplier review,HIGH,MONITORING,Imran Koh,2026-10-09
+R-NTH-61,NTH,Support documentation,LOW,MITIGATED,Tessa Chan,2026-10-09
+R-NTH-62,NTH,Customer comms,MEDIUM,OPEN,Selin Ng,2026-10-09
+R-NTH-63,NTH,Budget reporting,HIGH,MONITORING,Omar Aziz,2026-10-09

@@ -1,0 +1,16 @@
+KNOWBRIDGE SYNTHETIC DEMO DATA — NOT A REAL COMPANY RECORD
+Organization: North Quay Digital Pte. Ltd. (FICTIONAL DEMO COMPANY)
+Policy title: Data Handling
+Revision: 1
+Effective date: 2026-07-15
+Policy owner: Operations Governance
+Approval status: APPROVED (fictional internal example)
+
+POLICY STANDARD
+Synthetic datasets are permitted for tests; customer data needs legal basis, minimisation and retention controls.
+
+PROCESS
+Document the relevant evidence, identify the accountable role, retain a traceable decision record and verify any exceptions explicitly. Inform the affected team before treating a proposed exception as approved. All release and purchasing workflows require an owner, record date, and review trail. Rev 1 is superseded by revision 2 from 2026-10-01.
+
+STAKEHOLDER GUIDANCE
+For a cross-document question, the current approved revision is authoritative over a superseded policy draft; conflicting project facts still require human review. This is a synthetic compliance scenario, not legal advice.

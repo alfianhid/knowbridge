@@ -1,0 +1,241 @@
+employee_id,employee,role,team,allocation_pct,project_id,week_start
+EMP-001,Avery Tan,Delivery Manager,Delivery,40,HBR,2026-09-07
+EMP-002,Elena Koh,Operations Manager,Engineering,50,MER,2026-09-14
+EMP-003,Kiran Lim,Engineering Lead,Product,60,NTH,2026-09-21
+EMP-004,Sofia Lee,Customer Success Lead,Security,70,ORC,2026-09-28
+EMP-005,Darren Ng,Security Lead,Operations,80,BCN,2026-10-05
+EMP-006,Priya Menon,People Operations Lead,Customer Success,90,ATL,2026-09-07
+EMP-007,Noah Goh,Partnerships Lead,Finance,40,JNP,2026-09-14
+EMP-008,Mei Chen,Finance Lead,People Operations,50,CDR,2026-09-21
+EMP-009,Isabelle Wong,QA Lead,Delivery,60,HBR,2026-09-28
+EMP-010,Haris Rahman,Platform Engineer,Engineering,70,MER,2026-10-05
+EMP-011,Lena Ong,Product Manager,Product,80,NTH,2026-09-07
+EMP-012,Theo Yeo,Solutions Architect,Security,90,ORC,2026-09-14
+EMP-013,Nadia Ismail,Sales Lead,Operations,40,BCN,2026-09-21
+EMP-014,Marco Chua,Support Lead,Customer Success,50,ATL,2026-09-28
+EMP-015,Jules Teo,Data Analyst,Finance,60,JNP,2026-10-05
+EMP-016,Farah Aziz,People Partner,People Operations,70,CDR,2026-09-07
+EMP-017,Jun Park,UX Designer,Delivery,80,HBR,2026-09-14
+EMP-018,Bella Low,Account Executive,Engineering,90,MER,2026-09-21
+EMP-019,Arun Nair,Application Engineer,Product,40,NTH,2026-09-28
+EMP-020,Eden Ho,Compliance Analyst,Security,50,ORC,2026-10-05
+EMP-021,Ravi Das,Technical Writer,Operations,60,BCN,2026-09-07
+EMP-022,Mira Foo,Program Coordinator,Customer Success,70,ATL,2026-09-14
+EMP-023,Hadi Salleh,Customer Support,Finance,80,JNP,2026-09-21
+EMP-024,Chloe Yap,Operations Analyst,People Operations,90,CDR,2026-09-28
+EMP-025,Leo Tan,Engineering Manager,Delivery,40,HBR,2026-10-05
+EMP-026,Dana Lim,QA Engineer,Engineering,50,MER,2026-09-07
+EMP-027,Imran Koh,SRE,Product,60,NTH,2026-09-14
+EMP-028,Tessa Chan,Procurement Lead,Security,70,ORC,2026-09-21
+EMP-029,Selin Ng,Project Coordinator,Operations,80,BCN,2026-09-28
+EMP-030,Omar Aziz,Business Analyst,Customer Success,90,ATL,2026-10-05
+EMP-001,Avery Tan,Delivery Manager,Finance,40,JNP,2026-09-07
+EMP-002,Elena Koh,Operations Manager,People Operations,50,CDR,2026-09-14
+EMP-003,Kiran Lim,Engineering Lead,Delivery,60,HBR,2026-09-21
+EMP-004,Sofia Lee,Customer Success Lead,Engineering,70,MER,2026-09-28
+EMP-005,Darren Ng,Security Lead,Product,80,NTH,2026-10-05
+EMP-006,Priya Menon,People Operations Lead,Security,90,ORC,2026-09-07
+EMP-007,Noah Goh,Partnerships Lead,Operations,40,BCN,2026-09-14
+EMP-008,Mei Chen,Finance Lead,Customer Success,50,ATL,2026-09-21
+EMP-009,Isabelle Wong,QA Lead,Finance,60,JNP,2026-09-28
+EMP-010,Haris Rahman,Platform Engineer,People Operations,70,CDR,2026-10-05
+EMP-011,Lena Ong,Product Manager,Delivery,80,HBR,2026-09-07
+EMP-012,Theo Yeo,Solutions Architect,Engineering,90,MER,2026-09-14
+EMP-013,Nadia Ismail,Sales Lead,Product,40,NTH,2026-09-21
+EMP-014,Marco Chua,Support Lead,Security,50,ORC,2026-09-28
+EMP-015,Jules Teo,Data Analyst,Operations,60,BCN,2026-10-05
+EMP-016,Farah Aziz,People Partner,Customer Success,70,ATL,2026-09-07
+EMP-017,Jun Park,UX Designer,Finance,80,JNP,2026-09-14
+EMP-018,Bella Low,Account Executive,People Operations,90,CDR,2026-09-21
+EMP-019,Arun Nair,Application Engineer,Delivery,40,HBR,2026-09-28
+EMP-020,Eden Ho,Compliance Analyst,Engineering,50,MER,2026-10-05
+EMP-021,Ravi Das,Technical Writer,Product,60,NTH,2026-09-07
+EMP-022,Mira Foo,Program Coordinator,Security,70,ORC,2026-09-14
+EMP-023,Hadi Salleh,Customer Support,Operations,80,BCN,2026-09-21
+EMP-024,Chloe Yap,Operations Analyst,Customer Success,90,ATL,2026-09-28
+EMP-025,Leo Tan,Engineering Manager,Finance,40,JNP,2026-10-05
+EMP-026,Dana Lim,QA Engineer,People Operations,50,CDR,2026-09-07
+EMP-027,Imran Koh,SRE,Delivery,60,HBR,2026-09-14
+EMP-028,Tessa Chan,Procurement Lead,Engineering,70,MER,2026-09-21
+EMP-029,Selin Ng,Project Coordinator,Product,80,NTH,2026-09-28
+EMP-030,Omar Aziz,Business Analyst,Security,90,ORC,2026-10-05
+EMP-001,Avery Tan,Delivery Manager,Operations,40,BCN,2026-09-07
+EMP-002,Elena Koh,Operations Manager,Customer Success,50,ATL,2026-09-14
+EMP-003,Kiran Lim,Engineering Lead,Finance,60,JNP,2026-09-21
+EMP-004,Sofia Lee,Customer Success Lead,People Operations,70,CDR,2026-09-28
+EMP-005,Darren Ng,Security Lead,Delivery,80,HBR,2026-10-05
+EMP-006,Priya Menon,People Operations Lead,Engineering,90,MER,2026-09-07
+EMP-007,Noah Goh,Partnerships Lead,Product,40,NTH,2026-09-14
+EMP-008,Mei Chen,Finance Lead,Security,50,ORC,2026-09-21
+EMP-009,Isabelle Wong,QA Lead,Operations,60,BCN,2026-09-28
+EMP-010,Haris Rahman,Platform Engineer,Customer Success,70,ATL,2026-10-05
+EMP-011,Lena Ong,Product Manager,Finance,80,JNP,2026-09-07
+EMP-012,Theo Yeo,Solutions Architect,People Operations,90,CDR,2026-09-14
+EMP-013,Nadia Ismail,Sales Lead,Delivery,40,HBR,2026-09-21
+EMP-014,Marco Chua,Support Lead,Engineering,50,MER,2026-09-28
+EMP-015,Jules Teo,Data Analyst,Product,60,NTH,2026-10-05
+EMP-016,Farah Aziz,People Partner,Security,70,ORC,2026-09-07
+EMP-017,Jun Park,UX Designer,Operations,80,BCN,2026-09-14
+EMP-018,Bella Low,Account Executive,Customer Success,90,ATL,2026-09-21
+EMP-019,Arun Nair,Application Engineer,Finance,40,JNP,2026-09-28
+EMP-020,Eden Ho,Compliance Analyst,People Operations,50,CDR,2026-10-05
+EMP-021,Ravi Das,Technical Writer,Delivery,60,HBR,2026-09-07
+EMP-022,Mira Foo,Program Coordinator,Engineering,70,MER,2026-09-14
+EMP-023,Hadi Salleh,Customer Support,Product,80,NTH,2026-09-21
+EMP-024,Chloe Yap,Operations Analyst,Security,90,ORC,2026-09-28
+EMP-025,Leo Tan,Engineering Manager,Operations,40,BCN,2026-10-05
+EMP-026,Dana Lim,QA Engineer,Customer Success,50,ATL,2026-09-07
+EMP-027,Imran Koh,SRE,Finance,60,JNP,2026-09-14
+EMP-028,Tessa Chan,Procurement Lead,People Operations,70,CDR,2026-09-21
+EMP-029,Selin Ng,Project Coordinator,Delivery,80,HBR,2026-09-28
+EMP-030,Omar Aziz,Business Analyst,Engineering,90,MER,2026-10-05
+EMP-001,Avery Tan,Delivery Manager,Product,40,NTH,2026-09-07
+EMP-002,Elena Koh,Operations Manager,Security,50,ORC,2026-09-14
+EMP-003,Kiran Lim,Engineering Lead,Operations,60,BCN,2026-09-21
+EMP-004,Sofia Lee,Customer Success Lead,Customer Success,70,ATL,2026-09-28
+EMP-005,Darren Ng,Security Lead,Finance,80,JNP,2026-10-05
+EMP-006,Priya Menon,People Operations Lead,People Operations,90,CDR,2026-09-07
+EMP-007,Noah Goh,Partnerships Lead,Delivery,40,HBR,2026-09-14
+EMP-008,Mei Chen,Finance Lead,Engineering,50,MER,2026-09-21
+EMP-009,Isabelle Wong,QA Lead,Product,60,NTH,2026-09-28
+EMP-010,Haris Rahman,Platform Engineer,Security,70,ORC,2026-10-05
+EMP-011,Lena Ong,Product Manager,Operations,80,BCN,2026-09-07
+EMP-012,Theo Yeo,Solutions Architect,Customer Success,90,ATL,2026-09-14
+EMP-013,Nadia Ismail,Sales Lead,Finance,40,JNP,2026-09-21
+EMP-014,Marco Chua,Support Lead,People Operations,50,CDR,2026-09-28
+EMP-015,Jules Teo,Data Analyst,Delivery,60,HBR,2026-10-05
+EMP-016,Farah Aziz,People Partner,Engineering,70,MER,2026-09-07
+EMP-017,Jun Park,UX Designer,Product,80,NTH,2026-09-14
+EMP-018,Bella Low,Account Executive,Security,90,ORC,2026-09-21
+EMP-019,Arun Nair,Application Engineer,Operations,40,BCN,2026-09-28
+EMP-020,Eden Ho,Compliance Analyst,Customer Success,50,ATL,2026-10-05
+EMP-021,Ravi Das,Technical Writer,Finance,60,JNP,2026-09-07
+EMP-022,Mira Foo,Program Coordinator,People Operations,70,CDR,2026-09-14
+EMP-023,Hadi Salleh,Customer Support,Delivery,80,HBR,2026-09-21
+EMP-024,Chloe Yap,Operations Analyst,Engineering,90,MER,2026-09-28
+EMP-025,Leo Tan,Engineering Manager,Product,40,NTH,2026-10-05
+EMP-026,Dana Lim,QA Engineer,Security,50,ORC,2026-09-07
+EMP-027,Imran Koh,SRE,Operations,60,BCN,2026-09-14
+EMP-028,Tessa Chan,Procurement Lead,Customer Success,70,ATL,2026-09-21
+EMP-029,Selin Ng,Project Coordinator,Finance,80,JNP,2026-09-28
+EMP-030,Omar Aziz,Business Analyst,People Operations,90,CDR,2026-10-05
+EMP-001,Avery Tan,Delivery Manager,Delivery,40,HBR,2026-09-07
+EMP-002,Elena Koh,Operations Manager,Engineering,50,MER,2026-09-14
+EMP-003,Kiran Lim,Engineering Lead,Product,60,NTH,2026-09-21
+EMP-004,Sofia Lee,Customer Success Lead,Security,70,ORC,2026-09-28
+EMP-005,Darren Ng,Security Lead,Operations,80,BCN,2026-10-05
+EMP-006,Priya Menon,People Operations Lead,Customer Success,90,ATL,2026-09-07
+EMP-007,Noah Goh,Partnerships Lead,Finance,40,JNP,2026-09-14
+EMP-008,Mei Chen,Finance Lead,People Operations,50,CDR,2026-09-21
+EMP-009,Isabelle Wong,QA Lead,Delivery,60,HBR,2026-09-28
+EMP-010,Haris Rahman,Platform Engineer,Engineering,70,MER,2026-10-05
+EMP-011,Lena Ong,Product Manager,Product,80,NTH,2026-09-07
+EMP-012,Theo Yeo,Solutions Architect,Security,90,ORC,2026-09-14
+EMP-013,Nadia Ismail,Sales Lead,Operations,40,BCN,2026-09-21
+EMP-014,Marco Chua,Support Lead,Customer Success,50,ATL,2026-09-28
+EMP-015,Jules Teo,Data Analyst,Finance,60,JNP,2026-10-05
+EMP-016,Farah Aziz,People Partner,People Operations,70,CDR,2026-09-07
+EMP-017,Jun Park,UX Designer,Delivery,80,HBR,2026-09-14
+EMP-018,Bella Low,Account Executive,Engineering,90,MER,2026-09-21
+EMP-019,Arun Nair,Application Engineer,Product,40,NTH,2026-09-28
+EMP-020,Eden Ho,Compliance Analyst,Security,50,ORC,2026-10-05
+EMP-021,Ravi Das,Technical Writer,Operations,60,BCN,2026-09-07
+EMP-022,Mira Foo,Program Coordinator,Customer Success,70,ATL,2026-09-14
+EMP-023,Hadi Salleh,Customer Support,Finance,80,JNP,2026-09-21
+EMP-024,Chloe Yap,Operations Analyst,People Operations,90,CDR,2026-09-28
+EMP-025,Leo Tan,Engineering Manager,Delivery,40,HBR,2026-10-05
+EMP-026,Dana Lim,QA Engineer,Engineering,50,MER,2026-09-07
+EMP-027,Imran Koh,SRE,Product,60,NTH,2026-09-14
+EMP-028,Tessa Chan,Procurement Lead,Security,70,ORC,2026-09-21
+EMP-029,Selin Ng,Project Coordinator,Operations,80,BCN,2026-09-28
+EMP-030,Omar Aziz,Business Analyst,Customer Success,90,ATL,2026-10-05
+EMP-001,Avery Tan,Delivery Manager,Finance,40,JNP,2026-09-07
+EMP-002,Elena Koh,Operations Manager,People Operations,50,CDR,2026-09-14
+EMP-003,Kiran Lim,Engineering Lead,Delivery,60,HBR,2026-09-21
+EMP-004,Sofia Lee,Customer Success Lead,Engineering,70,MER,2026-09-28
+EMP-005,Darren Ng,Security Lead,Product,80,NTH,2026-10-05
+EMP-006,Priya Menon,People Operations Lead,Security,90,ORC,2026-09-07
+EMP-007,Noah Goh,Partnerships Lead,Operations,40,BCN,2026-09-14
+EMP-008,Mei Chen,Finance Lead,Customer Success,50,ATL,2026-09-21
+EMP-009,Isabelle Wong,QA Lead,Finance,60,JNP,2026-09-28
+EMP-010,Haris Rahman,Platform Engineer,People Operations,70,CDR,2026-10-05
+EMP-011,Lena Ong,Product Manager,Delivery,80,HBR,2026-09-07
+EMP-012,Theo Yeo,Solutions Architect,Engineering,90,MER,2026-09-14
+EMP-013,Nadia Ismail,Sales Lead,Product,40,NTH,2026-09-21
+EMP-014,Marco Chua,Support Lead,Security,50,ORC,2026-09-28
+EMP-015,Jules Teo,Data Analyst,Operations,60,BCN,2026-10-05
+EMP-016,Farah Aziz,People Partner,Customer Success,70,ATL,2026-09-07
+EMP-017,Jun Park,UX Designer,Finance,80,JNP,2026-09-14
+EMP-018,Bella Low,Account Executive,People Operations,90,CDR,2026-09-21
+EMP-019,Arun Nair,Application Engineer,Delivery,40,HBR,2026-09-28
+EMP-020,Eden Ho,Compliance Analyst,Engineering,50,MER,2026-10-05
+EMP-021,Ravi Das,Technical Writer,Product,60,NTH,2026-09-07
+EMP-022,Mira Foo,Program Coordinator,Security,70,ORC,2026-09-14
+EMP-023,Hadi Salleh,Customer Support,Operations,80,BCN,2026-09-21
+EMP-024,Chloe Yap,Operations Analyst,Customer Success,90,ATL,2026-09-28
+EMP-025,Leo Tan,Engineering Manager,Finance,40,JNP,2026-10-05
+EMP-026,Dana Lim,QA Engineer,People Operations,50,CDR,2026-09-07
+EMP-027,Imran Koh,SRE,Delivery,60,HBR,2026-09-14
+EMP-028,Tessa Chan,Procurement Lead,Engineering,70,MER,2026-09-21
+EMP-029,Selin Ng,Project Coordinator,Product,80,NTH,2026-09-28
+EMP-030,Omar Aziz,Business Analyst,Security,90,ORC,2026-10-05
+EMP-001,Avery Tan,Delivery Manager,Operations,40,BCN,2026-09-07
+EMP-002,Elena Koh,Operations Manager,Customer Success,50,ATL,2026-09-14
+EMP-003,Kiran Lim,Engineering Lead,Finance,60,JNP,2026-09-21
+EMP-004,Sofia Lee,Customer Success Lead,People Operations,70,CDR,2026-09-28
+EMP-005,Darren Ng,Security Lead,Delivery,80,HBR,2026-10-05
+EMP-006,Priya Menon,People Operations Lead,Engineering,90,MER,2026-09-07
+EMP-007,Noah Goh,Partnerships Lead,Product,40,NTH,2026-09-14
+EMP-008,Mei Chen,Finance Lead,Security,50,ORC,2026-09-21
+EMP-009,Isabelle Wong,QA Lead,Operations,60,BCN,2026-09-28
+EMP-010,Haris Rahman,Platform Engineer,Customer Success,70,ATL,2026-10-05
+EMP-011,Lena Ong,Product Manager,Finance,80,JNP,2026-09-07
+EMP-012,Theo Yeo,Solutions Architect,People Operations,90,CDR,2026-09-14
+EMP-013,Nadia Ismail,Sales Lead,Delivery,40,HBR,2026-09-21
+EMP-014,Marco Chua,Support Lead,Engineering,50,MER,2026-09-28
+EMP-015,Jules Teo,Data Analyst,Product,60,NTH,2026-10-05
+EMP-016,Farah Aziz,People Partner,Security,70,ORC,2026-09-07
+EMP-017,Jun Park,UX Designer,Operations,80,BCN,2026-09-14
+EMP-018,Bella Low,Account Executive,Customer Success,90,ATL,2026-09-21
+EMP-019,Arun Nair,Application Engineer,Finance,40,JNP,2026-09-28
+EMP-020,Eden Ho,Compliance Analyst,People Operations,50,CDR,2026-10-05
+EMP-021,Ravi Das,Technical Writer,Delivery,60,HBR,2026-09-07
+EMP-022,Mira Foo,Program Coordinator,Engineering,70,MER,2026-09-14
+EMP-023,Hadi Salleh,Customer Support,Product,80,NTH,2026-09-21
+EMP-024,Chloe Yap,Operations Analyst,Security,90,ORC,2026-09-28
+EMP-025,Leo Tan,Engineering Manager,Operations,40,BCN,2026-10-05
+EMP-026,Dana Lim,QA Engineer,Customer Success,50,ATL,2026-09-07
+EMP-027,Imran Koh,SRE,Finance,60,JNP,2026-09-14
+EMP-028,Tessa Chan,Procurement Lead,People Operations,70,CDR,2026-09-21
+EMP-029,Selin Ng,Project Coordinator,Delivery,80,HBR,2026-09-28
+EMP-030,Omar Aziz,Business Analyst,Engineering,90,MER,2026-10-05
+EMP-001,Avery Tan,Delivery Manager,Product,40,NTH,2026-09-07
+EMP-002,Elena Koh,Operations Manager,Security,50,ORC,2026-09-14
+EMP-003,Kiran Lim,Engineering Lead,Operations,60,BCN,2026-09-21
+EMP-004,Sofia Lee,Customer Success Lead,Customer Success,70,ATL,2026-09-28
+EMP-005,Darren Ng,Security Lead,Finance,80,JNP,2026-10-05
+EMP-006,Priya Menon,People Operations Lead,People Operations,90,CDR,2026-09-07
+EMP-007,Noah Goh,Partnerships Lead,Delivery,40,HBR,2026-09-14
+EMP-008,Mei Chen,Finance Lead,Engineering,50,MER,2026-09-21
+EMP-009,Isabelle Wong,QA Lead,Product,60,NTH,2026-09-28
+EMP-010,Haris Rahman,Platform Engineer,Security,70,ORC,2026-10-05
+EMP-011,Lena Ong,Product Manager,Operations,80,BCN,2026-09-07
+EMP-012,Theo Yeo,Solutions Architect,Customer Success,90,ATL,2026-09-14
+EMP-013,Nadia Ismail,Sales Lead,Finance,40,JNP,2026-09-21
+EMP-014,Marco Chua,Support Lead,People Operations,50,CDR,2026-09-28
+EMP-015,Jules Teo,Data Analyst,Delivery,60,HBR,2026-10-05
+EMP-016,Farah Aziz,People Partner,Engineering,70,MER,2026-09-07
+EMP-017,Jun Park,UX Designer,Product,80,NTH,2026-09-14
+EMP-018,Bella Low,Account Executive,Security,90,ORC,2026-09-21
+EMP-019,Arun Nair,Application Engineer,Operations,40,BCN,2026-09-28
+EMP-020,Eden Ho,Compliance Analyst,Customer Success,50,ATL,2026-10-05
+EMP-021,Ravi Das,Technical Writer,Finance,60,JNP,2026-09-07
+EMP-022,Mira Foo,Program Coordinator,People Operations,70,CDR,2026-09-14
+EMP-023,Hadi Salleh,Customer Support,Delivery,80,HBR,2026-09-21
+EMP-024,Chloe Yap,Operations Analyst,Engineering,90,MER,2026-09-28
+EMP-025,Leo Tan,Engineering Manager,Product,40,NTH,2026-10-05
+EMP-026,Dana Lim,QA Engineer,Security,50,ORC,2026-09-07
+EMP-027,Imran Koh,SRE,Operations,60,BCN,2026-09-14
+EMP-028,Tessa Chan,Procurement Lead,Customer Success,70,ATL,2026-09-21
+EMP-029,Selin Ng,Project Coordinator,Finance,80,JNP,2026-09-28
+EMP-030,Omar Aziz,Business Analyst,People Operations,90,CDR,2026-10-05

@@ -1,0 +1,64 @@
+risk_id,project_id,risk,severity,status,owner,updated_at
+R-MER-01,MER,QA forecast 2026-11-12 later than baseline 2026-11-04,HIGH,OPEN,Elena Koh,2026-10-11
+R-MER-02,MER,Security approval not received,HIGH,OPEN,Darren Ng,2026-10-11
+R-MER-03,MER,Specialist QA resource capacity,MEDIUM,OPEN,Isabelle Wong,2026-10-09
+R-MER-04,MER,Integration test coverage,LOW,MITIGATED,Avery Tan,2026-10-09
+R-MER-05,MER,Supplier review,MEDIUM,OPEN,Elena Koh,2026-10-09
+R-MER-06,MER,Support documentation,HIGH,MONITORING,Kiran Lim,2026-10-09
+R-MER-07,MER,Customer comms,LOW,MITIGATED,Sofia Lee,2026-10-09
+R-MER-08,MER,Budget reporting,MEDIUM,OPEN,Darren Ng,2026-10-09
+R-MER-09,MER,Integration test coverage,HIGH,MONITORING,Priya Menon,2026-10-09
+R-MER-10,MER,Supplier review,LOW,MITIGATED,Noah Goh,2026-10-09
+R-MER-11,MER,Support documentation,MEDIUM,OPEN,Mei Chen,2026-10-09
+R-MER-12,MER,Customer comms,HIGH,MONITORING,Isabelle Wong,2026-10-09
+R-MER-13,MER,Budget reporting,LOW,MITIGATED,Haris Rahman,2026-10-09
+R-MER-14,MER,Integration test coverage,MEDIUM,OPEN,Lena Ong,2026-10-09
+R-MER-15,MER,Supplier review,HIGH,MONITORING,Theo Yeo,2026-10-09
+R-MER-16,MER,Support documentation,LOW,MITIGATED,Nadia Ismail,2026-10-09
+R-MER-17,MER,Customer comms,MEDIUM,OPEN,Marco Chua,2026-10-09
+R-MER-18,MER,Budget reporting,HIGH,MONITORING,Jules Teo,2026-10-09
+R-MER-19,MER,Integration test coverage,LOW,MITIGATED,Farah Aziz,2026-10-09
+R-MER-20,MER,Supplier review,MEDIUM,OPEN,Jun Park,2026-10-09
+R-MER-21,MER,Support documentation,HIGH,MONITORING,Bella Low,2026-10-09
+R-MER-22,MER,Customer comms,LOW,MITIGATED,Arun Nair,2026-10-09
+R-MER-23,MER,Budget reporting,MEDIUM,OPEN,Eden Ho,2026-10-09
+R-MER-24,MER,Integration test coverage,HIGH,MONITORING,Ravi Das,2026-10-09
+R-MER-25,MER,Supplier review,LOW,MITIGATED,Mira Foo,2026-10-09
+R-MER-26,MER,Support documentation,MEDIUM,OPEN,Hadi Salleh,2026-10-09
+R-MER-27,MER,Customer comms,HIGH,MONITORING,Chloe Yap,2026-10-09
+R-MER-28,MER,Budget reporting,LOW,MITIGATED,Leo Tan,2026-10-09
+R-MER-29,MER,Integration test coverage,MEDIUM,OPEN,Dana Lim,2026-10-09
+R-MER-30,MER,Supplier review,HIGH,MONITORING,Imran Koh,2026-10-09
+R-MER-31,MER,Support documentation,LOW,MITIGATED,Tessa Chan,2026-10-09
+R-MER-32,MER,Customer comms,MEDIUM,OPEN,Selin Ng,2026-10-09
+R-MER-33,MER,Budget reporting,HIGH,MONITORING,Omar Aziz,2026-10-09
+R-MER-34,MER,Integration test coverage,LOW,MITIGATED,Avery Tan,2026-10-09
+R-MER-35,MER,Supplier review,MEDIUM,OPEN,Elena Koh,2026-10-09
+R-MER-36,MER,Support documentation,HIGH,MONITORING,Kiran Lim,2026-10-09
+R-MER-37,MER,Customer comms,LOW,MITIGATED,Sofia Lee,2026-10-09
+R-MER-38,MER,Budget reporting,MEDIUM,OPEN,Darren Ng,2026-10-09
+R-MER-39,MER,Integration test coverage,HIGH,MONITORING,Priya Menon,2026-10-09
+R-MER-40,MER,Supplier review,LOW,MITIGATED,Noah Goh,2026-10-09
+R-MER-41,MER,Support documentation,MEDIUM,OPEN,Mei Chen,2026-10-09
+R-MER-42,MER,Customer comms,HIGH,MONITORING,Isabelle Wong,2026-10-09
+R-MER-43,MER,Budget reporting,LOW,MITIGATED,Haris Rahman,2026-10-09
+R-MER-44,MER,Integration test coverage,MEDIUM,OPEN,Lena Ong,2026-10-09
+R-MER-45,MER,Supplier review,HIGH,MONITORING,Theo Yeo,2026-10-09
+R-MER-46,MER,Support documentation,LOW,MITIGATED,Nadia Ismail,2026-10-09
+R-MER-47,MER,Customer comms,MEDIUM,OPEN,Marco Chua,2026-10-09
+R-MER-48,MER,Budget reporting,HIGH,MONITORING,Jules Teo,2026-10-09
+R-MER-49,MER,Integration test coverage,LOW,MITIGATED,Farah Aziz,2026-10-09
+R-MER-50,MER,Supplier review,MEDIUM,OPEN,Jun Park,2026-10-09
+R-MER-51,MER,Support documentation,HIGH,MONITORING,Bella Low,2026-10-09
+R-MER-52,MER,Customer comms,LOW,MITIGATED,Arun Nair,2026-10-09
+R-MER-53,MER,Budget reporting,MEDIUM,OPEN,Eden Ho,2026-10-09
+R-MER-54,MER,Integration test coverage,HIGH,MONITORING,Ravi Das,2026-10-09
+R-MER-55,MER,Supplier review,LOW,MITIGATED,Mira Foo,2026-10-09
+R-MER-56,MER,Support documentation,MEDIUM,OPEN,Hadi Salleh,2026-10-09
+R-MER-57,MER,Customer comms,HIGH,MONITORING,Chloe Yap,2026-10-09
+R-MER-58,MER,Budget reporting,LOW,MITIGATED,Leo Tan,2026-10-09
+R-MER-59,MER,Integration test coverage,MEDIUM,OPEN,Dana Lim,2026-10-09
+R-MER-60,MER,Supplier review,HIGH,MONITORING,Imran Koh,2026-10-09
+R-MER-61,MER,Support documentation,LOW,MITIGATED,Tessa Chan,2026-10-09
+R-MER-62,MER,Customer comms,MEDIUM,OPEN,Selin Ng,2026-10-09
+R-MER-63,MER,Budget reporting,HIGH,MONITORING,Omar Aziz,2026-10-09

@@ -1,0 +1,3 @@
+# Codex Phase 1 — local documents and source provenance
+
+Implement `docs/API.md` synthetic ingestion with a clean `SourceAdapter` interface, allowing file-based seed and later Drive. Start with 16 Harbour Docs + 2 Harbour Sheets (expand after validation). Add deterministic chunks with sourceId, title, source recorded/effective dates, project ID, ordinal, SHA-256 checksum. Preserve rows/columns meaning when transforming CSV into searchable text. Make retries idempotent. Build `/api/sources` and `/api/ingest` with protection against arbitrary file paths and public mutation. UI must visibly say 'Synthetic demo company'. Write tests for ingestion, hash idempotency, per-source provenance and no cross-tenant document access. Report actual commands/results.

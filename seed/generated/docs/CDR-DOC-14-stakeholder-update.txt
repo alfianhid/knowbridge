@@ -1,0 +1,18 @@
+KNOWBRIDGE SYNTHETIC DEMO DATA — NOT A REAL COMPANY RECORD
+Organization: North Quay Digital Pte. Ltd. (FICTIONAL DEMO COMPANY)
+Project: Project Cedar (CDR)
+Client: Cedar Commerce (fictional)
+Delivery owner: Mei Chen
+Scope: billing system migration
+Third-party dependency: Aurora Ledger (fictional)
+Document type: Stakeholder Update
+Recorded date: 2026-10-11
+Reference project baseline: 2026-11-21
+
+PROJECT CONTEXT
+The engagement is a controlled delivery project for a Singapore-based SME. The shared project ID is CDR. The client-facing milestone is 2026-11-21, initially proposed during planning. Every operational update must preserve the source date so decision reviewers can distinguish an initial forecast from a subsequent revision. The relevant stakeholders are Mei Chen, Isabelle Wong (QA), and Darren Ng (security). Team communications are in English, and all budgets are denominated in SGD. This entry is a synthetic example, not a representation of any actual contract or customer.
+
+CROSS-FUNCTIONAL UPDATE — 2026-10-11
+Engineering forecasts QA completion 2026-12-02. Customer communications still mention 2026-11-21. Security approval is pending. Leadership is aware of the discrepancy but has not made a definitive schedule decision. Next milestone is a leadership decision meeting on 2026-10-14. Suggested next step: validate assumptions and send a single reconciled status to the client.
+EVIDENCE CAUTION
+This is a synthetic internal record. Conclusions should cite the specific document and distinguish recorded expectations from verified readiness. A no-evidence situation is not proof of completion.

@@ -1,0 +1,64 @@
+risk_id,project_id,risk,severity,status,owner,updated_at
+R-ORC-01,ORC,QA forecast 2026-11-16 later than baseline 2026-11-09,HIGH,OPEN,Sofia Lee,2026-10-11
+R-ORC-02,ORC,Security approval not received,HIGH,OPEN,Darren Ng,2026-10-11
+R-ORC-03,ORC,Specialist QA resource capacity,MEDIUM,OPEN,Isabelle Wong,2026-10-09
+R-ORC-04,ORC,Integration test coverage,LOW,MITIGATED,Avery Tan,2026-10-09
+R-ORC-05,ORC,Supplier review,MEDIUM,OPEN,Elena Koh,2026-10-09
+R-ORC-06,ORC,Support documentation,HIGH,MONITORING,Kiran Lim,2026-10-09
+R-ORC-07,ORC,Customer comms,LOW,MITIGATED,Sofia Lee,2026-10-09
+R-ORC-08,ORC,Budget reporting,MEDIUM,OPEN,Darren Ng,2026-10-09
+R-ORC-09,ORC,Integration test coverage,HIGH,MONITORING,Priya Menon,2026-10-09
+R-ORC-10,ORC,Supplier review,LOW,MITIGATED,Noah Goh,2026-10-09
+R-ORC-11,ORC,Support documentation,MEDIUM,OPEN,Mei Chen,2026-10-09
+R-ORC-12,ORC,Customer comms,HIGH,MONITORING,Isabelle Wong,2026-10-09
+R-ORC-13,ORC,Budget reporting,LOW,MITIGATED,Haris Rahman,2026-10-09
+R-ORC-14,ORC,Integration test coverage,MEDIUM,OPEN,Lena Ong,2026-10-09
+R-ORC-15,ORC,Supplier review,HIGH,MONITORING,Theo Yeo,2026-10-09
+R-ORC-16,ORC,Support documentation,LOW,MITIGATED,Nadia Ismail,2026-10-09
+R-ORC-17,ORC,Customer comms,MEDIUM,OPEN,Marco Chua,2026-10-09
+R-ORC-18,ORC,Budget reporting,HIGH,MONITORING,Jules Teo,2026-10-09
+R-ORC-19,ORC,Integration test coverage,LOW,MITIGATED,Farah Aziz,2026-10-09
+R-ORC-20,ORC,Supplier review,MEDIUM,OPEN,Jun Park,2026-10-09
+R-ORC-21,ORC,Support documentation,HIGH,MONITORING,Bella Low,2026-10-09
+R-ORC-22,ORC,Customer comms,LOW,MITIGATED,Arun Nair,2026-10-09
+R-ORC-23,ORC,Budget reporting,MEDIUM,OPEN,Eden Ho,2026-10-09
+R-ORC-24,ORC,Integration test coverage,HIGH,MONITORING,Ravi Das,2026-10-09
+R-ORC-25,ORC,Supplier review,LOW,MITIGATED,Mira Foo,2026-10-09
+R-ORC-26,ORC,Support documentation,MEDIUM,OPEN,Hadi Salleh,2026-10-09
+R-ORC-27,ORC,Customer comms,HIGH,MONITORING,Chloe Yap,2026-10-09
+R-ORC-28,ORC,Budget reporting,LOW,MITIGATED,Leo Tan,2026-10-09
+R-ORC-29,ORC,Integration test coverage,MEDIUM,OPEN,Dana Lim,2026-10-09
+R-ORC-30,ORC,Supplier review,HIGH,MONITORING,Imran Koh,2026-10-09
+R-ORC-31,ORC,Support documentation,LOW,MITIGATED,Tessa Chan,2026-10-09
+R-ORC-32,ORC,Customer comms,MEDIUM,OPEN,Selin Ng,2026-10-09
+R-ORC-33,ORC,Budget reporting,HIGH,MONITORING,Omar Aziz,2026-10-09
+R-ORC-34,ORC,Integration test coverage,LOW,MITIGATED,Avery Tan,2026-10-09
+R-ORC-35,ORC,Supplier review,MEDIUM,OPEN,Elena Koh,2026-10-09
+R-ORC-36,ORC,Support documentation,HIGH,MONITORING,Kiran Lim,2026-10-09
+R-ORC-37,ORC,Customer comms,LOW,MITIGATED,Sofia Lee,2026-10-09
+R-ORC-38,ORC,Budget reporting,MEDIUM,OPEN,Darren Ng,2026-10-09
+R-ORC-39,ORC,Integration test coverage,HIGH,MONITORING,Priya Menon,2026-10-09
+R-ORC-40,ORC,Supplier review,LOW,MITIGATED,Noah Goh,2026-10-09
+R-ORC-41,ORC,Support documentation,MEDIUM,OPEN,Mei Chen,2026-10-09
+R-ORC-42,ORC,Customer comms,HIGH,MONITORING,Isabelle Wong,2026-10-09
+R-ORC-43,ORC,Budget reporting,LOW,MITIGATED,Haris Rahman,2026-10-09
+R-ORC-44,ORC,Integration test coverage,MEDIUM,OPEN,Lena Ong,2026-10-09
+R-ORC-45,ORC,Supplier review,HIGH,MONITORING,Theo Yeo,2026-10-09
+R-ORC-46,ORC,Support documentation,LOW,MITIGATED,Nadia Ismail,2026-10-09
+R-ORC-47,ORC,Customer comms,MEDIUM,OPEN,Marco Chua,2026-10-09
+R-ORC-48,ORC,Budget reporting,HIGH,MONITORING,Jules Teo,2026-10-09
+R-ORC-49,ORC,Integration test coverage,LOW,MITIGATED,Farah Aziz,2026-10-09
+R-ORC-50,ORC,Supplier review,MEDIUM,OPEN,Jun Park,2026-10-09
+R-ORC-51,ORC,Support documentation,HIGH,MONITORING,Bella Low,2026-10-09
+R-ORC-52,ORC,Customer comms,LOW,MITIGATED,Arun Nair,2026-10-09
+R-ORC-53,ORC,Budget reporting,MEDIUM,OPEN,Eden Ho,2026-10-09
+R-ORC-54,ORC,Integration test coverage,HIGH,MONITORING,Ravi Das,2026-10-09
+R-ORC-55,ORC,Supplier review,LOW,MITIGATED,Mira Foo,2026-10-09
+R-ORC-56,ORC,Support documentation,MEDIUM,OPEN,Hadi Salleh,2026-10-09
+R-ORC-57,ORC,Customer comms,HIGH,MONITORING,Chloe Yap,2026-10-09
+R-ORC-58,ORC,Budget reporting,LOW,MITIGATED,Leo Tan,2026-10-09
+R-ORC-59,ORC,Integration test coverage,MEDIUM,OPEN,Dana Lim,2026-10-09
+R-ORC-60,ORC,Supplier review,HIGH,MONITORING,Imran Koh,2026-10-09
+R-ORC-61,ORC,Support documentation,LOW,MITIGATED,Tessa Chan,2026-10-09
+R-ORC-62,ORC,Customer comms,MEDIUM,OPEN,Selin Ng,2026-10-09
+R-ORC-63,ORC,Budget reporting,HIGH,MONITORING,Omar Aziz,2026-10-09

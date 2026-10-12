@@ -1,0 +1,91 @@
+account_id,client,service,renewal_date,renewal_status,owner
+ACCT-0001,Harbourlight Retail (fictional),customer self-service portal,2026-11-01,OPEN,Avery Tan
+ACCT-0002,Meridian Trading (fictional),supplier onboarding portal,2026-11-02,NEGOTIATING,Elena Koh
+ACCT-0003,Northstar Foods (fictional),executive reporting dashboards,2026-11-03,RENEWED,Kiran Lim
+ACCT-0004,Orchard Works (fictional),subscription renewal workflow,2026-11-04,OPEN,Sofia Lee
+ACCT-0005,Beacon Ventures (fictional),identity and access consolidation,2026-11-05,NEGOTIATING,Darren Ng
+ACCT-0006,Atlas Logistics (fictional),new-joiner employee experience,2026-11-06,RENEWED,Priya Menon
+ACCT-0007,Juniper Studio (fictional),partner onboarding workspace,2026-11-07,OPEN,Noah Goh
+ACCT-0008,Cedar Commerce (fictional),billing system migration,2026-11-08,NEGOTIATING,Mei Chen
+ACCT-0009,Harbourlight Retail (fictional),customer self-service portal,2026-11-09,RENEWED,Isabelle Wong
+ACCT-0010,Meridian Trading (fictional),supplier onboarding portal,2026-11-10,OPEN,Haris Rahman
+ACCT-0011,Northstar Foods (fictional),executive reporting dashboards,2026-11-11,NEGOTIATING,Lena Ong
+ACCT-0012,Orchard Works (fictional),subscription renewal workflow,2026-11-12,RENEWED,Theo Yeo
+ACCT-0013,Beacon Ventures (fictional),identity and access consolidation,2026-11-13,OPEN,Nadia Ismail
+ACCT-0014,Atlas Logistics (fictional),new-joiner employee experience,2026-11-14,NEGOTIATING,Marco Chua
+ACCT-0015,Juniper Studio (fictional),partner onboarding workspace,2026-11-15,RENEWED,Jules Teo
+ACCT-0016,Cedar Commerce (fictional),billing system migration,2026-11-16,OPEN,Farah Aziz
+ACCT-0017,Harbourlight Retail (fictional),customer self-service portal,2026-11-17,NEGOTIATING,Jun Park
+ACCT-0018,Meridian Trading (fictional),supplier onboarding portal,2026-11-18,RENEWED,Bella Low
+ACCT-0019,Northstar Foods (fictional),executive reporting dashboards,2026-11-19,OPEN,Arun Nair
+ACCT-0020,Orchard Works (fictional),subscription renewal workflow,2026-11-20,NEGOTIATING,Eden Ho
+ACCT-0021,Beacon Ventures (fictional),identity and access consolidation,2026-11-21,RENEWED,Ravi Das
+ACCT-0022,Atlas Logistics (fictional),new-joiner employee experience,2026-11-22,OPEN,Mira Foo
+ACCT-0023,Juniper Studio (fictional),partner onboarding workspace,2026-11-23,NEGOTIATING,Hadi Salleh
+ACCT-0024,Cedar Commerce (fictional),billing system migration,2026-11-24,RENEWED,Chloe Yap
+ACCT-0025,Harbourlight Retail (fictional),customer self-service portal,2026-11-25,OPEN,Leo Tan
+ACCT-0026,Meridian Trading (fictional),supplier onboarding portal,2026-11-26,NEGOTIATING,Dana Lim
+ACCT-0027,Northstar Foods (fictional),executive reporting dashboards,2026-11-27,RENEWED,Imran Koh
+ACCT-0028,Orchard Works (fictional),subscription renewal workflow,2026-11-28,OPEN,Tessa Chan
+ACCT-0029,Beacon Ventures (fictional),identity and access consolidation,2026-11-29,NEGOTIATING,Selin Ng
+ACCT-0030,Atlas Logistics (fictional),new-joiner employee experience,2026-11-30,RENEWED,Omar Aziz
+ACCT-0031,Juniper Studio (fictional),partner onboarding workspace,2026-12-01,OPEN,Avery Tan
+ACCT-0032,Cedar Commerce (fictional),billing system migration,2026-12-02,NEGOTIATING,Elena Koh
+ACCT-0033,Harbourlight Retail (fictional),customer self-service portal,2026-12-03,RENEWED,Kiran Lim
+ACCT-0034,Meridian Trading (fictional),supplier onboarding portal,2026-12-04,OPEN,Sofia Lee
+ACCT-0035,Northstar Foods (fictional),executive reporting dashboards,2026-12-05,NEGOTIATING,Darren Ng
+ACCT-0036,Orchard Works (fictional),subscription renewal workflow,2026-12-06,RENEWED,Priya Menon
+ACCT-0037,Beacon Ventures (fictional),identity and access consolidation,2026-12-07,OPEN,Noah Goh
+ACCT-0038,Atlas Logistics (fictional),new-joiner employee experience,2026-12-08,NEGOTIATING,Mei Chen
+ACCT-0039,Juniper Studio (fictional),partner onboarding workspace,2026-12-09,RENEWED,Isabelle Wong
+ACCT-0040,Cedar Commerce (fictional),billing system migration,2026-12-10,OPEN,Haris Rahman
+ACCT-0041,Harbourlight Retail (fictional),customer self-service portal,2026-12-11,NEGOTIATING,Lena Ong
+ACCT-0042,Meridian Trading (fictional),supplier onboarding portal,2026-12-12,RENEWED,Theo Yeo
+ACCT-0043,Northstar Foods (fictional),executive reporting dashboards,2026-12-13,OPEN,Nadia Ismail
+ACCT-0044,Orchard Works (fictional),subscription renewal workflow,2026-12-14,NEGOTIATING,Marco Chua
+ACCT-0045,Beacon Ventures (fictional),identity and access consolidation,2026-12-15,RENEWED,Jules Teo
+ACCT-0046,Atlas Logistics (fictional),new-joiner employee experience,2026-12-16,OPEN,Farah Aziz
+ACCT-0047,Juniper Studio (fictional),partner onboarding workspace,2026-12-17,NEGOTIATING,Jun Park
+ACCT-0048,Cedar Commerce (fictional),billing system migration,2026-12-18,RENEWED,Bella Low
+ACCT-0049,Harbourlight Retail (fictional),customer self-service portal,2026-12-19,OPEN,Arun Nair
+ACCT-0050,Meridian Trading (fictional),supplier onboarding portal,2026-12-20,NEGOTIATING,Eden Ho
+ACCT-0051,Northstar Foods (fictional),executive reporting dashboards,2026-12-21,RENEWED,Ravi Das
+ACCT-0052,Orchard Works (fictional),subscription renewal workflow,2026-12-22,OPEN,Mira Foo
+ACCT-0053,Beacon Ventures (fictional),identity and access consolidation,2026-12-23,NEGOTIATING,Hadi Salleh
+ACCT-0054,Atlas Logistics (fictional),new-joiner employee experience,2026-12-24,RENEWED,Chloe Yap
+ACCT-0055,Juniper Studio (fictional),partner onboarding workspace,2026-12-25,OPEN,Leo Tan
+ACCT-0056,Cedar Commerce (fictional),billing system migration,2026-12-26,NEGOTIATING,Dana Lim
+ACCT-0057,Harbourlight Retail (fictional),customer self-service portal,2026-12-27,RENEWED,Imran Koh
+ACCT-0058,Meridian Trading (fictional),supplier onboarding portal,2026-12-28,OPEN,Tessa Chan
+ACCT-0059,Northstar Foods (fictional),executive reporting dashboards,2026-12-29,NEGOTIATING,Selin Ng
+ACCT-0060,Orchard Works (fictional),subscription renewal workflow,2026-12-30,RENEWED,Omar Aziz
+ACCT-0061,Beacon Ventures (fictional),identity and access consolidation,2026-12-31,OPEN,Avery Tan
+ACCT-0062,Atlas Logistics (fictional),new-joiner employee experience,2026-11-01,NEGOTIATING,Elena Koh
+ACCT-0063,Juniper Studio (fictional),partner onboarding workspace,2026-11-02,RENEWED,Kiran Lim
+ACCT-0064,Cedar Commerce (fictional),billing system migration,2026-11-03,OPEN,Sofia Lee
+ACCT-0065,Harbourlight Retail (fictional),customer self-service portal,2026-11-04,NEGOTIATING,Darren Ng
+ACCT-0066,Meridian Trading (fictional),supplier onboarding portal,2026-11-05,RENEWED,Priya Menon
+ACCT-0067,Northstar Foods (fictional),executive reporting dashboards,2026-11-06,OPEN,Noah Goh
+ACCT-0068,Orchard Works (fictional),subscription renewal workflow,2026-11-07,NEGOTIATING,Mei Chen
+ACCT-0069,Beacon Ventures (fictional),identity and access consolidation,2026-11-08,RENEWED,Isabelle Wong
+ACCT-0070,Atlas Logistics (fictional),new-joiner employee experience,2026-11-09,OPEN,Haris Rahman
+ACCT-0071,Juniper Studio (fictional),partner onboarding workspace,2026-11-10,NEGOTIATING,Lena Ong
+ACCT-0072,Cedar Commerce (fictional),billing system migration,2026-11-11,RENEWED,Theo Yeo
+ACCT-0073,Harbourlight Retail (fictional),customer self-service portal,2026-11-12,OPEN,Nadia Ismail
+ACCT-0074,Meridian Trading (fictional),supplier onboarding portal,2026-11-13,NEGOTIATING,Marco Chua
+ACCT-0075,Northstar Foods (fictional),executive reporting dashboards,2026-11-14,RENEWED,Jules Teo
+ACCT-0076,Orchard Works (fictional),subscription renewal workflow,2026-11-15,OPEN,Farah Aziz
+ACCT-0077,Beacon Ventures (fictional),identity and access consolidation,2026-11-16,NEGOTIATING,Jun Park
+ACCT-0078,Atlas Logistics (fictional),new-joiner employee experience,2026-11-17,RENEWED,Bella Low
+ACCT-0079,Juniper Studio (fictional),partner onboarding workspace,2026-11-18,OPEN,Arun Nair
+ACCT-0080,Cedar Commerce (fictional),billing system migration,2026-11-19,NEGOTIATING,Eden Ho
+ACCT-0081,Harbourlight Retail (fictional),customer self-service portal,2026-11-20,RENEWED,Ravi Das
+ACCT-0082,Meridian Trading (fictional),supplier onboarding portal,2026-11-21,OPEN,Mira Foo
+ACCT-0083,Northstar Foods (fictional),executive reporting dashboards,2026-11-22,NEGOTIATING,Hadi Salleh
+ACCT-0084,Orchard Works (fictional),subscription renewal workflow,2026-11-23,RENEWED,Chloe Yap
+ACCT-0085,Beacon Ventures (fictional),identity and access consolidation,2026-11-24,OPEN,Leo Tan
+ACCT-0086,Atlas Logistics (fictional),new-joiner employee experience,2026-11-25,NEGOTIATING,Dana Lim
+ACCT-0087,Juniper Studio (fictional),partner onboarding workspace,2026-11-26,RENEWED,Imran Koh
+ACCT-0088,Cedar Commerce (fictional),billing system migration,2026-11-27,OPEN,Tessa Chan
+ACCT-0089,Harbourlight Retail (fictional),customer self-service portal,2026-11-28,NEGOTIATING,Selin Ng
+ACCT-0090,Meridian Trading (fictional),supplier onboarding portal,2026-11-29,RENEWED,Omar Aziz

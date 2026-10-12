@@ -1,0 +1,18 @@
+KNOWBRIDGE SYNTHETIC DEMO DATA — NOT A REAL COMPANY RECORD
+Organization: North Quay Digital Pte. Ltd. (FICTIONAL DEMO COMPANY)
+Project: Project Northstar (NTH)
+Client: Northstar Foods (fictional)
+Delivery owner: Kiran Lim
+Scope: executive reporting dashboards
+Third-party dependency: Summit Data (fictional)
+Document type: Risk Register
+Recorded date: 2026-10-11
+Reference project baseline: 2026-11-06
+
+PROJECT CONTEXT
+The engagement is a controlled delivery project for a Singapore-based SME. The shared project ID is NTH. The client-facing milestone is 2026-11-06, initially proposed during planning. Every operational update must preserve the source date so decision reviewers can distinguish an initial forecast from a subsequent revision. The relevant stakeholders are Kiran Lim, Isabelle Wong (QA), and Darren Ng (security). Team communications are in English, and all budgets are denominated in SGD. This entry is a synthetic example, not a representation of any actual contract or customer.
+
+RISK REGISTER — 2026-10-11
+Risk R-NTH-01: QA forecast 2026-11-11 does not support the published customer target 2026-11-06. Likelihood HIGH, impact HIGH. Risk R-NTH-02: security sign-off remains PENDING as of 2026-10-11. Likelihood MEDIUM, impact HIGH. Risk R-NTH-03: additional specialist QA capacity is unavailable before 2026-10-16. Mitigation: customer conversation, updated plan, and controlled pilot assessment. No mitigation has been approved as a new launch commitment.
+EVIDENCE CAUTION
+This is a synthetic internal record. Conclusions should cite the specific document and distinguish recorded expectations from verified readiness. A no-evidence situation is not proof of completion.

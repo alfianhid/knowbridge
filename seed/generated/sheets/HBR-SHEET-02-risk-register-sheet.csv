@@ -1,0 +1,64 @@
+risk_id,project_id,risk,severity,status,owner,updated_at
+R-HBR-01,HBR,QA forecast 2026-11-11 later than baseline 2026-11-01,HIGH,OPEN,Avery Tan,2026-10-11
+R-HBR-02,HBR,Security approval not received,HIGH,OPEN,Darren Ng,2026-10-11
+R-HBR-03,HBR,Specialist QA resource capacity,MEDIUM,OPEN,Isabelle Wong,2026-10-09
+R-HBR-04,HBR,Integration test coverage,LOW,MITIGATED,Avery Tan,2026-10-09
+R-HBR-05,HBR,Supplier review,MEDIUM,OPEN,Elena Koh,2026-10-09
+R-HBR-06,HBR,Support documentation,HIGH,MONITORING,Kiran Lim,2026-10-09
+R-HBR-07,HBR,Customer comms,LOW,MITIGATED,Sofia Lee,2026-10-09
+R-HBR-08,HBR,Budget reporting,MEDIUM,OPEN,Darren Ng,2026-10-09
+R-HBR-09,HBR,Integration test coverage,HIGH,MONITORING,Priya Menon,2026-10-09
+R-HBR-10,HBR,Supplier review,LOW,MITIGATED,Noah Goh,2026-10-09
+R-HBR-11,HBR,Support documentation,MEDIUM,OPEN,Mei Chen,2026-10-09
+R-HBR-12,HBR,Customer comms,HIGH,MONITORING,Isabelle Wong,2026-10-09
+R-HBR-13,HBR,Budget reporting,LOW,MITIGATED,Haris Rahman,2026-10-09
+R-HBR-14,HBR,Integration test coverage,MEDIUM,OPEN,Lena Ong,2026-10-09
+R-HBR-15,HBR,Supplier review,HIGH,MONITORING,Theo Yeo,2026-10-09
+R-HBR-16,HBR,Support documentation,LOW,MITIGATED,Nadia Ismail,2026-10-09
+R-HBR-17,HBR,Customer comms,MEDIUM,OPEN,Marco Chua,2026-10-09
+R-HBR-18,HBR,Budget reporting,HIGH,MONITORING,Jules Teo,2026-10-09
+R-HBR-19,HBR,Integration test coverage,LOW,MITIGATED,Farah Aziz,2026-10-09
+R-HBR-20,HBR,Supplier review,MEDIUM,OPEN,Jun Park,2026-10-09
+R-HBR-21,HBR,Support documentation,HIGH,MONITORING,Bella Low,2026-10-09
+R-HBR-22,HBR,Customer comms,LOW,MITIGATED,Arun Nair,2026-10-09
+R-HBR-23,HBR,Budget reporting,MEDIUM,OPEN,Eden Ho,2026-10-09
+R-HBR-24,HBR,Integration test coverage,HIGH,MONITORING,Ravi Das,2026-10-09
+R-HBR-25,HBR,Supplier review,LOW,MITIGATED,Mira Foo,2026-10-09
+R-HBR-26,HBR,Support documentation,MEDIUM,OPEN,Hadi Salleh,2026-10-09
+R-HBR-27,HBR,Customer comms,HIGH,MONITORING,Chloe Yap,2026-10-09
+R-HBR-28,HBR,Budget reporting,LOW,MITIGATED,Leo Tan,2026-10-09
+R-HBR-29,HBR,Integration test coverage,MEDIUM,OPEN,Dana Lim,2026-10-09
+R-HBR-30,HBR,Supplier review,HIGH,MONITORING,Imran Koh,2026-10-09
+R-HBR-31,HBR,Support documentation,LOW,MITIGATED,Tessa Chan,2026-10-09
+R-HBR-32,HBR,Customer comms,MEDIUM,OPEN,Selin Ng,2026-10-09
+R-HBR-33,HBR,Budget reporting,HIGH,MONITORING,Omar Aziz,2026-10-09
+R-HBR-34,HBR,Integration test coverage,LOW,MITIGATED,Avery Tan,2026-10-09
+R-HBR-35,HBR,Supplier review,MEDIUM,OPEN,Elena Koh,2026-10-09
+R-HBR-36,HBR,Support documentation,HIGH,MONITORING,Kiran Lim,2026-10-09
+R-HBR-37,HBR,Customer comms,LOW,MITIGATED,Sofia Lee,2026-10-09
+R-HBR-38,HBR,Budget reporting,MEDIUM,OPEN,Darren Ng,2026-10-09
+R-HBR-39,HBR,Integration test coverage,HIGH,MONITORING,Priya Menon,2026-10-09
+R-HBR-40,HBR,Supplier review,LOW,MITIGATED,Noah Goh,2026-10-09
+R-HBR-41,HBR,Support documentation,MEDIUM,OPEN,Mei Chen,2026-10-09
+R-HBR-42,HBR,Customer comms,HIGH,MONITORING,Isabelle Wong,2026-10-09
+R-HBR-43,HBR,Budget reporting,LOW,MITIGATED,Haris Rahman,2026-10-09
+R-HBR-44,HBR,Integration test coverage,MEDIUM,OPEN,Lena Ong,2026-10-09
+R-HBR-45,HBR,Supplier review,HIGH,MONITORING,Theo Yeo,2026-10-09
+R-HBR-46,HBR,Support documentation,LOW,MITIGATED,Nadia Ismail,2026-10-09
+R-HBR-47,HBR,Customer comms,MEDIUM,OPEN,Marco Chua,2026-10-09
+R-HBR-48,HBR,Budget reporting,HIGH,MONITORING,Jules Teo,2026-10-09
+R-HBR-49,HBR,Integration test coverage,LOW,MITIGATED,Farah Aziz,2026-10-09
+R-HBR-50,HBR,Supplier review,MEDIUM,OPEN,Jun Park,2026-10-09
+R-HBR-51,HBR,Support documentation,HIGH,MONITORING,Bella Low,2026-10-09
+R-HBR-52,HBR,Customer comms,LOW,MITIGATED,Arun Nair,2026-10-09
+R-HBR-53,HBR,Budget reporting,MEDIUM,OPEN,Eden Ho,2026-10-09
+R-HBR-54,HBR,Integration test coverage,HIGH,MONITORING,Ravi Das,2026-10-09
+R-HBR-55,HBR,Supplier review,LOW,MITIGATED,Mira Foo,2026-10-09
+R-HBR-56,HBR,Support documentation,MEDIUM,OPEN,Hadi Salleh,2026-10-09
+R-HBR-57,HBR,Customer comms,HIGH,MONITORING,Chloe Yap,2026-10-09
+R-HBR-58,HBR,Budget reporting,LOW,MITIGATED,Leo Tan,2026-10-09
+R-HBR-59,HBR,Integration test coverage,MEDIUM,OPEN,Dana Lim,2026-10-09
+R-HBR-60,HBR,Supplier review,HIGH,MONITORING,Imran Koh,2026-10-09
+R-HBR-61,HBR,Support documentation,LOW,MITIGATED,Tessa Chan,2026-10-09
+R-HBR-62,HBR,Customer comms,MEDIUM,OPEN,Selin Ng,2026-10-09
+R-HBR-63,HBR,Budget reporting,HIGH,MONITORING,Omar Aziz,2026-10-09

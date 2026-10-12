@@ -1,0 +1,18 @@
+KNOWBRIDGE SYNTHETIC DEMO DATA — NOT A REAL COMPANY RECORD
+Organization: North Quay Digital Pte. Ltd. (FICTIONAL DEMO COMPANY)
+Project: Project Meridian (MER)
+Client: Meridian Trading (fictional)
+Delivery owner: Elena Koh
+Scope: supplier onboarding portal
+Third-party dependency: Beacon Verify (fictional)
+Document type: Resource Constraints
+Recorded date: 2026-10-09
+Reference project baseline: 2026-11-04
+
+PROJECT CONTEXT
+The engagement is a controlled delivery project for a Singapore-based SME. The shared project ID is MER. The client-facing milestone is 2026-11-04, initially proposed during planning. Every operational update must preserve the source date so decision reviewers can distinguish an initial forecast from a subsequent revision. The relevant stakeholders are Elena Koh, Isabelle Wong (QA), and Darren Ng (security). Team communications are in English, and all budgets are denominated in SGD. This entry is a synthetic example, not a representation of any actual contract or customer.
+
+RESOURCE ALLOCATION UPDATE — 2026-10-09
+QA allocation is fully utilized through 2026-10-16. The team cannot add specialist test capacity without disrupting another signed commitment. Engineering has two open dependencies on Beacon Verify (fictional). Increasing working hours is not an approved mitigation. An extension or staged scope is therefore more credible than assuming additional QA resources.
+EVIDENCE CAUTION
+This is a synthetic internal record. Conclusions should cite the specific document and distinguish recorded expectations from verified readiness. A no-evidence situation is not proof of completion.
