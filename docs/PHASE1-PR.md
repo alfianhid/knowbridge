@@ -4,4 +4,6 @@ The change adds Firebase admin authorization, bounded requests and shared ingest
 
 Verification: 40 unit/integration tests, 6 standalone Chromium checks, lint, typecheck, production build and full seed integrity passed. npm audit reports zero vulnerabilities. Real Firestore in asia-southeast1 imported 18 sources; a fresh-process retry skipped all 18 with zero failures.
 
-Audit findings #1–#20 are tracked by #21. #18 awaits Linux container CI; do not close the tracker until that check passes. Credential folders are excluded from Git and Docker.
+All 20 audit findings tracked by #21 are resolved. Linux container CI passed on commit `01cc5a7`, including actual image build/start, health response, non-root execution and seed-file availability. Credential folders are excluded from Git and Docker.
+
+CI evidence: https://github.com/alfianhid/knowbridge/actions/runs/38441180169 and https://github.com/alfianhid/knowbridge/actions/runs/38441187427. The initial container health probe raced startup; bounded readiness retries fixed it and passed independent review.

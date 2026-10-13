@@ -6,7 +6,7 @@
 
 All local implementation fixes pass 40 unit/integration tests, lint, typecheck, build, six standalone Chromium browser checks and npm audit (zero vulnerabilities). Full seed verification passed.
 
-Live Firestore verification passed on 2026-10-14: 18 sources imported, fresh-process retry skipped 18, and persisted source/provenance reads passed. Container startup remains pending because Docker is unavailable locally and the user requested no branch publication.
+Live Firestore verification passed on 2026-10-14: 18 sources imported, fresh-process retry skipped 18, and persisted source/provenance reads passed. Linux container CI passed on commit `01cc5a7`. Publication is now authorized and [PR #22](https://github.com/alfianhid/knowbridge/pull/22) is open. All 20 audit findings are resolved; Phase 2 has not started.
 
 ## Findings
 
@@ -27,7 +27,7 @@ Live Firestore verification passed on 2026-10-14: 18 sources imported, fresh-pro
 - [x] [#15: [LOW] Hide decorative brand glyph from assistive technology](https://github.com/alfianhid/knowbridge/issues/15)
 - [x] [#16: [MEDIUM] Expand tests for ingestion failures and required evidence gates](https://github.com/alfianhid/knowbridge/issues/16)
 - [x] [#17: [MEDIUM] Run browser accessibility and responsive release QA](https://github.com/alfianhid/knowbridge/issues/17)
-- [ ] [#18: [LOW/MEDIUM] Harden reproducible container builds and response headers](https://github.com/alfianhid/knowbridge/issues/18) - code and standalone checks complete; Linux container CI pending
+- [x] [#18: [LOW/MEDIUM] Harden reproducible container builds and response headers](https://github.com/alfianhid/knowbridge/issues/18) - Linux container build, startup, non-root and seed-file checks passed
 - [x] [#19: [MEDIUM] Protect local service-account folders from Git and Docker context](https://github.com/alfianhid/knowbridge/issues/19)
 - [x] [#20: [MEDIUM] Install Python and execute full seed integrity verification](https://github.com/alfianhid/knowbridge/issues/20)
 

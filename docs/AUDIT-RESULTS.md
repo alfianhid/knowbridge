@@ -28,10 +28,11 @@ Reviewed and verified 2026-10-13. Scope: audit tickets #1–#20; Phase 2 has not
 | npm audit | Zero vulnerabilities across full installed tree |
 | Git diff whitespace check | Passed |
 | Secret exclusions | Both local credential folders ignored; no tracked credential files |
+| Linux CI and container smoke test | Passed on commit `01cc5a7`, runs 38441180169 and 38441187427 |
 
 Browser results are automated evidence, not a complete WCAG certification or a native screen-reader assessment. 320px reflow checks cover small-screen layout; actual browser toolbar zoom and other browser engines were not tested. No visual regression baseline existed.
 
-The browser suite runs against the production standalone server, with Docker-equivalent static/public assets. Docker is unavailable locally; CI adds an actual build/start/non-root/seed-file smoke check.
+The browser suite runs against the production standalone server, with Docker-equivalent static/public assets. Linux CI built and started the actual Docker image, obtained a successful health response, verified non-root execution and confirmed seed-file availability. The initial CI health probe raced server startup; bounded connection-error retries fixed the check. Independent review approved the readiness/cleanup change.
 
 ## Cloud verification - 2026-10-14
 
@@ -39,7 +40,9 @@ The user provisioned `(default)` in `asia-southeast1`, type `FIRESTORE_NATIVE`. 
 
 First process: queued 18, processed 18, skipped 0, failed 0. Fresh-process retry: queued 18, processed 0, skipped 18, failed 0. Both returned job ID `06fcc4fc2b418990`. A further fresh process read 18 persisted sources (16 documents, 2 sheets), confirmed `HBR-DOC-04` forecast `2026-11-11` and recorded date `2026-10-10`, and returned zero sources for an unrelated tenant. The real persistence gate in #1 is complete.
 
-Linux container startup verification under #18 remains pending; changes stay local as requested. Production Firebase administrator provisioning and real revoked-token verification remain deployment checks. No live AI or public deployment is claimed.
+Linux container verification under #18 passed on 2026-10-14. The user subsequently authorized publication; code is pushed to `fix/phase1-audit` and PR #22 is open. All 20 audit findings are resolved. Production Firebase administrator provisioning and real revoked-token verification remain deployment checks. No live AI or public app deployment is claimed.
+
+CI evidence: https://github.com/alfianhid/knowbridge/actions/runs/38441180169 and https://github.com/alfianhid/knowbridge/actions/runs/38441187427. Review PR: https://github.com/alfianhid/knowbridge/pull/22.
 
 Independent backend review identified quota atomicity, evidence hash/body consistency and metadata-only freshness gaps; all three were fixed and regression-tested. Independent React review found no further component defect and requested hook lint enforcement, now installed and passing.
 
