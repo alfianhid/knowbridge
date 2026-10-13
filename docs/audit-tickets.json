@@ -1,0 +1,162 @@
+[
+  {
+    "id": "AUD-001",
+    "title": "[HIGH] Persist ingestion and read catalog from the same store",
+    "labels": [
+      "bug"
+    ],
+    "body": "Audit ticket AUD-001 — 2026-10-13\n\nEvidence: `src/lib/sources.ts:239-284` in working tree based on commit bba66f9. Some Phase 1 files are uncommitted.\n\nFinding\n\nIngestion writes to a process-local map, while list/detail read seed files directly. All 18 records appear before ingestion; restarts and scale-out lose retry state.\n\nAcceptance criteria\n\n- [ ] Persist sources/chunks and ingestion state in Firestore; read APIs from that store; test partial ingestion, restart, retry and concurrent instances.\n- [ ] Record actual verification and update this ticket before closing.\n\nApproved project choices\n\nExisting Phase 1 edits are confirmed. Public synthetic read-only UI and authenticated admin ingestion are approved. Dependency upgrades and Python installation are approved. GCP access may use gcloud/ADC; credentials must remain local and must never appear in tickets, logs, commits or container images.\n\nThis ticket tracks audit remediation; it does not authorize production cloud changes by itself.\n"
+  },
+  {
+    "id": "AUD-002",
+    "title": "[HIGH] Reject supported decision briefs without evidence",
+    "labels": [
+      "bug"
+    ],
+    "body": "Audit ticket AUD-002 — 2026-10-13\n\nEvidence: `src/lib/contracts.ts:17-39` in working tree based on commit bba66f9. Some Phase 1 files are uncommitted.\n\nFinding\n\nThe schema permits supported status with empty supportingClaims; reference validation returns no errors for an evidence-free brief.\n\nAcceptance criteria\n\n- [ ] Require valid authorized evidence for supported factual claims; empty retrieval must produce insufficient_evidence; add negative tests.\n- [ ] Record actual verification and update this ticket before closing.\n\nApproved project choices\n\nExisting Phase 1 edits are confirmed. Public synthetic read-only UI and authenticated admin ingestion are approved. Dependency upgrades and Python installation are approved. GCP access may use gcloud/ADC; credentials must remain local and must never appear in tickets, logs, commits or container images.\n\nThis ticket tracks audit remediation; it does not authorize production cloud changes by itself.\n"
+  },
+  {
+    "id": "AUD-003",
+    "title": "[HIGH] Build citation metadata from authorized server source records",
+    "labels": [
+      "bug"
+    ],
+    "body": "Audit ticket AUD-003 — 2026-10-13\n\nEvidence: `src/lib/contracts.ts:2-8,29-39` in working tree based on commit bba66f9. Some Phase 1 files are uncommitted.\n\nFinding\n\nReference validation checks IDs and excerpt text but not titles, URLs or dates. Any absolute model URL passes the schema; local source links are relative and incompatible with its URL validator. Case normalization also weakens literal quote guarantees.\n\nAcceptance criteria\n\n- [ ] Ignore model-supplied title/link/date; enrich citations server-side; reject altered quotes and unauthorized IDs; test relative local links and fabricated metadata.\n- [ ] Record actual verification and update this ticket before closing.\n\nApproved project choices\n\nExisting Phase 1 edits are confirmed. Public synthetic read-only UI and authenticated admin ingestion are approved. Dependency upgrades and Python installation are approved. GCP access may use gcloud/ADC; credentials must remain local and must never appear in tickets, logs, commits or container images.\n\nThis ticket tracks audit remediation; it does not authorize production cloud changes by itself.\n"
+  },
+  {
+    "id": "AUD-004",
+    "title": "[HIGH before real data] Derive tenant and source permissions from verified identity",
+    "labels": [
+      "enhancement"
+    ],
+    "body": "Audit ticket AUD-004 — 2026-10-13\n\nEvidence: `src/app/api/sources/route.ts:5; src/app/api/sources/[sourceId]/route.ts:9` in working tree based on commit bba66f9. Some Phase 1 files are uncommitted.\n\nFinding\n\nTenant header is caller-controlled. Current exact demo-tenant guards are suitable only for public synthetic records.\n\nAcceptance criteria\n\n- [ ] Keep public synthetic reads; require verified admin identity for ingestion; derive tenant/source membership server-side for private sources; test unauthorized detail access and pre-model/post-retrieval checks.\n- [ ] Record actual verification and update this ticket before closing.\n\nApproved project choices\n\nExisting Phase 1 edits are confirmed. Public synthetic read-only UI and authenticated admin ingestion are approved. Dependency upgrades and Python installation are approved. GCP access may use gcloud/ADC; credentials must remain local and must never appear in tickets, logs, commits or container images.\n\nThis ticket tracks audit remediation; it does not authorize production cloud changes by itself.\n"
+  },
+  {
+    "id": "AUD-005",
+    "title": "[HIGH] Remediate dependency advisories with targeted upgrades",
+    "labels": [
+      "bug"
+    ],
+    "body": "Audit ticket AUD-005 — 2026-10-13\n\nEvidence: `package.json; package-lock.json` in working tree based on commit bba66f9. Some Phase 1 files are uncommitted.\n\nFinding\n\nPrior audit reported 13 dependency-tree advisories: 2 critical, 1 high, 10 moderate; production-only tree reported 1 high and 9 moderate. Counts are a snapshot and must be rechecked. Critical findings were dev tooling.\n\nAcceptance criteria\n\n- [ ] Re-run audit; record advisory IDs and affected execution paths; upgrade safely; do not use blind npm audit fix --force; pass typecheck/tests/build. User approved upgrades.\n- [ ] Record actual verification and update this ticket before closing.\n\nApproved project choices\n\nExisting Phase 1 edits are confirmed. Public synthetic read-only UI and authenticated admin ingestion are approved. Dependency upgrades and Python installation are approved. GCP access may use gcloud/ADC; credentials must remain local and must never appear in tickets, logs, commits or container images.\n\nThis ticket tracks audit remediation; it does not authorize production cloud changes by itself.\n"
+  },
+  {
+    "id": "AUD-006",
+    "title": "[MEDIUM] Bound ingestion body size and rate-limit API work",
+    "labels": [
+      "enhancement"
+    ],
+    "body": "Audit ticket AUD-006 — 2026-10-13\n\nEvidence: `src/app/api/ingest/route.ts:6-33; src/lib/sources.ts:245-284` in working tree based on commit bba66f9. Some Phase 1 files are uncommitted.\n\nFinding\n\nNo body-byte/rate limits; ID length is unbounded. Public reads and ingestion reread/hash/chunk all 18 sources on each call.\n\nAcceptance criteria\n\n- [ ] Enforce body/ID limits and quotas; select requested IDs before loading; cache immutable seed reads; test oversized requests and throttling.\n- [ ] Record actual verification and update this ticket before closing.\n\nApproved project choices\n\nExisting Phase 1 edits are confirmed. Public synthetic read-only UI and authenticated admin ingestion are approved. Dependency upgrades and Python installation are approved. GCP access may use gcloud/ADC; credentials must remain local and must never appear in tickets, logs, commits or container images.\n\nThis ticket tracks audit remediation; it does not authorize production cloud changes by itself.\n"
+  },
+  {
+    "id": "AUD-007",
+    "title": "[MEDIUM] Replace static ingestion bearer token with authenticated admin access",
+    "labels": [
+      "enhancement"
+    ],
+    "body": "Audit ticket AUD-007 — 2026-10-13\n\nEvidence: `src/app/api/ingest/route.ts:15-29` in working tree based on commit bba66f9. Some Phase 1 files are uncommitted.\n\nFinding\n\nStatic token has no principal, expiry, scope or audit trail. Missing configuration fails closed and timing-safe comparison is already present.\n\nAcceptance criteria\n\n- [ ] Implement approved public synthetic read-only UI with identity-protected admin ingestion; document secret rotation during migration; test disabled config, malformed auth and unauthorized callers.\n- [ ] Record actual verification and update this ticket before closing.\n\nApproved project choices\n\nExisting Phase 1 edits are confirmed. Public synthetic read-only UI and authenticated admin ingestion are approved. Dependency upgrades and Python installation are approved. GCP access may use gcloud/ADC; credentials must remain local and must never appear in tickets, logs, commits or container images.\n\nThis ticket tracks audit remediation; it does not authorize production cloud changes by itself.\n"
+  },
+  {
+    "id": "AUD-008",
+    "title": "[MEDIUM] Update docs and health to reflect actual Phase 1 status",
+    "labels": [
+      "documentation"
+    ],
+    "body": "Audit ticket AUD-008 — 2026-10-13\n\nEvidence: `README.md:7; docs/API.md:3; src/app/api/health/route.ts:2` in working tree based on commit bba66f9. Some Phase 1 files are uncommitted.\n\nFinding\n\nAPI docs incorrectly say only health is implemented; current tree has source catalog/details and protected ingestion. Distinguish committed functionality from uncommitted changes and process-memory limitations. API example dates for HBR-DOC-04 differ from its actual recorded date (2026-10-10).\n\nAcceptance criteria\n\n- [ ] Document exact routes, active 18-source scope, storage limits, setup/auth and next prompt; align example provenance dates; keep aiEnabled false until verified real AI.\n- [ ] Record actual verification and update this ticket before closing.\n\nApproved project choices\n\nExisting Phase 1 edits are confirmed. Public synthetic read-only UI and authenticated admin ingestion are approved. Dependency upgrades and Python installation are approved. GCP access may use gcloud/ADC; credentials must remain local and must never appear in tickets, logs, commits or container images.\n\nThis ticket tracks audit remediation; it does not authorize production cloud changes by itself.\n"
+  },
+  {
+    "id": "AUD-009",
+    "title": "[HIGH] Make keyboard focus visible on every source row",
+    "labels": [
+      "accessibility"
+    ],
+    "body": "Audit ticket AUD-009 — 2026-10-13\n\nEvidence: `src/app/globals.css:24-25` in working tree based on commit bba66f9. Some Phase 1 files are uncommitted.\n\nFinding\n\noutline:none removes native focus; selected rule overrides the focus border. Border contrast is insufficient.\n\nAcceptance criteria\n\n- [ ] Add distinct high-contrast focus styling surviving selection and forced colors; verify keyboard navigation.\n- [ ] Record actual verification and update this ticket before closing.\n\nApproved project choices\n\nExisting Phase 1 edits are confirmed. Public synthetic read-only UI and authenticated admin ingestion are approved. Dependency upgrades and Python installation are approved. GCP access may use gcloud/ADC; credentials must remain local and must never appear in tickets, logs, commits or container images.\n\nThis ticket tracks audit remediation; it does not authorize production cloud changes by itself.\n"
+  },
+  {
+    "id": "AUD-010",
+    "title": "[MEDIUM] Use concise live status instead of announcing full source bodies",
+    "labels": [
+      "accessibility"
+    ],
+    "body": "Audit ticket AUD-010 — 2026-10-13\n\nEvidence: `src/components/source-explorer.tsx:61-77` in working tree based on commit bba66f9. Some Phase 1 files are uncommitted.\n\nFinding\n\nEntire changing detail pane is aria-live, with nested status/alert regions; loading can announce a long document.\n\nAcceptance criteria\n\n- [ ] Use a separate short live status and aria-busy; keep source text outside live region; verify announcements and error/retry behavior.\n- [ ] Record actual verification and update this ticket before closing.\n\nApproved project choices\n\nExisting Phase 1 edits are confirmed. Public synthetic read-only UI and authenticated admin ingestion are approved. Dependency upgrades and Python installation are approved. GCP access may use gcloud/ADC; credentials must remain local and must never appear in tickets, logs, commits or container images.\n\nThis ticket tracks audit remediation; it does not authorize production cloud changes by itself.\n"
+  },
+  {
+    "id": "AUD-011",
+    "title": "[MEDIUM] Allow source titles to wrap at narrow widths and zoom",
+    "labels": [
+      "accessibility"
+    ],
+    "body": "Audit ticket AUD-011 — 2026-10-13\n\nEvidence: `src/app/globals.css:28` in working tree based on commit bba66f9. Some Phase 1 files are uncommitted.\n\nFinding\n\nSingle-line ellipsis prevents sighted magnification users from scanning complete titles.\n\nAcceptance criteria\n\n- [ ] Allow wrapping or accessible visible reveal; verify 320px layout, 400% zoom and text spacing.\n- [ ] Record actual verification and update this ticket before closing.\n\nApproved project choices\n\nExisting Phase 1 edits are confirmed. Public synthetic read-only UI and authenticated admin ingestion are approved. Dependency upgrades and Python installation are approved. GCP access may use gcloud/ADC; credentials must remain local and must never appear in tickets, logs, commits or container images.\n\nThis ticket tracks audit remediation; it does not authorize production cloud changes by itself.\n"
+  },
+  {
+    "id": "AUD-012",
+    "title": "[MEDIUM] Make source-content scrolling keyboard accessible",
+    "labels": [
+      "accessibility"
+    ],
+    "body": "Audit ticket AUD-012 — 2026-10-13\n\nEvidence: `src/components/source-explorer.tsx:75; src/app/globals.css:35` in working tree based on commit bba66f9. Some Phase 1 files are uncommitted.\n\nFinding\n\nNested overflow pre lacks explicit focus and label; keyboard scrolling varies by browser.\n\nAcceptance criteria\n\n- [ ] Provide focusable labeled scroll region with visible focus; verify complete source reading via keyboard in supported browsers.\n- [ ] Record actual verification and update this ticket before closing.\n\nApproved project choices\n\nExisting Phase 1 edits are confirmed. Public synthetic read-only UI and authenticated admin ingestion are approved. Dependency upgrades and Python installation are approved. GCP access may use gcloud/ADC; credentials must remain local and must never appear in tickets, logs, commits or container images.\n\nThis ticket tracks audit remediation; it does not authorize production cloud changes by itself.\n"
+  },
+  {
+    "id": "AUD-013",
+    "title": "[LOW] Use semantics that match mutually exclusive source selection",
+    "labels": [
+      "accessibility"
+    ],
+    "body": "Audit ticket AUD-013 — 2026-10-13\n\nEvidence: `src/components/source-explorer.tsx:47-55` in working tree based on commit bba66f9. Some Phase 1 files are uncommitted.\n\nFinding\n\naria-pressed implies toggle behavior, but selecting the active source never toggles it off.\n\nAcceptance criteria\n\n- [ ] Choose appropriate current-item semantics or a complete radio/listbox keyboard pattern; test state announcements.\n- [ ] Record actual verification and update this ticket before closing.\n\nApproved project choices\n\nExisting Phase 1 edits are confirmed. Public synthetic read-only UI and authenticated admin ingestion are approved. Dependency upgrades and Python installation are approved. GCP access may use gcloud/ADC; credentials must remain local and must never appear in tickets, logs, commits or container images.\n\nThis ticket tracks audit remediation; it does not authorize production cloud changes by itself.\n"
+  },
+  {
+    "id": "AUD-014",
+    "title": "[LOW] Provide navigable source sections while preserving literal evidence",
+    "labels": [
+      "accessibility"
+    ],
+    "body": "Audit ticket AUD-014 — 2026-10-13\n\nEvidence: `src/components/source-explorer.tsx:75` in working tree based on commit bba66f9. Some Phase 1 files are uncommitted.\n\nFinding\n\nOne flat pre prevents heading navigation across source fields and sections.\n\nAcceptance criteria\n\n- [ ] Offer structured readable sections without changing quoted evidence; retain exact-text view; verify screen-reader navigation.\n- [ ] Record actual verification and update this ticket before closing.\n\nApproved project choices\n\nExisting Phase 1 edits are confirmed. Public synthetic read-only UI and authenticated admin ingestion are approved. Dependency upgrades and Python installation are approved. GCP access may use gcloud/ADC; credentials must remain local and must never appear in tickets, logs, commits or container images.\n\nThis ticket tracks audit remediation; it does not authorize production cloud changes by itself.\n"
+  },
+  {
+    "id": "AUD-015",
+    "title": "[LOW] Hide decorative brand glyph from assistive technology",
+    "labels": [
+      "accessibility"
+    ],
+    "body": "Audit ticket AUD-015 — 2026-10-13\n\nEvidence: `src/app/page.tsx:10` in working tree based on commit bba66f9. Some Phase 1 files are uncommitted.\n\nFinding\n\nDecorative K is exposed before KnowBridge and may be announced redundantly.\n\nAcceptance criteria\n\n- [ ] Mark decorative glyph aria-hidden; ensure brand accessible name remains KnowBridge.\n- [ ] Record actual verification and update this ticket before closing.\n\nApproved project choices\n\nExisting Phase 1 edits are confirmed. Public synthetic read-only UI and authenticated admin ingestion are approved. Dependency upgrades and Python installation are approved. GCP access may use gcloud/ADC; credentials must remain local and must never appear in tickets, logs, commits or container images.\n\nThis ticket tracks audit remediation; it does not authorize production cloud changes by itself.\n"
+  },
+  {
+    "id": "AUD-016",
+    "title": "[MEDIUM] Expand tests for ingestion failures and required evidence gates",
+    "labels": [
+      "enhancement"
+    ],
+    "body": "Audit ticket AUD-016 — 2026-10-13\n\nEvidence: `tests/sources.test.ts; tests/sources-api.test.ts; tests/contracts.test.ts; tests/source-explorer.test.tsx` in working tree based on commit bba66f9. Some Phase 1 files are uncommitted.\n\nFinding\n\nTests pass but omit conflicting-date nuance, empty evidence, unauthorized detail-route headers, ingestion failure/change/restart, CSV quoted fields, chunk boundaries, effective policy dates and async source selection/retry. Static UI test does not run effects.\n\nAcceptance criteria\n\n- [ ] Add meaningful behavior tests covering required gates, malformed CSV, multi-chunk integrity and UI errors; run 12 benchmark fixtures when retrieval exists; record actual results.\n- [ ] Record actual verification and update this ticket before closing.\n\nApproved project choices\n\nExisting Phase 1 edits are confirmed. Public synthetic read-only UI and authenticated admin ingestion are approved. Dependency upgrades and Python installation are approved. GCP access may use gcloud/ADC; credentials must remain local and must never appear in tickets, logs, commits or container images.\n\nThis ticket tracks audit remediation; it does not authorize production cloud changes by itself.\n"
+  },
+  {
+    "id": "AUD-017",
+    "title": "[MEDIUM] Run browser accessibility and responsive release QA",
+    "labels": [
+      "accessibility"
+    ],
+    "body": "Audit ticket AUD-017 — 2026-10-13\n\nEvidence: `src/components/source-explorer.tsx; src/app/globals.css` in working tree based on commit bba66f9. Some Phase 1 files are uncommitted.\n\nFinding\n\nBrowser surfaces were unavailable during audit; actual responsive layout, keyboard scroll, zoom, forced colors and screen-reader announcements remain unverified.\n\nAcceptance criteria\n\n- [ ] Verify desktop/mobile, 320px reflow, 400% zoom, keyboard journey, error/retry and source switching; record evidence and unresolved failures.\n- [ ] Record actual verification and update this ticket before closing.\n\nApproved project choices\n\nExisting Phase 1 edits are confirmed. Public synthetic read-only UI and authenticated admin ingestion are approved. Dependency upgrades and Python installation are approved. GCP access may use gcloud/ADC; credentials must remain local and must never appear in tickets, logs, commits or container images.\n\nThis ticket tracks audit remediation; it does not authorize production cloud changes by itself.\n"
+  },
+  {
+    "id": "AUD-018",
+    "title": "[LOW/MEDIUM] Harden reproducible container builds and response headers",
+    "labels": [
+      "enhancement"
+    ],
+    "body": "Audit ticket AUD-018 — 2026-10-13\n\nEvidence: `Dockerfile:3-17; next.config.mjs:6-13; .github/workflows/ci.yml:15` in working tree based on commit bba66f9. Some Phase 1 files are uncommitted.\n\nFinding\n\nBuild uses npm install rather than npm ci; runtime lacks explicit non-root USER; CSP/security headers absent.\n\nAcceptance criteria\n\n- [ ] Use npm ci with lockfile; run container as non-root; add appropriate headers/CSP; verify standalone source loading and container startup.\n- [ ] Record actual verification and update this ticket before closing.\n\nApproved project choices\n\nExisting Phase 1 edits are confirmed. Public synthetic read-only UI and authenticated admin ingestion are approved. Dependency upgrades and Python installation are approved. GCP access may use gcloud/ADC; credentials must remain local and must never appear in tickets, logs, commits or container images.\n\nThis ticket tracks audit remediation; it does not authorize production cloud changes by itself.\n"
+  },
+  {
+    "id": "AUD-019",
+    "title": "[MEDIUM] Protect local service-account folders from Git and Docker context",
+    "labels": [
+      "bug"
+    ],
+    "body": "Audit ticket AUD-019 — 2026-10-13\n\nEvidence: `.gitignore; .dockerignore` in working tree based on commit bba66f9. Some Phase 1 files are uncommitted.\n\nFinding\n\nUser-provided .secrets/ was untracked and not excluded. Folder-specific exclusions were added during ticket creation without reading credential contents.\n\nAcceptance criteria\n\n- [ ] Verify secrets/ and .secrets/ are ignored by Git and Docker; no credentials tracked; include ignore changes in reviewed commit; use ADC/service identity without copying keys into images.\n- [ ] Record actual verification and update this ticket before closing.\n\nApproved project choices\n\nExisting Phase 1 edits are confirmed. Public synthetic read-only UI and authenticated admin ingestion are approved. Dependency upgrades and Python installation are approved. GCP access may use gcloud/ADC; credentials must remain local and must never appear in tickets, logs, commits or container images.\n\nThis ticket tracks audit remediation; it does not authorize production cloud changes by itself.\n"
+  },
+  {
+    "id": "AUD-020",
+    "title": "[MEDIUM] Install Python and execute full seed integrity verification",
+    "labels": [
+      "enhancement"
+    ],
+    "body": "Audit ticket AUD-020 — 2026-10-13\n\nEvidence: `scripts/verify_seed.py; docs/QUICKSTART-WINDOWS.md` in working tree based on commit bba66f9. Some Phase 1 files are uncommitted.\n\nFinding\n\npython and py were absent during original audit. Node counts were confirmed, but full Python verifier was not executed.\n\nAcceptance criteria\n\n- [ ] Install Python 3.11+ for user (approved); run verifier; record 168 docs, 24 sheets, 1904 rows and 12 cases; document Windows invocation.\n- [ ] Record actual verification and update this ticket before closing.\n\nApproved project choices\n\nExisting Phase 1 edits are confirmed. Public synthetic read-only UI and authenticated admin ingestion are approved. Dependency upgrades and Python installation are approved. GCP access may use gcloud/ADC; credentials must remain local and must never appear in tickets, logs, commits or container images.\n\nThis ticket tracks audit remediation; it does not authorize production cloud changes by itself.\n"
+  }
+]

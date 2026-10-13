@@ -1,41 +1,54 @@
-# Proposed API contracts
+# API status and contracts
 
-**These are requirements for Codex, not implemented routes** (except `/api/health`). Protect all mutating routes and source-aware retrieval with validated Firebase ID tokens or an isolated synthetic-only demo mode with strict read-only limitations.
+## Implemented Phase 1
 
-### `GET /api/health`
-Already implemented. `{service, status, aiEnabled, syntheticData}`. Change AI state only when real Gemini path is confirmed.
+### GET /api/health
+Returns `{service,status:"source-catalog-ready",aiEnabled:false,syntheticData:true,storage}`. Status describes implemented functionality, not a database connectivity check.
 
-### `GET /api/sources`
-Return `{items:[{id,title,kind,project,recordedAt,sourceUrl,chunkCount}],synthetic:true}` limited to authorized data.
+### GET /api/sources
+Returns `{items:[{id,title,kind,project,recordedAt,sourceUrl,chunkCount}],synthetic:true}` from ingested durable storage. Empty storage returns zero items. Fixed public synthetic tenant only. Different tenant header: 403.
 
-### `POST /api/ingest`
-Body `{mode:'synthetic', sourceIds?:string[]}`. Response `{jobId,queued,processed,skipped,failed}`. Must not accept arbitrary file paths; use known manifest IDs. `mode:'drive'` P1 with OAuth.
+### GET /api/sources/:sourceId
+Returns literal stored content, title, owner, kind, project, historical recorded/effective dates, source URL and chunk count. Internal tenant/chunk data is omitted. Unknown or unauthorized source: 404; unavailable store: controlled 500.
 
-### `POST /api/ask`
-Body `{question:string,tenantId?:string}`. Response `{answer:string,claims:[{claim,evidence:[{sourceId,excerpt,sourceTitle,sourceUrl?}]}],unknowns:string[],status:'grounded'|'insufficient_evidence'}`. Return only cited factual assertions; avoid model-provided arbitrary URLs.
+### POST /api/ingest
+Requires `Authorization: Bearer <Firebase ID token>`, verified with revocation checking. Only identities with `knowbridgeAdmin:true` and `knowbridgeTenant:"demo-north-quay"` may mutate.
 
-### `POST /api/decision-briefs`
-Body `{question:string,tenantId?:string}`. Response `DecisionBriefSchema` from `src/lib/contracts.ts` plus server-generated brief ID and timestamps. Strictly check every `sourceId` and literal excerpt against retrieved authorized texts. For briefs with unsupported factual claims, regenerate once or abstain.
+Body: `{mode:"synthetic",sourceIds?:string[]}`. JSON only, maximum 16 KiB, at most 18 distinct known Harbour IDs, maximum 64 characters per ID. No arbitrary paths, private tenant selection or Drive mode.
 
-### `GET /api/decision-briefs` and `GET /api/decision-briefs/:id`
-Return saved briefs visible to requester only. Include `reviewedByHuman` and source IDs.
+Response: `{jobId,queued,processed,skipped,failed}`. 200 if all selected sources processed/skipped; 207 for partial store failures. Retry skips unchanged complete records and refreshes metadata changes. Jobs derive deterministically from source records. Invalid requests: 400/415/413. Invalid identity: 401; unauthorized claims: 403; missing auth configuration: 503; quota: 429.
 
-### `POST /api/decision-briefs/:id/review`
-Body `{reviewed:boolean}`. Auth required; records user/timestamp. A `reviewed` flag is not an approval to change project schedules or trigger autonomous execution.
+Five ingestion requests per admin per minute, persisted atomically in the selected store. Public reads use a per-instance global limit of 300/minute; this is not a distributed perimeter rate limiter. Deployment must bound Cloud Run instances.
 
-## Firestore entity metadata minimum
-```
+## Storage and provenance
+
+Cloud path: `tenants/demo-north-quay/sources/{sourceId}`. Phase 1 atomically stores each bounded source with its chunks; replacing the record removes stale chunks. Phase 2 will materialize vector-search chunks separately.
+
+Minimum actual record fields:
+```json
 {
   "tenantId": "demo-north-quay",
-  "sourceId": "HBR-DOC-04",
-  "title": "Project Harbour — QA Forecast",
+  "id": "HBR-DOC-04",
+  "title": "Project Harbour - QA Forecast",
   "kind": "google_doc",
-  "modifiedAt": "2026-10-11",
-  "recordedAt": "2026-10-11",
+  "recordedAt": "2026-10-10",
+  "effectiveAt": null,
   "projectId": "HBR",
-  "access": "demo-public-synthetic",
+  "synthetic": true,
   "contentHash": "sha256:...",
-  "text": "..."
+  "sourceUrl": "/api/sources/HBR-DOC-04"
 }
 ```
-Use time-aware metadata from the source content; don't silently reinterpret newly uploaded Drive creation timestamps as historical evidence.
+
+The historical body date is not a newly created Drive modified timestamp. Checksums, literal chunk body inclusion and inherited chunk provenance are validated before storage and on reads.
+
+## Proposed Phase 2/3 routes (not implemented)
+
+- `POST /api/ask`: retrieved authorized evidence only; grounded answer/claims/unknowns or insufficient_evidence.
+- `POST /api/decision-briefs`: source-validated structured brief, server timestamps and ID.
+- `GET /api/decision-briefs` and `GET /api/decision-briefs/:id`: requester-visible saved briefs.
+- `POST /api/decision-briefs/:id/review`: authenticated human review; never schedule approval or autonomous execution.
+
+The current decision contract rejects supported/at-risk briefs without evidence. Server finalization checks exact excerpts and reconstructs source metadata, discarding model URLs/titles/dates and model-supplied review flags. Citation validation alone does not establish that a free-text claim is semantically entailed; that is a Phase 2/3 evaluation gate.
+
+`authorizeChunks` provides a fail-closed tenant/source membership guard for future retrieval. Both query filtering and returned-chunk checks must precede Gemini.
