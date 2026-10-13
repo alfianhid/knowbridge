@@ -37,4 +37,3 @@ User approved the existing Phase 1 edits, public synthetic read-only UI, authent
 
 [Verification results](AUDIT-RESULTS.md) document actual commands and limitations. [Implementation plan](AUDIT-REMEDIATION-PLAN.md) records the remediation order. Phase 2 semantic benchmark results are not claimed.
 
-
