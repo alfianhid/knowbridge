@@ -1,22 +1,27 @@
 import { SourceExplorer } from '@/components/source-explorer';
 import { DEMO_TENANT_ID, listSourceSummariesForTenant } from '@/lib/sources';
+import { limitPublicReads } from '@/lib/api-limits';
+
+export const dynamic = 'force-dynamic';
 
 export default async function Home() {
-  const sources = await listSourceSummariesForTenant(DEMO_TENANT_ID);
+  let sources: Awaited<ReturnType<typeof listSourceSummariesForTenant>> = [];
+  let unavailable = false;
+  try { limitPublicReads(); sources = await listSourceSummariesForTenant(DEMO_TENANT_ID); } catch { unavailable = true; }
 
   return (
     <main className="shell">
       <header className="nav">
-        <div className="brand"><span className="logo">K</span><span>KnowBridge</span></div>
-        <span className="micro">AI Builder Cup 2026 · Synthetic demo</span>
+        <div className="brand"><span className="logo" aria-hidden="true">K</span><span>KnowBridge</span></div>
+        <span className="micro">AI Builder Cup 2026 · Synthetic demo company</span>
       </header>
       <section className="hero compact">
         <p className="eyebrow">SINGAPORE-FIRST · GOOGLE WORKSPACE · EVIDENCE CATALOG</p>
         <h1>Know what your sources <em>actually say.</em></h1>
-        <p className="intro">Inspect a bounded local import before retrieval or AI synthesis. Stable IDs and source dates stay attached to every fictional record.</p>
-        <div className="pill">Local source catalog ready · AI remains disabled</div>
+        <p className="intro">Inspect the evidence behind Project Harbour. Source dates and original text stay attached to every fictional record.</p>
+        <div className="pill">Synthetic demo company · {sources.length} imported sources · AI remains disabled</div>
       </section>
-      <SourceExplorer sources={sources} />
+      {unavailable ? <p role="alert">Source catalog unavailable. Please try again later.</p> : <SourceExplorer sources={sources} />}
       <footer>KnowBridge · All sample organizations, people, and records are fictional.</footer>
     </main>
   );

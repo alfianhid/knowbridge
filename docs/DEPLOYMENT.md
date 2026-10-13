@@ -1,36 +1,50 @@
-# Google Cloud deployment checklist
+# Phase 1 cloud setup and deployment checks
 
-**Precondition:** This project is a scaffold. Deploy the final application only after real Gemini integration, controlled auth/demo mode, and reproducible tests have been implemented.
+The local source catalog is implemented. Real Firestore and identity setup must be verified before calling Phase 1 cloud-ready. AI remains disabled until Phase 2/3 is implemented and tested.
 
-## 1. Set up a new GCP project
-1. Create/bind billing with a clear budget alert (budgets notify; they don't necessarily hard-stop resources).
-2. Choose supported Singapore location `asia-southeast1` for Cloud Run and Firestore where available, and separately verify the Vertex AI model region.
-3. Enable necessary services: Cloud Run, Cloud Build, Artifact Registry, Vertex AI and Firestore (plus IAM and Secret Manager if needed).
-4. Create Firestore database in the intended region before ingestion. Verify the appropriate Firestore vector index by current cloud documentation. Avoid bulk embedding until the index and auth work.
-5. Set up a dedicated service identity with minimum access to relevant Vertex AI and Firestore; do not bake account keys into the container.
+## Provisioning
 
-## 2. Configure variables
-Copy `.env.example` into `.env.local` for local only, set project/region/model. Cloud Run config via `--set-env-vars` for nonsensitive values and Secret Manager for secrets. Don't commit `.env.local`.
+Use an owner-authorized account for one-time setup. ADC/service-account runtime access is separate from permission to enable APIs or create databases.
 
-## 3. Deploy container from source
-```bash
-# Example only: choose your actual unique project and available region/model.
+```powershell
+gcloud auth application-default login
 gcloud config set project YOUR_GCP_PROJECT_ID
-gcloud services enable run.googleapis.com cloudbuild.googleapis.com artifactregistry.googleapis.com aiplatform.googleapis.com firestore.googleapis.com
-# Authenticate CLI locally; production Cloud Run uses its assigned service account.
-gcloud run deploy knowbridge --source . --region asia-southeast1 --allow-unauthenticated
+gcloud services enable firestore.googleapis.com identitytoolkit.googleapis.com
+gcloud firestore databases create --database="(default)" --location=asia-southeast1 --type=firestore-native
 ```
 
-**Before using `--allow-unauthenticated`:** confirm that the exposed UI uses only synthetic demo data, read-only Q&A, restricted API rate/size limits, and no public ingestion/write endpoints. Otherwise deploy with auth restrictions. The Demo page must state this is synthetic data. `--allow-unauthenticated` enables a public URL but does NOT secure individual API routes.
+Check existing database configuration before creation; do not replace an existing database. Configure Firebase Authentication and provision only the intended administrator with custom claims `knowbridgeAdmin:true` and `knowbridgeTenant:"demo-north-quay"` using trusted Admin SDK tooling. Never accept client-set claims. ID-token verification checks revocation.
 
-## 4. Validate deployed app
-- `GET /api/health` returns live AI state only if integrated.
-- Hero question returns accurate references for at least HBR-DOC-02, HBR-DOC-04, HBR-DOC-06.
-- Missing evidence produces an abstention; attempts to reference unauthorized sources fail.
-- No credentials or actual client data are exposed by public repository or API.
-- Take a screenshot/video of real deployed app, not local-only mockups.
+The runtime identity needs Firestore data access and Firebase Authentication read access for revoked-token verification. Use least-privilege IAM for the selected project. Do not give runtime service identities API-enablement/owner privileges just to make provisioning succeed.
 
-Official refs:
-- https://docs.cloud.google.com/run/docs/deploying-source-code
-- https://firebase.google.com/docs/firestore/vector-search
-- https://docs.cloud.google.com/vertex-ai/generative-ai/docs/embeddings/get-text-embeddings
+## Verify durable cloud storage
+
+In a local PowerShell session:
+```powershell
+$env:GOOGLE_CLOUD_PROJECT="YOUR_GCP_PROJECT_ID"
+$env:KNOWBRIDGE_STORE="firestore"
+# Optional local key alternative to owner ADC:
+# $env:GOOGLE_APPLICATION_CREDENTIALS=(Resolve-Path .secrets/gcp-sa.json).Path
+npm.cmd run ingest:local
+npm.cmd run ingest:local
+```
+
+First import should process 18 records; retry should skip 18 unchanged records. Restart the app and confirm catalog/detail still read the stored sources. A permission/API failure must be reported, never silently replaced with local or mock cloud success.
+
+## Container/deployment
+
+`Dockerfile` uses lockfile-enforced installation, standalone build output and non-root `node`. Seed files are traced into standalone output. Runtime excludes local credential/data folders. File mode is refused on Cloud Run; use `KNOWBRIDGE_STORE=firestore` and `GOOGLE_CLOUD_PROJECT`.
+
+When deployment is authorized, enable Cloud Run/Build/Artifact Registry, assign a dedicated service identity, and set a conservative instance limit. Public access is appropriate only for the fixed synthetic UI: reads remain public and ingestion remains identity-protected. Set billing alerts before AI bulk ingestion; alerts are not hard spending stops.
+
+## Verification gates
+
+- Full seed verifier, lint, typecheck, unit/integration tests, build and dependency audit pass.
+- Standalone root/catalog/detail work; security headers and nonce CSP are present.
+- Browser source selection, retry, keyboard focus/scroll and small-screen reflow pass.
+- Missing/unauthorized sources disclose no private data.
+- Keys are excluded from Git history, Docker context and output.
+- Actual Firestore retry/restart and actual administrator authentication are verified.
+- Record a real deployed URL only after deployment; no deployed URL is claimed by local tests.
+
+Official documentation: [Admin setup](https://firebase.google.com/docs/admin/setup), [ID-token verification](https://firebase.google.com/docs/auth/admin/verify-id-tokens), [transactions](https://firebase.google.com/docs/firestore/manage-data/transactions), [Next CSP](https://nextjs.org/docs/app/guides/content-security-policy).
