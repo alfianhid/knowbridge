@@ -33,11 +33,13 @@ Browser results are automated evidence, not a complete WCAG certification or a n
 
 The browser suite runs against the production standalone server, with Docker-equivalent static/public assets. Docker is unavailable locally; CI adds an actual build/start/non-root/seed-file smoke check.
 
-## Remaining cloud gate
+## Cloud verification - 2026-10-14
 
-The supplied service-account identity authenticated but Firestore returned API disabled. API enablement returned 403 PERMISSION_DENIED. The user chose to provide owner-authorized ADC; the expected ADC file was not yet present at the last check.
+The user provisioned `(default)` in `asia-southeast1`, type `FIRESTORE_NATIVE`. The supplied service account can read the synthetic source collection. Owner ADC is now present and successfully completed ingestion using the application's actual Firestore store.
 
-Firestore persistence and quota contracts pass deterministic tests, but real database restart/retry verification must remain open under #1 until API/database/IAM setup is ready. Production Firebase administrator provisioning and real revoked-token verification must also be checked before deployment. No cloud success, live AI or public deployment is claimed.
+First process: queued 18, processed 18, skipped 0, failed 0. Fresh-process retry: queued 18, processed 0, skipped 18, failed 0. Both returned job ID `06fcc4fc2b418990`. A further fresh process read 18 persisted sources (16 documents, 2 sheets), confirmed `HBR-DOC-04` forecast `2026-11-11` and recorded date `2026-10-10`, and returned zero sources for an unrelated tenant. The real persistence gate in #1 is complete.
+
+Linux container startup verification under #18 remains pending; changes stay local as requested. Production Firebase administrator provisioning and real revoked-token verification remain deployment checks. No live AI or public deployment is claimed.
 
 Independent backend review identified quota atomicity, evidence hash/body consistency and metadata-only freshness gaps; all three were fixed and regression-tested. Independent React review found no further component defect and requested hook lint enforcement, now installed and passing.
 

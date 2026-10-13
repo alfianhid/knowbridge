@@ -6,11 +6,11 @@
 
 All local implementation fixes pass 40 unit/integration tests, lint, typecheck, build, six standalone Chromium browser checks and npm audit (zero vulnerabilities). Full seed verification passed.
 
-Live Firestore verification remains blocked by API/database provisioning and unavailable owner ADC. Container startup is queued for Linux CI because Docker is unavailable locally.
+Live Firestore verification passed on 2026-10-14: 18 sources imported, fresh-process retry skipped 18, and persisted source/provenance reads passed. Container startup remains pending because Docker is unavailable locally and the user requested no branch publication.
 
 ## Findings
 
-- [ ] [#1: [HIGH] Persist ingestion and read catalog from the same store](https://github.com/alfianhid/knowbridge/issues/1) - code and contract tests complete; live cloud gate pending
+- [x] [#1: [HIGH] Persist ingestion and read catalog from the same store](https://github.com/alfianhid/knowbridge/issues/1) - real Firestore import, fresh-process retry and persisted reads verified
 - [x] [#2: [HIGH] Reject supported decision briefs without evidence](https://github.com/alfianhid/knowbridge/issues/2)
 - [x] [#3: [HIGH] Build citation metadata from authorized server source records](https://github.com/alfianhid/knowbridge/issues/3)
 - [x] [#4: [HIGH before real data] Derive tenant and source permissions from verified identity](https://github.com/alfianhid/knowbridge/issues/4)
