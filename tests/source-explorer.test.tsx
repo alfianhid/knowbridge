@@ -16,7 +16,7 @@ describe('source explorer', () => {
     }]} />);
 
     expect(html).toContain('Fictional synthetic records only');
-    expect(html).toContain('aria-pressed="true"');
+    expect(html).toContain('aria-current="true"');
     expect(html).toContain('aria-controls="source-details"');
     expect(html).toContain('<li>');
   });

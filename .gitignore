@@ -11,3 +11,8 @@ coverage
 service-account*.json
 credentials*.json
 oauth*.json
+secrets/
+.secrets/
+.data/
+playwright-report/
+test-results/

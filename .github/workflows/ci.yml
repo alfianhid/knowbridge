@@ -12,7 +12,25 @@ jobs:
         with:
           python-version: '3.11'
       - run: python scripts/verify_seed.py
-      - run: npm install --no-audit --no-fund
+      - run: npm ci --no-audit --no-fund
       - run: npm test
       - run: npm run typecheck
+      - run: npm run lint
+      - run: npm audit --audit-level=moderate
+      - run: npm run ingest:local
       - run: npm run build
+      - run: npx playwright install --with-deps chromium
+      - run: npm run test:e2e
+      - name: Build and smoke-test non-root container
+        run: |
+          docker build -t knowbridge-smoke .
+          docker run --rm -d --name knowbridge-smoke -p 8080:8080 knowbridge-smoke
+          trap 'docker logs knowbridge-smoke; docker rm -f knowbridge-smoke' EXIT
+          curl --retry 10 --retry-all-errors --retry-delay 2 --connect-timeout 2 --max-time 5 --fail http://localhost:8080/api/health
+          docker exec knowbridge-smoke node -e "if(process.getuid()===0)process.exit(1);if(!require('fs').existsSync('seed/generated/manifest.json'))process.exit(2)"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: browser-report
+          path: playwright-report/
+          retention-days: 7

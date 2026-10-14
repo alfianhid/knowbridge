@@ -8,3 +8,8 @@ node_modules
 coverage
 credentials*.json
 service-account*.json
+secrets/
+.secrets/
+.data/
+playwright-report/
+test-results/
