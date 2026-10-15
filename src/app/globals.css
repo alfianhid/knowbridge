@@ -35,6 +35,19 @@ button:focus-visible,summary:focus-visible,[tabindex]:focus-visible{outline:3px 
 .source-detail dd{margin:5px 0 0;font-size:13px}
 .source-detail pre{margin:20px 0 0;max-height:350px;overflow:auto;white-space:pre-wrap;font:12px/1.65 ui-monospace,SFMono-Regular,Consolas,monospace;background:#102536;color:#dfeaf2;padding:20px;border-radius:10px}
 .empty-state{border:1px dashed var(--line);padding:30px}
+.ask-panel{margin-bottom:32px;background:var(--white);border:1px solid var(--line);border-radius:16px;padding:28px;overflow-wrap:anywhere}
+.ask-panel form{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.ask-panel label{flex-basis:100%;font-weight:700}
+.ask-panel input{flex:1 1 220px;min-width:0;min-height:44px;padding:10px;border:1px solid var(--soft);border-radius:6px;font:inherit}
+.ask-panel button{min-height:44px;padding:10px 20px;background:var(--accent);color:white;border:1px solid var(--accent);border-radius:6px;font:inherit;cursor:pointer}
+.ask-panel button:disabled{opacity:.65;cursor:default}
+.ask-panel input:focus-visible,.ask-panel a:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.ask-panel figure{margin:16px 0;padding-left:16px;border-left:3px solid var(--line)}
+.ask-panel blockquote{margin:0 0 10px}
+.ask-panel figcaption{font-size:13px;line-height:1.6}
+.ask-panel a{color:var(--accent)}
+@media(max-width:480px){.ask-panel{padding:20px}.ask-panel button{width:100%}}
+@media(forced-colors:active){.ask-panel input:focus-visible,.ask-panel a:focus-visible{outline-color:Highlight}}
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 .evidence-scroll{max-height:350px;overflow:auto;padding:16px;border:1px solid var(--line);border-radius:8px;margin:20px 0}
 .evidence-scroll h3{font-size:14px;overflow-wrap:anywhere}

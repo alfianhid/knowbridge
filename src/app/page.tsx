@@ -1,4 +1,5 @@
 import { SourceExplorer } from '@/components/source-explorer';
+import { AskPanel } from '@/components/ask-panel';
 import { DEMO_TENANT_ID, listSourceSummariesForTenant } from '@/lib/sources';
 import { limitPublicReads } from '@/lib/api-limits';
 
@@ -19,8 +20,9 @@ export default async function Home() {
         <p className="eyebrow">SINGAPORE-FIRST · GOOGLE WORKSPACE · EVIDENCE CATALOG</p>
         <h1>Know what your sources <em>actually say.</em></h1>
         <p className="intro">Inspect the evidence behind Project Harbour. Source dates and original text stay attached to every fictional record.</p>
-        <div className="pill">Synthetic demo company · {sources.length} imported sources · AI remains disabled</div>
+        <div className="pill">Grounded search available · fictional records · {sources.length} imported sources</div>
       </section>
+      <AskPanel />
       {unavailable ? <p role="alert">Source catalog unavailable. Please try again later.</p> : <SourceExplorer sources={sources} />}
       <footer>KnowBridge · All sample organizations, people, and records are fictional.</footer>
     </main>

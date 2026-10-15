@@ -18,6 +18,16 @@ import { GET as getSource } from '../src/app/api/sources/[sourceId]/route';
 import { POST as ingestSources } from '../src/app/api/ingest/route';
 
 describe('sources API', () => {
+  it('imports evaluation sources only through the explicit bounded profile', async () => {
+    const request = (body: unknown) => new Request('http://localhost/api/ingest', { method: 'POST',
+      headers: { authorization: 'Bearer test', 'content-type': 'application/json' }, body: JSON.stringify(body) });
+    expect((await ingestSources(request({ mode: 'synthetic', sourceIds: ['POL-DOC-01-V2'] }))).status).toBe(400);
+    const imported = await ingestSources(request({ mode: 'synthetic', corpus: 'evaluation', sourceIds: ['POL-DOC-01-V1', 'POL-DOC-01-V2'] }));
+    expect(imported.status).toBe(200);
+    expect(await imported.json()).toMatchObject({ queued: 2, processed: 2, failed: 0 });
+    expect((await ingestSources(request({ mode: 'synthetic', corpus: 'evaluation', sourceIds: Array.from({ length: 65 }, (_, i) => `ID-${i}`) }))).status).toBe(400);
+    expect((await ingestSources(request({ mode: 'synthetic', corpus: 'evaluation', tenantId: 'private' }))).status).toBe(400);
+  });
   it('returns only bounded public metadata from GET /api/sources', async () => {
     const response = await listSources(new Request('http://localhost/api/sources'));
     const body = await response.json();

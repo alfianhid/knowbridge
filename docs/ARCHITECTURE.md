@@ -8,7 +8,7 @@ Single Next.js/TypeScript app on **Cloud Run**, server APIs with **Firebase Admi
 Seed text/CSV  OR Google Picker selected Docs/Sheets
  -> Source adapter (stable sourceId, title, project, effective date, sourceUrl, tenantId, access)
  -> text normalizer + CSV contextualization
- -> deterministic 500-800-token chunks (sourceId + chunk ordinal)
+ -> deterministic word-budget chunks (600 words/document, 300 words/contextualized sheet)
  -> Gemini embedding-001 outputDimensionality=768
  -> Firestore collection(s) per tenant or tenant ID constrained queries + vector index
  -> top-k retrieval filtered to allowed user/tenant sources before model prompt
@@ -17,11 +17,23 @@ Seed text/CSV  OR Google Picker selected Docs/Sheets
  -> saved brief with review state
 ```
 
-### Firestore shape (proposed)
-- `tenants/{tenantId}`: name, synthetic flag.
-- `tenants/{tenantId}/sources/{sourceId}`: type, title, sourceUrl, owner, projectId, recorded/effective date, indexedAt, access policy, content hash.
-- `tenants/{tenantId}/chunks/{chunkId}`: sourceId, chunkIndex, body, embedding (Firestore VectorValue), metadata, allowedReaders if appropriate.
-- `tenants/{tenantId}/briefs/{briefId}`: question, DecisionBrief JSON, creator, reviewedAt, model ID, retrieval source IDs.
+### Implemented storage
+
+Public reads are fixed to `demo-north-quay` and fictional records. These paths are Admin SDK server storage, not client permissions:
+
+- `tenants/demo-north-quay/sources/{sourceId}`: `id`, `title`, `kind`, `project`, `projectId`, optional `department`, `owner`, `recordedAt`, nullable `effectiveAt`, `sourceUrl`, `chunkCount`, `chunks`, `contentHash`, `content`, `tenantId`, `synthetic:true`. No `indexedAt` or per-reader ACL field is currently stored.
+- Embedded source chunks: `id` (`sourceId:ordinal`), `sourceId`, `title`, `recordedAt`, `effectiveAt`, `projectId`, zero-based `ordinal`, `checksum`, literal `body`, `tenantId`.
+- `tenants/demo-north-quay/chunks/{chunkId}`: operator-materialized chunk fields plus source `contentHash`, `embeddingModel`, `embeddingDimensions:768`, and `embedding` (`VectorValue`). Stored originals remain authoritative. Missing/model-mismatched/stale vectors are excluded; reindex after source changes.
+- `tenants/demo-north-quay/embeddingCache/{model}-768-{checksumHex}`: `values`, `model`, `dimensions`, `checksum`. Retries reuse validated cache records.
+- `tenants/demo-north-quay/ingestionQuotas/{principalHash}`: atomic `window` and `count` for ingestion quotas.
+
+The ancestor tenant document need not exist. No tenant profile document is created by ingestion. Local file storage retains the same complete source record with embedded chunks.
+
+### Planned Phase 3 and private access
+
+`tenants/{tenantId}/briefs/{briefId}` is planned, not created: question, validated brief, server creator/timestamps, immutable model/source attribution, review state. Owner-scoped list/detail, atomic idempotency and verified human review are Phase 3 requirements. Future private sources require server-owned per-reader membership before retrieval; `allowedReaders` and Workspace ACL replication are not implemented.
+
+Phase 2 materializes vector chunks with `sourceId`, inherited provenance, `contentHash`, `embeddingModel`, `embeddingDimensions:768`, and `embedding` (`VectorValue`). A collection-scoped composite index covers `sourceId ASCENDING` and the 768-dimensional flat `embedding` field. Tenant-scoped `embeddingCache` records reuse model/dimension/checksum-matched embeddings. Brief persistence remains Phase 3. Exact setup and current model choices: [retrieval setup](RETRIEVAL.md).
 
 **Security rule:** With Admin SDK and server-side queries, Firestore Security Rules do *not* enforce server access. Verify identity in API, authorize tenant and source membership before retrieval, and re-check returned chunks before Gemini sees them. For first demo, use a *single isolated synthetic tenant with read-only public access and restricted write APIs*, or verified Firebase Auth; never deploy a publicly writable ingestion API.
 
@@ -39,7 +51,7 @@ Seed text/CSV  OR Google Picker selected Docs/Sheets
 - Rate-limit ingestion; make source idempotent by content hash; batch operations and avoid duplicate embeddings.
 
 ## Cost/scope
-Keep initial project docs ~500-800 tokens/chunk; cap demo ingest (e.g. top 24 Docs + 3 Sheets initially) so the first working slice can be proven cheaply. Expand to 192 sources after pipeline is stable. Add timeouts, retries, limits and budgets/alerts before bulk embedding.
+Current chunking uses 600-word document and 300-word sheet budgets, not tokenizer guarantees. Literal content is preserved. Embedding requests disable automatic truncation; overlong input fails visibly. The recorded successful embedding run covers only the original bounded 18 sources. Extend corpus coverage with measured indexing results before claiming broader readiness. Add limits and budgets/alerts before bulk embedding.
 
 Useful docs:
 - https://firebase.google.com/docs/firestore/vector-search

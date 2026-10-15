@@ -5,6 +5,8 @@ import { z } from 'zod';
 
 export const DEMO_TENANT_ID = 'demo-north-quay';
 const HARBOUR_PROJECT_ID = 'HBR';
+export const MAX_INGESTION_SOURCES = 64;
+export type SyntheticCorpus = 'harbour' | 'evaluation';
 const WORDS_PER_CHUNK = 600;
 const SOURCE_ID_PATTERN = /^[A-Z0-9-]{1,64}$/;
 const SEED_ROOT = path.resolve(process.cwd(), 'seed', 'generated');
@@ -149,8 +151,16 @@ function resolveManifestPath(relativePath: string): string {
   return resolved;
 }
 
-function selectHarbourEntries(entries: ManifestEntry[]): ManifestEntry[] {
-  return entries.filter((entry) => entry.project === HARBOUR_PROJECT_ID);
+async function selectCorpusEntries(entries: ManifestEntry[], corpus: SyntheticCorpus): Promise<ManifestEntry[]> {
+  if (corpus === 'harbour') return entries.filter(entry => entry.project === HARBOUR_PROJECT_ID);
+  if (corpus !== 'evaluation') throw new Error('Invalid synthetic corpus.');
+  const fixtures = z.array(z.object({ required_source_ids: z.array(z.string().regex(SOURCE_ID_PATTERN)) }))
+    .parse(JSON.parse(await readFile(path.join(SEED_ROOT, 'evaluation.json'), 'utf8')));
+  const required = new Set([...fixtures.flatMap(item => item.required_source_ids), 'POL-DOC-01-V1']);
+  if ([...required].some(id => !entries.some(entry => entry.id === id))) throw new Error('Evaluation source is missing from manifest.');
+  const selected = entries.filter(entry => entry.project === HARBOUR_PROJECT_ID || required.has(entry.id));
+  if (selected.length > MAX_INGESTION_SOURCES) throw new Error('Evaluation corpus exceeds ingestion bound.');
+  return selected.sort((a, b) => a.id.localeCompare(b.id));
 }
 
 function parseCsv(csv: string): string[][] {
@@ -192,12 +202,13 @@ export function contextualizeCsv(csv: string): string {
   ].join('\n')).join('\n\n');
 }
 
-export function splitIntoBodies(content: string): string[] {
+export function splitIntoBodies(content: string, wordsPerChunk = WORDS_PER_CHUNK): string[] {
+  if (!Number.isInteger(wordsPerChunk) || wordsPerChunk < 1) throw new Error('Invalid chunk word budget.');
   const blocks = [...content.matchAll(/\S[\s\S]*?(?=\n\s*\n|$)/g)].flatMap(match => {
     const words = [...match[0].matchAll(/\S+/g)];
     const ranges: { start: number; end: number; words: number }[] = [];
-    for (let index = 0; index < words.length; index += WORDS_PER_CHUNK) {
-      const lastIndex = Math.min(index + WORDS_PER_CHUNK, words.length) - 1;
+    for (let index = 0; index < words.length; index += wordsPerChunk) {
+      const lastIndex = Math.min(index + wordsPerChunk, words.length) - 1;
       ranges.push({ start: match.index! + words[index].index!, end: match.index! + words[lastIndex].index! + words[lastIndex][0].length, words: lastIndex - index + 1 });
     }
     return ranges;
@@ -207,7 +218,7 @@ export function splitIntoBodies(content: string): string[] {
   let end = 0;
   let currentWords = 0;
   for (const block of blocks) {
-    if (start >= 0 && currentWords + block.words > WORDS_PER_CHUNK) {
+    if (start >= 0 && currentWords + block.words > wordsPerChunk) {
       chunks.push(content.slice(start, end));
       start = -1;
       currentWords = 0;
@@ -222,7 +233,8 @@ export function splitIntoBodies(content: string): string[] {
 }
 
 function createChunks(source: Omit<SourceRecord, 'chunks' | 'chunkCount'>): SourceChunk[] {
-  return splitIntoBodies(source.content).map((body, index) => ({
+  // Contextualized sheet rows contain token-dense dates and numbers; use a smaller word budget.
+  return splitIntoBodies(source.content, source.kind === 'google_sheet' ? 300 : WORDS_PER_CHUNK).map((body, index) => ({
     id: `${source.id}:${index}`,
     sourceId: source.id,
     title: source.title,
@@ -273,8 +285,10 @@ async function readManifest(): Promise<ManifestEntry[]> {
 }
 
 export class SyntheticSeedAdapter implements SourceAdapter {
+  constructor(private readonly corpus: SyntheticCorpus = 'harbour') {}
+
   async list(sourceIds?: string[]): Promise<SourceRecord[]> {
-    const entries = selectHarbourEntries(await readManifest());
+    const entries = await selectCorpusEntries(await readManifest(), this.corpus);
     const selected = sourceIds ? sourceIds.map(id => {
       const entry = entries.find(entry => entry.id === id);
       if (!entry) throw new Error(`Unknown synthetic source ID: ${id}`);
@@ -297,7 +311,7 @@ export async function ingestSyntheticSources(options: {
   sourceIds?: string[];
 } = {}): Promise<IngestionResult> {
   const store = options.store ?? (await import('./source-store')).getSourceStore();
-  if (options.sourceIds && (new Set(options.sourceIds).size !== options.sourceIds.length || options.sourceIds.some(id => !SOURCE_ID_PATTERN.test(id)))) {
+  if (options.sourceIds && (!options.sourceIds.length || options.sourceIds.length > MAX_INGESTION_SOURCES || new Set(options.sourceIds).size !== options.sourceIds.length || options.sourceIds.some(id => !SOURCE_ID_PATTERN.test(id)))) {
     throw new Error('Invalid source IDs.');
   }
   const selected = (await (options.adapter ?? syntheticAdapter).list(options.sourceIds)).sort((a, b) => a.id.localeCompare(b.id));

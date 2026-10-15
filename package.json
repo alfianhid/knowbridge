@@ -12,6 +12,7 @@
     "seed": "python scripts/generate_seed.py",
     "seed:verify": "python scripts/verify_seed.py",
     "ingest:local": "node scripts/run-typescript.cjs scripts/ingest-local.ts",
+    "index:vectors": "node scripts/run-typescript.cjs scripts/index-vectors.ts",
     "test:e2e": "node scripts/prepare-standalone.cjs && playwright test"
   },
   "engines": {

@@ -59,6 +59,9 @@ describe('synthetic source import', () => {
     expect(harbour?.sourceUrl).toBe('/api/sources/HBR-DOC-02');
     expect(sheet?.content).toContain(': ');
     expect(sheet?.content).toContain('\n');
+    for (const source of sources.filter(source => source.kind === 'google_sheet')) {
+      expect(source.chunks.every(chunk => chunk.body.split(/\s+/).length <= 300 && source.content.includes(chunk.body))).toBe(true);
+    }
   });
 });
 

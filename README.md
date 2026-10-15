@@ -4,11 +4,13 @@ Connecting knowledge to confident decisions. Singapore-first evidence catalog fo
 
 ## Current status
 
-Phase 1 implements a bounded synthetic source catalog, durable ingestion and provenance. The active batch contains 16 Harbour documents and 2 sheets. Source IDs, historical recorded/effective dates, literal text, chunks and SHA-256 checksums are retained.
+Phase 1 implements a bounded synthetic source catalog, durable ingestion and provenance. Default import contains 16 Harbour documents and 2 sheets. The explicit evaluation profile contains 55 sources across eight projects and both launch-readiness policy revisions; see [retrieval setup](docs/RETRIEVAL.md). Source IDs, historical recorded/effective dates, literal text, chunks and SHA-256 checksums are retained.
 
 Local development uses durable files under ignored `.data/sources`. Cloud Run requires Firestore. Ingestion and catalog/detail reads use the same store. Imports survive restart, concurrent retries skip unchanged records, and metadata changes refresh stored records. Failed imports report actual failure counts.
 
-Gemini, embeddings, vector retrieval, Q&A and saved decision APIs are pending Phase 2/3. Health truthfully returns `aiEnabled:false`. No model accuracy or cloud deployment is claimed.
+Phase 2 adds `/api/ask`, an Ask UI, Gemini 768-dimensional embeddings, scoped Firestore vector retrieval and structured Gemini answers with verified literal citations. Local mode is deterministic lexical evidence lookup with no AI synthesis. Cloud Run requires Vertex AI and Firestore; failures never switch to local responses. Saved decision APIs remain Phase 3. Live cloud Harbour and absent-information checks passed on 2026-10-15; see [cloud results](docs/CLOUD-PHASE2-RESULTS.md). Broader model accuracy and deployment are not claimed.
+
+Synthesized answers now pass a separate structured semantic review after citation checks. Eight live semantic regressions passed. The full benchmark recorded 9/12 and 10/12 automated passes, with all five failed-case retries passing; [per-attempt evidence](docs/EVALUATION-RESULTS-2026-10-15.md) preserves failures. This does not replace human review. Current evidence, full-evaluation outcomes and remaining acceptance gates are linked from [readiness](docs/READINESS.md).
 
 ## Run locally
 
@@ -17,11 +19,19 @@ Requires Node.js 22.18+ and Python 3.11+. On PowerShell use `npm.cmd` if script 
 ```powershell
 npm.cmd ci
 python scripts/verify_seed.py
+$env:KNOWBRIDGE_STORE="file"
+$env:KNOWBRIDGE_RETRIEVAL="local"
 npm.cmd run ingest:local
 npm.cmd run dev
 ```
 
 Open http://localhost:3000. Empty storage shows an empty catalog until ingestion runs. The trusted local ingestion CLI does not open an unauthenticated HTTP mutation path.
+
+Keep both mode variables set in the same shell for ingestion and the app. Shell settings override Next.js `.env` settings, including an existing cloud profile. `ingest:local` is a script name, not a forced storage backend. For Firestore/Vertex CLI commands, load the cloud profile explicitly as shown in [retrieval setup](docs/RETRIEVAL.md).
+
+Ask “Can Project Harbour launch on 1 Nov?” to inspect client expectations, newer QA forecasts, pending security and decision records. Local responses quote evidence; they do not generate recommendations. Absent evidence returns `insufficient_evidence`.
+
+For cloud settings, vector schema, the exact one-time index command and indexing instructions, see [Phase 2 setup](docs/RETRIEVAL.md). `npm.cmd run index:vectors` is a trusted operator step after cloud source ingestion. Health reports configuration readiness, never verified connectivity.
 
 If the Python launcher cannot locate the user installation:
 ```powershell
@@ -40,7 +50,7 @@ npm.cmd run test:e2e
 npm.cmd audit
 ```
 
-Browser tests require a production build and the local 18-source import. Playwright starts its own local server. Tests cover mobile reflow, keyboard access, forced colors, source selection, retry and axe checks. These checks do not certify complete accessibility. AI benchmark semantics remain pending real retrieval.
+Browser tests require a production build and the local 18-source import. Playwright starts its own local server. Tests cover mobile reflow, keyboard access, forced colors, source selection, retry and axe checks. These checks do not certify complete accessibility. Bounded real retrieval has recorded smoke evidence; the 12-case automated run is recorded, while single-run reliability and human semantic review remain open. See [current readiness](docs/READINESS.md).
 
 ## Data and hero facts
 
