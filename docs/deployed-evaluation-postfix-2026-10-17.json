@@ -1,0 +1,537 @@
+{
+  "timestamp": "2026-10-17T12:47:28.351Z",
+  "url": "https://knowbridge-208529907910.asia-southeast1.run.app",
+  "revision": "knowbridge-00012-n6t",
+  "latencyDefinition": "HTTP /api/ask request plus independent authorized /api/sources citation verification; includes failed cases.",
+  "runScope": "full-deployed-api-suite",
+  "suiteFixtures": 12,
+  "totalFixtures": 12,
+  "completed": 12,
+  "automatedPassed": 2,
+  "automatedFailed": 10,
+  "humanReviewed": 0,
+  "humanSemanticPasses": null,
+  "medianLatencyMs": 19749,
+  "requestCounts": {
+    "askCalls": 12,
+    "sourceLookups": 9
+  },
+  "results": [
+    {
+      "id": "CASE-HBR",
+      "question": "Can we commit to launching Project Harbour on 2026-11-01? Identify conflicting evidence and recommend a next step.",
+      "expected": "Do not confirm the original full-production date without revised QA, security and customer approval.",
+      "timestamp": "2026-10-17T12:35:22.735Z",
+      "requiredSourceIds": [
+        "HBR-DOC-02",
+        "HBR-DOC-04",
+        "HBR-DOC-05",
+        "HBR-DOC-06",
+        "HBR-DOC-09"
+      ],
+      "humanReview": "pending",
+      "latencyMs": 6351,
+      "citedSourceIds": [],
+      "missingRequiredIds": [
+        "HBR-DOC-02",
+        "HBR-DOC-04",
+        "HBR-DOC-05",
+        "HBR-DOC-06",
+        "HBR-DOC-09"
+      ],
+      "literalCitationsValid": false,
+      "factCoverage": false,
+      "automatedPassed": false,
+      "errorStatus": 503,
+      "error": "Grounded search unavailable. Check configuration, index and service access."
+    },
+    {
+      "id": "CASE-MER",
+      "question": "Can we commit to launching Project Meridian on 2026-11-04? Identify conflicting evidence and recommend a next step.",
+      "expected": "Do not confirm the original full-production date without revised QA, security and customer approval.",
+      "timestamp": "2026-10-17T12:35:37.742Z",
+      "requiredSourceIds": [
+        "MER-DOC-02",
+        "MER-DOC-04",
+        "MER-DOC-05",
+        "MER-DOC-06",
+        "MER-DOC-09"
+      ],
+      "humanReview": "pending",
+      "latencyMs": 27307,
+      "citedSourceIds": [
+        "MER-DOC-02",
+        "MER-DOC-04",
+        "MER-DOC-05",
+        "MER-DOC-06",
+        "POL-DOC-01-V2",
+        "MER-DOC-09"
+      ],
+      "missingRequiredIds": [],
+      "literalCitationsValid": true,
+      "factCoverage": true,
+      "automatedPassed": true,
+      "response": {
+        "status": "supported",
+        "claims": [
+          {
+            "claim": "The client target remains planned for 2026-11-04, but no revised date or pilot has been accepted by the client.",
+            "evidence": [
+              {
+                "sourceId": "MER-DOC-02",
+                "excerpt": "The client team continues planning around 2026-11-04 for delivery of the supplier onboarding portal.",
+                "sourceTitle": "Project Meridian — Customer Commitments",
+                "sourceUrl": "/api/sources/MER-DOC-02",
+                "recordedAt": "2026-10-07",
+                "effectiveAt": null
+              },
+              {
+                "sourceId": "MER-DOC-02",
+                "excerpt": "The client has not yet accepted a new date or a reduced-scope pilot.",
+                "sourceTitle": "Project Meridian — Customer Commitments",
+                "sourceUrl": "/api/sources/MER-DOC-02",
+                "recordedAt": "2026-10-07",
+                "effectiveAt": null
+              }
+            ]
+          },
+          {
+            "claim": "The latest QA forecast for final regression completion is 2026-11-12, QA coverage is incomplete, and sign-off has not been issued.",
+            "evidence": [
+              {
+                "sourceId": "MER-DOC-04",
+                "excerpt": "The latest forecast for final regression completion is 2026-11-12.",
+                "sourceTitle": "Project Meridian — QA Forecast",
+                "sourceUrl": "/api/sources/MER-DOC-04",
+                "recordedAt": "2026-10-10",
+                "effectiveAt": null
+              },
+              {
+                "sourceId": "MER-DOC-04",
+                "excerpt": "Isabelle Wong owns sign-off, which has not been issued. There is no approved evidence that production QA is complete.",
+                "sourceTitle": "Project Meridian — QA Forecast",
+                "sourceUrl": "/api/sources/MER-DOC-04",
+                "recordedAt": "2026-10-10",
+                "effectiveAt": null
+              }
+            ]
+          },
+          {
+            "claim": "Delivery schedule conflict and pending security sign-off are recorded as explicit high-impact risks.",
+            "evidence": [
+              {
+                "sourceId": "MER-DOC-05",
+                "excerpt": "Risk R-MER-01: QA forecast 2026-11-12 does not support the published customer target 2026-11-04. Likelihood HIGH, impact HIGH.",
+                "sourceTitle": "Project Meridian — Risk Register",
+                "sourceUrl": "/api/sources/MER-DOC-05",
+                "recordedAt": "2026-10-11",
+                "effectiveAt": null
+              },
+              {
+                "sourceId": "MER-DOC-05",
+                "excerpt": "Risk R-MER-02: security sign-off remains PENDING as of 2026-10-11. Likelihood MEDIUM, impact HIGH.",
+                "sourceTitle": "Project Meridian — Risk Register",
+                "sourceUrl": "/api/sources/MER-DOC-05",
+                "recordedAt": "2026-10-11",
+                "effectiveAt": null
+              }
+            ]
+          },
+          {
+            "claim": "Production security approval is pending, with no sign-off recorded.",
+            "evidence": [
+              {
+                "sourceId": "MER-DOC-06",
+                "excerpt": "Production release approval: PENDING.",
+                "sourceTitle": "Project Meridian — Security Assessment",
+                "sourceUrl": "/api/sources/MER-DOC-06",
+                "recordedAt": "2026-10-11",
+                "effectiveAt": null
+              },
+              {
+                "sourceId": "MER-DOC-06",
+                "excerpt": "No security sign-off has been recorded.",
+                "sourceTitle": "Project Meridian — Security Assessment",
+                "sourceUrl": "/api/sources/MER-DOC-06",
+                "recordedAt": "2026-10-11",
+                "effectiveAt": null
+              }
+            ]
+          },
+          {
+            "claim": "Company policy mandates documented QA completion and security approval before production launch.",
+            "evidence": [
+              {
+                "sourceId": "POL-DOC-01-V2",
+                "excerpt": "Production launch requires documented QA completion, security approval and named on-call owner.",
+                "sourceTitle": "Company Policy — Launch Readiness — Rev 2",
+                "sourceUrl": "/api/sources/POL-DOC-01-V2",
+                "recordedAt": "2026-10-01",
+                "effectiveAt": "2026-10-01"
+              }
+            ]
+          },
+          {
+            "claim": "Decision record D-MER-002 to escalate the delivery schedule conflict remains open, with no approval authorizing a later full release date or completed pilot.",
+            "evidence": [
+              {
+                "sourceId": "MER-DOC-09",
+                "excerpt": "D-MER-002 on 2026-10-11: escalate delivery schedule conflict to leadership; owner Elena Koh; status OPEN.",
+                "sourceTitle": "Project Meridian — Decision Log",
+                "sourceUrl": "/api/sources/MER-DOC-09",
+                "recordedAt": "2026-10-11",
+                "effectiveAt": null
+              },
+              {
+                "sourceId": "MER-DOC-09",
+                "excerpt": "No decision authorizing a later full-release date exists in this log. No completed customer approval for a pilot exists in this log.",
+                "sourceTitle": "Project Meridian — Decision Log",
+                "sourceUrl": "/api/sources/MER-DOC-09",
+                "recordedAt": "2026-10-11",
+                "effectiveAt": null
+              }
+            ]
+          },
+          {
+            "claim": "A recommended next step must be conditional on resolving missing approvals and decisions: resolve the open escalation D-MER-002 with leadership, conduct the client conversation regarding a revised schedule or pilot, and satisfy pending QA and security sign-off requirements.",
+            "evidence": [
+              {
+                "sourceId": "MER-DOC-09",
+                "excerpt": "D-MER-002 on 2026-10-11: escalate delivery schedule conflict to leadership; owner Elena Koh; status OPEN.",
+                "sourceTitle": "Project Meridian — Decision Log",
+                "sourceUrl": "/api/sources/MER-DOC-09",
+                "recordedAt": "2026-10-11",
+                "effectiveAt": null
+              },
+              {
+                "sourceId": "MER-DOC-02",
+                "excerpt": "Elena Koh explained that a revised commitment requires written approval and a customer update. The client has not yet accepted a new date or a reduced-scope pilot.",
+                "sourceTitle": "Project Meridian — Customer Commitments",
+                "sourceUrl": "/api/sources/MER-DOC-02",
+                "recordedAt": "2026-10-07",
+                "effectiveAt": null
+              },
+              {
+                "sourceId": "MER-DOC-05",
+                "excerpt": "Mitigation: customer conversation, updated plan, and controlled pilot assessment. No mitigation has been approved as a new launch commitment.",
+                "sourceTitle": "Project Meridian — Risk Register",
+                "sourceUrl": "/api/sources/MER-DOC-05",
+                "recordedAt": "2026-10-11",
+                "effectiveAt": null
+              }
+            ]
+          }
+        ],
+        "unknowns": [
+          "Whether leadership has reached an outcome on open escalation D-MER-002 after 2026-10-11.",
+          "Whether the client has agreed to a staged rollout or revised launch date following the 2026-10-07 assessment.",
+          "Whether Darren Ng has completed the security walkthrough and issued formal sign-off.",
+          "Whether Isabelle Wong has approved and completed QA regression testing."
+        ],
+        "answer": "The client target remains planned for 2026-11-04, but no revised date or pilot has been accepted by the client.\n\nThe latest QA forecast for final regression completion is 2026-11-12, QA coverage is incomplete, and sign-off has not been issued.\n\nDelivery schedule conflict and pending security sign-off are recorded as explicit high-impact risks.\n\nProduction security approval is pending, with no sign-off recorded.\n\nCompany policy mandates documented QA completion and security approval before production launch.\n\nDecision record D-MER-002 to escalate the delivery schedule conflict remains open, with no approval authorizing a later full release date or completed pilot.\n\nA recommended next step must be conditional on resolving missing approvals and decisions: resolve the open escalation D-MER-002 with leadership, conduct the client conversation regarding a revised schedule or pilot, and satisfy pending QA and security sign-off requirements.",
+        "mode": "vertex",
+        "model": "gemini-3.8-flash",
+        "synthetic": true
+      }
+    },
+    {
+      "id": "CASE-NTH",
+      "question": "Can we commit to launching Project Northstar on 2026-11-06? Identify conflicting evidence and recommend a next step.",
+      "expected": "Do not confirm the original full-production date without revised QA, security and customer approval.",
+      "timestamp": "2026-10-17T12:36:05.054Z",
+      "requiredSourceIds": [
+        "NTH-DOC-02",
+        "NTH-DOC-04",
+        "NTH-DOC-05",
+        "NTH-DOC-06",
+        "NTH-DOC-09"
+      ],
+      "humanReview": "pending",
+      "latencyMs": 9339,
+      "citedSourceIds": [],
+      "missingRequiredIds": [
+        "NTH-DOC-02",
+        "NTH-DOC-04",
+        "NTH-DOC-05",
+        "NTH-DOC-06",
+        "NTH-DOC-09"
+      ],
+      "literalCitationsValid": false,
+      "factCoverage": false,
+      "automatedPassed": false,
+      "errorStatus": 503,
+      "error": "Grounded search unavailable. Check configuration, index and service access."
+    },
+    {
+      "id": "CASE-ORC",
+      "question": "Can we commit to launching Project Orchard on 2026-11-09? Identify conflicting evidence and recommend a next step.",
+      "expected": "Do not confirm the original full-production date without revised QA, security and customer approval.",
+      "timestamp": "2026-10-17T12:36:20.056Z",
+      "requiredSourceIds": [
+        "ORC-DOC-02",
+        "ORC-DOC-04",
+        "ORC-DOC-05",
+        "ORC-DOC-06",
+        "ORC-DOC-09"
+      ],
+      "humanReview": "pending",
+      "latencyMs": 127972,
+      "citedSourceIds": [],
+      "missingRequiredIds": [
+        "ORC-DOC-02",
+        "ORC-DOC-04",
+        "ORC-DOC-05",
+        "ORC-DOC-06",
+        "ORC-DOC-09"
+      ],
+      "literalCitationsValid": false,
+      "factCoverage": false,
+      "automatedPassed": false,
+      "errorStatus": 503,
+      "error": "Semantic review is unavailable. Please retry."
+    },
+    {
+      "id": "CASE-BCN",
+      "question": "Can we commit to launching Project Beacon on 2026-11-12? Identify conflicting evidence and recommend a next step.",
+      "expected": "Do not confirm the original full-production date without revised QA, security and customer approval.",
+      "timestamp": "2026-10-17T12:38:28.029Z",
+      "requiredSourceIds": [
+        "BCN-DOC-02",
+        "BCN-DOC-04",
+        "BCN-DOC-05",
+        "BCN-DOC-06",
+        "BCN-DOC-09"
+      ],
+      "humanReview": "pending",
+      "latencyMs": 12191,
+      "citedSourceIds": [],
+      "missingRequiredIds": [
+        "BCN-DOC-02",
+        "BCN-DOC-04",
+        "BCN-DOC-05",
+        "BCN-DOC-06",
+        "BCN-DOC-09"
+      ],
+      "literalCitationsValid": false,
+      "factCoverage": false,
+      "automatedPassed": false,
+      "errorStatus": 503,
+      "error": "Semantic review is unavailable. Please retry."
+    },
+    {
+      "id": "CASE-ATL",
+      "question": "Can we commit to launching Project Atlas on 2026-11-15? Identify conflicting evidence and recommend a next step.",
+      "expected": "Do not confirm the original full-production date without revised QA, security and customer approval.",
+      "timestamp": "2026-10-17T12:38:43.033Z",
+      "requiredSourceIds": [
+        "ATL-DOC-02",
+        "ATL-DOC-04",
+        "ATL-DOC-05",
+        "ATL-DOC-06",
+        "ATL-DOC-09"
+      ],
+      "humanReview": "pending",
+      "latencyMs": 119499,
+      "citedSourceIds": [],
+      "missingRequiredIds": [
+        "ATL-DOC-02",
+        "ATL-DOC-04",
+        "ATL-DOC-05",
+        "ATL-DOC-06",
+        "ATL-DOC-09"
+      ],
+      "literalCitationsValid": false,
+      "factCoverage": false,
+      "automatedPassed": false,
+      "errorStatus": 503,
+      "error": "Grounded search unavailable. Check configuration, index and service access."
+    },
+    {
+      "id": "CASE-JNP",
+      "question": "Can we commit to launching Project Juniper on 2026-11-18? Identify conflicting evidence and recommend a next step.",
+      "expected": "Do not confirm the original full-production date without revised QA, security and customer approval.",
+      "timestamp": "2026-10-17T12:40:42.534Z",
+      "requiredSourceIds": [
+        "JNP-DOC-02",
+        "JNP-DOC-04",
+        "JNP-DOC-05",
+        "JNP-DOC-06",
+        "JNP-DOC-09"
+      ],
+      "humanReview": "pending",
+      "latencyMs": 11523,
+      "citedSourceIds": [],
+      "missingRequiredIds": [
+        "JNP-DOC-02",
+        "JNP-DOC-04",
+        "JNP-DOC-05",
+        "JNP-DOC-06",
+        "JNP-DOC-09"
+      ],
+      "literalCitationsValid": false,
+      "factCoverage": false,
+      "automatedPassed": false,
+      "errorStatus": 503,
+      "error": "Semantic review is unavailable. Please retry."
+    },
+    {
+      "id": "CASE-CDR",
+      "question": "Can we commit to launching Project Cedar on 2026-11-21? Identify conflicting evidence and recommend a next step.",
+      "expected": "Do not confirm the original full-production date without revised QA, security and customer approval.",
+      "timestamp": "2026-10-17T12:40:57.537Z",
+      "requiredSourceIds": [
+        "CDR-DOC-02",
+        "CDR-DOC-04",
+        "CDR-DOC-05",
+        "CDR-DOC-06",
+        "CDR-DOC-09"
+      ],
+      "humanReview": "pending",
+      "latencyMs": 10756,
+      "citedSourceIds": [],
+      "missingRequiredIds": [
+        "CDR-DOC-02",
+        "CDR-DOC-04",
+        "CDR-DOC-05",
+        "CDR-DOC-06",
+        "CDR-DOC-09"
+      ],
+      "literalCitationsValid": false,
+      "factCoverage": false,
+      "automatedPassed": false,
+      "errorStatus": 503,
+      "error": "Semantic review is unavailable. Please retry."
+    },
+    {
+      "id": "CASE-UNKNOWN-01",
+      "question": "What is the CEO personal mobile number?",
+      "expected": "Not present in indexed documents; decline to guess.",
+      "timestamp": "2026-10-17T12:41:12.537Z",
+      "requiredSourceIds": [],
+      "humanReview": "pending",
+      "latencyMs": 120285,
+      "citedSourceIds": [],
+      "missingRequiredIds": [],
+      "literalCitationsValid": false,
+      "factCoverage": false,
+      "automatedPassed": false,
+      "errorStatus": 503,
+      "error": "Grounded search unavailable. Check configuration, index and service access."
+    },
+    {
+      "id": "CASE-UNKNOWN-02",
+      "question": "Has the client signed the revised Harbour launch commitment?",
+      "expected": "No signed revised commitment is evidenced.",
+      "timestamp": "2026-10-17T12:43:12.826Z",
+      "requiredSourceIds": [
+        "HBR-DOC-02",
+        "HBR-DOC-09",
+        "HBR-DOC-15"
+      ],
+      "humanReview": "pending",
+      "latencyMs": 10834,
+      "citedSourceIds": [
+        "HBR-DOC-02",
+        "HBR-DOC-09",
+        "HBR-DOC-15"
+      ],
+      "missingRequiredIds": [],
+      "literalCitationsValid": true,
+      "factCoverage": true,
+      "automatedPassed": true,
+      "response": {
+        "status": "supported",
+        "claims": [
+          {
+            "claim": "The client has not signed or accepted a revised launch commitment or date, and continues planning around the 2026-11-01 baseline.",
+            "evidence": [
+              {
+                "sourceId": "HBR-DOC-02",
+                "excerpt": "The client team continues planning around 2026-11-01 for delivery of the customer self-service portal. Their launch communication has not been updated since the 2026-08-19 baseline. Avery Tan explained that a revised commitment requires written approval and a customer update. The client has not yet accepted a new date or a reduced-scope pilot.",
+                "sourceTitle": "Project Harbour — Customer Commitments",
+                "sourceUrl": "/api/sources/HBR-DOC-02",
+                "recordedAt": "2026-10-07",
+                "effectiveAt": null
+              }
+            ]
+          },
+          {
+            "claim": "No decision authorizing a later full-release date or completed customer approval for a pilot exists in the project decision log.",
+            "evidence": [
+              {
+                "sourceId": "HBR-DOC-09",
+                "excerpt": "No decision authorizing a later full-release date exists in this log. No completed customer approval for a pilot exists in this log. Do not infer approval from the presence of a proposal.",
+                "sourceTitle": "Project Harbour — Decision Log",
+                "sourceUrl": "/api/sources/HBR-DOC-09",
+                "recordedAt": "2026-10-11",
+                "effectiveAt": null
+              }
+            ]
+          },
+          {
+            "claim": "The change control proposal regarding a reduced-scope pilot and adjusted release date remains a draft and is not approved.",
+            "evidence": [
+              {
+                "sourceId": "HBR-DOC-15",
+                "excerpt": "Proposal: assess a reduced-scope pilot around 2026-11-01 and a full production release after QA completion 2026-11-11. Status: DRAFT / NOT APPROVED. The request must document test scope, security acceptance, customer approval and commercial impact. Do not treat this proposal as a final decision.",
+                "sourceTitle": "Project Harbour — Change Control",
+                "sourceUrl": "/api/sources/HBR-DOC-15",
+                "recordedAt": "2026-10-10",
+                "effectiveAt": null
+              }
+            ]
+          }
+        ],
+        "unknowns": [
+          "Whether the client signed any revised commitment after the recorded date of 2026-10-11 up to the as-of date of 2026-10-17."
+        ],
+        "answer": "The client has not signed or accepted a revised launch commitment or date, and continues planning around the 2026-11-01 baseline.\n\nNo decision authorizing a later full-release date or completed customer approval for a pilot exists in the project decision log.\n\nThe change control proposal regarding a reduced-scope pilot and adjusted release date remains a draft and is not approved.",
+        "mode": "vertex",
+        "model": "gemini-3.8-flash",
+        "synthetic": true
+      }
+    },
+    {
+      "id": "CASE-POLICY-01",
+      "question": "What approvals are required before any production launch?",
+      "expected": "QA completion, security approval and named on-call owner per current policy.",
+      "timestamp": "2026-10-17T12:43:27.829Z",
+      "requiredSourceIds": [
+        "POL-DOC-01-V2"
+      ],
+      "humanReview": "pending",
+      "latencyMs": 121383,
+      "citedSourceIds": [],
+      "missingRequiredIds": [
+        "POL-DOC-01-V2"
+      ],
+      "literalCitationsValid": false,
+      "factCoverage": false,
+      "automatedPassed": false,
+      "errorStatus": 503,
+      "error": "Semantic review is unavailable. Please retry."
+    },
+    {
+      "id": "CASE-HBR-SPECIFIC",
+      "question": "What is the difference between Project Harbour customer target and latest QA forecast?",
+      "expected": "Client target 2026-11-01; QA completion forecast 2026-11-11. Both have different meanings and latest evidence suggests launch risk.",
+      "timestamp": "2026-10-17T12:45:29.214Z",
+      "requiredSourceIds": [
+        "HBR-DOC-02",
+        "HBR-DOC-04"
+      ],
+      "humanReview": "pending",
+      "latencyMs": 119137,
+      "citedSourceIds": [],
+      "missingRequiredIds": [
+        "HBR-DOC-02",
+        "HBR-DOC-04"
+      ],
+      "literalCitationsValid": false,
+      "factCoverage": false,
+      "automatedPassed": false,
+      "errorStatus": 503,
+      "error": "Grounded search unavailable. Check configuration, index and service access."
+    }
+  ]
+}

@@ -1,0 +1,172 @@
+{
+  "timestamp": "2026-10-17T12:13:21.908Z",
+  "url": "https://knowbridge-208529907910.asia-southeast1.run.app",
+  "revision": "knowbridge-00011-xx4",
+  "latencyDefinition": "HTTP /api/ask request plus independent authorized /api/sources citation verification; includes failed cases.",
+  "runScope": "deployed-api-selected-case-retry",
+  "suiteFixtures": 12,
+  "totalFixtures": 1,
+  "completed": 1,
+  "automatedPassed": 1,
+  "automatedFailed": 0,
+  "humanReviewed": 0,
+  "humanSemanticPasses": null,
+  "medianLatencyMs": 24624,
+  "requestCounts": {
+    "askCalls": 1,
+    "sourceLookups": 7
+  },
+  "results": [
+    {
+      "id": "CASE-HBR",
+      "question": "Can we commit to launching Project Harbour on 2026-11-01? Identify conflicting evidence and recommend a next step.",
+      "expected": "Do not confirm the original full-production date without revised QA, security and customer approval.",
+      "timestamp": "2026-10-17T12:12:57.284Z",
+      "requiredSourceIds": [
+        "HBR-DOC-02",
+        "HBR-DOC-04",
+        "HBR-DOC-05",
+        "HBR-DOC-06",
+        "HBR-DOC-09"
+      ],
+      "humanReview": "pending",
+      "latencyMs": 24624,
+      "citedSourceIds": [
+        "HBR-DOC-02",
+        "HBR-DOC-04",
+        "HBR-DOC-06",
+        "HBR-DOC-09",
+        "HBR-DOC-05",
+        "HBR-DOC-15",
+        "POL-DOC-01-V2"
+      ],
+      "missingRequiredIds": [],
+      "literalCitationsValid": true,
+      "factCoverage": true,
+      "automatedPassed": true,
+      "response": {
+        "status": "supported",
+        "claims": [
+          {
+            "claim": "The client target remains 2026-11-01, but a commitment to launching on that date cannot be confirmed because QA completion is forecasted for 2026-11-11, security sign-off is pending, and delivery schedule escalation remains open.",
+            "evidence": [
+              {
+                "sourceId": "HBR-DOC-02",
+                "excerpt": "The client team continues planning around 2026-11-01 for delivery of the customer self-service portal.",
+                "sourceTitle": "Project Harbour — Customer Commitments",
+                "sourceUrl": "/api/sources/HBR-DOC-02",
+                "recordedAt": "2026-10-07",
+                "effectiveAt": null
+              },
+              {
+                "sourceId": "HBR-DOC-04",
+                "excerpt": "The latest forecast for final regression completion is 2026-11-11.",
+                "sourceTitle": "Project Harbour — QA Forecast",
+                "sourceUrl": "/api/sources/HBR-DOC-04",
+                "recordedAt": "2026-10-10",
+                "effectiveAt": null
+              },
+              {
+                "sourceId": "HBR-DOC-06",
+                "excerpt": "Production release approval: PENDING.",
+                "sourceTitle": "Project Harbour — Security Assessment",
+                "sourceUrl": "/api/sources/HBR-DOC-06",
+                "recordedAt": "2026-10-11",
+                "effectiveAt": null
+              },
+              {
+                "sourceId": "HBR-DOC-09",
+                "excerpt": "D-HBR-002 on 2026-10-11: escalate delivery schedule conflict to leadership; owner Avery Tan; status OPEN.",
+                "sourceTitle": "Project Harbour — Decision Log",
+                "sourceUrl": "/api/sources/HBR-DOC-09",
+                "recordedAt": "2026-10-11",
+                "effectiveAt": null
+              }
+            ]
+          },
+          {
+            "claim": "Explicit delivery risks highlight that the QA forecast of 2026-11-11 conflicts with the published customer target of 2026-11-01, security sign-off remains pending, and no mitigation has been approved as a new launch commitment.",
+            "evidence": [
+              {
+                "sourceId": "HBR-DOC-05",
+                "excerpt": "Risk R-HBR-01: QA forecast 2026-11-11 does not support the published customer target 2026-11-01.",
+                "sourceTitle": "Project Harbour — Risk Register",
+                "sourceUrl": "/api/sources/HBR-DOC-05",
+                "recordedAt": "2026-10-11",
+                "effectiveAt": null
+              },
+              {
+                "sourceId": "HBR-DOC-05",
+                "excerpt": "Risk R-HBR-02: security sign-off remains PENDING as of 2026-10-11.",
+                "sourceTitle": "Project Harbour — Risk Register",
+                "sourceUrl": "/api/sources/HBR-DOC-05",
+                "recordedAt": "2026-10-11",
+                "effectiveAt": null
+              },
+              {
+                "sourceId": "HBR-DOC-05",
+                "excerpt": "No mitigation has been approved as a new launch commitment.",
+                "sourceTitle": "Project Harbour — Risk Register",
+                "sourceUrl": "/api/sources/HBR-DOC-05",
+                "recordedAt": "2026-10-11",
+                "effectiveAt": null
+              }
+            ]
+          },
+          {
+            "claim": "A proposal exists to evaluate a reduced-scope pilot around 2026-11-01 with full production release after QA completion on 2026-11-11, but it remains a draft and has not been approved.",
+            "evidence": [
+              {
+                "sourceId": "HBR-DOC-15",
+                "excerpt": "Proposal: assess a reduced-scope pilot around 2026-11-01 and a full production release after QA completion 2026-11-11. Status: DRAFT / NOT APPROVED.",
+                "sourceTitle": "Project Harbour — Change Control",
+                "sourceUrl": "/api/sources/HBR-DOC-15",
+                "recordedAt": "2026-10-10",
+                "effectiveAt": null
+              },
+              {
+                "sourceId": "HBR-DOC-02",
+                "excerpt": "The client has not yet accepted a new date or a reduced-scope pilot.",
+                "sourceTitle": "Project Harbour — Customer Commitments",
+                "sourceUrl": "/api/sources/HBR-DOC-02",
+                "recordedAt": "2026-10-07",
+                "effectiveAt": null
+              }
+            ]
+          },
+          {
+            "claim": "Under corporate policy, production launch requires documented QA completion, security approval, and a named on-call owner, and delivery owner Avery Tan noted that a revised commitment requires written approval and a customer update.",
+            "evidence": [
+              {
+                "sourceId": "POL-DOC-01-V2",
+                "excerpt": "Production launch requires documented QA completion, security approval and named on-call owner.",
+                "sourceTitle": "Company Policy — Launch Readiness — Rev 2",
+                "sourceUrl": "/api/sources/POL-DOC-01-V2",
+                "recordedAt": "2026-10-01",
+                "effectiveAt": "2026-10-01"
+              },
+              {
+                "sourceId": "HBR-DOC-02",
+                "excerpt": "Avery Tan explained that a revised commitment requires written approval and a customer update.",
+                "sourceTitle": "Project Harbour — Customer Commitments",
+                "sourceUrl": "/api/sources/HBR-DOC-02",
+                "recordedAt": "2026-10-07",
+                "effectiveAt": null
+              }
+            ]
+          }
+        ],
+        "unknowns": [
+          "Whether leadership has resolved the escalated delivery schedule conflict D-HBR-002.",
+          "Whether security sign-off has been granted following the requested access-control walkthrough and logging proof.",
+          "Whether the client Harbourlight Retail has accepted a reduced-scope pilot or a rescheduled release date.",
+          "Whether change request CR-HBR-08 has been formally approved."
+        ],
+        "answer": "The client target remains 2026-11-01, but a commitment to launching on that date cannot be confirmed because QA completion is forecasted for 2026-11-11, security sign-off is pending, and delivery schedule escalation remains open.\n\nExplicit delivery risks highlight that the QA forecast of 2026-11-11 conflicts with the published customer target of 2026-11-01, security sign-off remains pending, and no mitigation has been approved as a new launch commitment.\n\nA proposal exists to evaluate a reduced-scope pilot around 2026-11-01 with full production release after QA completion on 2026-11-11, but it remains a draft and has not been approved.\n\nUnder corporate policy, production launch requires documented QA completion, security approval, and a named on-call owner, and delivery owner Avery Tan noted that a revised commitment requires written approval and a customer update.",
+        "mode": "vertex",
+        "model": "gemini-3.8-flash",
+        "synthetic": true
+      }
+    }
+  ]
+}

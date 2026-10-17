@@ -1,0 +1,41 @@
+{
+  "timestamp": "2026-10-17T12:16:23.886Z",
+  "url": "https://knowbridge-208529907910.asia-southeast1.run.app",
+  "revision": "knowbridge-00011-xx4",
+  "latencyDefinition": "HTTP /api/ask request plus independent authorized /api/sources citation verification; includes failed cases.",
+  "runScope": "deployed-api-selected-case-retry",
+  "suiteFixtures": 12,
+  "totalFixtures": 1,
+  "completed": 1,
+  "automatedPassed": 0,
+  "automatedFailed": 1,
+  "humanReviewed": 0,
+  "humanSemanticPasses": null,
+  "medianLatencyMs": 59198,
+  "requestCounts": {
+    "askCalls": 1,
+    "sourceLookups": 0
+  },
+  "results": [
+    {
+      "id": "CASE-POLICY-01",
+      "question": "What approvals are required before any production launch?",
+      "expected": "QA completion, security approval and named on-call owner per current policy.",
+      "timestamp": "2026-10-17T12:15:24.688Z",
+      "requiredSourceIds": [
+        "POL-DOC-01-V2"
+      ],
+      "humanReview": "pending",
+      "latencyMs": 59198,
+      "citedSourceIds": [],
+      "missingRequiredIds": [
+        "POL-DOC-01-V2"
+      ],
+      "literalCitationsValid": false,
+      "factCoverage": false,
+      "automatedPassed": false,
+      "errorStatus": 503,
+      "error": "Grounded search unavailable. Check configuration, index and service access."
+    }
+  ]
+}

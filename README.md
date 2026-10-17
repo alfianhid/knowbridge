@@ -4,6 +4,8 @@ Connecting knowledge to confident decisions. Singapore-first evidence catalog fo
 
 ## Current status
 
+Phase 5 shipping work is recorded in [Phase 5 results](docs/PHASE5-RESULTS.md): recorded 12-case benchmark artifacts (full runs and separate focused retries), a Cloud Run permission review with live mutation probes, the public-repo confirmation, exact evaluation/deploy instructions, the deck PDF and the demo video script, plus the artifact-URL checklist and unresolved issues. Full-suite benchmark reliability under intermittent provider-side failures remains open and is reported honestly there.
+
 Phase 1 implements a bounded synthetic source catalog, durable ingestion and provenance. Default import contains 16 Harbour documents and 2 sheets. The explicit evaluation profile contains 55 sources across eight projects and both launch-readiness policy revisions; see [retrieval setup](docs/RETRIEVAL.md). Source IDs, historical recorded/effective dates, literal text, chunks and SHA-256 checksums are retained.
 
 Local development uses durable files under ignored `.data/sources`. Cloud Run requires Firestore. Ingestion and catalog/detail reads use the same store. Imports survive restart, concurrent retries skip unchanged records, and metadata changes refresh stored records. Failed imports report actual failure counts.
@@ -52,6 +54,35 @@ npm.cmd audit
 
 Browser tests require a production build and the local 18-source import. Playwright starts its own local server. Tests cover mobile reflow, keyboard access, forced colors, source selection, retry and axe checks. These checks do not certify complete accessibility. You reported successful manual 400% zoom, text-spacing, screen-reader and 12-case semantic reviews; details are limited as described in [acceptance evidence](docs/ACCEPTANCE.md). Automated full-run reliability remains open. See [current readiness](docs/READINESS.md).
 
+## Benchmark evaluation
+
+The 12 gold cases live in `seed/generated/evaluation.json`. Three run modes exist and their totals are never aggregated:
+
+```powershell
+# 1. Local CLI suite against Firestore/Vertex (15s case pacing for shared embedding quota)
+node --env-file=.env scripts/run-typescript.cjs scripts/evaluate.ts
+# Focused retry of one case; writes a separate artifact and never replaces full-run totals
+node --env-file=.env scripts/run-typescript.cjs scripts/evaluate.ts -- --case=CASE-HBR
+# 2. Deployed-API suite over HTTP with independent /api/sources citation verification
+node scripts/run-typescript.cjs scripts/evaluate-deployed.ts --revision=<serving-revision>
+# 3. Eight live adversarial semantic regressions
+node --env-file=.env scripts/run-typescript.cjs scripts/check-semantics.ts
+```
+
+An automated pass requires the expected status (`supported`, or `insufficient_evidence` for empty-evidence cases), every required source ID cited, every excerpt literally present in its verified source, and fact coverage (exact target/QA dates and security status appear in answer text). Reports record per-case outcomes, failures, latency and request counts; the harness does not measure dollar billing. See [evaluation methodology](docs/EVALUATION.md) and recorded results in [readiness](docs/READINESS.md).
+
+## Deploy
+
+```powershell
+gcloud auth application-default login
+gcloud config set project YOUR_GCP_PROJECT_ID
+gcloud services enable firestore.googleapis.com identitytoolkit.googleapis.com run.googleapis.com
+gcloud firestore databases create --database="(default)" --location=asia-southeast1 --type=firestore-native
+gcloud run deploy knowbridge --source . --region asia-southeast1 --allow-unauthenticated --memory 512Mi --cpu 1 --port 8080 --max-instances 3
+```
+
+Set environment variables and mount `GOOGLE_OAUTH_CLIENT_SECRET` / `GOOGLE_PICKER_API_KEY` from Secret Manager as documented in [cloud setup](docs/DEPLOYMENT.md). Cloud Run requires `KNOWBRIDGE_STORE=firestore` and `KNOWBRIDGE_RETRIEVAL=vertex`; file storage is refused. After deployment, confirm the serving revision, `GET /api/health` configuration and one real cited answer from `POST /api/ask` before claiming a working deployment.
+
 ## Data and hero facts
 
 The complete reproducible dataset contains 168 fictional documents, 24 sheets, 1,904 rows, 8 projects, 30 invented staff and 12 gold evaluation cases. Apps Script native Workspace seeding is optional; see `apps-script/README.md`.
@@ -68,7 +99,7 @@ Public reads expose only `demo-north-quay` synthetic records. Caller headers can
 
 Set cloud variables from `.env.example`; use ADC locally and the assigned managed service identity on Cloud Run. Never commit keys or bake them into images. Both `secrets/` and `.secrets/` are excluded from Git and Docker. See `docs/DEPLOYMENT.md` for required API/database/IAM setup.
 
-The container uses `npm ci`, standalone Next output and a non-root runtime. A nonce-based CSP protects production scripts. Dependency overrides are pinned and must be rechecked on upgrades.
+The container uses `npm ci`, standalone Next output and a non-root runtime. A nonce-based CSP protects production scripts. Dependency overrides are pinned and must be rechecked on upgrades. Mutation endpoints are protected: brief creation requires a revocation-checked Firebase ID token and `Idempotency-Key`, ingestion requires the ingestion-admin claim, and Workspace routes require the connected owner session. Public invocation on Cloud Run is intentional; authorization is enforced in the application and public reads are pinned to the synthetic demo tenant.
 
 ## Workflow and tracking
 
