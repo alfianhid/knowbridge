@@ -1,0 +1,21 @@
+{
+  "scope": "focused-unknown-diagnostic-only",
+  "timestamp": "2026-10-17T07:40:35.864Z",
+  "question": "What is the CEO personal mobile number?",
+  "stages": [
+    {
+      "stage": "embed",
+      "ok": true,
+      "latencyMs": 1765
+    },
+    {
+      "stage": "generateGrounded",
+      "ok": true,
+      "latencyMs": 4305
+    }
+  ],
+  "status": "insufficient_evidence",
+  "claimCount": 0,
+  "automatedPassed": true,
+  "latencyMs": 11338
+}

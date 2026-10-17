@@ -1,0 +1,1329 @@
+{
+  "automatedFailed": 2,
+  "automatedPassed": 10,
+  "completed": 12,
+  "finishedAt": "2026-10-17T07:20:31.344Z",
+  "humanReviewed": 0,
+  "humanSemanticPasses": null,
+  "latencyDefinition": "Browser request plus independent authorized source-lookup verification; includes failed cases.",
+  "medianLatencyMs": 27414.5,
+  "results": [
+    {
+      "automatedPassed": true,
+      "citedSourceIds": [
+        "HBR-DOC-02",
+        "HBR-DOC-04",
+        "HBR-DOC-05",
+        "HBR-DOC-06",
+        "POL-DOC-01-V2",
+        "HBR-DOC-09",
+        "HBR-DOC-15"
+      ],
+      "factCoverage": true,
+      "humanReview": "pending",
+      "id": "CASE-HBR",
+      "latencyMs": 16614,
+      "literalCitationsValid": true,
+      "missingRequiredIds": [],
+      "question": "Can we commit to launching Project Harbour on 2026-11-01? Identify conflicting evidence and recommend a next step.",
+      "requiredSourceIds": [
+        "HBR-DOC-02",
+        "HBR-DOC-04",
+        "HBR-DOC-05",
+        "HBR-DOC-06",
+        "HBR-DOC-09"
+      ],
+      "response": {
+        "answer": "The client target date for launching Project Harbour is 2026-11-01.\n\nThe latest QA forecast projects final regression completion on 2026-11-11, which conflicts with the 2026-11-01 target.\n\nDelivery risks explicitly include the QA forecast not supporting the customer target, pending security sign-off, and unavailable QA capacity before 2026-10-16.\n\nProduction release security approval remains pending with no sign-off recorded.\n\nPolicy standard mandates that production launch requires documented QA completion, security approval, and a named on-call owner.\n\nDelivery owner Avery Tan has an open decision escalation regarding the delivery schedule conflict, and no decision authorizing a later full-release or pilot approval exists.\n\nA change request proposing a reduced-scope pilot around 2026-11-01 and full production release after 2026-11-11 is draft and not approved.\n\nNext steps must be conditional on resolving the open leadership escalation, completing QA sign-off, obtaining security review approval, and securing written customer agreement.",
+        "claims": [
+          {
+            "claim": "The client target date for launching Project Harbour is 2026-11-01.",
+            "evidence": [
+              {
+                "effectiveAt": null,
+                "excerpt": "The client team continues planning around 2026-11-01 for delivery of the customer self-service portal.",
+                "recordedAt": "2026-10-07",
+                "sourceId": "HBR-DOC-02",
+                "sourceTitle": "Project Harbour — Customer Commitments",
+                "sourceUrl": "/api/sources/HBR-DOC-02"
+              }
+            ]
+          },
+          {
+            "claim": "The latest QA forecast projects final regression completion on 2026-11-11, which conflicts with the 2026-11-01 target.",
+            "evidence": [
+              {
+                "effectiveAt": null,
+                "excerpt": "The latest forecast for final regression completion is 2026-11-11. That is later than the initial customer target 2026-11-01.",
+                "recordedAt": "2026-10-10",
+                "sourceId": "HBR-DOC-04",
+                "sourceTitle": "Project Harbour — QA Forecast",
+                "sourceUrl": "/api/sources/HBR-DOC-04"
+              }
+            ]
+          },
+          {
+            "claim": "Delivery risks explicitly include the QA forecast not supporting the customer target, pending security sign-off, and unavailable QA capacity before 2026-10-16.",
+            "evidence": [
+              {
+                "effectiveAt": null,
+                "excerpt": "Risk R-HBR-01: QA forecast 2026-11-11 does not support the published customer target 2026-11-01. Likelihood HIGH, impact HIGH. Risk R-HBR-02: security sign-off remains PENDING as of 2026-10-11. Likelihood MEDIUM, impact HIGH. Risk R-HBR-03: additional specialist QA capacity is unavailable before 2026-10-16.",
+                "recordedAt": "2026-10-11",
+                "sourceId": "HBR-DOC-05",
+                "sourceTitle": "Project Harbour — Risk Register",
+                "sourceUrl": "/api/sources/HBR-DOC-05"
+              }
+            ]
+          },
+          {
+            "claim": "Production release security approval remains pending with no sign-off recorded.",
+            "evidence": [
+              {
+                "effectiveAt": null,
+                "excerpt": "Production release approval: PENDING. Darren Ng has requested a final access-control walkthrough and proof that privileged access is logged. No security sign-off has been recorded.",
+                "recordedAt": "2026-10-11",
+                "sourceId": "HBR-DOC-06",
+                "sourceTitle": "Project Harbour — Security Assessment",
+                "sourceUrl": "/api/sources/HBR-DOC-06"
+              }
+            ]
+          },
+          {
+            "claim": "Policy standard mandates that production launch requires documented QA completion, security approval, and a named on-call owner.",
+            "evidence": [
+              {
+                "effectiveAt": "2026-10-01",
+                "excerpt": "Production launch requires documented QA completion, security approval and named on-call owner.",
+                "recordedAt": "2026-10-01",
+                "sourceId": "POL-DOC-01-V2",
+                "sourceTitle": "Company Policy — Launch Readiness — Rev 2",
+                "sourceUrl": "/api/sources/POL-DOC-01-V2"
+              }
+            ]
+          },
+          {
+            "claim": "Delivery owner Avery Tan has an open decision escalation regarding the delivery schedule conflict, and no decision authorizing a later full-release or pilot approval exists.",
+            "evidence": [
+              {
+                "effectiveAt": null,
+                "excerpt": "D-HBR-002 on 2026-10-11: escalate delivery schedule conflict to leadership; owner Avery Tan; status OPEN. No decision authorizing a later full-release date exists in this log. No completed customer approval for a pilot exists in this log.",
+                "recordedAt": "2026-10-11",
+                "sourceId": "HBR-DOC-09",
+                "sourceTitle": "Project Harbour — Decision Log",
+                "sourceUrl": "/api/sources/HBR-DOC-09"
+              }
+            ]
+          },
+          {
+            "claim": "A change request proposing a reduced-scope pilot around 2026-11-01 and full production release after 2026-11-11 is draft and not approved.",
+            "evidence": [
+              {
+                "effectiveAt": null,
+                "excerpt": "Proposal: assess a reduced-scope pilot around 2026-11-01 and a full production release after QA completion 2026-11-11. Status: DRAFT / NOT APPROVED.",
+                "recordedAt": "2026-10-10",
+                "sourceId": "HBR-DOC-15",
+                "sourceTitle": "Project Harbour — Change Control",
+                "sourceUrl": "/api/sources/HBR-DOC-15"
+              }
+            ]
+          },
+          {
+            "claim": "Next steps must be conditional on resolving the open leadership escalation, completing QA sign-off, obtaining security review approval, and securing written customer agreement.",
+            "evidence": [
+              {
+                "effectiveAt": null,
+                "excerpt": "Avery Tan explained that a revised commitment requires written approval and a customer update. The client has not yet accepted a new date or a reduced-scope pilot.",
+                "recordedAt": "2026-10-07",
+                "sourceId": "HBR-DOC-02",
+                "sourceTitle": "Project Harbour — Customer Commitments",
+                "sourceUrl": "/api/sources/HBR-DOC-02"
+              },
+              {
+                "effectiveAt": null,
+                "excerpt": "D-HBR-002 on 2026-10-11: escalate delivery schedule conflict to leadership; owner Avery Tan; status OPEN.",
+                "recordedAt": "2026-10-11",
+                "sourceId": "HBR-DOC-09",
+                "sourceTitle": "Project Harbour — Decision Log",
+                "sourceUrl": "/api/sources/HBR-DOC-09"
+              }
+            ]
+          }
+        ],
+        "mode": "vertex",
+        "model": "gemini-3.8-flash",
+        "status": "supported",
+        "synthetic": true,
+        "unknowns": [
+          "Whether leadership has resolved the open escalation D-HBR-002 since 2026-10-11.",
+          "Whether the security walkthrough with Darren Ng occurred and whether security approval was granted.",
+          "Whether the client has agreed to a revised full release date or an alternative reduced-scope pilot."
+        ]
+      },
+      "timestamp": "2026-10-17T07:12:00.632Z"
+    },
+    {
+      "automatedPassed": true,
+      "citedSourceIds": [
+        "MER-DOC-02",
+        "MER-DOC-04",
+        "MER-DOC-06",
+        "POL-DOC-01-V2",
+        "MER-DOC-09",
+        "MER-DOC-05"
+      ],
+      "factCoverage": true,
+      "humanReview": "pending",
+      "id": "CASE-MER",
+      "latencyMs": 14870,
+      "literalCitationsValid": true,
+      "missingRequiredIds": [],
+      "question": "Can we commit to launching Project Meridian on 2026-11-04? Identify conflicting evidence and recommend a next step.",
+      "requiredSourceIds": [
+        "MER-DOC-02",
+        "MER-DOC-04",
+        "MER-DOC-05",
+        "MER-DOC-06",
+        "MER-DOC-09"
+      ],
+      "response": {
+        "answer": "The client target remains 2026-11-04 for delivery of the supplier onboarding portal, but written approval for a revised date or pilot has not been accepted.\n\nThe latest QA forecast for final regression completion is 2026-11-12, which conflicts with the customer target date of 2026-11-04, and QA sign-off has not been issued.\n\nProduction release approval from security is pending, as Darren Ng requested an access-control walkthrough and proof that privileged access is logged.\n\nCompany launch readiness policy mandates documented QA completion, security approval, and a named on-call owner prior to production launch.\n\nThe delivery schedule conflict has been escalated to leadership under decision record D-MER-002 with status OPEN, and no decision authorizing a later full-release date or customer approval for a pilot exists.\n\nRisk assessments identify high risk that the QA forecast of 2026-11-12 does not support the 2026-11-04 customer target, and no mitigation has been approved as a new launch commitment.\n\nAs a conditional next step, the delivery owner must resolve open leadership escalation D-MER-002, complete required QA and security sign-offs, and conduct customer discussions to obtain written approval on a revised date or staged pilot before committing to a launch date.",
+        "claims": [
+          {
+            "claim": "The client target remains 2026-11-04 for delivery of the supplier onboarding portal, but written approval for a revised date or pilot has not been accepted.",
+            "evidence": [
+              {
+                "effectiveAt": null,
+                "excerpt": "The client team continues planning around 2026-11-04 for delivery of the supplier onboarding portal.",
+                "recordedAt": "2026-10-07",
+                "sourceId": "MER-DOC-02",
+                "sourceTitle": "Project Meridian — Customer Commitments",
+                "sourceUrl": "/api/sources/MER-DOC-02"
+              },
+              {
+                "effectiveAt": null,
+                "excerpt": "The client has not yet accepted a new date or a reduced-scope pilot.",
+                "recordedAt": "2026-10-07",
+                "sourceId": "MER-DOC-02",
+                "sourceTitle": "Project Meridian — Customer Commitments",
+                "sourceUrl": "/api/sources/MER-DOC-02"
+              }
+            ]
+          },
+          {
+            "claim": "The latest QA forecast for final regression completion is 2026-11-12, which conflicts with the customer target date of 2026-11-04, and QA sign-off has not been issued.",
+            "evidence": [
+              {
+                "effectiveAt": null,
+                "excerpt": "The latest forecast for final regression completion is 2026-11-12. That is later than the initial customer target 2026-11-04.",
+                "recordedAt": "2026-10-10",
+                "sourceId": "MER-DOC-04",
+                "sourceTitle": "Project Meridian — QA Forecast",
+                "sourceUrl": "/api/sources/MER-DOC-04"
+              },
+              {
+                "effectiveAt": null,
+                "excerpt": "Isabelle Wong owns sign-off, which has not been issued.",
+                "recordedAt": "2026-10-10",
+                "sourceId": "MER-DOC-04",
+                "sourceTitle": "Project Meridian — QA Forecast",
+                "sourceUrl": "/api/sources/MER-DOC-04"
+              }
+            ]
+          },
+          {
+            "claim": "Production release approval from security is pending, as Darren Ng requested an access-control walkthrough and proof that privileged access is logged.",
+            "evidence": [
+              {
+                "effectiveAt": null,
+                "excerpt": "Production release approval: PENDING. Darren Ng has requested a final access-control walkthrough and proof that privileged access is logged. No security sign-off has been recorded.",
+                "recordedAt": "2026-10-11",
+                "sourceId": "MER-DOC-06",
+                "sourceTitle": "Project Meridian — Security Assessment",
+                "sourceUrl": "/api/sources/MER-DOC-06"
+              }
+            ]
+          },
+          {
+            "claim": "Company launch readiness policy mandates documented QA completion, security approval, and a named on-call owner prior to production launch.",
+            "evidence": [
+              {
+                "effectiveAt": "2026-10-01",
+                "excerpt": "Production launch requires documented QA completion, security approval and named on-call owner.",
+                "recordedAt": "2026-10-01",
+                "sourceId": "POL-DOC-01-V2",
+                "sourceTitle": "Company Policy — Launch Readiness — Rev 2",
+                "sourceUrl": "/api/sources/POL-DOC-01-V2"
+              }
+            ]
+          },
+          {
+            "claim": "The delivery schedule conflict has been escalated to leadership under decision record D-MER-002 with status OPEN, and no decision authorizing a later full-release date or customer approval for a pilot exists.",
+            "evidence": [
+              {
+                "effectiveAt": null,
+                "excerpt": "D-MER-002 on 2026-10-11: escalate delivery schedule conflict to leadership; owner Elena Koh; status OPEN. No decision authorizing a later full-release date exists in this log. No completed customer approval for a pilot exists in this log.",
+                "recordedAt": "2026-10-11",
+                "sourceId": "MER-DOC-09",
+                "sourceTitle": "Project Meridian — Decision Log",
+                "sourceUrl": "/api/sources/MER-DOC-09"
+              }
+            ]
+          },
+          {
+            "claim": "Risk assessments identify high risk that the QA forecast of 2026-11-12 does not support the 2026-11-04 customer target, and no mitigation has been approved as a new launch commitment.",
+            "evidence": [
+              {
+                "effectiveAt": null,
+                "excerpt": "Risk R-MER-01: QA forecast 2026-11-12 does not support the published customer target 2026-11-04. Likelihood HIGH, impact HIGH.",
+                "recordedAt": "2026-10-11",
+                "sourceId": "MER-DOC-05",
+                "sourceTitle": "Project Meridian — Risk Register",
+                "sourceUrl": "/api/sources/MER-DOC-05"
+              },
+              {
+                "effectiveAt": null,
+                "excerpt": "No mitigation has been approved as a new launch commitment.",
+                "recordedAt": "2026-10-11",
+                "sourceId": "MER-DOC-05",
+                "sourceTitle": "Project Meridian — Risk Register",
+                "sourceUrl": "/api/sources/MER-DOC-05"
+              }
+            ]
+          },
+          {
+            "claim": "As a conditional next step, the delivery owner must resolve open leadership escalation D-MER-002, complete required QA and security sign-offs, and conduct customer discussions to obtain written approval on a revised date or staged pilot before committing to a launch date.",
+            "evidence": [
+              {
+                "effectiveAt": null,
+                "excerpt": "D-MER-002 on 2026-10-11: escalate delivery schedule conflict to leadership; owner Elena Koh; status OPEN.",
+                "recordedAt": "2026-10-11",
+                "sourceId": "MER-DOC-09",
+                "sourceTitle": "Project Meridian — Decision Log",
+                "sourceUrl": "/api/sources/MER-DOC-09"
+              },
+              {
+                "effectiveAt": null,
+                "excerpt": "Elena Koh explained that a revised commitment requires written approval and a customer update.",
+                "recordedAt": "2026-10-07",
+                "sourceId": "MER-DOC-02",
+                "sourceTitle": "Project Meridian — Customer Commitments",
+                "sourceUrl": "/api/sources/MER-DOC-02"
+              },
+              {
+                "effectiveAt": "2026-10-01",
+                "excerpt": "Production launch requires documented QA completion, security approval and named on-call owner.",
+                "recordedAt": "2026-10-01",
+                "sourceId": "POL-DOC-01-V2",
+                "sourceTitle": "Company Policy — Launch Readiness — Rev 2",
+                "sourceUrl": "/api/sources/POL-DOC-01-V2"
+              }
+            ]
+          }
+        ],
+        "mode": "vertex",
+        "model": "gemini-3.8-flash",
+        "status": "supported",
+        "synthetic": true,
+        "unknowns": [
+          "Whether leadership has resolved escalation D-MER-002 after 2026-10-11.",
+          "Whether Darren Ng has conducted the access-control walkthrough and issued security sign-off.",
+          "Whether Isabelle Wong has completed QA integration regression and external test environment fixes.",
+          "Whether a named on-call owner has been designated as required by company policy.",
+          "Whether the client (Meridian Trading) has agreed in writing to a revised schedule or a staged pilot rollout."
+        ]
+      },
+      "timestamp": "2026-10-17T07:12:17.246Z"
+    },
+    {
+      "automatedPassed": true,
+      "citedSourceIds": [
+        "NTH-DOC-02",
+        "NTH-DOC-04",
+        "NTH-DOC-06",
+        "POL-DOC-01-V2",
+        "NTH-DOC-05",
+        "NTH-DOC-09"
+      ],
+      "factCoverage": true,
+      "humanReview": "pending",
+      "id": "CASE-NTH",
+      "latencyMs": 56181,
+      "literalCitationsValid": true,
+      "missingRequiredIds": [],
+      "question": "Can we commit to launching Project Northstar on 2026-11-06? Identify conflicting evidence and recommend a next step.",
+      "requiredSourceIds": [
+        "NTH-DOC-02",
+        "NTH-DOC-04",
+        "NTH-DOC-05",
+        "NTH-DOC-06",
+        "NTH-DOC-09"
+      ],
+      "response": {
+        "answer": "The client Northstar Foods expects delivery of the executive reporting dashboards on 2026-11-06 based on the 2026-08-19 baseline, and has not accepted a revised date or reduced-scope pilot.\n\nThe latest QA forecast for final regression completion is 2026-11-11, which conflicts with the customer target of 2026-11-06, and Isabelle Wong has not issued QA sign-off.\n\nSecurity review for production release approval is pending with no sign-off recorded by Darren Ng, who requested a final access-control walkthrough and proof that privileged access is logged.\n\nCompany policy mandates that production launch requires documented QA completion, security approval, and a named on-call owner.\n\nExplicit delivery risks include the QA forecast not supporting the customer target (R-NTH-01), pending security sign-off (R-NTH-02), and specialist QA capacity unavailable before 2026-10-16 (R-NTH-03), with no mitigation approved as a new launch commitment.\n\nIn the decision log, an escalation to leadership regarding the delivery schedule conflict remains open under owner Kiran Lim, with no decision authorizing a later release date or customer approval for a pilot.\n\nA commitment to launch on 2026-11-06 cannot be made without resolving outstanding requirements, and recommended next steps are conditional on resolving the leadership escalation (D-NTH-002), completing QA and security reviews, and securing written customer approval for any date or scope adjustments.",
+        "claims": [
+          {
+            "claim": "The client Northstar Foods expects delivery of the executive reporting dashboards on 2026-11-06 based on the 2026-08-19 baseline, and has not accepted a revised date or reduced-scope pilot.",
+            "evidence": [
+              {
+                "effectiveAt": null,
+                "excerpt": "The client team continues planning around 2026-11-06 for delivery of the executive reporting dashboards. Their launch communication has not been updated since the 2026-08-19 baseline.",
+                "recordedAt": "2026-10-07",
+                "sourceId": "NTH-DOC-02",
+                "sourceTitle": "Project Northstar — Customer Commitments",
+                "sourceUrl": "/api/sources/NTH-DOC-02"
+              },
+              {
+                "effectiveAt": null,
+                "excerpt": "The client has not yet accepted a new date or a reduced-scope pilot.",
+                "recordedAt": "2026-10-07",
+                "sourceId": "NTH-DOC-02",
+                "sourceTitle": "Project Northstar — Customer Commitments",
+                "sourceUrl": "/api/sources/NTH-DOC-02"
+              }
+            ]
+          },
+          {
+            "claim": "The latest QA forecast for final regression completion is 2026-11-11, which conflicts with the customer target of 2026-11-06, and Isabelle Wong has not issued QA sign-off.",
+            "evidence": [
+              {
+                "effectiveAt": null,
+                "excerpt": "The latest forecast for final regression completion is 2026-11-11. That is later than the initial customer target 2026-11-06.",
+                "recordedAt": "2026-10-10",
+                "sourceId": "NTH-DOC-04",
+                "sourceTitle": "Project Northstar — QA Forecast",
+                "sourceUrl": "/api/sources/NTH-DOC-04"
+              },
+              {
+                "effectiveAt": null,
+                "excerpt": "Isabelle Wong owns sign-off, which has not been issued. There is no approved evidence that production QA is complete. Status: AT RISK.",
+                "recordedAt": "2026-10-10",
+                "sourceId": "NTH-DOC-04",
+                "sourceTitle": "Project Northstar — QA Forecast",
+                "sourceUrl": "/api/sources/NTH-DOC-04"
+              }
+            ]
+          },
+          {
+            "claim": "Security review for production release approval is pending with no sign-off recorded by Darren Ng, who requested a final access-control walkthrough and proof that privileged access is logged.",
+            "evidence": [
+              {
+                "effectiveAt": null,
+                "excerpt": "Production release approval: PENDING. Darren Ng has requested a final access-control walkthrough and proof that privileged access is logged. No security sign-off has been recorded.",
+                "recordedAt": "2026-10-11",
+                "sourceId": "NTH-DOC-06",
+                "sourceTitle": "Project Northstar — Security Assessment",
+                "sourceUrl": "/api/sources/NTH-DOC-06"
+              }
+            ]
+          },
+          {
+            "claim": "Company policy mandates that production launch requires documented QA completion, security approval, and a named on-call owner.",
+            "evidence": [
+              {
+                "effectiveAt": "2026-10-01",
+                "excerpt": "Production launch requires documented QA completion, security approval and named on-call owner.",
+                "recordedAt": "2026-10-01",
+                "sourceId": "POL-DOC-01-V2",
+                "sourceTitle": "Company Policy — Launch Readiness — Rev 2",
+                "sourceUrl": "/api/sources/POL-DOC-01-V2"
+              }
+            ]
+          },
+          {
+            "claim": "Explicit delivery risks include the QA forecast not supporting the customer target (R-NTH-01), pending security sign-off (R-NTH-02), and specialist QA capacity unavailable before 2026-10-16 (R-NTH-03), with no mitigation approved as a new launch commitment.",
+            "evidence": [
+              {
+                "effectiveAt": null,
+                "excerpt": "Risk R-NTH-01: QA forecast 2026-11-11 does not support the published customer target 2026-11-06. Likelihood HIGH, impact HIGH. Risk R-NTH-02: security sign-off remains PENDING as of 2026-10-11. Likelihood MEDIUM, impact HIGH. Risk R-NTH-03: additional specialist QA capacity is unavailable before 2026-10-16. Mitigation: customer conversation, updated plan, and controlled pilot assessment. No mitigation has been approved as a new launch commitment.",
+                "recordedAt": "2026-10-11",
+                "sourceId": "NTH-DOC-05",
+                "sourceTitle": "Project Northstar — Risk Register",
+                "sourceUrl": "/api/sources/NTH-DOC-05"
+              }
+            ]
+          },
+          {
+            "claim": "In the decision log, an escalation to leadership regarding the delivery schedule conflict remains open under owner Kiran Lim, with no decision authorizing a later release date or customer approval for a pilot.",
+            "evidence": [
+              {
+                "effectiveAt": null,
+                "excerpt": "D-NTH-002 on 2026-10-11: escalate delivery schedule conflict to leadership; owner Kiran Lim; status OPEN. No decision authorizing a later full-release date exists in this log. No completed customer approval for a pilot exists in this log.",
+                "recordedAt": "2026-10-11",
+                "sourceId": "NTH-DOC-09",
+                "sourceTitle": "Project Northstar — Decision Log",
+                "sourceUrl": "/api/sources/NTH-DOC-09"
+              }
+            ]
+          },
+          {
+            "claim": "A commitment to launch on 2026-11-06 cannot be made without resolving outstanding requirements, and recommended next steps are conditional on resolving the leadership escalation (D-NTH-002), completing QA and security reviews, and securing written customer approval for any date or scope adjustments.",
+            "evidence": [
+              {
+                "effectiveAt": null,
+                "excerpt": "Kiran Lim explained that a revised commitment requires written approval and a customer update.",
+                "recordedAt": "2026-10-07",
+                "sourceId": "NTH-DOC-02",
+                "sourceTitle": "Project Northstar — Customer Commitments",
+                "sourceUrl": "/api/sources/NTH-DOC-02"
+              },
+              {
+                "effectiveAt": null,
+                "excerpt": "D-NTH-002 on 2026-10-11: escalate delivery schedule conflict to leadership; owner Kiran Lim; status OPEN.",
+                "recordedAt": "2026-10-11",
+                "sourceId": "NTH-DOC-09",
+                "sourceTitle": "Project Northstar — Decision Log",
+                "sourceUrl": "/api/sources/NTH-DOC-09"
+              }
+            ]
+          }
+        ],
+        "mode": "vertex",
+        "model": "gemini-3.8-flash",
+        "status": "supported",
+        "synthetic": true,
+        "unknowns": [
+          "Whether leadership has resolved the open escalation D-NTH-002 after 2026-10-11.",
+          "Whether Darren Ng has completed the access-control walkthrough or granted security approval after 2026-10-11.",
+          "Whether Isabelle Wong has issued QA sign-off or if intermittent external test environment failures have been resolved.",
+          "Whether Northstar Foods will accept a revised launch date or a staged/reduced-scope pilot."
+        ]
+      },
+      "timestamp": "2026-10-17T07:12:32.248Z"
+    },
+    {
+      "automatedPassed": true,
+      "citedSourceIds": [
+        "ORC-DOC-02",
+        "ORC-DOC-04",
+        "ORC-DOC-05",
+        "ORC-DOC-06",
+        "POL-DOC-01-V2",
+        "ORC-DOC-09"
+      ],
+      "factCoverage": true,
+      "humanReview": "pending",
+      "id": "CASE-ORC",
+      "latencyMs": 93675,
+      "literalCitationsValid": true,
+      "missingRequiredIds": [],
+      "question": "Can we commit to launching Project Orchard on 2026-11-09? Identify conflicting evidence and recommend a next step.",
+      "requiredSourceIds": [
+        "ORC-DOC-02",
+        "ORC-DOC-04",
+        "ORC-DOC-05",
+        "ORC-DOC-06",
+        "ORC-DOC-09"
+      ],
+      "response": {
+        "answer": "The client continues planning around a launch date of 2026-11-09 for the subscription renewal workflow, and no revised date or reduced-scope pilot has been accepted by the customer.\n\nThe latest QA forecast for final regression completion is 2026-11-16, which conflicts with the customer target of 2026-11-09, and QA sign-off from Isabelle Wong has not been issued.\n\nThe risk register explicitly tracks high-impact risks that the QA forecast of 2026-11-16 does not support the 2026-11-09 target and that security sign-off remains pending.\n\nSecurity review for production release is pending without recorded sign-off from Darren Ng, and production launch policy requires documented QA completion and security approval.\n\nSofia Lee escalated the delivery schedule conflict to leadership under open decision record D-ORC-002, and no decision authorizing a later full-release date or customer approval for a pilot exists.\n\nAs a next step, mitigating actions conditional on missing approvals require customer discussion, an updated plan, leadership resolution of the escalated conflict, and completion of required security and QA reviews.",
+        "claims": [
+          {
+            "claim": "The client continues planning around a launch date of 2026-11-09 for the subscription renewal workflow, and no revised date or reduced-scope pilot has been accepted by the customer.",
+            "evidence": [
+              {
+                "effectiveAt": null,
+                "excerpt": "The client team continues planning around 2026-11-09 for delivery of the subscription renewal workflow.",
+                "recordedAt": "2026-10-07",
+                "sourceId": "ORC-DOC-02",
+                "sourceTitle": "Project Orchard — Customer Commitments",
+                "sourceUrl": "/api/sources/ORC-DOC-02"
+              },
+              {
+                "effectiveAt": null,
+                "excerpt": "The client has not yet accepted a new date or a reduced-scope pilot.",
+                "recordedAt": "2026-10-07",
+                "sourceId": "ORC-DOC-02",
+                "sourceTitle": "Project Orchard — Customer Commitments",
+                "sourceUrl": "/api/sources/ORC-DOC-02"
+              }
+            ]
+          },
+          {
+            "claim": "The latest QA forecast for final regression completion is 2026-11-16, which conflicts with the customer target of 2026-11-09, and QA sign-off from Isabelle Wong has not been issued.",
+            "evidence": [
+              {
+                "effectiveAt": null,
+                "excerpt": "The latest forecast for final regression completion is 2026-11-16. That is later than the initial customer target 2026-11-09.",
+                "recordedAt": "2026-10-10",
+                "sourceId": "ORC-DOC-04",
+                "sourceTitle": "Project Orchard — QA Forecast",
+                "sourceUrl": "/api/sources/ORC-DOC-04"
+              },
+              {
+                "effectiveAt": null,
+                "excerpt": "Isabelle Wong owns sign-off, which has not been issued.",
+                "recordedAt": "2026-10-10",
+                "sourceId": "ORC-DOC-04",
+                "sourceTitle": "Project Orchard — QA Forecast",
+                "sourceUrl": "/api/sources/ORC-DOC-04"
+              }
+            ]
+          },
+          {
+            "claim": "The risk register explicitly tracks high-impact risks that the QA forecast of 2026-11-16 does not support the 2026-11-09 target and that security sign-off remains pending.",
+            "evidence": [
+              {
+                "effectiveAt": null,
+                "excerpt": "Risk R-ORC-01: QA forecast 2026-11-16 does not support the published customer target 2026-11-09. Likelihood HIGH, impact HIGH.",
+                "recordedAt": "2026-10-11",
+                "sourceId": "ORC-DOC-05",
+                "sourceTitle": "Project Orchard — Risk Register",
+                "sourceUrl": "/api/sources/ORC-DOC-05"
+              },
+              {
+                "effectiveAt": null,
+                "excerpt": "Risk R-ORC-02: security sign-off remains PENDING as of 2026-10-11. Likelihood MEDIUM, impact HIGH.",
+                "recordedAt": "2026-10-11",
+                "sourceId": "ORC-DOC-05",
+                "sourceTitle": "Project Orchard — Risk Register",
+                "sourceUrl": "/api/sources/ORC-DOC-05"
+              }
+            ]
+          },
+          {
+            "claim": "Security review for production release is pending without recorded sign-off from Darren Ng, and production launch policy requires documented QA completion and security approval.",
+            "evidence": [
+              {
+                "effectiveAt": null,
+                "excerpt": "Production release approval: PENDING. Darren Ng has requested a final access-control walkthrough and proof that privileged access is logged. No security sign-off has been recorded.",
+                "recordedAt": "2026-10-11",
+                "sourceId": "ORC-DOC-06",
+                "sourceTitle": "Project Orchard — Security Assessment",
+                "sourceUrl": "/api/sources/ORC-DOC-06"
+              },
+              {
+                "effectiveAt": "2026-10-01",
+                "excerpt": "Production launch requires documented QA completion, security approval and named on-call owner.",
+                "recordedAt": "2026-10-01",
+                "sourceId": "POL-DOC-01-V2",
+                "sourceTitle": "Company Policy — Launch Readiness — Rev 2",
+                "sourceUrl": "/api/sources/POL-DOC-01-V2"
+              }
+            ]
+          },
+          {
+            "claim": "Sofia Lee escalated the delivery schedule conflict to leadership under open decision record D-ORC-002, and no decision authorizing a later full-release date or customer approval for a pilot exists.",
+            "evidence": [
+              {
+                "effectiveAt": null,
+                "excerpt": "D-ORC-002 on 2026-10-11: escalate delivery schedule conflict to leadership; owner Sofia Lee; status OPEN. No decision authorizing a later full-release date exists in this log. No completed customer approval for a pilot exists in this log.",
+                "recordedAt": "2026-10-11",
+                "sourceId": "ORC-DOC-09",
+                "sourceTitle": "Project Orchard — Decision Log",
+                "sourceUrl": "/api/sources/ORC-DOC-09"
+              }
+            ]
+          },
+          {
+            "claim": "As a next step, mitigating actions conditional on missing approvals require customer discussion, an updated plan, leadership resolution of the escalated conflict, and completion of required security and QA reviews.",
+            "evidence": [
+              {
+                "effectiveAt": null,
+                "excerpt": "Mitigation: customer conversation, updated plan, and controlled pilot assessment. No mitigation has been approved as a new launch commitment.",
+                "recordedAt": "2026-10-11",
+                "sourceId": "ORC-DOC-05",
+                "sourceTitle": "Project Orchard — Risk Register",
+                "sourceUrl": "/api/sources/ORC-DOC-05"
+              },
+              {
+                "effectiveAt": null,
+                "excerpt": "Sofia Lee explained that a revised commitment requires written approval and a customer update.",
+                "recordedAt": "2026-10-07",
+                "sourceId": "ORC-DOC-02",
+                "sourceTitle": "Project Orchard — Customer Commitments",
+                "sourceUrl": "/api/sources/ORC-DOC-02"
+              }
+            ]
+          }
+        ],
+        "mode": "vertex",
+        "model": "gemini-3.8-flash",
+        "status": "supported",
+        "synthetic": true,
+        "unknowns": [
+          "Whether leadership has resolved open decision escalation D-ORC-002.",
+          "Whether Darren Ng has completed the security walkthrough and granted security sign-off.",
+          "Whether the client will accept a revised launch date or a staged rollout/pilot."
+        ]
+      },
+      "timestamp": "2026-10-17T07:13:28.429Z"
+    },
+    {
+      "automatedPassed": false,
+      "error": "Deployed API returned a controlled error.",
+      "errorStatus": 502,
+      "humanReview": "pending",
+      "id": "CASE-BCN",
+      "latencyMs": 130173,
+      "question": "Can we commit to launching Project Beacon on 2026-11-12? Identify conflicting evidence and recommend a next step.",
+      "requiredSourceIds": [
+        "BCN-DOC-02",
+        "BCN-DOC-04",
+        "BCN-DOC-05",
+        "BCN-DOC-06",
+        "BCN-DOC-09"
+      ],
+      "timestamp": "2026-10-17T07:15:02.103Z"
+    },
+    {
+      "automatedPassed": true,
+      "citedSourceIds": [
+        "POL-DOC-01-V2",
+        "ATL-DOC-02",
+        "ATL-DOC-04",
+        "ATL-DOC-06",
+        "ATL-DOC-09",
+        "ATL-DOC-05"
+      ],
+      "factCoverage": true,
+      "humanReview": "pending",
+      "id": "CASE-ATL",
+      "latencyMs": 25482,
+      "literalCitationsValid": true,
+      "missingRequiredIds": [],
+      "question": "Can we commit to launching Project Atlas on 2026-11-15? Identify conflicting evidence and recommend a next step.",
+      "requiredSourceIds": [
+        "ATL-DOC-02",
+        "ATL-DOC-04",
+        "ATL-DOC-05",
+        "ATL-DOC-06",
+        "ATL-DOC-09"
+      ],
+      "response": {
+        "answer": "The organization cannot commit to launching Project Atlas on 2026-11-15 because company policy requires documented QA completion and security approval prior to production launch.\n\nThe client continues planning for delivery on 2026-11-15 and has not accepted a new date or reduced-scope pilot, while a revised commitment requires written approval and a customer update.\n\nThe latest QA forecast conflicts directly with the client target, forecasting final regression completion on 2026-11-18 with sign-off owned by Isabelle Wong not yet issued.\n\nSecurity sign-off is pending review by Darren Ng, who requires a final access-control walkthrough and proof that privileged access is logged.\n\nThe delivery schedule conflict has been escalated to leadership under open decision record D-ATL-002, with delivery owner Priya Menon.\n\nExplicit delivery risks R-ATL-01, R-ATL-02, and R-ATL-03 record the forecast gap, pending security sign-off, and unavailable QA capacity before 2026-10-16, with no mitigation approved as a new launch commitment.\n\nAs a conditional next step, leadership must resolve open escalation D-ATL-002, complete security and QA sign-offs, and hold a customer conversation to agree upon an updated plan or controlled pilot.",
+        "claims": [
+          {
+            "claim": "The organization cannot commit to launching Project Atlas on 2026-11-15 because company policy requires documented QA completion and security approval prior to production launch.",
+            "evidence": [
+              {
+                "effectiveAt": "2026-10-01",
+                "excerpt": "Production launch requires documented QA completion, security approval and named on-call owner.",
+                "recordedAt": "2026-10-01",
+                "sourceId": "POL-DOC-01-V2",
+                "sourceTitle": "Company Policy — Launch Readiness — Rev 2",
+                "sourceUrl": "/api/sources/POL-DOC-01-V2"
+              }
+            ]
+          },
+          {
+            "claim": "The client continues planning for delivery on 2026-11-15 and has not accepted a new date or reduced-scope pilot, while a revised commitment requires written approval and a customer update.",
+            "evidence": [
+              {
+                "effectiveAt": null,
+                "excerpt": "The client team continues planning around 2026-11-15 for delivery of the new-joiner employee experience.",
+                "recordedAt": "2026-10-07",
+                "sourceId": "ATL-DOC-02",
+                "sourceTitle": "Project Atlas — Customer Commitments",
+                "sourceUrl": "/api/sources/ATL-DOC-02"
+              },
+              {
+                "effectiveAt": null,
+                "excerpt": "Priya Menon explained that a revised commitment requires written approval and a customer update. The client has not yet accepted a new date or a reduced-scope pilot.",
+                "recordedAt": "2026-10-07",
+                "sourceId": "ATL-DOC-02",
+                "sourceTitle": "Project Atlas — Customer Commitments",
+                "sourceUrl": "/api/sources/ATL-DOC-02"
+              }
+            ]
+          },
+          {
+            "claim": "The latest QA forecast conflicts directly with the client target, forecasting final regression completion on 2026-11-18 with sign-off owned by Isabelle Wong not yet issued.",
+            "evidence": [
+              {
+                "effectiveAt": null,
+                "excerpt": "The latest forecast for final regression completion is 2026-11-18. That is later than the initial customer target 2026-11-15.",
+                "recordedAt": "2026-10-10",
+                "sourceId": "ATL-DOC-04",
+                "sourceTitle": "Project Atlas — QA Forecast",
+                "sourceUrl": "/api/sources/ATL-DOC-04"
+              },
+              {
+                "effectiveAt": null,
+                "excerpt": "Isabelle Wong owns sign-off, which has not been issued. There is no approved evidence that production QA is complete. Status: AT RISK.",
+                "recordedAt": "2026-10-10",
+                "sourceId": "ATL-DOC-04",
+                "sourceTitle": "Project Atlas — QA Forecast",
+                "sourceUrl": "/api/sources/ATL-DOC-04"
+              }
+            ]
+          },
+          {
+            "claim": "Security sign-off is pending review by Darren Ng, who requires a final access-control walkthrough and proof that privileged access is logged.",
+            "evidence": [
+              {
+                "effectiveAt": null,
+                "excerpt": "Production release approval: PENDING. Darren Ng has requested a final access-control walkthrough and proof that privileged access is logged. No security sign-off has been recorded.",
+                "recordedAt": "2026-10-11",
+                "sourceId": "ATL-DOC-06",
+                "sourceTitle": "Project Atlas — Security Assessment",
+                "sourceUrl": "/api/sources/ATL-DOC-06"
+              }
+            ]
+          },
+          {
+            "claim": "The delivery schedule conflict has been escalated to leadership under open decision record D-ATL-002, with delivery owner Priya Menon.",
+            "evidence": [
+              {
+                "effectiveAt": null,
+                "excerpt": "D-ATL-002 on 2026-10-11: escalate delivery schedule conflict to leadership; owner Priya Menon; status OPEN. No decision authorizing a later full-release date exists in this log.",
+                "recordedAt": "2026-10-11",
+                "sourceId": "ATL-DOC-09",
+                "sourceTitle": "Project Atlas — Decision Log",
+                "sourceUrl": "/api/sources/ATL-DOC-09"
+              }
+            ]
+          },
+          {
+            "claim": "Explicit delivery risks R-ATL-01, R-ATL-02, and R-ATL-03 record the forecast gap, pending security sign-off, and unavailable QA capacity before 2026-10-16, with no mitigation approved as a new launch commitment.",
+            "evidence": [
+              {
+                "effectiveAt": null,
+                "excerpt": "Risk R-ATL-01: QA forecast 2026-11-18 does not support the published customer target 2026-11-15. Likelihood HIGH, impact HIGH.",
+                "recordedAt": "2026-10-11",
+                "sourceId": "ATL-DOC-05",
+                "sourceTitle": "Project Atlas — Risk Register",
+                "sourceUrl": "/api/sources/ATL-DOC-05"
+              },
+              {
+                "effectiveAt": null,
+                "excerpt": "Risk R-ATL-02: security sign-off remains PENDING as of 2026-10-11. Likelihood MEDIUM, impact HIGH.",
+                "recordedAt": "2026-10-11",
+                "sourceId": "ATL-DOC-05",
+                "sourceTitle": "Project Atlas — Risk Register",
+                "sourceUrl": "/api/sources/ATL-DOC-05"
+              },
+              {
+                "effectiveAt": null,
+                "excerpt": "Risk R-ATL-03: additional specialist QA capacity is unavailable before 2026-10-16. Mitigation: customer conversation, updated plan, and controlled pilot assessment. No mitigation has been approved as a new launch commitment.",
+                "recordedAt": "2026-10-11",
+                "sourceId": "ATL-DOC-05",
+                "sourceTitle": "Project Atlas — Risk Register",
+                "sourceUrl": "/api/sources/ATL-DOC-05"
+              }
+            ]
+          },
+          {
+            "claim": "As a conditional next step, leadership must resolve open escalation D-ATL-002, complete security and QA sign-offs, and hold a customer conversation to agree upon an updated plan or controlled pilot.",
+            "evidence": [
+              {
+                "effectiveAt": null,
+                "excerpt": "D-ATL-002 on 2026-10-11: escalate delivery schedule conflict to leadership; owner Priya Menon; status OPEN.",
+                "recordedAt": "2026-10-11",
+                "sourceId": "ATL-DOC-09",
+                "sourceTitle": "Project Atlas — Decision Log",
+                "sourceUrl": "/api/sources/ATL-DOC-09"
+              },
+              {
+                "effectiveAt": null,
+                "excerpt": "Mitigation: customer conversation, updated plan, and controlled pilot assessment. No mitigation has been approved as a new launch commitment.",
+                "recordedAt": "2026-10-11",
+                "sourceId": "ATL-DOC-05",
+                "sourceTitle": "Project Atlas — Risk Register",
+                "sourceUrl": "/api/sources/ATL-DOC-05"
+              }
+            ]
+          }
+        ],
+        "mode": "vertex",
+        "model": "gemini-3.8-flash",
+        "status": "supported",
+        "synthetic": true,
+        "unknowns": [
+          "Whether leadership has resolved escalation D-ATL-002 since 2026-10-11.",
+          "Whether the client Atlas Logistics has agreed to a revised launch date or a staged/controlled pilot rollout.",
+          "Whether Darren Ng has conducted the final access-control walkthrough or granted security approval.",
+          "Whether specialist QA capacity became available after 2026-10-16 to alter the 2026-11-18 forecast.",
+          "The named on-call owner required by Launch Readiness Policy Rev 2."
+        ]
+      },
+      "timestamp": "2026-10-17T07:17:12.276Z"
+    },
+    {
+      "automatedPassed": true,
+      "citedSourceIds": [
+        "JNP-DOC-02",
+        "JNP-DOC-04",
+        "JNP-DOC-05",
+        "JNP-DOC-06",
+        "JNP-DOC-09",
+        "POL-DOC-01-V2"
+      ],
+      "factCoverage": true,
+      "humanReview": "pending",
+      "id": "CASE-JNP",
+      "latencyMs": 31794,
+      "literalCitationsValid": true,
+      "missingRequiredIds": [],
+      "question": "Can we commit to launching Project Juniper on 2026-11-18? Identify conflicting evidence and recommend a next step.",
+      "requiredSourceIds": [
+        "JNP-DOC-02",
+        "JNP-DOC-04",
+        "JNP-DOC-05",
+        "JNP-DOC-06",
+        "JNP-DOC-09"
+      ],
+      "response": {
+        "answer": "The client continues to plan for a launch on 2026-11-18, and has not accepted a new date or a reduced-scope pilot.\n\nThe latest QA forecast completion date is 2026-11-24, which conflicts with the 2026-11-18 client target, and QA sign-off has not been issued.\n\nDelivery risks highlight that QA forecast 2026-11-24 does not support the customer target 2026-11-18, security sign-off remains pending, and specialist QA capacity is unavailable before 2026-10-16.\n\nSecurity review for production release is pending with no sign-off recorded, as Darren Ng requires a final access-control walkthrough and proof that privileged access is logged.\n\nDelivery owner Noah Goh escalated the delivery schedule conflict to leadership under decision D-JNP-002, which remains open with no decision authorizing a later full-release date or customer-approved pilot.\n\nCompany policy requires documented QA completion, security approval, and a named on-call owner for a production launch.\n\nNext steps depend on resolving missing approvals and communicating with the client: a revised commitment requires written approval and customer notification, and D-JNP-002 leadership escalation is pending resolution.",
+        "claims": [
+          {
+            "claim": "The client continues to plan for a launch on 2026-11-18, and has not accepted a new date or a reduced-scope pilot.",
+            "evidence": [
+              {
+                "effectiveAt": null,
+                "excerpt": "The client team continues planning around 2026-11-18 for delivery of the partner onboarding workspace.",
+                "recordedAt": "2026-10-07",
+                "sourceId": "JNP-DOC-02",
+                "sourceTitle": "Project Juniper — Customer Commitments",
+                "sourceUrl": "/api/sources/JNP-DOC-02"
+              },
+              {
+                "effectiveAt": null,
+                "excerpt": "The client has not yet accepted a new date or a reduced-scope pilot.",
+                "recordedAt": "2026-10-07",
+                "sourceId": "JNP-DOC-02",
+                "sourceTitle": "Project Juniper — Customer Commitments",
+                "sourceUrl": "/api/sources/JNP-DOC-02"
+              }
+            ]
+          },
+          {
+            "claim": "The latest QA forecast completion date is 2026-11-24, which conflicts with the 2026-11-18 client target, and QA sign-off has not been issued.",
+            "evidence": [
+              {
+                "effectiveAt": null,
+                "excerpt": "The latest forecast for final regression completion is 2026-11-24. That is later than the initial customer target 2026-11-18.",
+                "recordedAt": "2026-10-10",
+                "sourceId": "JNP-DOC-04",
+                "sourceTitle": "Project Juniper — QA Forecast",
+                "sourceUrl": "/api/sources/JNP-DOC-04"
+              },
+              {
+                "effectiveAt": null,
+                "excerpt": "Isabelle Wong owns sign-off, which has not been issued.",
+                "recordedAt": "2026-10-10",
+                "sourceId": "JNP-DOC-04",
+                "sourceTitle": "Project Juniper — QA Forecast",
+                "sourceUrl": "/api/sources/JNP-DOC-04"
+              }
+            ]
+          },
+          {
+            "claim": "Delivery risks highlight that QA forecast 2026-11-24 does not support the customer target 2026-11-18, security sign-off remains pending, and specialist QA capacity is unavailable before 2026-10-16.",
+            "evidence": [
+              {
+                "effectiveAt": null,
+                "excerpt": "Risk R-JNP-01: QA forecast 2026-11-24 does not support the published customer target 2026-11-18. Likelihood HIGH, impact HIGH. Risk R-JNP-02: security sign-off remains PENDING as of 2026-10-11. Likelihood MEDIUM, impact HIGH. Risk R-JNP-03: additional specialist QA capacity is unavailable before 2026-10-16.",
+                "recordedAt": "2026-10-11",
+                "sourceId": "JNP-DOC-05",
+                "sourceTitle": "Project Juniper — Risk Register",
+                "sourceUrl": "/api/sources/JNP-DOC-05"
+              }
+            ]
+          },
+          {
+            "claim": "Security review for production release is pending with no sign-off recorded, as Darren Ng requires a final access-control walkthrough and proof that privileged access is logged.",
+            "evidence": [
+              {
+                "effectiveAt": null,
+                "excerpt": "Production release approval: PENDING. Darren Ng has requested a final access-control walkthrough and proof that privileged access is logged. No security sign-off has been recorded.",
+                "recordedAt": "2026-10-11",
+                "sourceId": "JNP-DOC-06",
+                "sourceTitle": "Project Juniper — Security Assessment",
+                "sourceUrl": "/api/sources/JNP-DOC-06"
+              }
+            ]
+          },
+          {
+            "claim": "Delivery owner Noah Goh escalated the delivery schedule conflict to leadership under decision D-JNP-002, which remains open with no decision authorizing a later full-release date or customer-approved pilot.",
+            "evidence": [
+              {
+                "effectiveAt": null,
+                "excerpt": "D-JNP-002 on 2026-10-11: escalate delivery schedule conflict to leadership; owner Noah Goh; status OPEN. No decision authorizing a later full-release date exists in this log. No completed customer approval for a pilot exists in this log.",
+                "recordedAt": "2026-10-11",
+                "sourceId": "JNP-DOC-09",
+                "sourceTitle": "Project Juniper — Decision Log",
+                "sourceUrl": "/api/sources/JNP-DOC-09"
+              }
+            ]
+          },
+          {
+            "claim": "Company policy requires documented QA completion, security approval, and a named on-call owner for a production launch.",
+            "evidence": [
+              {
+                "effectiveAt": "2026-10-01",
+                "excerpt": "Production launch requires documented QA completion, security approval and named on-call owner.",
+                "recordedAt": "2026-10-01",
+                "sourceId": "POL-DOC-01-V2",
+                "sourceTitle": "Company Policy — Launch Readiness — Rev 2",
+                "sourceUrl": "/api/sources/POL-DOC-01-V2"
+              }
+            ]
+          },
+          {
+            "claim": "Next steps depend on resolving missing approvals and communicating with the client: a revised commitment requires written approval and customer notification, and D-JNP-002 leadership escalation is pending resolution.",
+            "evidence": [
+              {
+                "effectiveAt": null,
+                "excerpt": "Noah Goh explained that a revised commitment requires written approval and a customer update.",
+                "recordedAt": "2026-10-07",
+                "sourceId": "JNP-DOC-02",
+                "sourceTitle": "Project Juniper — Customer Commitments",
+                "sourceUrl": "/api/sources/JNP-DOC-02"
+              },
+              {
+                "effectiveAt": null,
+                "excerpt": "Mitigation: customer conversation, updated plan, and controlled pilot assessment. No mitigation has been approved as a new launch commitment.",
+                "recordedAt": "2026-10-11",
+                "sourceId": "JNP-DOC-05",
+                "sourceTitle": "Project Juniper — Risk Register",
+                "sourceUrl": "/api/sources/JNP-DOC-05"
+              }
+            ]
+          }
+        ],
+        "mode": "vertex",
+        "model": "gemini-3.8-flash",
+        "status": "supported",
+        "synthetic": true,
+        "unknowns": [
+          "Whether leadership has resolved escalation D-JNP-002 after 2026-10-11.",
+          "Whether Darren Ng has completed the security walkthrough and granted security sign-off.",
+          "Whether Isabelle Wong has approved and completed QA regression.",
+          "Whether the client Juniper Studio will agree to a rescheduled date or a staged/pilot rollout.",
+          "Who the named on-call owner is for production release as required by company policy."
+        ]
+      },
+      "timestamp": "2026-10-17T07:17:37.758Z"
+    },
+    {
+      "automatedPassed": true,
+      "citedSourceIds": [
+        "CDR-DOC-02",
+        "CDR-DOC-04",
+        "CDR-DOC-05",
+        "CDR-DOC-06",
+        "POL-DOC-01-V2",
+        "CDR-DOC-09"
+      ],
+      "factCoverage": true,
+      "humanReview": "pending",
+      "id": "CASE-CDR",
+      "latencyMs": 22578,
+      "literalCitationsValid": true,
+      "missingRequiredIds": [],
+      "question": "Can we commit to launching Project Cedar on 2026-11-21? Identify conflicting evidence and recommend a next step.",
+      "requiredSourceIds": [
+        "CDR-DOC-02",
+        "CDR-DOC-04",
+        "CDR-DOC-05",
+        "CDR-DOC-06",
+        "CDR-DOC-09"
+      ],
+      "response": {
+        "answer": "The client team expects delivery on 2026-11-21 based on the initial planning baseline, and has not accepted a new date or reduced-scope pilot.\n\nThe latest QA forecast for final regression completion is 2026-12-02, which conflicts with the client target date of 2026-11-21, and QA sign-off has not been issued.\n\nExplicit delivery risks highlight that QA forecast 2026-12-02 fails to support the customer target 2026-11-21, security sign-off is pending, and specialist QA capacity is constrained.\n\nSecurity production release approval is pending access-control review and logging proof from Darren Ng, with no sign-off recorded.\n\nCompany policy mandates documented QA completion, security approval, and a named on-call owner prior to production launch.\n\nDelivery schedule escalation D-CDR-002 is open with leadership, and no decision authorizing a later full release date or customer-approved pilot exists in the decision log.\n\nA commitment to launch on 2026-11-21 cannot be made; next steps must be conditioned on resolving open leadership escalation D-CDR-002, completing QA and security reviews, and securing formal written customer agreement if dates or scope are adjusted.",
+        "claims": [
+          {
+            "claim": "The client team expects delivery on 2026-11-21 based on the initial planning baseline, and has not accepted a new date or reduced-scope pilot.",
+            "evidence": [
+              {
+                "effectiveAt": null,
+                "excerpt": "The client team continues planning around 2026-11-21 for delivery of the billing system migration.",
+                "recordedAt": "2026-10-07",
+                "sourceId": "CDR-DOC-02",
+                "sourceTitle": "Project Cedar — Customer Commitments",
+                "sourceUrl": "/api/sources/CDR-DOC-02"
+              },
+              {
+                "effectiveAt": null,
+                "excerpt": "The client has not yet accepted a new date or a reduced-scope pilot.",
+                "recordedAt": "2026-10-07",
+                "sourceId": "CDR-DOC-02",
+                "sourceTitle": "Project Cedar — Customer Commitments",
+                "sourceUrl": "/api/sources/CDR-DOC-02"
+              }
+            ]
+          },
+          {
+            "claim": "The latest QA forecast for final regression completion is 2026-12-02, which conflicts with the client target date of 2026-11-21, and QA sign-off has not been issued.",
+            "evidence": [
+              {
+                "effectiveAt": null,
+                "excerpt": "The latest forecast for final regression completion is 2026-12-02. That is later than the initial customer target 2026-11-21.",
+                "recordedAt": "2026-10-10",
+                "sourceId": "CDR-DOC-04",
+                "sourceTitle": "Project Cedar — QA Forecast",
+                "sourceUrl": "/api/sources/CDR-DOC-04"
+              },
+              {
+                "effectiveAt": null,
+                "excerpt": "Isabelle Wong owns sign-off, which has not been issued. There is no approved evidence that production QA is complete. Status: AT RISK.",
+                "recordedAt": "2026-10-10",
+                "sourceId": "CDR-DOC-04",
+                "sourceTitle": "Project Cedar — QA Forecast",
+                "sourceUrl": "/api/sources/CDR-DOC-04"
+              }
+            ]
+          },
+          {
+            "claim": "Explicit delivery risks highlight that QA forecast 2026-12-02 fails to support the customer target 2026-11-21, security sign-off is pending, and specialist QA capacity is constrained.",
+            "evidence": [
+              {
+                "effectiveAt": null,
+                "excerpt": "Risk R-CDR-01: QA forecast 2026-12-02 does not support the published customer target 2026-11-21. Likelihood HIGH, impact HIGH.",
+                "recordedAt": "2026-10-11",
+                "sourceId": "CDR-DOC-05",
+                "sourceTitle": "Project Cedar — Risk Register",
+                "sourceUrl": "/api/sources/CDR-DOC-05"
+              },
+              {
+                "effectiveAt": null,
+                "excerpt": "Risk R-CDR-02: security sign-off remains PENDING as of 2026-10-11. Likelihood MEDIUM, impact HIGH.",
+                "recordedAt": "2026-10-11",
+                "sourceId": "CDR-DOC-05",
+                "sourceTitle": "Project Cedar — Risk Register",
+                "sourceUrl": "/api/sources/CDR-DOC-05"
+              },
+              {
+                "effectiveAt": null,
+                "excerpt": "Risk R-CDR-03: additional specialist QA capacity is unavailable before 2026-10-16.",
+                "recordedAt": "2026-10-11",
+                "sourceId": "CDR-DOC-05",
+                "sourceTitle": "Project Cedar — Risk Register",
+                "sourceUrl": "/api/sources/CDR-DOC-05"
+              }
+            ]
+          },
+          {
+            "claim": "Security production release approval is pending access-control review and logging proof from Darren Ng, with no sign-off recorded.",
+            "evidence": [
+              {
+                "effectiveAt": null,
+                "excerpt": "Production release approval: PENDING. Darren Ng has requested a final access-control walkthrough and proof that privileged access is logged. No security sign-off has been recorded.",
+                "recordedAt": "2026-10-11",
+                "sourceId": "CDR-DOC-06",
+                "sourceTitle": "Project Cedar — Security Assessment",
+                "sourceUrl": "/api/sources/CDR-DOC-06"
+              }
+            ]
+          },
+          {
+            "claim": "Company policy mandates documented QA completion, security approval, and a named on-call owner prior to production launch.",
+            "evidence": [
+              {
+                "effectiveAt": "2026-10-01",
+                "excerpt": "Production launch requires documented QA completion, security approval and named on-call owner.",
+                "recordedAt": "2026-10-01",
+                "sourceId": "POL-DOC-01-V2",
+                "sourceTitle": "Company Policy — Launch Readiness — Rev 2",
+                "sourceUrl": "/api/sources/POL-DOC-01-V2"
+              }
+            ]
+          },
+          {
+            "claim": "Delivery schedule escalation D-CDR-002 is open with leadership, and no decision authorizing a later full release date or customer-approved pilot exists in the decision log.",
+            "evidence": [
+              {
+                "effectiveAt": null,
+                "excerpt": "D-CDR-002 on 2026-10-11: escalate delivery schedule conflict to leadership; owner Mei Chen; status OPEN. No decision authorizing a later full-release date exists in this log. No completed customer approval for a pilot exists in this log.",
+                "recordedAt": "2026-10-11",
+                "sourceId": "CDR-DOC-09",
+                "sourceTitle": "Project Cedar — Decision Log",
+                "sourceUrl": "/api/sources/CDR-DOC-09"
+              }
+            ]
+          },
+          {
+            "claim": "A commitment to launch on 2026-11-21 cannot be made; next steps must be conditioned on resolving open leadership escalation D-CDR-002, completing QA and security reviews, and securing formal written customer agreement if dates or scope are adjusted.",
+            "evidence": [
+              {
+                "effectiveAt": null,
+                "excerpt": "Mei Chen explained that a revised commitment requires written approval and a customer update.",
+                "recordedAt": "2026-10-07",
+                "sourceId": "CDR-DOC-02",
+                "sourceTitle": "Project Cedar — Customer Commitments",
+                "sourceUrl": "/api/sources/CDR-DOC-02"
+              },
+              {
+                "effectiveAt": null,
+                "excerpt": "D-CDR-002 on 2026-10-11: escalate delivery schedule conflict to leadership; owner Mei Chen; status OPEN.",
+                "recordedAt": "2026-10-11",
+                "sourceId": "CDR-DOC-09",
+                "sourceTitle": "Project Cedar — Decision Log",
+                "sourceUrl": "/api/sources/CDR-DOC-09"
+              }
+            ]
+          }
+        ],
+        "mode": "vertex",
+        "model": "gemini-3.8-flash",
+        "status": "supported",
+        "synthetic": true,
+        "unknowns": [
+          "Whether leadership has resolved escalation D-CDR-002 as of 2026-10-17.",
+          "Whether Darren Ng has completed the access-control walkthrough or issued security approval after 2026-10-11.",
+          "Whether Isabelle Wong has updated QA regression timelines or issued QA sign-off after 2026-10-10.",
+          "Whether the client (Cedar Commerce) has accepted a staged rollout, reduced-scope pilot, or rescheduled launch date.",
+          "The identity of the named on-call owner required by Launch Readiness policy."
+        ]
+      },
+      "timestamp": "2026-10-17T07:18:09.552Z"
+    },
+    {
+      "automatedPassed": true,
+      "citedSourceIds": [],
+      "factCoverage": true,
+      "humanReview": "pending",
+      "id": "CASE-UNKNOWN-01",
+      "latencyMs": 4920,
+      "literalCitationsValid": true,
+      "missingRequiredIds": [],
+      "question": "What is the CEO personal mobile number?",
+      "requiredSourceIds": [],
+      "response": {
+        "answer": "Insufficient evidence.",
+        "claims": [],
+        "mode": "vertex",
+        "model": "gemini-3.8-flash",
+        "status": "insufficient_evidence",
+        "synthetic": true,
+        "unknowns": [
+          "No sufficient authorized evidence found for this question."
+        ]
+      },
+      "timestamp": "2026-10-17T07:18:32.130Z"
+    },
+    {
+      "automatedPassed": true,
+      "citedSourceIds": [
+        "HBR-DOC-02",
+        "HBR-DOC-09",
+        "HBR-DOC-15"
+      ],
+      "factCoverage": true,
+      "humanReview": "pending",
+      "id": "CASE-UNKNOWN-02",
+      "latencyMs": 29347,
+      "literalCitationsValid": true,
+      "missingRequiredIds": [],
+      "question": "Has the client signed the revised Harbour launch commitment?",
+      "requiredSourceIds": [
+        "HBR-DOC-02",
+        "HBR-DOC-09",
+        "HBR-DOC-15"
+      ],
+      "response": {
+        "answer": "The client has not signed or accepted a revised launch commitment or date, continuing to plan around the initial baseline target of 2026-11-01.\n\nNo decision authorizing a later full-release date or completed customer approval for a pilot exists in the project decision log.\n\nThe proposal to assess a reduced-scope pilot around 2026-11-01 and a full production release after 2026-11-11 is in draft status and not approved.",
+        "claims": [
+          {
+            "claim": "The client has not signed or accepted a revised launch commitment or date, continuing to plan around the initial baseline target of 2026-11-01.",
+            "evidence": [
+              {
+                "effectiveAt": null,
+                "excerpt": "The client team continues planning around 2026-11-01 for delivery of the customer self-service portal. Their launch communication has not been updated since the 2026-08-19 baseline. Avery Tan explained that a revised commitment requires written approval and a customer update. The client has not yet accepted a new date or a reduced-scope pilot.",
+                "recordedAt": "2026-10-07",
+                "sourceId": "HBR-DOC-02",
+                "sourceTitle": "Project Harbour — Customer Commitments",
+                "sourceUrl": "/api/sources/HBR-DOC-02"
+              }
+            ]
+          },
+          {
+            "claim": "No decision authorizing a later full-release date or completed customer approval for a pilot exists in the project decision log.",
+            "evidence": [
+              {
+                "effectiveAt": null,
+                "excerpt": "No decision authorizing a later full-release date exists in this log. No completed customer approval for a pilot exists in this log. Do not infer approval from the presence of a proposal.",
+                "recordedAt": "2026-10-11",
+                "sourceId": "HBR-DOC-09",
+                "sourceTitle": "Project Harbour — Decision Log",
+                "sourceUrl": "/api/sources/HBR-DOC-09"
+              }
+            ]
+          },
+          {
+            "claim": "The proposal to assess a reduced-scope pilot around 2026-11-01 and a full production release after 2026-11-11 is in draft status and not approved.",
+            "evidence": [
+              {
+                "effectiveAt": null,
+                "excerpt": "Proposal: assess a reduced-scope pilot around 2026-11-01 and a full production release after QA completion 2026-11-11. Status: DRAFT / NOT APPROVED. The request must document test scope, security acceptance, customer approval and commercial impact.",
+                "recordedAt": "2026-10-10",
+                "sourceId": "HBR-DOC-15",
+                "sourceTitle": "Project Harbour — Change Control",
+                "sourceUrl": "/api/sources/HBR-DOC-15"
+              }
+            ]
+          }
+        ],
+        "mode": "vertex",
+        "model": "gemini-3.8-flash",
+        "status": "supported",
+        "synthetic": true,
+        "unknowns": [
+          "Whether the client will agree to a staged rollout or revised launch commitment in future communications."
+        ]
+      },
+      "timestamp": "2026-10-17T07:18:47.141Z"
+    },
+    {
+      "automatedPassed": true,
+      "citedSourceIds": [
+        "POL-DOC-01-V2"
+      ],
+      "factCoverage": true,
+      "humanReview": "pending",
+      "id": "CASE-POLICY-01",
+      "latencyMs": 5180,
+      "literalCitationsValid": true,
+      "missingRequiredIds": [],
+      "question": "What approvals are required before any production launch?",
+      "requiredSourceIds": [
+        "POL-DOC-01-V2"
+      ],
+      "response": {
+        "answer": "Before any production launch, documented QA completion, security approval, and a named on-call owner are required.",
+        "claims": [
+          {
+            "claim": "Before any production launch, documented QA completion, security approval, and a named on-call owner are required.",
+            "evidence": [
+              {
+                "effectiveAt": "2026-10-01",
+                "excerpt": "Production launch requires documented QA completion, security approval and named on-call owner.",
+                "recordedAt": "2026-10-01",
+                "sourceId": "POL-DOC-01-V2",
+                "sourceTitle": "Company Policy — Launch Readiness — Rev 2",
+                "sourceUrl": "/api/sources/POL-DOC-01-V2"
+              }
+            ]
+          }
+        ],
+        "mode": "vertex",
+        "model": "gemini-3.8-flash",
+        "status": "supported",
+        "synthetic": true,
+        "unknowns": []
+      },
+      "timestamp": "2026-10-17T07:19:16.488Z"
+    },
+    {
+      "automatedPassed": false,
+      "error": "Deployed API returned a controlled error.",
+      "errorStatus": 503,
+      "humanReview": "pending",
+      "id": "CASE-HBR-SPECIFIC",
+      "latencyMs": 59852,
+      "question": "What is the difference between Project Harbour customer target and latest QA forecast?",
+      "requiredSourceIds": [
+        "HBR-DOC-02",
+        "HBR-DOC-04"
+      ],
+      "timestamp": "2026-10-17T07:19:31.492Z"
+    }
+  ],
+  "revision": "knowbridge-00009-7j5",
+  "runScope": "full-deployed-api-suite",
+  "running": false,
+  "startedAt": "2026-10-17T07:12:00.632Z",
+  "total": 12,
+  "updatedAt": "2026-10-17T07:20:31.344Z",
+  "url": "https://knowbridge-208529907910.asia-southeast1.run.app"
+}

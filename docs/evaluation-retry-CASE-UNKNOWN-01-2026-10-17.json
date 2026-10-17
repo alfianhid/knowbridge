@@ -1,0 +1,51 @@
+{
+  "timestamp": "2026-10-17T07:00:42.762Z",
+  "model": "gemini-3.8-flash",
+  "location": "global",
+  "embeddingModel": "gemini-embedding-001",
+  "embeddingLocation": "us-central1",
+  "dimensions": 768,
+  "settings": {
+    "generationOutputTokens": 4096,
+    "semanticOutputTokens": 8192,
+    "thinking": "LOW for gemini-3.8-flash",
+    "maxContextChunks": 12
+  },
+  "corpusSourceCount": 55,
+  "suiteFixtures": 12,
+  "runScope": "selected-case-retry",
+  "totalFixtures": 1,
+  "completed": 1,
+  "automatedPassed": 1,
+  "automatedFailed": 0,
+  "humanReviewed": 0,
+  "humanSemanticPasses": null,
+  "medianLatencyMs": 8634,
+  "results": [
+    {
+      "id": "CASE-UNKNOWN-01",
+      "question": "What is the CEO personal mobile number?",
+      "expected": "Not present in indexed documents; decline to guess.",
+      "timestamp": "2026-10-17T07:00:34.128Z",
+      "requiredSourceIds": [],
+      "humanReview": "pending",
+      "latencyMs": 8634,
+      "citedSourceIds": [],
+      "missingRequiredIds": [],
+      "literalCitationsValid": true,
+      "factCoverage": true,
+      "automatedPassed": true,
+      "response": {
+        "status": "insufficient_evidence",
+        "claims": [],
+        "unknowns": [
+          "No sufficient authorized evidence found for this question."
+        ],
+        "answer": "Insufficient evidence.",
+        "mode": "vertex",
+        "model": "gemini-3.8-flash",
+        "synthetic": true
+      }
+    }
+  ]
+}

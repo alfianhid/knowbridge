@@ -8,9 +8,9 @@ Phase 1 implements a bounded synthetic source catalog, durable ingestion and pro
 
 Local development uses durable files under ignored `.data/sources`. Cloud Run requires Firestore. Ingestion and catalog/detail reads use the same store. Imports survive restart, concurrent retries skip unchanged records, and metadata changes refresh stored records. Failed imports report actual failure counts.
 
-Phase 2 adds `/api/ask`, an Ask UI, Gemini 768-dimensional embeddings, scoped Firestore vector retrieval and structured Gemini answers with verified literal citations. Local mode is deterministic lexical evidence lookup with no AI synthesis. Cloud Run requires Vertex AI and Firestore; failures never switch to local responses. Saved decision APIs remain Phase 3. Live cloud Harbour and absent-information checks passed on 2026-10-15; see [cloud results](docs/CLOUD-PHASE2-RESULTS.md). Broader model accuracy and deployment are not claimed.
+Phase 2 adds `/api/ask`, Gemini 768-dimensional embeddings, scoped Firestore vector retrieval and structured answers with verified literal citations. Local mode is deterministic lexical evidence lookup with no AI synthesis. Phase 3 adds protected brief creation, saved list/detail, review acknowledgement and source inspection. The deployed app and one authenticated Harbour brief create/retry/list/reopen/source verification passed; see [current readiness](docs/READINESS.md) and [deployed brief evidence](docs/CLOUD-BRIEF-VERIFICATION-2026-10-16.md). This does not establish full benchmark reliability, broad model accuracy or production readiness.
 
-Synthesized answers now pass a separate structured semantic review after citation checks. Eight live semantic regressions passed. The full benchmark recorded 9/12 and 10/12 automated passes, with all five failed-case retries passing; [per-attempt evidence](docs/EVALUATION-RESULTS-2026-10-15.md) preserves failures. This does not replace human review. Current evidence, full-evaluation outcomes and remaining acceptance gates are linked from [readiness](docs/READINESS.md).
+Synthesized answers pass a structured semantic gate after citation checks. Eight live adversarial regressions passed. The full benchmark runs recorded 9/12 and 10/12 automated passes; focused retries passed the failed cases, but do not convert either full run into a pass. You reported successful human semantic review of all 12 cases and manual accessibility checks on 2026-10-16; reviewer and environment details were not recorded. The deployed brief still has `reviewedByHuman:false`. See [acceptance evidence](docs/ACCEPTANCE.md), [benchmark results](docs/EVALUATION-RESULTS-2026-10-15.md), and [readiness](docs/READINESS.md).
 
 ## Run locally
 
@@ -50,7 +50,7 @@ npm.cmd run test:e2e
 npm.cmd audit
 ```
 
-Browser tests require a production build and the local 18-source import. Playwright starts its own local server. Tests cover mobile reflow, keyboard access, forced colors, source selection, retry and axe checks. These checks do not certify complete accessibility. Bounded real retrieval has recorded smoke evidence; the 12-case automated run is recorded, while single-run reliability and human semantic review remain open. See [current readiness](docs/READINESS.md).
+Browser tests require a production build and the local 18-source import. Playwright starts its own local server. Tests cover mobile reflow, keyboard access, forced colors, source selection, retry and axe checks. These checks do not certify complete accessibility. You reported successful manual 400% zoom, text-spacing, screen-reader and 12-case semantic reviews; details are limited as described in [acceptance evidence](docs/ACCEPTANCE.md). Automated full-run reliability remains open. See [current readiness](docs/READINESS.md).
 
 ## Data and hero facts
 
@@ -62,6 +62,8 @@ Harbour customer target: 2026-11-01 (`HBR-DOC-02`). QA forecast: 2026-11-11, rec
 
 ## Access and cloud setup
 
+Decision briefs require Vertex AI, Firestore and a valid Firebase ID token with `knowbridgeMember:true` (or ingestion admin) plus `knowbridgeTenant:"demo-north-quay"`. The Decision brief panel accepts an operator-provided token in a password field, keeps it only in memory, and sends it as a bearer token. Reload clears it. This is a controlled demo session, not a browser sign-in flow. Create saves automatically; refresh/reopen saved briefs, inspect source text, then deliberately record human review. Review is acknowledgement, never launch approval. Local mode retains public synthetic search but cannot generate briefs. See [brief setup](docs/DEPLOYMENT.md#decision-brief-setup).
+
 Public reads expose only `demo-north-quay` synthetic records. Caller headers cannot select private tenants. `POST /api/ingest` requires a verified, revocation-checked Firebase ID token with `knowbridgeAdmin:true` and `knowbridgeTenant:"demo-north-quay"`. Static ingestion tokens are no longer supported. Body size is capped at 16 KiB; each admin can ingest five times per minute. The shared store enforces the ingestion quota.
 
 Set cloud variables from `.env.example`; use ADC locally and the assigned managed service identity on Cloud Run. Never commit keys or bake them into images. Both `secrets/` and `.secrets/` are excluded from Git and Docker. See `docs/DEPLOYMENT.md` for required API/database/IAM setup.
@@ -72,6 +74,12 @@ The container uses `npm ci`, standalone Next output and a non-root runtime. A no
 
 [Audit tracker](https://github.com/alfianhid/knowbridge/issues/21) records findings and verification. Local plan/results: `docs/AUDIT-REMEDIATION-PLAN.md`, `docs/AUDIT-TRACKER.md`.
 
-Resolve Phase 1 gates before `prompts/02-RETRIEVAL.md`. Then follow the staged prompt sequence. P1 Picker must wait until P0 works.
+Use [current readiness](docs/READINESS.md) as the status source; Phase 1/2/3 result files are historical snapshots. Follow the staged prompts only when their entry gates match current readiness. Phase 4 Workspace integration remains optional and should stay on synthetic files until its authorization, lifecycle and residency issues are resolved.
 
 The original planning documents specify team formation on 2026-10-14, internal submission on 2026-10-17 and final submission on 2026-10-18. The user confirmed the registration checkpoint; exact competition-dashboard cutoff remains a dashboard fact.
+
+## Optional Workspace selected-file demo
+
+Latest follow-up: [final deployment and acceptance](docs/WORKSPACE-FOLLOWUP-2026-10-17.md). Revision `knowbridge-00011-xx4` and the matching maintenance image include the reviewed Drive-401 lifecycle fix; 256 tests pass. Registered-file import/search/source checks, changed/trash rejection, separate-member isolation, real revoked-grant cleanup, denial/reconnect and repeated disconnect are recorded with their limits. The account is left disconnected with no credentials/imported copies. #37/#38 are closed; other issue closures/provider-contract decisions are tracked in [readiness](docs/READINESS.md). Original full benchmark artifacts remain unchanged; Phase 5 clearance is not implied. The paragraph below preserves the earlier checkpoint.
+
+Phase 4 is implemented and defaults off in source. The separate Workspace panel binds Google consent to an existing demo member, imports only registered fictional native Docs/first-tab Sheets, and supports scoped search, literal source inspection and disconnect cleanup. Public search and saved briefs keep using the separate seed corpus. Revision `knowbridge-00009-7j5` serves five reviewed audit/live fixes. The fictional-account consent/Picker/three-file import/search/citation/retry/cancel/disconnect path passed; cleanup removed credentials and imported copies. See [live evidence and remaining negative checks](docs/WORKSPACE-LIVE-ACCEPTANCE-2026-10-17.md) and [pre-Phase 5 audit](docs/PRE-PHASE5-AUDIT-2026-10-17.md). Local suite: 249 tests. Complete deployed Ask benchmark: 10/12, median 27.4 seconds including failures/source verification. Earlier full and focused runs remain separate evidence. Approved concise GitHub status comments were posted; all seven Workspace issues remain open. No real Workspace data is permitted.

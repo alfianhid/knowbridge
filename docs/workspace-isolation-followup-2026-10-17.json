@@ -1,0 +1,28 @@
+{
+  "scope": "named-temporary-fictional-member-isolation",
+  "timestamp": "2026-10-17T07:55:18.446Z",
+  "checks": [
+    {
+      "name": "own-empty-status",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "name": "foreign-imported-source",
+      "status": 401,
+      "passed": true
+    },
+    {
+      "name": "unconnected-private-search",
+      "status": 401,
+      "passed": true
+    },
+    {
+      "name": "forged-owner-import",
+      "status": 400,
+      "passed": true
+    }
+  ],
+  "temporaryIdentityDeleted": true,
+  "passed": true
+}
