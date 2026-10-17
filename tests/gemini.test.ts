@@ -1,5 +1,5 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
-import { assessSemantics, embed, generateGrounded, getAIConfig, validateEmbedding } from '../src/lib/gemini';
+import { assessSemantics, embed, generateDecisionBrief, generateGrounded, getAIConfig, validateEmbedding } from '../src/lib/gemini';
 import { loadSyntheticSources } from '../src/lib/sources';
 
 const { embedContent, generateContent, construct } = vi.hoisted(() => ({ embedContent: vi.fn(), generateContent: vi.fn(), construct: vi.fn() }));
@@ -17,6 +17,24 @@ function configure() {
 }
 
 describe('Vertex AI embedding boundary', () => {
+  it('requests complete primary evidence and literal readiness values before the first brief attempt', async () => {
+    configure();
+    const chunks = (await loadSyntheticSources())[0].chunks;
+    generateContent.mockResolvedValue({ text: '{"status":"at_risk"}' });
+    await generateDecisionBrief('Can Project Harbour launch on 1 Nov?', chunks);
+    const sent = generateContent.mock.calls[0][0];
+    expect(JSON.parse(sent.contents)).toMatchObject({ evidence: chunks });
+    expect(sent.config.responseJsonSchema.properties).toHaveProperty('supportingClaims');
+    expect(sent.config.systemInstruction).toContain('including the Risk Register and Decision Log');
+    expect(sent.config.systemInstruction).toContain('Available context alone is not a citation');
+    expect(sent.config.systemInstruction).toContain("supported only by that conflict's left and right excerpts");
+    expect(sent.config.systemInstruction).toContain('Cite proposal identifiers and their terms in supportingClaims');
+    expect(sent.config.systemInstruction).toContain('exact ISO dates');
+    expect(sent.config.systemInstruction).toContain('literal security approval status');
+    expect(sent.config.systemInstruction).toContain('does not prove launch impossible or unviable');
+    expect(sent.config.systemInstruction).toContain('in supportingClaims claim text');
+    expect(sent.config.systemInstruction).toContain('A proposed date does not ensure QA completion, security approval or policy compliance');
+  });
   it('requests separate structured semantic review with source context and authority rules', async () => {
     configure();
     const context = (await loadSyntheticSources())[0].chunks;

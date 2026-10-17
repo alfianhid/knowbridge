@@ -12,6 +12,13 @@ export interface SemanticStatement {
 
 export class DecisionCoverageError extends Error {}
 
+// Shared literal patterns for bounded synthetic facts; briefs cite the line that matches the same pattern.
+export const DECISION_FACT_PATTERNS = {
+  client_expectation: /client team continues planning around (\d{4}-\d{2}-\d{2})/i,
+  forecast: /latest forecast for final regression completion is (\d{4}-\d{2}-\d{2})/i,
+  approval: /Production release approval:\s*(PENDING|APPROVED|NOT APPROVED)/i,
+} as const;
+
 // Bounded synthetic adapter facts. Literal source statements, not file timestamps, supply values.
 export function decisionFacts(sources: SourceRecord[], context?: SourceChunk[]): {
   category: 'client_expectation' | 'forecast' | 'approval'; value: string; sourceId: string; recordedAt: string; effectiveAt: string | null;
@@ -20,9 +27,9 @@ export function decisionFacts(sources: SourceRecord[], context?: SourceChunk[]):
     const type = source.content.match(/^Document type: (.+)$/m)?.[1];
     const content = context ? context.filter(chunk => chunk.sourceId === source.id).map(chunk => chunk.body).join('\n') : source.content;
     const category = type === 'Customer Commitments' ? 'client_expectation' : type === 'QA Forecast' ? 'forecast' : type === 'Security Assessment' ? 'approval' : undefined;
-    const value = category === 'client_expectation' ? content.match(/client team continues planning around (\d{4}-\d{2}-\d{2})/i)?.[1]
-      : category === 'forecast' ? content.match(/latest forecast for final regression completion is (\d{4}-\d{2}-\d{2})/i)?.[1]
-      : category === 'approval' ? content.match(/Production release approval:\s*(PENDING|APPROVED|NOT APPROVED)/i)?.[1] : undefined;
+    const value = category === 'client_expectation' ? content.match(DECISION_FACT_PATTERNS.client_expectation)?.[1]
+      : category === 'forecast' ? content.match(DECISION_FACT_PATTERNS.forecast)?.[1]
+      : category === 'approval' ? content.match(DECISION_FACT_PATTERNS.approval)?.[1] : undefined;
     return category && value ? [{ category, value, sourceId: source.id, recordedAt: source.recordedAt, effectiveAt: source.effectiveAt }] : [];
   });
 }

@@ -58,7 +58,7 @@ test('source detail failure can be retried', async ({ page }) => {
 test('local Ask renders Harbour evidence and abstains for absent information', async ({ page }) => {
   await page.setViewportSize({ width: 320, height: 900 });
   await page.goto('/');
-  await page.getByRole('textbox', { name: 'Question' }).fill('Can Project Harbour launch on 1 Nov?');
+  await page.getByRole('textbox', { name: 'Question', exact: true }).fill('Can Project Harbour launch on 1 Nov?');
   await page.getByRole('button', { name: 'Ask', exact: true }).click();
   const answer = page.getByRole('region', { name: 'Grounded answer' });
   await expect(answer).toContainText('Local deterministic evidence lookup; no AI synthesis.');
@@ -71,7 +71,7 @@ test('local Ask renders Harbour evidence and abstains for absent information', a
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
   const result = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21aa', 'wcag22aa']).analyze();
   expect(result.violations).toEqual([]);
-  await page.getByRole('textbox', { name: 'Question' }).fill('What is the personal mobile number of the CEO?');
+  await page.getByRole('textbox', { name: 'Question', exact: true }).fill('What is the personal mobile number of the CEO?');
   await page.getByRole('button', { name: 'Ask', exact: true }).click();
   await expect(answer.getByRole('heading', { name: 'Insufficient evidence' })).toBeVisible();
   await expect(answer.getByRole('link')).toHaveCount(0);

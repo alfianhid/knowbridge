@@ -1,11 +1,17 @@
 import { SourceExplorer } from '@/components/source-explorer';
 import { AskPanel } from '@/components/ask-panel';
+import { DecisionBriefPanel } from '@/components/decision-brief-panel';
 import { DEMO_TENANT_ID, listSourceSummariesForTenant } from '@/lib/sources';
 import { limitPublicReads } from '@/lib/api-limits';
+import { WorkspacePanel } from '@/components/workspace-panel';
+import { workspacePublicConfig } from '@/lib/workspace-config';
+import { headers } from 'next/headers';
 
 export const dynamic = 'force-dynamic';
 
 export default async function Home() {
+  const workspace = workspacePublicConfig();
+  const nonce = (await headers()).get('x-nonce') ?? undefined;
   let sources: Awaited<ReturnType<typeof listSourceSummariesForTenant>> = [];
   let unavailable = false;
   try { limitPublicReads(); sources = await listSourceSummariesForTenant(DEMO_TENANT_ID); } catch { unavailable = true; }
@@ -23,6 +29,8 @@ export default async function Home() {
         <div className="pill">Grounded search available · fictional records · {sources.length} imported sources</div>
       </section>
       <AskPanel />
+      <WorkspacePanel {...workspace} nonce={nonce} />
+      <DecisionBriefPanel />
       {unavailable ? <p role="alert">Source catalog unavailable. Please try again later.</p> : <SourceExplorer sources={sources} />}
       <footer>KnowBridge · All sample organizations, people, and records are fictional.</footer>
     </main>

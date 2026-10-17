@@ -52,6 +52,12 @@ button:focus-visible,summary:focus-visible,[tabindex]:focus-visible{outline:3px 
 .evidence-scroll{max-height:350px;overflow:auto;padding:16px;border:1px solid var(--line);border-radius:8px;margin:20px 0}
 .evidence-scroll h3{font-size:14px;overflow-wrap:anywhere}
 .evidence-text{white-space:pre-wrap;font-size:13px;line-height:1.7;overflow-wrap:anywhere}
+.decision-brief>input{display:block;width:100%;min-height:44px;margin:8px 0;padding:10px;font:inherit;border:1px solid var(--soft);border-radius:6px}
+.decision-brief>input:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.brief-workspace{display:grid;grid-template-columns:minmax(0,1fr);gap:24px;margin-top:20px}
+.brief-workspace>article,.brief-workspace>aside{min-width:0}
+.brief-workspace .source-detail{min-height:0;align-self:start;padding:20px}
+@media(min-width:1000px){.brief-workspace:has(aside){grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}
 .source-detail pre{overflow-wrap:anywhere}
 summary{cursor:pointer;padding:10px;min-height:44px}
 .section-heading{flex-wrap:wrap}

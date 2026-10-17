@@ -46,7 +46,8 @@ export function verifySourceReferences(brief: DecisionBrief, allowedSources: Map
 
 // Model metadata is discarded before parsing; only an authorized server record can supply it.
 const inputEvidence = z.object({ sourceId: z.string(), excerpt: z.string().min(8) });
-const inputBrief = z.object({
+// Model-facing shape: no review flags, model metadata, or source titles/URLs/dates.
+export const DecisionBriefInputSchema = z.object({
   question: z.string(), status: z.enum(['supported', 'at_risk', 'insufficient_evidence']), recommendation: z.string(),
   supportingClaims: z.array(z.object({ claim: z.string(), evidence: z.array(inputEvidence) })),
   conflicts: z.array(z.object({ description: z.string(), type: ConflictSchema.shape.type, left: inputEvidence, right: inputEvidence, resolution: z.string().optional() })),
@@ -54,7 +55,7 @@ const inputBrief = z.object({
 });
 
 export function finalizeDecisionBrief(input: unknown, sources: ReadonlyMap<string, SourceRecord>): DecisionBrief {
-  const parsed = inputBrief.parse(input);
+  const parsed = DecisionBriefInputSchema.parse(input);
   const enrich = (evidence: z.infer<typeof inputEvidence>): EvidenceRef => {
     const source = sources.get(evidence.sourceId);
     if (!source) throw new Error(`Unknown or unauthorized source: ${evidence.sourceId}`);

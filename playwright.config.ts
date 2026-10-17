@@ -8,6 +8,6 @@ export default defineConfig({
   webServer: {
     command: 'node .next/standalone/server.js',
     url: 'http://127.0.0.1:3100', reuseExistingServer: false, timeout: 60_000,
-    env: { PORT: '3100', HOSTNAME: '127.0.0.1', KNOWBRIDGE_STORE: 'file', KNOWBRIDGE_RETRIEVAL: 'local', KNOWBRIDGE_DATA_DIR: path.resolve('.data/sources') },
+    env: { PORT: '3100', HOSTNAME: '127.0.0.1', KNOWBRIDGE_STORE: 'file', KNOWBRIDGE_RETRIEVAL: 'local', KNOWBRIDGE_WORKSPACE_ENABLED: 'false', KNOWBRIDGE_DATA_DIR: path.resolve('.data/sources') },
   },
 });

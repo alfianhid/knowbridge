@@ -1,0 +1,16 @@
+FROM node:22-alpine AS dependencies
+WORKDIR /app
+COPY package*.json ./
+RUN npm ci --no-audit --no-fund
+
+FROM node:22-alpine
+WORKDIR /app
+ENV NODE_ENV=production
+COPY package*.json ./
+RUN npm ci --omit=dev --no-audit --no-fund
+# The trusted maintenance runner transpiles the existing operator script at runtime.
+COPY --from=dependencies /app/node_modules/typescript ./node_modules/typescript
+COPY --chown=node:node scripts/run-typescript.cjs scripts/cleanup-workspace.ts ./scripts/
+COPY --chown=node:node src/lib ./src/lib/
+USER node
+CMD ["node", "scripts/run-typescript.cjs", "scripts/cleanup-workspace.ts", "--execute"]
