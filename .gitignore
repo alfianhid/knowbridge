@@ -14,5 +14,6 @@ oauth*.json
 secrets/
 .secrets/
 .data/
+.taste-skill/
 playwright-report/
 test-results/
