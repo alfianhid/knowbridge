@@ -41,6 +41,7 @@ button:focus-visible,summary:focus-visible,[tabindex]:focus-visible{outline:3px 
 .ask-panel input{flex:1 1 220px;min-width:0;min-height:44px;padding:10px;border:1px solid var(--soft);border-radius:6px;font:inherit}
 .ask-panel button{min-height:44px;padding:10px 20px;background:var(--accent);color:white;border:1px solid var(--accent);border-radius:6px;font:inherit;cursor:pointer}
 .ask-panel button:disabled{opacity:.65;cursor:default}
+.workspace-panel>button{display:block;width:fit-content;margin:10px 0}
 .ask-panel input:focus-visible,.ask-panel a:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
 .ask-panel figure{margin:16px 0;padding-left:16px;border-left:3px solid var(--line)}
 .ask-panel blockquote{margin:0 0 10px}

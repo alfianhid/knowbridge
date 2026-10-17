@@ -70,7 +70,7 @@ export function WorkspacePanel({ enabled, configured, nonce }: { enabled: boolea
     });
   }
   const available = enabled && configured;
-  return <section aria-label="Google Workspace">
+  return <section className="ask-panel workspace-panel" aria-label="Google Workspace">
     <h2>Google Workspace selected files</h2>
     {!available && <p>Synthetic seed corpus remains active. Workspace import is {enabled ? 'not configured' : 'disabled'}. Existing connections can still be disconnected below.</p>}
     <p className="disclosure">Fictional demo only. Import registered fictional files only. Gemini uses the global endpoint; embeddings use US processing. This is not Singapore-only processing. Sheets import the first tab only.</p>
