@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>KARAKA · KnowBridge — AI Builder Cup 2026 Submission Deck</title>
+<style>
+  @page { size: 1280px 720px; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: "Segoe UI", Arial, sans-serif; background: #0e1116; color: #e8ecf1; }
+  .slide { width: 1280px; height: 720px; padding: 56px 80px; display: flex; flex-direction: column; justify-content: center; page-break-after: always; overflow: hidden; position: relative; }
+  .slide:last-child { page-break-after: auto; }
+  .kicker { font-size: 14px; letter-spacing: 3px; text-transform: uppercase; color: #6ea8fe; margin-bottom: 12px; }
+  h1 { font-size: 50px; line-height: 1.12; margin-bottom: 18px; }
+  h2 { font-size: 38px; line-height: 1.15; margin-bottom: 20px; }
+  h3 { font-size: 21px; margin-bottom: 8px; color: #e8ecf1; }
+  p, li { font-size: 20px; line-height: 1.5; color: #c4cdd8; }
+  ul { list-style: none; }
+  li { margin: 9px 0; padding-left: 26px; position: relative; }
+  li::before { content: "▸"; position: absolute; left: 0; color: #6ea8fe; }
+  .accent { color: #e8ecf1; font-weight: 600; }
+  .foot { margin-top: 24px; font-size: 14px; color: #7d8894; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .grid3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+  .card { background: #171c24; border: 1px solid #293140; border-radius: 12px; padding: 18px 22px; }
+  .card p { font-size: 16px; }
+  .stat { font-size: 34px; font-weight: 700; color: #6ea8fe; }
+  .warn { color: #ffb86b; }
+  .ok { color: #7ee2a8; }
+  .small { font-size: 15px; }
+  .pill { display: inline-block; background: #223047; border: 1px solid #3a4c68; border-radius: 999px; padding: 5px 14px; font-size: 15px; margin: 4px 8px 4px 0; }
+  .pageno { position: absolute; right: 40px; bottom: 28px; font-size: 13px; color: #5c6774; }
+  table { border-collapse: collapse; width: 100%; }
+  th, td { border: 1px solid #293140; padding: 10px 16px; font-size: 17px; color: #c4cdd8; text-align: left; }
+  th { background: #171c24; color: #e8ecf1; font-size: 16px; }
+  .kv { display: grid; grid-template-columns: 240px 1fr; gap: 10px 24px; font-size: 21px; }
+  .kv dt { color: #7d8894; font-size: 16px; letter-spacing: 1.5px; text-transform: uppercase; padding-top: 5px; }
+  .kv dd { color: #e8ecf1; font-weight: 600; }
+  /* flow diagram */
+  .flow { display: flex; align-items: stretch; gap: 0; margin: 10px 0 18px; }
+  .flow .step { flex: 1; background: #171c24; border: 1px solid #293140; border-radius: 12px; padding: 16px 18px; }
+  .flow .arrow { display: flex; align-items: center; padding: 0 8px; color: #6ea8fe; font-size: 26px; }
+  .flow .step h3 { color: #6ea8fe; font-size: 19px; }
+  .flow .step p { font-size: 14.5px; line-height: 1.45; }
+  .gatebar { background: #223047; border: 1px solid #3a4c68; border-radius: 12px; padding: 14px 22px; font-size: 16px; color: #c4cdd8; }
+  .gatebar b { color: #e8ecf1; }
+  /* wireframe */
+  .wf { background: #12171f; border: 1px solid #293140; border-radius: 10px; padding: 12px; }
+  .wf .box { border: 1.5px dashed #3a4c68; border-radius: 8px; padding: 10px; font-size: 13px; color: #7d8894; text-align: center; margin: 6px 0; }
+  .wf .box.solid { border-style: solid; color: #c4cdd8; }
+  .shots { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .shot { background: #171c24; border: 1px solid #293140; border-radius: 10px; padding: 10px; }
+  .shot img { width: 100%; border-radius: 6px; display: block; }
+  .shot .cap { font-size: 14px; color: #7d8894; margin-top: 8px; text-align: center; }
+  .shot.single img { max-height: 520px; object-fit: cover; object-position: top; }
+</style>
+</head>
+<body>
+
+<!-- ============ 1. TEAM DETAILS ============ -->
+<section class="slide">
+  <div class="kicker">Google AI Builder Cup 2026 · Future of Work &amp; Enterprise Productivity</div>
+  <h1>KnowBridge<br>Connecting knowledge to confident decisions</h1>
+  <dl class="kv" style="margin: 26px 0 10px;">
+    <dt>Team name</dt><dd>KARAKA</dd>
+    <dt>Team leader</dt><dd>Alfian Hidayatulløh</dd>
+    <dt>Problem statement</dt><dd style="font-weight: 400; color: #c4cdd8;">Google Workspace SMEs hold project commitments across scattered Docs and Sheets — customer targets in one file, QA forecasts in another, security sign-off in a third. Nothing reconciles <span class="accent">baseline vs forecast vs commitment vs approved decision</span>, so teams risk promising dates the evidence does not support.</dd>
+  </dl>
+  <p class="foot">All organizations, people and records in this deck are fictional synthetic data. Results are reported as measured.</p>
+  <div class="pageno">1</div>
+</section>
+
+<!-- ============ 2. BRIEF ABOUT THE IDEA ============ -->
+<section class="slide">
+  <div class="kicker">Brief about the idea</div>
+  <h2>An evidence catalog that answers with sources, dates and honest gaps</h2>
+  <p>KnowBridge is a grounded search and decision-support tool for Google Workspace SMEs. It imports a bounded set of files, keeps the original text and record dates attached to every piece of evidence, and answers questions with <span class="accent">literal, click-through citations</span> — reconciling conflicting documents instead of hiding them.</p>
+  <div class="grid2" style="margin-top: 22px;">
+    <div class="card"><h3>The workflow</h3><p><b class="accent">Connect → Investigate → Reconcile → Decide</b> — inside the tools teams already use, with every answer traceable to source text.</p></div>
+    <div class="card"><h3>The output</h3><p>A structured <b class="accent">Decision Brief</b>: options, risks, unknowns and conditional recommendations — for a human to verify. Never an autonomous decision.</p></div>
+    <div class="card"><h3>The discipline</h3><p>When evidence is absent, the answer is <b class="warn">"insufficient evidence"</b>. Fabricated excerpts are rejected server-side; a later forecast never silently erases an earlier commitment.</p></div>
+    <div class="card"><h3>The proof</h3><p>Deployed on Google Cloud with a deterministic synthetic corpus and a 12-case live benchmark. Failures are reported as measured, including service errors.</p></div>
+  </div>
+  <div class="pageno">2</div>
+</section>
+
+<!-- ============ 3. OPPORTUNITIES ============ -->
+<section class="slide">
+  <div class="kicker">Opportunities</div>
+  <h2>Why KnowBridge is different — and how it solves the problem</h2>
+  <ul>
+    <li><span class="accent">How is it different from existing ideas?</span> &nbsp;Enterprise search returns passages. KnowBridge <b>types</b> evidence (baseline / forecast / commitment / approved decision), preserves each document's recorded date, and surfaces conflicts across files instead of flattening them into one answer.</li>
+    <li><span class="accent">How does it solve the problem?</span> &nbsp;One question replaces file archaeology: grounded retrieval → literal citation verification → temporal and conflict analysis → a decision brief with explicit unknowns. Grounding gates run <b>before and after</b> the model; if they fail, the answer is withheld (fail-closed).</li>
+    <li><span class="accent">USP of the proposed solution</span> &nbsp;Temporally aware, explainable decision support: a revised forecast does not erase a customer commitment, "pending" is never shown as "approved", and every quoted excerpt must literally exist in an authorized source — verified server-side, not just prompted.</li>
+  </ul>
+  <p class="foot">Market framing is stated as a testable hypothesis (Singapore services SMEs on Google Workspace) — not a validated market claim.</p>
+  <div class="pageno">3</div>
+</section>
+
+<!-- ============ 4. LIST OF FEATURES ============ -->
+<section class="slide">
+  <div class="kicker">List of features offered by the solution</div>
+  <h2>Features</h2>
+  <div class="grid2">
+    <ul>
+      <li><span class="accent">Bounded Workspace import</span> — Google Picker + OAuth; registered fictional files only; Sheets import first tab.</li>
+      <li><span class="accent">Source catalog</span> — every record with stable ID, owner, recorded date and full original text.</li>
+      <li><span class="accent">Grounded Ask</span> — answers with literal, click-through citations to exact excerpts.</li>
+      <li><span class="accent">Abstention</span> — absent evidence is reported as "insufficient evidence", never invented.</li>
+      <li><span class="accent">Temporal &amp; conflict analysis</span> — baseline vs forecast vs commitment vs approved decision, typed.</li>
+    </ul>
+    <ul>
+      <li><span class="accent">Decision Brief</span> — options, risks, unknowns, conditional next steps for human review.</li>
+      <li><span class="accent">Save &amp; review briefs</span> — authorized member sessions; revocation-checked Firebase ID tokens on mutations.</li>
+      <li><span class="accent">Effective-date discipline</span> — document effective date is distinguished from any Drive updated timestamp.</li>
+      <li><span class="accent">Tenant isolation</span> — retrieval is restricted to authorized tenant/user documents before the LLM is called.</li>
+      <li><span class="accent">Fail-closed integrity gates</span> — fabricated excerpts, missing citations or coverage gaps block the answer.</li>
+    </ul>
+  </div>
+  <div class="pageno">4</div>
+</section>
+
+<!-- ============ 5. PROCESS FLOW / USE-CASE DIAGRAM ============ -->
+<section class="slide">
+  <div class="kicker">Process flow diagram</div>
+  <h2>Use-case flow: connect → investigate → reconcile → decide</h2>
+  <div class="flow">
+    <div class="step"><h3>1 · Connect</h3><p>Member selects registered files via Google Picker (OAuth). Only authorized, tenant-pinned sources are imported and indexed.</p></div>
+    <div class="arrow">▸</div>
+    <div class="step"><h3>2 · Investigate</h3><p>Ask a question. Tenant-scoped retrieval + grounded answer with literal excerpts and source links. Absent evidence → abstain.</p></div>
+    <div class="arrow">▸</div>
+    <div class="step"><h3>3 · Reconcile</h3><p>Temporal &amp; conflict analysis across sources: what is baseline, forecast, commitment, approved decision — and since when.</p></div>
+    <div class="arrow">▸</div>
+    <div class="step"><h3>4 · Decide</h3><p>Generate a Decision Brief (options, risks, unknowns) for human review. Saved for review; never auto-approved.</p></div>
+  </div>
+  <div class="gatebar"><b>Grounding gates on every answer:</b> tenant-scoped retrieval → literal citation verification → decision-coverage check → semantic review → fail closed (502/503) if any gate fails.</div>
+  <div class="gatebar" style="margin-top: 12px;"><b>Actors:</b> SME project lead / delivery owner (asker) · authorized Workspace member (imports, reviews briefs) · human decision-maker (approves — the app never does).</div>
+  <div class="pageno">5</div>
+</section>
+
+<!-- ============ 6. WIREFRAMES / MOCK DIAGRAMS ============ -->
+<section class="slide">
+  <div class="kicker">Wireframes / mock diagrams (optional)</div>
+  <h2>Interface structure — wireframe</h2>
+  <div class="grid3">
+    <div class="wf">
+      <div class="box solid">Hero · tagline + corpus status</div>
+      <div class="box solid">Ask panel — question input</div>
+      <div class="box">Answer: verdict + typed evidence timeline + literal citations (click-through)</div>
+      <div class="box">Abstain state: "insufficient evidence"</div>
+    </div>
+    <div class="wf">
+      <div class="box solid">Google Workspace panel</div>
+      <div class="box">Picker: select registered files</div>
+      <div class="box">Import status + disconnect / delete copies</div>
+      <div class="box">Disclosure: processing regions, fictional data</div>
+    </div>
+    <div class="wf">
+      <div class="box solid">Decision Brief panel</div>
+      <div class="box">Decision question → Create brief</div>
+      <div class="box">Options · risks · unknowns · conditional next steps</div>
+      <div class="box">Saved briefs list (review)</div>
+    </div>
+  </div>
+  <div class="gatebar" style="margin-top: 18px;">Below the panels: <b>Source catalog</b> — list of imported records on the left, full record view on the right (stable ID, owner, recorded date, original source text).</div>
+  <p class="foot">Wireframes are structural sketches; the following slides show the actual deployed prototype.</p>
+  <div class="pageno">6</div>
+</section>
+
+<!-- ============ 7. ARCHITECTURE DIAGRAM ============ -->
+<section class="slide">
+  <div class="kicker">Architecture diagram of the proposed solution</div>
+  <h2>Google Cloud architecture — fail-closed grounding</h2>
+  <div class="flow">
+    <div class="step"><h3>Google Workspace</h3><p>Docs / Sheets (fictional). Google Picker + OAuth for selected-file import. Document effective dates travel with the content.</p></div>
+    <div class="arrow">▸</div>
+    <div class="step"><h3>Cloud Run · asia-southeast1</h3><p>Next.js / Node 22 API. Non-root container, Secret Manager, CSP. Grounding gates; revocation-checked Firebase ID tokens on mutations; fail-closed 502/503.</p></div>
+    <div class="arrow">▸</div>
+    <div class="step"><h3>Gemini + Firestore</h3><p><b class="accent">gemini-3.8-flash</b> (global endpoint) for answers &amp; briefs; <b class="accent">gemini-embedding-001</b> 768-d vectors (us-central1); Firestore vector retrieval, tenant-scoped.</p></div>
+  </div>
+  <div class="grid2">
+    <div class="card"><h3>Answer pipeline</h3><p>Tenant-scoped retrieval → model call → literal citation verification → decision-coverage check → semantic review → ship or fail closed.</p></div>
+    <div class="card"><h3>Security basics</h3><p>Non-root container · Secret Manager secrets · revocation-checked tokens on writes · CSP · synthetic-tenant pinning · cross-tenant chunks never reach the LLM.</p></div>
+  </div>
+  <p class="foot warn">Honest disclosure: model processing is not Singapore-only (Gemini global endpoint; embeddings US). Real-data import is prohibited.</p>
+  <div class="pageno">7</div>
+</section>
+
+<!-- ============ 8. TECHNOLOGIES ============ -->
+<section class="slide">
+  <div class="kicker">Technologies used in the solution</div>
+  <h2>Stack</h2>
+  <div class="grid2">
+    <div class="card"><h3>Application</h3>
+      <p><span class="pill">Next.js 15 · React 19</span><span class="pill">TypeScript</span><span class="pill">Node 22</span><span class="pill">Zod validation</span></p>
+      <p>Single deployable web app + API routes; strict schema validation at the boundaries.</p>
+    </div>
+    <div class="card"><h3>Google AI &amp; data</h3>
+      <p><span class="pill">Gemini (gemini-3.8-flash)</span><span class="pill">gemini-embedding-001</span><span class="pill">Firestore vector search</span></p>
+      <p>Grounded generation with literal-citation verification; 768-d embeddings for retrieval.</p>
+    </div>
+    <div class="card"><h3>Google Cloud &amp; Workspace</h3>
+      <p><span class="pill">Cloud Run (asia-southeast1)</span><span class="pill">Secret Manager</span><span class="pill">Docker</span><span class="pill">Google Picker + OAuth</span><span class="pill">Firebase Auth (ID tokens)</span></p>
+      <p>Service identity over hard-coded keys; revocation-checked tokens on mutations.</p>
+    </div>
+    <div class="card"><h3>Quality &amp; evaluation</h3>
+      <p><span class="pill">Vitest</span><span class="pill">Playwright</span><span class="pill">axe-core accessibility</span><span class="pill">Python seed generator</span></p>
+      <p>256 unit/integration tests, e2e flows, live adversarial semantic regressions, deterministic synthetic dataset.</p>
+    </div>
+  </div>
+  <div class="pageno">8</div>
+</section>
+
+<!-- ============ 9. ESTIMATED IMPLEMENTATION COST ============ -->
+<section class="slide">
+  <div class="kicker">Estimated implementation cost (optional)</div>
+  <h2>Running cost — rough order-of-magnitude estimates</h2>
+  <table>
+    <tr><th>Component</th><th>Basis</th><th>Estimated monthly cost (hackathon / demo scale)</th></tr>
+    <tr><td>Cloud Run (asia-southeast1)</td><td>1 vCPU · scale-to-zero · demo + evaluation traffic</td><td>≈ S$5 – 15</td></tr>
+    <tr><td>Gemini API (flash + embeddings)</td><td>Usage-based; demo queries + 12-case benchmark runs are the main driver</td><td>≈ S$10 – 25</td></tr>
+    <tr><td>Firestore (vector retrieval)</td><td>Small synthetic corpus (168 docs / 24 sheets); mostly free tier</td><td>≈ S$0 – 5</td></tr>
+    <tr><td>Secret Manager · Artifact Registry</td><td>Secret versions + container images</td><td>≈ S$1 – 3</td></tr>
+    <tr><td>Frontend hosting</td><td>Served from the same Cloud Run service</td><td>≈ S$0</td></tr>
+    <tr><th>Total</th><th></th><th>≈ S$20 – 50 / month</th></tr>
+  </table>
+  <p class="foot">Rough estimates only — all components are usage-based and actual cost scales with query volume. Development uses free-tier / trial credits where available. No commitment or quote is implied.</p>
+  <div class="pageno">9</div>
+</section>
+
+<!-- ============ 10. SNAPSHOTS OF THE PROTOTYPE (1/2) ============ -->
+<section class="slide">
+  <div class="kicker">Snapshots of the prototype</div>
+  <h2>Deployed prototype — landing, Ask panel &amp; source catalog</h2>
+  <div class="shots">
+    <div class="shot single"><img src="assets/shot-hero.png" alt="KnowBridge landing page with the Ask about the evidence panel and the demo question typed in"><div class="cap">Landing + Ask panel with the Project Harbour question</div></div>
+    <div class="shot single"><img src="assets/shot-catalog.png" alt="Source catalog with 55 sources and a record view showing stable ID ATL-DOC-02, recorded date and original text"><div class="cap">Source catalog + record view: stable ID, recorded date, original text</div></div>
+  </div>
+  <div class="pageno">10</div>
+</section>
+
+<!-- ============ 11. SNAPSHOTS OF THE PROTOTYPE (2/2) ============ -->
+<section class="slide">
+  <div class="kicker">Snapshots of the prototype</div>
+  <h2>Deployed prototype — Workspace import &amp; decision brief</h2>
+  <div class="shots">
+    <div class="shot single"><img src="assets/shot-workspace.png" alt="Google Workspace selected files panel with Firebase ID token field and import controls"><div class="cap">Google Workspace panel: bounded selected-file import + disclosures</div></div>
+    <div class="shot single"><img src="assets/shot-brief.png" alt="Decision brief panel with member token, decision question input and create brief button"><div class="cap">Decision brief panel: operator session, human decision-maker</div></div>
+  </div>
+  <p class="foot">Screenshots are from the live deployed application. All records shown are fictional synthetic data.</p>
+  <div class="pageno">11</div>
+</section>
+
+<!-- ============ 12. PROTOTYPE PERFORMANCE / BENCHMARKING ============ -->
+<section class="slide">
+  <div class="kicker">Prototype performance report / benchmarking</div>
+  <h2>Measured results — including failures</h2>
+  <div class="grid2">
+    <div class="card"><p class="stat">168 / 24 / 1,904</p><p>fictional Docs / Sheets / rows · 8 projects · 12 gold cases — seed verifier <span class="ok">PASS</span></p></div>
+    <div class="card"><p class="stat">256 / 256</p><p>unit &amp; integration tests <span class="ok">PASS</span> · lint, typecheck, build <span class="ok">PASS</span> · 8 live semantic adversarial regressions <span class="ok">PASS</span></p></div>
+    <div class="card"><p class="stat">2 / 12</p><p>both final deployed benchmark runs (before/after the reliability fix): every failure was a provider-side service error (HTTP 503), <b>never an evidence-quality failure</b>; every pass had fully valid literal citations</p></div>
+    <div class="card"><p class="stat">9 / 10 / 11 of 12</p><p>earlier complete runs (revision <span class="small">knowbridge-00009-7j5</span>; 11/12 local CLI). Totals are never aggregated across runs</p></div>
+  </div>
+  <p class="foot">Median latency of the pre-fix deployed run including failures: 49,509.5 ms. Full-suite reliability under intermittent provider-side model failures remains an open issue and is reported as such. Artifacts: <span class="small">deployed-evaluation-prefix / deployed-evaluation-postfix (2026-10-17)</span>.</p>
+  <div class="pageno">12</div>
+</section>
+
+<!-- ============ 13. ADDITIONAL DETAILS / FUTURE DEVELOPMENT ============ -->
+<section class="slide">
+  <div class="kicker">Additional details / future development</div>
+  <h2>What's next — and what we will not claim</h2>
+  <div class="grid2">
+    <div class="card"><h3>Roadmap</h3>
+      <ul>
+        <li><b class="accent">Now:</b> grounded search, conflict/temporal evidence, decision briefs, save/review, Cloud Run deployment.</li>
+        <li><b class="accent">P1:</b> Picker selected-file import (built) · lightweight entity linking across records.</li>
+        <li><b class="accent">P2 (post-hackathon):</b> Gmail / Chat / Calendar connectors, SSO, organization-wide sync.</li>
+        <li><b class="accent">Reliability:</b> queueing and retries for intermittent model-call 503s — the main open issue.</li>
+      </ul>
+    </div>
+    <div class="card"><h3>Honest boundaries</h3>
+      <ul>
+        <li>No productivity guarantee or customer claim — all data is fictional synthetic data.</li>
+        <li>Recommendations are conditional; a human verifies every high-impact call.</li>
+        <li>Not production-compliant, enterprise-certified or legally approved.</li>
+        <li>Model processing is not Singapore-only; real-data import is prohibited.</li>
+      </ul>
+    </div>
+  </div>
+  <p class="foot"><span class="accent">KnowBridge — Know what your sources actually say.</span></p>
+  <div class="pageno">13</div>
+</section>
+
+<!-- ============ 14. LINKS ============ -->
+<section class="slide">
+  <div class="kicker">Links</div>
+  <h2>Where to find everything</h2>
+  <dl class="kv" style="margin: 18px 0;">
+    <dt>GitHub public repository</dt><dd>https://github.com/alfianhid/knowbridge</dd>
+    <dt>Demo video (3 minutes)</dt><dd class="warn">[Demo video link — TBA: recording in progress]</dd>
+    <dt>Final product link</dt><dd>https://knowbridge-208529907910.asia-southeast1.run.app</dd>
+  </dl>
+  <p>Repository includes the reproducible synthetic dataset (Python seed generator + verifier), architecture notes, evaluation artifacts and run instructions.</p>
+  <p class="foot">All demo companies, people, emails and records are fictional. Theme: Future of Work &amp; Enterprise Productivity. Team KARAKA · AI Builder Cup 2026.</p>
+  <div class="pageno">14</div>
+</section>
+
+</body>
+</html>

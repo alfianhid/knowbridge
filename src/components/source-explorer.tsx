@@ -41,7 +41,7 @@ export function SourceExplorer({ sources }: SourceExplorerProps) {
     <section className="catalog" aria-labelledby="catalog-title">
       <div className="catalog-list">
         <div className="section-heading">
-          <div><p className="eyebrow">IMPORTED EVIDENCE</p><h2 id="catalog-title">Source catalog</h2></div>
+          <div><h2 id="catalog-title">Source catalog</h2></div>
           <span className="count">{sources.length} sources</span>
         </div>
         <p className="disclosure">Fictional synthetic records only. No customer data or live Google Drive files.</p>
@@ -68,7 +68,7 @@ export function SourceExplorer({ sources }: SourceExplorerProps) {
         {!error && !detail ? <p>Loading source details…</p> : null}
         {detail ? (
           <>
-            <p className="eyebrow">SOURCE EVIDENCE</p><h2>{detail.title}</h2>
+            <h2>{detail.title}</h2>
             <dl>
               <div><dt>Stable ID</dt><dd>{detail.id}</dd></div>
               <div><dt>Project</dt><dd>{detail.project}</dd></div>
