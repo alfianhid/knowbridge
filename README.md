@@ -101,6 +101,10 @@ Set cloud variables from `.env.example`; use ADC locally and the assigned manage
 
 The container uses `npm ci`, standalone Next output and a non-root runtime. A nonce-based CSP protects production scripts. Dependency overrides are pinned and must be rechecked on upgrades. Mutation endpoints are protected: brief creation requires a revocation-checked Firebase ID token and `Idempotency-Key`, ingestion requires the ingestion-admin claim, and Workspace routes require the connected owner session. Public invocation on Cloud Run is intentional; authorization is enforced in the application and public reads are pinned to the synthetic demo tenant.
 
+## Security
+
+Security posture, the OWASP GenAI/API control mapping, least-privilege IAM, the durable model-call budget, and residual risks are documented in [security](docs/SECURITY.md). Key points: the public `/api/ask` route enforces a durable daily model-call budget with `Retry-After`, system prompts forbid prompt disclosure, the container base image is digest-pinned, and the runtime service account is least-privileged. Hardening reduces risk; it does not make this demo production-compliant.
+
 ## Workflow and tracking
 
 [Audit tracker](https://github.com/alfianhid/knowbridge/issues/21) records findings and verification. Local plan/results: `docs/AUDIT-REMEDIATION-PLAN.md`, `docs/AUDIT-TRACKER.md`.
