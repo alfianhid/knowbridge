@@ -27,7 +27,7 @@ export function getAIConfig() {
   return config.data;
 }
 
-function client(location: string, timeout = 30_000) {
+function client(location: string, timeout = 60_000) {
   return new GoogleGenAI({ vertexai: true, project: getAIConfig().project, location, httpOptions: { apiVersion: 'v1', timeout } });
 }
 
@@ -36,7 +36,7 @@ export async function assessSemantics(statements: SemanticStatement[], context: 
   const config = getAIConfig();
   const schema = JSON.parse(JSON.stringify(z.toJSONSchema(SemanticAssessmentSchema), (key, value) =>
     ['$schema', 'additionalProperties', 'minLength', 'maxLength', 'minimum', 'maximum', 'minItems', 'maxItems'].includes(key) ? undefined : value));
-  const response = await client(config.location, 60_000).models.generateContent({
+  const response = await client(config.location, 120_000).models.generateContent({
     model: config.model,
     contents: JSON.stringify({ statements, context, asOfDate: new Date().toISOString().slice(0, 10) }),
     config: {
@@ -72,7 +72,7 @@ export async function generateDecisionBrief(question: string, chunks: SourceChun
   const config = getAIConfig();
   const responseJsonSchema = JSON.parse(JSON.stringify(z.toJSONSchema(DecisionBriefInputSchema), (key, value) =>
     ['$schema', 'additionalProperties', 'minLength', 'maxLength', 'pattern', 'minItems', 'maxItems'].includes(key) ? undefined : value));
-  const response = await client(config.location, 60_000).models.generateContent({
+  const response = await client(config.location, 120_000).models.generateContent({
     model: config.model,
     contents: JSON.stringify({ question, asOfDate: new Date().toISOString().slice(0, 10), evidence: chunks, validationFeedback: diagnostics }),
     config: {
@@ -91,7 +91,7 @@ export async function generateGrounded(question: string, chunks: SourceChunk[], 
   // Vertex's generation schema accepts fewer constraints than Zod. Full validation still runs after generation.
   const responseJsonSchema = JSON.parse(JSON.stringify(z.toJSONSchema(ModelAnswerSchema), (key, value) =>
     ['$schema', 'additionalProperties', 'minLength', 'maxLength', 'pattern', 'minItems', 'maxItems'].includes(key) ? undefined : value));
-  const response = await client(config.location, 60_000).models.generateContent({
+  const response = await client(config.location, 120_000).models.generateContent({
     model: config.model,
     contents: JSON.stringify({ question, asOfDate: new Date().toISOString().slice(0, 10), evidence: chunks, validationFeedback: diagnostics }),
     config: {

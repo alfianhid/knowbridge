@@ -57,7 +57,7 @@ describe('Vertex AI embedding boundary', () => {
     configure();
     embedContent.mockResolvedValue({ embeddings: [{ values: Array(768).fill(1) }] });
     const vector = await embed('source content', 'RETRIEVAL_DOCUMENT');
-    expect(construct).toHaveBeenCalledWith(expect.objectContaining({ httpOptions: { apiVersion: 'v1', timeout: 30_000 } }));
+    expect(construct).toHaveBeenCalledWith(expect.objectContaining({ httpOptions: { apiVersion: 'v1', timeout: 60_000 } }));
     expect(embedContent).toHaveBeenCalledWith({ model: 'gemini-embedding-001', contents: 'source content',
       config: { taskType: 'RETRIEVAL_DOCUMENT', outputDimensionality: 768, autoTruncate: false } });
     expect(Math.hypot(...vector)).toBeCloseTo(1);
@@ -96,6 +96,6 @@ describe('Vertex AI embedding boundary', () => {
     expect(generateContent.mock.calls[0][0].model).toBe('gemini-3.8-flash');
     expect(generateContent.mock.calls[0][0].config).not.toHaveProperty('temperature');
     expect(generateContent.mock.calls[0][0].config.thinkingConfig).toEqual({ thinkingLevel: 'LOW' });
-    expect(construct).toHaveBeenCalledWith(expect.objectContaining({ httpOptions: { apiVersion: 'v1', timeout: 60_000 } }));
+    expect(construct).toHaveBeenCalledWith(expect.objectContaining({ httpOptions: { apiVersion: 'v1', timeout: 120_000 } }));
   });
 });
