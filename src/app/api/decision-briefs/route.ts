@@ -5,6 +5,7 @@ import { limitPublicReads, readBoundedJson } from '../../../lib/api-limits';
 import { createDecisionBrief, listDecisionBriefs } from '../../../lib/decision-briefs';
 import { briefResponse } from '../../../lib/brief-response';
 import { briefFailure } from '../../../lib/brief-errors';
+import { consumeModelBudget } from '../../../lib/model-quota';
 
 export const runtime = 'nodejs';
 
@@ -26,6 +27,7 @@ export async function POST(request: Request): Promise<NextResponse> {
     }
     const parsed = CreateBriefSchema.safeParse(input);
     if (!parsed.success) throw new ApiError(400, 'Question must contain 4–2000 characters; no extra fields allowed.');
+    await consumeModelBudget(identity.uid);
     const brief = await createDecisionBrief(identity, { question: parsed.data.question, idempotencyKey: key });
     return NextResponse.json(briefResponse(brief), { status: 201, headers: { 'Cache-Control': 'no-store' } });
   } catch (error) {

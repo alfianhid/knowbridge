@@ -3,7 +3,7 @@ import { DEMO_TENANT_ID, type SourceChunk } from './sources';
 import { getAdminApp } from './firebase';
 
 export class ApiError extends Error {
-  constructor(public readonly status: number, message: string) { super(message); }
+  constructor(public readonly status: number, message: string, public readonly retryAfterSeconds?: number) { super(message); }
 }
 
 export interface AccessScope {

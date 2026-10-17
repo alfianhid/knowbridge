@@ -20,12 +20,16 @@ export async function POST(request: Request): Promise<NextResponse> {
     const actor = await requireIngestionAdmin(request);
     const body = requestSchema.parse(await readBoundedJson(request));
     const store = getSourceStore();
-    if (!await store.consumeIngestionQuota(actor)) throw new ApiError(429, 'Ingestion limit reached. Retry shortly.');
+    if (!await store.consumeIngestionQuota(actor)) throw new ApiError(429, 'Ingestion limit reached. Retry shortly.', 60);
     const result = await ingestSyntheticSources({ store, adapter: new SyntheticSeedAdapter(body.corpus), sourceIds: body.sourceIds, actor });
     console.info('Synthetic ingestion completed.', { jobId: result.jobId, processed: result.processed, failed: result.failed });
     return NextResponse.json(result, { status: result.failed ? 207 : 200 });
   } catch (error: unknown) {
-    if (error instanceof ApiError) return NextResponse.json({ error: error.message }, { status: error.status });
+    if (error instanceof ApiError) {
+      const headers: Record<string, string> = { 'Cache-Control': 'no-store' };
+      if (typeof error.retryAfterSeconds === 'number') headers['Retry-After'] = String(error.retryAfterSeconds);
+      return NextResponse.json({ error: error.message }, { status: error.status, headers });
+    }
     if (error instanceof z.ZodError || error instanceof SyntaxError) {
       return NextResponse.json({ error: 'Invalid ingestion request.' }, { status: 400 });
     }
