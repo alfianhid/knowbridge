@@ -38,8 +38,8 @@ In a local PowerShell session:
 $env:GOOGLE_CLOUD_PROJECT="YOUR_GCP_PROJECT_ID"
 $env:KNOWBRIDGE_STORE="firestore"
 $env:KNOWBRIDGE_RETRIEVAL="vertex"
-# Optional local key alternative to owner ADC:
-# $env:GOOGLE_APPLICATION_CREDENTIALS=(Resolve-Path .secrets/gcp-sa.json).Path
+# Local auth: owner ADC from `gcloud auth application-default login`. No key file;
+# leave GOOGLE_APPLICATION_CREDENTIALS unset.
 node --env-file=.env scripts/run-typescript.cjs scripts/ingest-local.ts
 node --env-file=.env scripts/run-typescript.cjs scripts/ingest-local.ts
 ```
@@ -48,7 +48,7 @@ First import should process 18 records; retry should skip 18 unchanged records. 
 
 Use a fresh shell for cloud commands; explicit shell variables override `.env`. Default import is the 18-source Harbour batch; `--corpus=evaluation` selects 55 sources for all fixture coverage. Reindex expanded/changed sources before claiming live evaluation readiness. The deployed profile uses `global` generation, `us-central1` embeddings, `asia-southeast1` Firestore and `asia-southeast1` Cloud Run. Singapore-only model processing is not claimed. See [retrieval profile](RETRIEVAL.md) and the [current deployment record](CLOUD-BRIEF-VERIFICATION-2026-10-16.md).
 
-On 2026-10-15, the user authorized creating an available Firebase demo identity. Authentication was initialized in the existing project; `knowbridge-demo-reviewer` was created with `knowbridgeMember:true`, the fixed synthetic tenant claim and no ingestion-admin role. A real custom-token/ID-token exchange verified membership, denied ingestion and rejected the token after revocation. This is an operator authentication proof, not browser sign-in. The later [deployed brief verification](CLOUD-BRIEF-VERIFICATION-2026-10-16.md) exercised authenticated create/list/detail and persistence. It did not call the review endpoint; the saved test brief remains unreviewed. [Remediation results](ISSUE-REMEDIATION.md) record the identity proof. No token material belongs in tracked files or logs.
+On 2026-10-15, the user authorized creating an available Firebase demo identity. Authentication was initialized in the existing project; `knowbridge-demo-reviewer` was created with `knowbridgeMember:true`, the fixed synthetic tenant claim and no ingestion-admin role. A real custom-token/ID-token exchange verified membership, denied ingestion and rejected the token after revocation. This is an operator authentication proof, not browser sign-in. Since the 2026-10-17 credential rotation no standing service-account key exists: re-running the operator proof (`scripts/check-demo-identity.ts`, or the local `.data` acceptance helpers) requires a short-lived signer key issued for the run (`gcloud iam service-accounts keys create --expire-after=…`, passed via `KNOWBRIDGE_TOKEN_SIGNER_FILE`) and deleted immediately afterwards. The later [deployed brief verification](CLOUD-BRIEF-VERIFICATION-2026-10-16.md) exercised authenticated create/list/detail and persistence. It did not call the review endpoint; the saved test brief remains unreviewed. [Remediation results](ISSUE-REMEDIATION.md) record the identity proof. No token material belongs in tracked files or logs.
 
 ## Container/deployment
 
