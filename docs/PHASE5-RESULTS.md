@@ -13,7 +13,7 @@ All demo companies, people and records are fictional. Feature freeze declared; t
 | Typecheck | `npm run typecheck` | PASS |
 | Production build | `npm run build` | PASS |
 
-Playwright e2e (9 browser cases) was not re-run in this phase; the last recorded pass is in [pre-Phase 5 audit](PRE-PHASE5-AUDIT-2026-10-17.md).
+Playwright e2e (9 browser cases) was not re-run in this phase; the last recorded pass is in [pre-Phase 5 audit](archive/PRE-PHASE5-AUDIT-2026-10-17.md).
 
 ## 2. Benchmark: 12 cases with recorded actual outcomes
 
@@ -21,12 +21,12 @@ Harness: `scripts/evaluate-deployed.ts` (new) runs all 12 fixtures from `seed/ge
 
 | Run | Revision | Outcome | Median latency (incl. failures) | Artifact |
 |---|---|---|---|---|
-| Pre-fix full run | `knowbridge-00011-xx4` | **2/12** — 10 failures, all HTTP 503 service failures | 49,509.5 ms | [deployed-evaluation-prefix-2026-10-17.json](deployed-evaluation-prefix-2026-10-17.json) |
-| Focused retry CASE-HBR | `knowbridge-00011-xx4` | PASS (24,624 ms) | — | [retry artifact](deployed-eval-retry-CASE-HBR-2026-10-17.json) |
-| Focused retry CASE-HBR-SPECIFIC | `knowbridge-00011-xx4` | FAIL (503, 59,944 ms) | — | [retry artifact](deployed-eval-retry-CASE-HBR-SPECIFIC-2026-10-17.json) |
-| Focused retry CASE-UNKNOWN-01 | `knowbridge-00011-xx4` | FAIL (503, 60,553 ms) | — | [retry artifact](deployed-eval-retry-CASE-UNKNOWN-01-2026-10-17.json) |
-| Focused retry CASE-POLICY-01 | `knowbridge-00011-xx4` | FAIL (503, 59,198 ms) | — | [retry artifact](deployed-eval-retry-CASE-POLICY-01-2026-10-17.json) |
-| Post-fix full run | `knowbridge-00012-n6t` | **2/12** — 10 failures, all HTTP 503 service failures (5 fast provider rejections at 6–12 s; 5 at the raised 120 s model-call timeout) | 19,749 ms | [deployed-evaluation-postfix-2026-10-17.json](deployed-evaluation-postfix-2026-10-17.json) |
+| Pre-fix full run | `knowbridge-00011-xx4` | **2/12** — 10 failures, all HTTP 503 service failures | 49,509.5 ms | [deployed-evaluation-prefix-2026-10-17.json](evidence/evaluation/deployed-evaluation-prefix-2026-10-17.json) |
+| Focused retry CASE-HBR | `knowbridge-00011-xx4` | PASS (24,624 ms) | — | [retry artifact](evidence/evaluation/deployed-eval-retry-CASE-HBR-2026-10-17.json) |
+| Focused retry CASE-HBR-SPECIFIC | `knowbridge-00011-xx4` | FAIL (503, 59,944 ms) | — | [retry artifact](evidence/evaluation/deployed-eval-retry-CASE-HBR-SPECIFIC-2026-10-17.json) |
+| Focused retry CASE-UNKNOWN-01 | `knowbridge-00011-xx4` | FAIL (503, 60,553 ms) | — | [retry artifact](evidence/evaluation/deployed-eval-retry-CASE-UNKNOWN-01-2026-10-17.json) |
+| Focused retry CASE-POLICY-01 | `knowbridge-00011-xx4` | FAIL (503, 59,198 ms) | — | [retry artifact](evidence/evaluation/deployed-eval-retry-CASE-POLICY-01-2026-10-17.json) |
+| Post-fix full run | `knowbridge-00012-n6t` | **2/12** — 10 failures, all HTTP 503 service failures (5 fast provider rejections at 6–12 s; 5 at the raised 120 s model-call timeout) | 19,749 ms | [deployed-evaluation-postfix-2026-10-17.json](evidence/evaluation/deployed-evaluation-postfix-2026-10-17.json) |
 
 Historical complete runs remain separate evidence: 9/12, 10/12 (revision `knowbridge-00009-7j5`), 11/12 (local CLI), 3/12 (local CLI network failures). Totals are never combined.
 
@@ -62,11 +62,11 @@ Historical complete runs remain separate evidence: 9/12, 10/12 (revision `knowbr
 
 ## 7. README
 
-Updated with exact instructions: [benchmark evaluation commands](README.md#benchmark-evaluation) (all three run modes, scoring rules, no-aggregation rule) and [deploy commands](README.md#deploy) (gcloud project/API/database/service commands, env/secret requirements, post-deploy verification steps), plus the mutation-protection summary.
+Updated with exact instructions: [benchmark evaluation commands](../README.md#benchmark-evaluation) (all three run modes, scoring rules, no-aggregation rule) and [deploy commands](../README.md#deploy) (gcloud project/API/database/service commands, env/secret requirements, post-deploy verification steps), plus the mutation-protection summary.
 
 ## 8. Submission artifacts
 
-- 8-slide deck outline with actual screens/results: [DECK-OUTLINE.md](DECK-OUTLINE.md); rendered 8-page PDF: [deck/KnowBridge-Deck.pdf](deck/KnowBridge-Deck.pdf) (source [deck/KnowBridge-Deck.html](deck/KnowBridge-Deck.html)).
+- 8-slide deck outline with actual screens/results: [DECK-OUTLINE.md](DECK-OUTLINE.md); rendered 8-page PDF: [deck/KnowBridge-Submission-Deck.pdf](deck/KnowBridge-Submission-Deck.pdf) (source [deck/KnowBridge-Submission-Deck.html](deck/KnowBridge-Submission-Deck.html)).
 - Under-3-minute video script (2:50) with actual screens and results: [VIDEO-SCRIPT.md](VIDEO-SCRIPT.md).
 
 ## 9. Artifact URL checklist
@@ -74,7 +74,7 @@ Updated with exact instructions: [benchmark evaluation commands](README.md#bench
 - [ ] Deployed app (judge-accessible): https://knowbridge-208529907910.asia-southeast1.run.app
 - [ ] Public GitHub source: https://github.com/alfianhid/knowbridge
 - [ ] Demo video (<3 min, public link): **not yet recorded** — script ready at [VIDEO-SCRIPT.md](VIDEO-SCRIPT.md)
-- [ ] English deck PDF: [KnowBridge-Deck.pdf](deck/KnowBridge-Deck.pdf) (upload to submission portal)
+- [ ] English deck PDF: [KnowBridge-Deck.pdf](deck/KnowBridge-Submission-Deck.pdf) (upload to submission portal)
 - [ ] Submission portal registration + exact cutoff timezone: **unconfirmed — dashboard fact**
 
 ## 10. Unresolved issues

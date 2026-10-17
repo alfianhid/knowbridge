@@ -35,6 +35,11 @@ async function verifiedIdentity(request: Request, verifier?: TokenVerifier): Pro
   try {
     identity = await (verifier ?? ((token, revoked) => getAuth(getAdminApp()).verifyIdToken(token, revoked)))(header.slice(7), true);
   } catch { throw new ApiError(401, 'Valid admin authentication required.'); }
+  if (identity.knowbridgeAccessUntil !== undefined &&
+    (typeof identity.knowbridgeAccessUntil !== 'number' || !Number.isFinite(identity.knowbridgeAccessUntil) ||
+      identity.knowbridgeAccessUntil * 1000 <= Date.now())) {
+    throw new ApiError(403, 'Demo account access has ended.');
+  }
   return identity;
 }
 

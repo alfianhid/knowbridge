@@ -2,6 +2,7 @@
 // /api/ask endpoint and independently verifies literal citations through /api/sources.
 // Scoring matches scripts/evaluate.ts. No local model/store access is used.
 import { readFile, mkdir, writeFile } from 'node:fs/promises';
+import { dirname } from 'node:path';
 import { z } from 'zod';
 
 const fixtureSchema = z.array(z.object({
@@ -29,11 +30,13 @@ async function main(): Promise<void> {
   const args = process.argv.slice(3);
   const base = (args.find(arg => arg.startsWith('--url='))?.slice(6) || process.env.KNOWBRIDGE_EVAL_BASE_URL || DEFAULT_BASE).replace(/\/$/, '');
   const revision = args.find(arg => arg.startsWith('--revision='))?.slice(11) || 'unknown';
-  const outPath = args.find(arg => arg.startsWith('--out='))?.slice(6) || 'docs/deployed-evaluation-final-2026-10-17.json';
   const selectedId = args.find(arg => arg.startsWith('--case='))?.slice(7);
   const allFixtures = fixtureSchema.parse(JSON.parse(await readFile('seed/generated/evaluation.json', 'utf8')));
   if (selectedId && !allFixtures.some(item => item.id === selectedId)) throw new Error('Invalid evaluation case.');
   const fixtures = selectedId ? allFixtures.filter(item => item.id === selectedId) : allFixtures;
+  const runId = new Date().toISOString().replace(/[:.]/g, '-');
+  const outPath = args.find(arg => arg.startsWith('--out='))?.slice(6)
+    || `.data/evaluations/deployed-${selectedId || 'full'}-${runId}.json`;
 
   const sourceCache = new Map<string, string>();
   let askCalls = 0;
@@ -53,7 +56,7 @@ async function main(): Promise<void> {
     citedSourceIds: string[]; missingRequiredIds: string[]; literalCitationsValid: boolean; factCoverage: boolean;
     automatedPassed: boolean; humanReview: 'pending'; response?: AskResponse; error?: string; errorStatus?: number;
   }[] = [];
-  await mkdir('docs', { recursive: true });
+  await mkdir(dirname(outPath), { recursive: true });
 
   for (const fixture of fixtures) {
     const started = Date.now();

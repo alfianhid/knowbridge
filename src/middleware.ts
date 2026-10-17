@@ -4,12 +4,13 @@ export function middleware(request: NextRequest): NextResponse {
   const nonce = btoa(crypto.randomUUID());
   const development = process.env.NODE_ENV !== 'production';
   const workspace = process.env.KNOWBRIDGE_WORKSPACE_ENABLED === 'true';
+  const judgeSignIn = process.env.KNOWBRIDGE_JUDGE_SIGNIN_ENABLED === 'true';
   const policy = [
     "default-src 'self'", "base-uri 'self'", "object-src 'none'", "frame-ancestors 'none'",
     `script-src 'self' 'nonce-${nonce}'${development ? " 'unsafe-eval'" : ''}${workspace ? ' https://apis.google.com https://www.gstatic.com' : ''}`,
     // Next.js development tools inject styles without a nonce into their dev overlay.
     `style-src 'self' ${development ? "'unsafe-inline'" : `'nonce-${nonce}'`}`, "img-src 'self' data:", "font-src 'self'",
-    `connect-src 'self'${development ? ' ws: wss:' : ''}${workspace ? ' https://www.googleapis.com https://apis.google.com' : ''}`,
+    `connect-src 'self'${development ? ' ws: wss:' : ''}${workspace ? ' https://www.googleapis.com https://apis.google.com' : ''}${judgeSignIn ? ' https://identitytoolkit.googleapis.com https://securetoken.googleapis.com' : ''}`,
     ...(workspace ? ['frame-src https://docs.google.com https://drive.google.com https://accounts.google.com'] : []),
     "form-action 'self'",
   ].join('; ');

@@ -27,4 +27,4 @@ If `python` cannot locate Python 3.11+, use `py -3.11 scripts/verify_seed.py` or
 Use `npm.cmd` and `npx.cmd` to avoid PowerShell's `npm.ps1` script-policy restriction. For browser checks, build and ingest first, then run `npx.cmd playwright install chromium` and `npm.cmd run test:e2e`.
 5. Follow the staged prompts from **`prompts/00-START-HERE.md`**. Core retrieval and Decision Brief gates precede P1 OAuth. [Current readiness](READINESS.md) links dated verification and open requirements.
 
-If installation is blocked, resolve registry connectivity first. Historical implementation runs are recorded in [Phase 2 results](PHASE2-RESULTS.md); later cloud smoke checks are in [cloud results](CLOUD-PHASE2-RESULTS.md). These reports do not establish complete semantic accuracy or deployed write/review readiness.
+If installation is blocked, resolve registry connectivity first. Historical implementation runs are recorded in [Phase 2 results](archive/PHASE2-RESULTS.md); later cloud smoke checks are in [cloud results](archive/CLOUD-PHASE2-RESULTS.md). These reports do not establish complete semantic accuracy or deployed write/review readiness.

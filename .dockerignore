@@ -13,3 +13,5 @@ secrets/
 .data/
 playwright-report/
 test-results/
+.taste-skill/
+*.tsbuildinfo

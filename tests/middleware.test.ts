@@ -5,6 +5,12 @@ import { middleware } from '../src/middleware';
 afterEach(() => vi.unstubAllEnvs());
 
 describe('style CSP', () => {
+  it('permits only the Firebase Auth endpoints needed for judge sign-in', () => {
+    vi.stubEnv('KNOWBRIDGE_JUDGE_SIGNIN_ENABLED', 'true');
+    const policy = middleware(new NextRequest('https://demo.example/')).headers.get('Content-Security-Policy')!;
+    expect(policy).toContain('https://identitytoolkit.googleapis.com https://securetoken.googleapis.com');
+    expect(policy).not.toContain('https://*.googleapis.com');
+  });
   it('allows the nonce-less Next development overlay styles', () => {
     vi.stubEnv('NODE_ENV', 'development');
     const response = middleware(new NextRequest('http://localhost/'));

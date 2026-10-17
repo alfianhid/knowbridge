@@ -3,6 +3,8 @@
 import React, { useRef, useState } from 'react';
 import { SourceDetailSchema, type SourceDetail } from '../lib/source-detail';
 import { z } from 'zod';
+import { SAMPLE_QUESTIONS, SampleQuestions } from './sample-questions';
+import { useJudgeSession } from './judge-session';
 
 // Client-side parse mirrors the server contract. Anything unexpected fails closed to an error message.
 const EvidenceSchema = z.object({
@@ -32,6 +34,13 @@ const STATUS_LABEL: Record<SavedBrief['status'], string> = {
 };
 
 export function DecisionBriefPanel() {
+  const session = useJudgeSession();
+  return <DecisionBriefContent key={session?.uid ?? 'operator'} />;
+}
+
+function DecisionBriefContent() {
+  const session = useJudgeSession();
+  const signedIn = Boolean(session?.uid);
   const [token, setToken] = useState('');
   const [items, setItems] = useState<SavedBrief[]>([]);
   const [listPending, setListPending] = useState(false);
@@ -41,8 +50,10 @@ export function DecisionBriefPanel() {
   const sourceVersion = useRef(0);
   const briefOperation = useRef(false);
   const retry = useRef<{ question: string; key: string } | null>(null);
-  const headers = { Authorization: `Bearer ${token.trim()}` };
-  const [question, setQuestion] = useState('');
+  async function authorizationHeaders() {
+    return { Authorization: `Bearer ${session?.configured ? await session.getToken() : token.trim()}` };
+  }
+  const [question, setQuestion] = useState<string>(SAMPLE_QUESTIONS[0].question);
   const [pending, setPending] = useState(false);
   const [brief, setBrief] = useState<SavedBrief | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -56,7 +67,7 @@ export function DecisionBriefPanel() {
       setError('Enter a question with at least 4 characters.');
       return;
     }
-    if (!token.trim()) { setError('Enter a member Firebase ID token.'); return; }
+    if (!signedIn && !token.trim()) { setError(session?.configured ? 'Sign in with your judge account first.' : 'Enter a member Firebase ID token.'); return; }
     const trimmed = question.trim();
     if (!retry.current || retry.current.question !== trimmed) retry.current = { question: trimmed, key: crypto.randomUUID() };
     briefOperation.current = true;
@@ -68,7 +79,7 @@ export function DecisionBriefPanel() {
       // Retain the key after failure so a retry cannot create a duplicate saved brief.
       const response = await fetch('/api/decision-briefs', {
         method: 'POST',
-        headers: { ...headers, 'Content-Type': 'application/json', 'Idempotency-Key': retry.current.key },
+        headers: { ...await authorizationHeaders(), 'Content-Type': 'application/json', 'Idempotency-Key': retry.current.key },
         body: JSON.stringify({ question: question.trim() }),
       });
       if (!response.ok) throw new Error('Brief unavailable');
@@ -90,7 +101,7 @@ export function DecisionBriefPanel() {
     setReviewPending(true);
     setError(null);
     try {
-      const response = await fetch(`/api/decision-briefs/${encodeURIComponent(brief.id)}/review`, { method: 'POST', headers });
+      const response = await fetch(`/api/decision-briefs/${encodeURIComponent(brief.id)}/review`, { method: 'POST', headers: await authorizationHeaders() });
       if (!response.ok) throw new Error('Review unavailable');
       setBrief(BriefSchema.parse(await response.json()));
     } catch {
@@ -99,11 +110,11 @@ export function DecisionBriefPanel() {
   }
 
   async function refresh() {
-    if (briefOperation.current || !token.trim()) return;
+    if (briefOperation.current || (!signedIn && !token.trim())) return;
     briefOperation.current = true;
     setListPending(true); setError(null);
     try {
-      const response = await fetch('/api/decision-briefs', { headers, cache: 'no-store' });
+      const response = await fetch('/api/decision-briefs', { headers: await authorizationHeaders(), cache: 'no-store' });
       if (!response.ok) throw new Error('Unavailable');
       setItems(z.object({ items: z.array(BriefSchema) }).parse(await response.json()).items);
     } catch { setError('Saved briefs unavailable. Please retry.'); }
@@ -111,12 +122,12 @@ export function DecisionBriefPanel() {
   }
 
   async function reopen(id: string) {
-    if (briefOperation.current || !token.trim()) return;
+    if (briefOperation.current || (!signedIn && !token.trim())) return;
     briefOperation.current = true;
     sourceVersion.current += 1; setSourcePending(false);
     setPending(true); setError(null); setBrief(null); setSource(null);
     try {
-      const response = await fetch(`/api/decision-briefs/${encodeURIComponent(id)}`, { headers, cache: 'no-store' });
+      const response = await fetch(`/api/decision-briefs/${encodeURIComponent(id)}`, { headers: await authorizationHeaders(), cache: 'no-store' });
       if (!response.ok) throw new Error('Unavailable');
       const parsed = BriefSchema.parse(await response.json());
       if (parsed.id !== id) throw new Error('Brief mismatch');
@@ -129,7 +140,7 @@ export function DecisionBriefPanel() {
     const version = ++sourceVersion.current;
     setSource(null); setSourcePending(true); setError(null);
     try {
-      const response = await fetch(evidence.sourceUrl, { headers, cache: 'no-store' });
+      const response = await fetch(evidence.sourceUrl, { headers: await authorizationHeaders(), cache: 'no-store' });
       if (!response.ok) throw new Error('Unavailable');
       const parsed = SourceDetailSchema.parse(await response.json());
       if (parsed.id !== evidence.sourceId) throw new Error('Source mismatch');
@@ -156,23 +167,28 @@ export function DecisionBriefPanel() {
       <p className="disclosure">
         Fictional synthetic records only. A generated brief is a conditional recommendation for a human decision-maker, not an approval.
       </p>
-      <label htmlFor="brief-token">Member Firebase ID token</label>{' '}
+      {!session?.configured ? <><label htmlFor="brief-token">Member Firebase ID token</label>{' '}
       <input id="brief-token" type="password" value={token} autoComplete="off" spellCheck={false}
         disabled={pending || reviewPending || listPending || sourcePending}
         onChange={event => {
           setToken(event.target.value); setBrief(null); setItems([]); setSource(null); setError(null);
           retry.current = null; sourceVersion.current += 1;
         }} />
-      <p className="disclosure">Operator session: use an authorized member token. Held in memory only; cleared on reload.</p>
-      <button type="button" onClick={refresh} disabled={!token.trim() || listPending || pending || reviewPending}>
+      <p className="disclosure">Operator session: use an authorized member token. Held in memory only; cleared on reload.</p></> : <p>{signedIn ? 'Judge account signed in. Session renews automatically.' : 'Sign in above to create and reopen decision briefs.'}</p>}
+      <button type="button" onClick={refresh} disabled={(!signedIn && !token.trim()) || listPending || pending || reviewPending}>
         {listPending ? 'Loading saved briefs...' : 'Refresh saved briefs'}
       </button>
       <ul aria-label="Saved decision briefs">{items.map(item => <li key={item.id}>
         <button type="button" disabled={busy} onClick={() => reopen(item.id)}>{item.question}</button>
       </li>)}</ul>
+      <SampleQuestions label="Decision brief sample questions" disabled={busy} onSelect={value => {
+        if (value.trim() !== question.trim()) retry.current = null;
+        setQuestion(value);
+      }} />
+      <p className="disclosure">Judge walkthrough: sign in with your judge account, create a brief, inspect its evidence, mark it reviewed, then refresh and reopen it. Review is not business approval.</p>
       <form onSubmit={create}>
         <label htmlFor="brief-question">Decision question</label>{' '}
-        <input id="brief-question" value={question} minLength={4} maxLength={2000} required disabled={busy}
+        <textarea id="brief-question" rows={3} value={question} minLength={4} maxLength={2000} required disabled={busy}
           onChange={event => {
             if (event.target.value.trim() !== question.trim()) retry.current = null;
             setQuestion(event.target.value);

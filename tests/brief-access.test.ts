@@ -7,6 +7,20 @@ import { DEMO_TENANT_ID } from '../src/lib/sources';
 const identity = { uid: 'member-1', knowbridgeMember: true, knowbridgeTenant: DEMO_TENANT_ID } as unknown as DecodedIdToken;
 const request = (headers = {}) => new Request('http://localhost/api/decision-briefs', { headers: { authorization: 'Bearer test', ...headers } });
 describe('future brief identity boundary', () => {
+  it('enforces the judge cutoff server-side, including refreshed tokens and malformed claims', async () => {
+    const cutoff = Date.parse('2026-11-07T00:00:00+07:00') / 1000;
+    vi.useFakeTimers();
+    try {
+      const verifier = vi.fn().mockResolvedValue({ ...identity, knowbridgeAccessUntil: cutoff });
+      vi.setSystemTime(new Date(cutoff * 1000 - 1));
+      expect(await requireBriefIdentity(request(), verifier)).toEqual({ uid: identity.uid, tenantId: DEMO_TENANT_ID });
+      vi.setSystemTime(new Date(cutoff * 1000));
+      await expect(requireBriefIdentity(request(), verifier)).rejects.toMatchObject({ status: 403 });
+      for (const invalid of [null, 'tomorrow', NaN, Infinity]) {
+        await expect(requireBriefIdentity(request(), vi.fn().mockResolvedValue({ ...identity, knowbridgeAccessUntil: invalid }))).rejects.toMatchObject({ status: 403 });
+      }
+    } finally { vi.useRealTimers(); }
+  });
   it('requires revoked-token-checked membership, independent of public read access', async () => {
     const verifier = vi.fn().mockResolvedValue(identity);
     expect(await requireBriefIdentity(request(), verifier)).toEqual({ uid: identity.uid, tenantId: DEMO_TENANT_ID });

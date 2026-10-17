@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { z } from 'zod';
+import { SAMPLE_QUESTIONS, SampleQuestions } from './sample-questions';
 
 const AnswerSchema = z.object({
   status: z.enum(['supported', 'insufficient_evidence']),
@@ -19,7 +20,7 @@ const AnswerSchema = z.object({
 });
 
 export function AskPanel() {
-  const [question, setQuestion] = useState('');
+  const [question, setQuestion] = useState<string>(SAMPLE_QUESTIONS[0].question);
   const [pending, setPending] = useState(false);
   const [answer, setAnswer] = useState<z.infer<typeof AnswerSchema> | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -53,9 +54,10 @@ export function AskPanel() {
     <section className="ask-panel" aria-labelledby="ask-title">
       <h2 id="ask-title">Ask about the evidence</h2>
       <p className="disclosure">Fictional synthetic records only. Verify high-impact recommendations with a human.</p>
+      <SampleQuestions label="Ask sample questions" onSelect={setQuestion} disabled={pending} />
       <form onSubmit={ask}>
         <label htmlFor="ask-question">Question</label>{' '}
-        <input id="ask-question" value={question} minLength={4} maxLength={2000} required disabled={pending}
+        <textarea id="ask-question" rows={3} value={question} minLength={4} maxLength={2000} required disabled={pending}
           onChange={event => setQuestion(event.target.value)} />{' '}
         <button type="submit" disabled={pending || !question.trim()}>Ask</button>
       </form>

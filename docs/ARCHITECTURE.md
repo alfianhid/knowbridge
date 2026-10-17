@@ -53,7 +53,7 @@ Phase 2 materializes vector chunks with `sourceId`, inherited provenance, `conte
 - Rate-limit ingestion; make source idempotent by content hash; batch operations and avoid duplicate embeddings.
 
 ## Cost/scope
-Current chunking uses 600-word document and 300-word sheet budgets, not tokenizer guarantees. Literal content is preserved. Embedding requests disable automatic truncation; overlong input fails visibly. The original embedding run covered 18 sources; later measured indexing covered the bounded 55-source evaluation profile and 60 chunks. Neither proves full 192-source coverage or model accuracy. Workspace uses separate owner-scoped stored vectors and durable import attempt budgets. Public Ask remains outside that connector ledger; current limits are not a project spending cap. See [current audit](PRE-PHASE5-AUDIT-2026-10-17.md).
+Current chunking uses 600-word document and 300-word sheet budgets, not tokenizer guarantees. Literal content is preserved. Embedding requests disable automatic truncation; overlong input fails visibly. The original embedding run covered 18 sources; later measured indexing covered the bounded 55-source evaluation profile and 60 chunks. Neither proves full 192-source coverage or model accuracy. Workspace uses separate owner-scoped stored vectors and durable import attempt budgets. Public Ask remains outside that connector ledger; current limits are not a project spending cap. See [current audit](archive/PRE-PHASE5-AUDIT-2026-10-17.md).
 
 Useful docs:
 - https://firebase.google.com/docs/firestore/vector-search

@@ -1,7 +1,7 @@
 // @vitest-environment jsdom
 import React from 'react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
-import { act, cleanup, fireEvent, render, screen } from '@testing-library/react';
+import { act, cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { DecisionBriefPanel } from '../src/components/decision-brief-panel';
 
 const evidence = {
@@ -166,7 +166,7 @@ describe('decision brief panel', () => {
     const pending = screen.getByRole('button', { name: 'Recording review...' }) as HTMLButtonElement;
     expect(pending.disabled).toBe(true);
     fireEvent.click(pending);
-    expect(fetch).toHaveBeenCalledTimes(2);
+    await waitFor(() => expect(fetch).toHaveBeenCalledTimes(2));
     await act(async () => { finish(json({ ...saved, reviewedByHuman: true, reviewedAt: '2026-10-16T02:00:00.000Z' })); });
     await screen.findByText(/This is not production approval/);
   });
@@ -183,7 +183,7 @@ describe('decision brief panel', () => {
       expect(button.disabled).toBe(true); fireEvent.click(button);
     }
     fireEvent.submit(screen.getByRole('textbox', { name: 'Decision question' }).closest('form')!);
-    expect(fetch).toHaveBeenCalledTimes(2);
+    await waitFor(() => expect(fetch).toHaveBeenCalledTimes(2));
     await act(async () => { finish(json({ ...saved, reviewedByHuman: true, reviewedAt: '2026-10-16T02:00:00.000Z' })); });
     await screen.findByText(/This is not production approval/);
   });
@@ -201,7 +201,7 @@ describe('decision brief panel', () => {
       expect(button.disabled).toBe(true); fireEvent.click(button);
     }
     fireEvent.submit(screen.getByRole('textbox', { name: 'Decision question' }).closest('form')!);
-    expect(fetch).toHaveBeenCalledTimes(2);
+    await waitFor(() => expect(fetch).toHaveBeenCalledTimes(2));
     await act(async () => { finish(json({ items: [saved] })); });
     expect((screen.getByRole('button', { name: 'Create brief' }) as HTMLButtonElement).disabled).toBe(false);
     expect(screen.getByRole('button', { name: saved.question })).toBeTruthy();

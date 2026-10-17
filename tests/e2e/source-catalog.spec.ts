@@ -9,7 +9,7 @@ for (const width of [320, 375, 768, 1440]) {
     page.on('console', message => { if (message.type() === 'error') errors.push(message.text()); });
     const response = await page.goto('/');
     expect(response?.headers()['content-security-policy']).toContain("'nonce-");
-    await expect(page.locator('.pill')).toContainText('fictional records');
+    await expect(page.locator('.pill')).toContainText(/fictional records/i);
     await expect(page.locator('.pill')).toBeVisible();
     await expect(page.getByRole('complementary').getByRole('region', { name: / evidence$/ })).toBeVisible();
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);

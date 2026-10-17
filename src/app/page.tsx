@@ -6,23 +6,29 @@ import { limitPublicReads } from '@/lib/api-limits';
 import { WorkspacePanel } from '@/components/workspace-panel';
 import { workspacePublicConfig } from '@/lib/workspace-config';
 import { headers } from 'next/headers';
+import { JudgeSessionProvider, JudgeSignIn } from '@/components/judge-session';
 
 export const dynamic = 'force-dynamic';
 
 export default async function Home() {
   const workspace = workspacePublicConfig();
+  const judgeConfig = process.env.KNOWBRIDGE_JUDGE_SIGNIN_ENABLED === 'true' && process.env.FIREBASE_WEB_API_KEY
+    ? { apiKey: process.env.FIREBASE_WEB_API_KEY, authDomain: `${process.env.GOOGLE_CLOUD_PROJECT}.firebaseapp.com`, projectId: process.env.GOOGLE_CLOUD_PROJECT! }
+    : null;
   const nonce = (await headers()).get('x-nonce') ?? undefined;
   let sources: Awaited<ReturnType<typeof listSourceSummariesForTenant>> = [];
   let unavailable = false;
   try { limitPublicReads(); sources = await listSourceSummariesForTenant(DEMO_TENANT_ID); } catch { unavailable = true; }
 
   return (
-    <main className="shell">
+    <JudgeSessionProvider config={judgeConfig}><main className="shell polished-app">
+      <a className="skip-link" href="#ask">Skip to Ask</a>
       <section className="hero">
         <header className="hero-top">
           <div className="brand"><span className="logo" aria-hidden="true">K</span><span>KnowBridge</span></div>
           <nav className="hero-links" aria-label="Page sections">
             <a href="#ask">Ask</a>
+            <a href="#judge-signin">Judge sign-in</a>
             <a href="#workspace">Workspace</a>
             <a href="#brief">Decision brief</a>
             <a href="#sources">Sources</a>
@@ -42,7 +48,7 @@ export default async function Home() {
             <a className="button" href="#ask">Ask the record</a>
           </div>
           <p className="pill d-3" data-rise>
-            Grounded search available · fictional records · {sources.length} imported sources
+            Fictional records · {unavailable ? 'Source catalog unavailable' : `${sources.length} imported sources`}
           </p>
         </div>
         <div className="hero-fragment" data-ui>
@@ -63,6 +69,20 @@ export default async function Home() {
         </div>
       </section>
 
+      <section className="field field--white" id="ask" tabIndex={-1}>
+        <header className="section-head" data-reveal>
+          <div className="section-copy">
+            <h2>Every answer arrives with its evidence.</h2>
+            <p className="section-intro">A question gets an answer only where the evidence supports one. Each claim carries its excerpt, its source and its date.</p>
+          </div>
+          <div className="section-meta">
+            <p className="meta-item"><b>HBR-DOC-02</b>Client target · 2026-11-01</p>
+            <p className="meta-item"><b>Try the record</b>“Can Project Harbour launch on 1 Nov?” · “What is the personal mobile number of the CEO?”</p>
+          </div>
+        </header>
+        <AskPanel />
+      </section>
+
       <section className="field field--lime" id="proof">
         <h2 className="proof-head" data-reveal>
           <span>What the</span>
@@ -79,25 +99,25 @@ export default async function Home() {
           </thead>
           <tbody>
             <tr data-reveal className="d-0">
-              <th className="col-id" scope="row">HBR-DOC-02</th>
+              <th className="col-id" scope="row"><a href="/api/sources/HBR-DOC-02">HBR-DOC-02</a></th>
               <td className="col-fact">Client target delivery</td>
               <td className="col-date">2026-11-01</td>
               <td className="col-status">Baseline</td>
             </tr>
             <tr data-reveal className="d-1">
-              <th className="col-id" scope="row">HBR-DOC-04</th>
+              <th className="col-id" scope="row"><a href="/api/sources/HBR-DOC-04">HBR-DOC-04</a></th>
               <td className="col-fact">QA completion forecast</td>
               <td className="col-date">2026-11-11</td>
               <td className="col-status">Forecast</td>
             </tr>
             <tr data-reveal className="d-2">
-              <th className="col-id" scope="row">HBR-DOC-06</th>
+              <th className="col-id" scope="row"><a href="/api/sources/HBR-DOC-06">HBR-DOC-06</a></th>
               <td className="col-fact">Production security approval</td>
               <td className="col-date">Not dated</td>
               <td className="col-status">Pending</td>
             </tr>
             <tr data-reveal className="d-3">
-              <th className="col-id" scope="row">HBR-DOC-09</th>
+              <th className="col-id" scope="row"><a href="/api/sources/HBR-DOC-09">HBR-DOC-09</a></th>
               <td className="col-fact">Revised delivery commitment</td>
               <td className="col-date">Not issued</td>
               <td className="col-status">None authorized</td>
@@ -109,50 +129,44 @@ export default async function Home() {
         </p>
       </section>
 
-      <section className="field field--white" id="ask">
-        <div className="axis">
-          <div className="stamp" data-reveal>
-            <p><b>HBR-DOC-02</b>Client target · 2026-11-01</p>
-            <p><b>Try the record</b>“Can Project Harbour launch on 1 Nov?”<br />“What is the personal mobile number of the CEO?”</p>
-          </div>
-          <div className="section-copy d-1" data-reveal>
-            <p>Every answer arrives with its evidence.</p>
-            <p className="section-intro">A question gets an answer only where the evidence supports one. Each claim carries its excerpt, its source and its date.</p>
-          </div>
-        </div>
-        <AskPanel />
-      </section>
+      <section className="field field--white" id="judge-signin"><JudgeSignIn /></section>
 
       <section className="field field--tone" id="workspace">
-        <div className="axis">
-          <p className="stamp" data-reveal><b>Drive updated is not recorded</b>Both dates stay visible; neither is rewritten.</p>
-          <div className="section-copy d-1" data-reveal>
-            <p>Import is explicit, bounded and reversible.</p>
+        <header className="section-head" data-reveal>
+          <div className="section-copy">
+            <h2>Import is explicit, bounded and reversible.</h2>
             <p className="section-intro">Select files, confirm the import, and disconnect to delete every copy and revoke the token. Imported evidence never reaches public search.</p>
           </div>
-        </div>
+          <div className="section-meta">
+            <p className="meta-item"><b>Drive updated is not recorded</b>Both dates stay visible; neither is rewritten.</p>
+          </div>
+        </header>
         <WorkspacePanel {...workspace} nonce={nonce} />
       </section>
 
       <section className="field field--white" id="brief">
-        <div className="axis">
-          <p className="stamp" data-reveal><b>HBR-DOC-06</b>Production security approval · Pending</p>
-          <div className="section-copy d-1" data-reveal>
-            <p>A recommendation, never an approval.</p>
+        <header className="section-head" data-reveal>
+          <div className="section-copy">
+            <h2>A recommendation, never an approval.</h2>
             <p className="section-intro">The brief separates what is recorded from what is forecast, and says so plainly when the evidence is missing.</p>
           </div>
-        </div>
+          <div className="section-meta">
+            <p className="meta-item"><b>HBR-DOC-06</b>Production security approval · Pending</p>
+          </div>
+        </header>
         <DecisionBriefPanel />
       </section>
 
       <section className="field field--tone" id="sources">
-        <div className="axis">
-          <p className="stamp" data-reveal><b>HBR-DOC-09</b>No revised delivery commitment authorized.</p>
-          <div className="section-copy d-1" data-reveal>
-            <p>The corpus is invented. The semantics are not.</p>
+        <header className="section-head" data-reveal>
+          <div className="section-copy">
+            <h2>The corpus is invented. The semantics are not.</h2>
             <p className="section-intro">Every record carries its recorded date beside its effective date, and its original text stays open to inspection.</p>
           </div>
-        </div>
+          <div className="section-meta">
+            <p className="meta-item"><b>HBR-DOC-09</b>No revised delivery commitment authorized.</p>
+          </div>
+        </header>
         {unavailable ? <p role="alert">Source catalog unavailable. Please try again later.</p> : <SourceExplorer sources={sources} />}
       </section>
 
@@ -175,9 +189,16 @@ export default async function Home() {
         <p className="tile d-3" data-reveal>Every claim comes from a document.</p>
       </div>
       <footer>
-        <p>KnowBridge · All sample organizations, people, and records are fictional.</p>
-        <p>AI Builder Cup 2026 · Synthetic demo company</p>
+        <div className="footer-inner">
+          <div className="footer-brand">
+            <p>KnowBridge</p>
+          </div>
+          <div className="footer-meta">
+            <p>All sample organizations, people, and records are fictional.</p>
+            <p>AI Builder Cup 2026 · Synthetic demo company</p>
+          </div>
+        </div>
       </footer>
-    </main>
+    </main></JudgeSessionProvider>
   );
 }

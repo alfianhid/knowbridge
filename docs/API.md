@@ -1,5 +1,7 @@
 # API status and contracts
 
+Browser judges sign in with privately provisioned Firebase email/password accounts. The SDK supplies a current ID token for every protected operation. Routes still verify revocation, membership, tenant and owner. An optional server-issued `knowbridgeAccessUntil` claim is enforced before protected access; expired or malformed cutoffs return 403. Judge accounts expire at 2026-11-07 00:00 WIB. Renewing a token cannot extend that access window. No account registration or claim assignment endpoint exists in this app.
+
 ## Implemented Phase 1
 
 ### GET /api/health
@@ -24,7 +26,7 @@ Five ingestion requests per admin per minute, persisted atomically in the select
 
 Cloud path: `tenants/demo-north-quay/sources/{sourceId}`. Ingestion atomically replaces each bounded source with embedded chunks. The trusted `index:vectors` CLI materializes separate vector-search chunks; old vector documents can remain but fresh-original hash/chunk checks exclude them. Reindex after updates. Full implemented fields and cache paths are in [architecture](ARCHITECTURE.md).
 
-Chunk IDs use `sourceId:ordinal`, with zero-based `ordinal`, literal `body` and SHA-256 `checksum`. Documents use a 600-word budget; contextualized sheets use 300 words. These are not measured token limits. `autoTruncate:false` makes overlong embedding input fail instead of silently losing evidence. The original cloud import covered 18 sources; later evaluation evidence covers a bounded 55-source profile with 60 indexed chunks, not the full dataset. See [current audit](PRE-PHASE5-AUDIT-2026-10-17.md).
+Chunk IDs use `sourceId:ordinal`, with zero-based `ordinal`, literal `body` and SHA-256 `checksum`. Documents use a 600-word budget; contextualized sheets use 300 words. These are not measured token limits. `autoTruncate:false` makes overlong embedding input fail instead of silently losing evidence. The original cloud import covered 18 sources; later evaluation evidence covers a bounded 55-source profile with 60 indexed chunks, not the full dataset. See [current audit](archive/PRE-PHASE5-AUDIT-2026-10-17.md).
 
 Minimum actual record fields:
 ```json
@@ -77,7 +79,7 @@ Implemented identity and persistence behavior:
 - ID, creation timestamp, owner, source hashes and model are server-generated or server-derived. Exact excerpts remain in the validated brief. Source/model attribution is immutable because no edit route exists.
 - Review requires a deliberate authenticated owner request after evidence inspection. Server derives UID/time; model/client cannot supply them. Identical review retries return unchanged review. Review records human acknowledgement, never production launch approval or autonomous execution.
 
-Run `node --env-file=.env scripts/run-typescript.cjs scripts/verify-brief-identity.ts` only in a trusted operator environment with `KNOWBRIDGE_ID_TOKEN` and `KNOWBRIDGE_EXPECTED_UID` supplied securely. It prints no token, credentials or email. Mocked tests cover revoked/expired/invalid tokens, missing roles, tenant mismatch, ownership and retry-key scope. Live intended-user evidence is recorded separately in [remediation results](ISSUE-REMEDIATION.md); helper tests alone never establish deployed write readiness.
+Run `node --env-file=.env scripts/run-typescript.cjs scripts/verify-brief-identity.ts` only in a trusted operator environment with `KNOWBRIDGE_ID_TOKEN` and `KNOWBRIDGE_EXPECTED_UID` supplied securely. It prints no token, credentials or email. Mocked tests cover revoked/expired/invalid tokens, missing roles, tenant mismatch, ownership and retry-key scope. Live intended-user evidence is recorded separately in [remediation results](archive/ISSUE-REMEDIATION.md); helper tests alone never establish deployed write readiness.
 
 The current decision contract rejects supported/at-risk briefs without evidence. Server finalization checks exact excerpts and reconstructs source metadata, discarding model URLs/titles/dates and model-supplied review flags. Citation validation alone does not establish that a free-text claim is semantically entailed; that is a Phase 2/3 evaluation gate.
 
@@ -98,4 +100,4 @@ Drive metadata/export HTTP 401 disables the expected connection and removes its 
 - `GET /api/workspace/sources/:sourceId` revalidates current Drive access/version, then returns evidence text, literal export and separate historical/Drive/import provenance. No public-source fallback.
 - `POST /api/workspace/disconnect {}` disables access, discards credentials, attempts grant revocation and clears scoped copies. Remains available when disabled; partial cleanup returns 207 with `cleanup:"incomplete"`, never a false deletion claim.
 
-See [limits, operator prerequisites and remaining live acceptance](WORKSPACE.md). Revision `knowbridge-00009-7j5` includes the reviewed audit fixes and passed the bounded fictional-account consent/Picker/import/search/source/retry/cancel/disconnect path. The complete live negative matrix remains incomplete; see [actual evidence](WORKSPACE-LIVE-ACCEPTANCE-2026-10-17.md) and [current audit](PRE-PHASE5-AUDIT-2026-10-17.md).
+See [limits, operator prerequisites and remaining live acceptance](WORKSPACE.md). Revision `knowbridge-00009-7j5` includes the reviewed audit fixes and passed the bounded fictional-account consent/Picker/import/search/source/retry/cancel/disconnect path. The complete live negative matrix remains incomplete; see [actual evidence](archive/WORKSPACE-LIVE-ACCEPTANCE-2026-10-17.md) and [current audit](archive/PRE-PHASE5-AUDIT-2026-10-17.md).
