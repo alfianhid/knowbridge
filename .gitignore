@@ -21,6 +21,7 @@ test-results/
 # Internal AI-workflow, planning and operations material — never publish.
 AGENTS.md
 design.md
+.hallmark/
 prompts/
 assets/
 docs/archive/
