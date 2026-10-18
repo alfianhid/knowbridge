@@ -36,4 +36,4 @@ Start with the [project README](../README.md) for the demo and local commands. U
 
 The [staged prompts](../prompts/00-START-HERE.md) remain the task sequence. Run them only when current entry gates apply.
 
-Deck test figures were updated on 18 October to 273 tests. Embedded screenshots retain their original capture date and predate the latest UI; they are illustrative historical captures. Current UI evidence is linked from [readiness](READINESS.md).
+Deck test figures were updated on 18 October to 279 unit/integration tests across 38 files and 11/11 adversarial semantic regressions. Deck screenshots were captured on 18 October 2026 from the deployed Cloud Run release. The deck follows the official AI Builder Cup submission template (light theme, Hack2Skill + Google Cloud branding); see the [template audit](deck/TEMPLATE-AUDIT.md).

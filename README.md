@@ -1,6 +1,6 @@
 # KnowBridge
 
-> Status reviewed 2026-10-18. Latest recorded release: `knowbridge-00019-cc8`; 273 local tests. Full deployed benchmark reliability remains open. See [current readiness](docs/READINESS.md).
+> Status reviewed 2026-10-18. Latest recorded release: `knowbridge-00021-tft`; 279 local tests. Full deployed benchmark reliability remains open. See [current readiness](docs/READINESS.md).
 
 [![CI](https://github.com/alfianhid/knowbridge/actions/workflows/ci.yml/badge.svg)](https://github.com/alfianhid/knowbridge/actions/workflows/ci.yml)
 
@@ -50,6 +50,21 @@ Start at the [live app](https://knowbridge-208529907910.asia-southeast1.run.app)
 | No pilot approved | A draft pilot is not approval | `HBR-DOC-15` |
 
 These facts support a conditional recommendation for human review. They do not prove that launch is definitely impossible.
+
+## Why not just ask ChatGPT, Claude or Gemini?
+
+General AI assistants are the right tool for broad knowledge, drafting and open-ended research — and KnowBridge itself runs on Gemini. The difference is the workflow around the model: KnowBridge is a decision-evidence tool for one bounded corpus, with rules a chat answer does not enforce.
+
+| | General AI assistants | KnowBridge |
+|---|---|---|
+| Evidence | Web pages and uploaded files, summarized | Only authorized Docs/Sheets; stable source IDs, owners and recorded dates kept |
+| Citations | Helpful links and quotes, not checked against the source | Every quoted excerpt must literally exist in the stored original; fabricated citations fail the answer closed |
+| Conflicting dates | The newest statement usually wins the summary | Baseline / forecast / commitment / approved decision is typed; document effective date stays distinct from the Drive updated timestamp |
+| Missing evidence | Usually still answers | Answers "insufficient evidence" — abstention is product behavior |
+| Access | Depends on chat and connector permissions | Retrieval is restricted to the requesting tenant/user before any context reaches the model |
+| Output | Chat transcript | Saved Decision Brief with a deliberate human review acknowledgement |
+
+This is a design comparison of typical general-assistant behavior in 2026, not a measured head-to-head benchmark of those products.
 
 ## How Google AI grounds the answer
 
@@ -209,7 +224,7 @@ The original planning documents specify team formation on 2026-10-14, internal s
 
 Workspace is implemented and defaults off in source. The separate panel binds Google consent to an authorized demo member and imports at most three registered fictional native Docs/first-tab Sheets. Search, literal source inspection, cancellation and disconnect cleanup are owner-scoped. Public Ask and saved briefs retain the separate seed corpus.
 
-Expanded live acceptance is recorded on `knowbridge-00011-xx4` in [the follow-up](docs/archive/WORKSPACE-FOLLOWUP-2026-10-17.md). All seven Workspace issues were recorded closed, with #34/#35 using revised fictional-demo criteria accepting provider limits. Real-data import remains prohibited. Latest recorded UI release is `knowbridge-00019-cc8`; see [Workspace setup](docs/WORKSPACE.md) and [current readiness](docs/READINESS.md).
+Expanded live acceptance is recorded on `knowbridge-00011-xx4` in [the follow-up](docs/archive/WORKSPACE-FOLLOWUP-2026-10-17.md). All seven Workspace issues were recorded closed, with #34/#35 using revised fictional-demo criteria accepting provider limits. Real-data import remains prohibited. Latest recorded UI release is `knowbridge-00021-tft`; see [Workspace setup](docs/WORKSPACE.md) and [current readiness](docs/READINESS.md).
 
 ## Implementation and verification history
 

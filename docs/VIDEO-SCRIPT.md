@@ -1,8 +1,8 @@
 # KnowBridge demo video - Evidence, attached.
 
-Production plan reviewed **18 October 2026** against the [live application](https://knowbridge-208529907910.asia-southeast1.run.app/) through BrowserOS neo MCP, repository design tokens, and the installed official Remotion skills. **Storyboard only: video production and publication remain pending.**
+Production plan reviewed **18 October 2026** against the [live application](https://knowbridge-208529907910.asia-southeast1.run.app/) through BrowserOS neo MCP, repository design tokens, and the installed official Remotion skills. **Production status: the Remotion project is implemented in [`video/`](../video/) with a 2:00.4 compact cut, generated preview narration and aligned subtitles. Final MP4 export remains blocked on genuine recordings and human review; publication and submission of the video remain pending.**
 
-**Deliverable:** English, 2:50, 16:9, with ten seconds below the three-minute ceiling. Audience: AI Builder Cup judges and project leaders at Southeast Asian Google Workspace SMEs. Story: before promising a launch date, inspect what the evidence actually authorizes.
+**Deliverable:** English, 16:9, under three minutes (original assembly 2:50; current compact cut 2:00.4 per [edit notes](../video/EDIT-NOTES.md)). Audience: AI Builder Cup judges and project leaders at Southeast Asian Google Workspace SMEs. Story: before promising a launch date, inspect what the evidence actually authorizes.
 
 ## Creative direction
 
@@ -29,11 +29,11 @@ Show **Fictional demo data - Human verification required** on opening and closin
 
 Use Remotion to compose genuine app recordings, screenshots, editable graphics, narration and captions into one deterministic timeline. Preserve captured source evidence; never recreate an application result as an illustrative React screen. Abstract paper-card bridges can be simple React/SVG animations, without generative video.
 
-This is a documentation update, not a new Remotion project. The proposed project, composition, assets and commands below do not exist until implemented. Keep the video project isolated from the deployed Next.js application, for example in a dedicated `video/` directory with its own package manifest and lockfile. Do not add production video dependencies to the web app solely to follow this plan.
+**Status: implemented.** The Remotion project lives in [`video/`](../video/) with its own package manifest and lockfile, isolated from the deployed Next.js application. No production video dependency was added to the web app. Frame counts in this document describe the original 170-second assembly and are preserved as the production specification; the user-requested compact edit (120.4 s / 3613 frames, same narration wording and factual safeguards) supersedes them — see [EDIT-NOTES.md](../video/EDIT-NOTES.md) and `video/src/edl.json` for authoritative current timings.
 
 ### Composition contract
 
-- Main composition ID: `KnowBridgeDemo`; 1920x1080; 30 fps; **5100 frames**, representing [0, 5100), with last visible frame 5099.
+- Main composition ID: `KnowBridgeDemo`; 1920x1080; 30 fps; **5100 frames** in the original assembly, representing [0, 5100), with last visible frame 5099. Current compact edit: **3613 frames**, [0, 3613), last visible frame 3612.
 - In scene components, derive fps with `useVideoConfig()`. Express seconds-to-frames timing using that fps. Drive animation with `useCurrentFrame()` and clamped `interpolate()`; use easing deliberately. No CSS transitions/keyframes, wall-clock timers or browser autoplay to drive animation.
 - Follow the installed skill's successive-scene pattern: named `Track`, distinct scene instances, and `Interactive.create()` scenes registered as connected compositions. Give each independently editable scene, clip and overlay its own JSX node with inline timing/props. Avoid a `.map()` that makes independently editable clips share one source node.
 - Use straight cuts as the baseline. If using overlapping `TransitionSeries` transitions, subtract the overlaps from total duration and recalculate narration/caption alignment. The frame table below assumes no scene overlap. Fades within a scene do not change its length.
@@ -44,7 +44,7 @@ This is a documentation update, not a new Remotion project. The proposed project
 
 ### Frame-accurate edit decision list
 
-Ranges are start-inclusive, end-exclusive. Timings match the narration sections below at 30 fps.
+Ranges are start-inclusive, end-exclusive. Timings match the narration sections below at 30 fps. This table is the original 170-second assembly; the authoritative current cut is the compact EDL in [EDIT-NOTES.md](../video/EDIT-NOTES.md) (`video/src/edl.json`).
 
 | Scene | From (seconds) | Start frame | Duration frames | End frame exclusive |
 |---|---:|---:|---:|---:|
@@ -65,7 +65,7 @@ Use these literal frame counts for a 30-fps edit, or derive them from seconds us
 
 ## Master storyboard and exact voiceover
 
-These twelve scenes total **170 seconds**. Read only the blockquoted narration. Timing includes silent reading and cursor actions. All product actions below are **capture requirements**, not claims this planning session performed them.
+These twelve scenes total **170 seconds** in the original assembly (the current compact cut runs 120.4 seconds). Read only the blockquoted narration. Timing includes silent reading and cursor actions. All product actions below are **capture requirements**, not claims this planning session performed them.
 
 ### 01 - 00:00-00:08 - The question before the promise
 
@@ -172,14 +172,14 @@ Cloud Run: Singapore | Generation: global | Embeddings: US
 
 ```text
 LOCAL CHECKS                  LATEST COMPLETE DEPLOYED BENCHMARKS
-273 tests passed              2/12 in each recorded run
+279 tests passed              2/12 in each recorded run
                               10 HTTP 503 failures per run
 
 Fictional seed: 168 documents | 24 sheets | 1,904 rows | 12 gold cases
 Recorded evidence: 17-18 October 2026 | Full-suite reliability remains open
 ```
 
-> Two hundred seventy-three local tests pass. Model reliability remains open: both latest complete deployed benchmarks passed two of twelve, with ten service failures each. We report those limits openly.
+> Two hundred seventy-nine local tests pass. Model reliability remains open: both latest complete deployed benchmarks passed two of twelve, with ten service failures each. We report those limits openly.
 
 **Motion:** hold card throughout the sixteen seconds. No green benchmark badge, combined retry score, or success-percentage animation. Sources: [Phase 5 results](PHASE5-RESULTS.md), [readiness](READINESS.md), [UI release evidence](evidence/UI-POLISH-2026-10-18.md). Refresh only when newer comparable evidence exists.
 
@@ -200,7 +200,7 @@ Fictional demo data - Human verification required
 
 ## Screenshot and recording manifest
 
-These are **planned filenames**, not captured assets. Older [deck screenshots](deck/assets/) predate the current UI. Keep raw captures locally under ignored `.data/video/raw/`. Review selected captures before copying to the isolated video project's `public/captures/`. Never copy raw sessions or credentials into a public asset directory.
+All nine assets below are now captured at 1920×1080 (18 October capture round) and await human review; see [ASSETS.md](../video/ASSETS.md). Older [deck screenshots](deck/assets/) predate the current UI. Keep raw captures locally under ignored `.data/video/raw/`. Review selected captures before copying to the isolated video project's `public/captures/`. Never copy raw sessions or credentials into a public asset directory.
 
 | Planned asset | Capture instructions and required proof | Scene |
 |---|---|---|
@@ -287,8 +287,8 @@ Use restrained phrase-level captions, two lines maximum. Manually proof dates, s
 
 1. Prepare genuine captures and approved audio. Review every public asset for secrets. No live-service requests or sign-in may be required to render the video.
 2. In the separate video project, implement `KnowBridgeDemo` and its twelve connected scenes using the frame table. Keep the web application unchanged.
-3. Open Studio early with the proposed entry point, for example `npx.cmd remotion studio src/index.ts --no-open`. Open the exact printed URL with BrowserOS neo and verify the preview. This is a future production command, not an executed check.
-4. Scrub each scene start, middle and final frame, plus frames immediately around cuts. Confirm no gaps, clipping, unreadable crops or unexpected opacity. Check the first frame and frame 5099 specifically.
+3. Open Studio early with the entry point, for example `npm.cmd run dev -- --no-open --port=3100` from `video/`. Open the exact printed URL with BrowserOS neo and verify the preview.
+4. Scrub each scene start, middle and final frame, plus frames immediately around cuts. Confirm no gaps, clipping, unreadable crops or unexpected opacity. Check the first frame and the final visible frame (5099 in the original assembly; 3612 in the current compact cut) specifically.
 5. Play through narration, music and captions. Verify shared trims and overlays stay aligned. Read the last URL at normal playback speed.
 6. Once a project exists, review a still before full export, for example:
 
@@ -305,7 +305,7 @@ npx.cmd remotion render src/index.ts KnowBridgeDemo out/knowbridge-demo.mp4 --co
 
 Use either CRF or `--video-bitrate`, not both. If input props are needed on Windows, pass `--props=props.json` instead of inline shell JSON. Commands are templates until the project/assets exist; do not claim a render pass from this document.
 
-8. Inspect the actual exported file for 1920x1080, 30 fps, 170-second duration, audio sync, caption alignment and readable evidence. Compare rendered stills to original captures. Publishing and submission remain separate tasks.
+8. Inspect the actual exported file for 1920x1080, 30 fps, the current edit's duration (120.4 s), audio sync, caption alignment and readable evidence. Compare rendered stills to original captures. Publishing and submission remain separate tasks.
 
 ## Failure and schedule recovery
 
@@ -330,10 +330,10 @@ Use either CRF or `--video-bitrate`, not both. If input props are needed on Wind
 - [ ] Saved/reopened brief appears only if genuinely captured. Human review never means launch approval.
 - [ ] Workspace remains optional, registered-fictional-only and separate from public seed Ask/briefs.
 - [ ] No real-data import, broad sync, production compliance, Singapore-only processing or measured productivity benefit claimed.
-- [ ] **273 local tests** remain separate from **2/12 in each latest complete deployed benchmark**, ten HTTP 503 failures each. No aggregation of retries.
+- [ ] **279 local tests** remain separate from **2/12 in each latest complete deployed benchmark**, ten HTTP 503 failures each. No aggregation of retries.
 - [ ] Captions and narration agree on dates, counts, limitations and approval states.
 - [ ] No credentials or private details visible. Preserve provider-added provenance marks.
-- [ ] Suggested export: MP4/H.264, 1920x1080, 30 fps, AAC; CRF 18 starting point. Confirm 5100 frames, no gaps/overlaps, resolved assets/fonts, and deterministic frame-driven animation.
+- [ ] Suggested export: MP4/H.264, 1920x1080, 30 fps, AAC; CRF 18 starting point. Confirm 3613 frames (current edit), no gaps/overlaps, resolved assets/fonts, and deterministic frame-driven animation.
 - [ ] Inspect actual resolution, sync, legibility and duration. Watch muted, on laptop speakers, then at normal speed without pausing.
 - [ ] Final runtime below three minutes; final URL readable for at least five seconds.
 - [ ] Add published URL to [submission checklist](SUBMISSION.md) only after production and upload. Submission confirmation remains separate.
@@ -350,7 +350,7 @@ Source and evaluation: https://github.com/alfianhid/knowbridge
 
 All demo organizations, people, emails and records are fictional. Generated recommendations require human verification. Review acknowledgement is not business approval. Workspace import is restricted to registered fictional files. Model processing is not Singapore-only.
 
-Recorded results: 273 local tests passed. Latest complete deployed benchmark runs each passed 2/12, with ten HTTP 503 failures per run. Full-suite model-service reliability remains open. Shortened request waits are labelled.
+Recorded results: 279 local tests passed. Latest complete deployed benchmark runs each passed 2/12, with ten HTTP 503 failures per run. Full-suite model-service reliability remains open. Shortened request waits are labelled.
 
 Production note: composed with Remotion using actual application captures and editable motion graphics. Use this statement only after producing the video with this workflow.
 ```

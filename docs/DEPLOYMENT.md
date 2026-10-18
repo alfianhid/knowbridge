@@ -54,7 +54,7 @@ On 2026-10-15, the user authorized creating an available Firebase demo identity.
 
 `Dockerfile` uses lockfile-enforced installation, standalone build output and non-root `node`. Seed files are traced into standalone output. Runtime excludes local credential/data folders. File mode is refused on Cloud Run; use `KNOWBRIDGE_STORE=firestore` and `GOOGLE_CLOUD_PROJECT`.
 
-For redeployment, retain the dedicated runtime identity, fixed synthetic-only public reads, authenticated mutation routes and conservative instance limit documented in the [deployment report](archive/CLOUD-DEPLOYMENT-2026-10-16.md). Billing alerts are not hard spending stops. Workspace imports use a separate owner-scoped namespace with repeated Drive authorization checks. Only registered fictional files are permitted. Expanded lifecycle/negative checks passed on `knowbridge-00011-xx4`; see [follow-up](archive/WORKSPACE-FOLLOWUP-2026-10-17.md). Latest recorded UI release: `knowbridge-00019-cc8`; see [readiness](READINESS.md).
+For redeployment, retain the dedicated runtime identity, fixed synthetic-only public reads, authenticated mutation routes and conservative instance limit documented in the [deployment report](archive/CLOUD-DEPLOYMENT-2026-10-16.md). Billing alerts are not hard spending stops. Workspace imports use a separate owner-scoped namespace with repeated Drive authorization checks. Only registered fictional files are permitted. Expanded lifecycle/negative checks passed on `knowbridge-00011-xx4`; see [follow-up](archive/WORKSPACE-FOLLOWUP-2026-10-17.md). Latest recorded UI release: `knowbridge-00021-tft` (100% traffic, confirmed live 18 October); see [readiness](READINESS.md).
 
 ## Verification gates
 

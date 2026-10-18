@@ -1,7 +1,7 @@
 # Phase 4: selected fictional Workspace files
 
 
-Status reviewed 2026-10-18. Registered fictional-file import is implemented. Expanded live verification on `knowbridge-00011-xx4` covered consent, three-file import/search/source inspection, reuse, cancellation, changed/trash rejection, separate-member isolation, revoked-grant cleanup, denial/reconnect and repeated disconnect. Recorded final owner state was disconnected with credentials/copies removed and all 55 public sources intact. See [follow-up](archive/WORKSPACE-FOLLOWUP-2026-10-17.md). Latest recorded UI release is `knowbridge-00019-cc8`; that release did not repeat private import acceptance.
+Status reviewed 2026-10-18. Registered fictional-file import is implemented. Expanded live verification on `knowbridge-00011-xx4` covered consent, three-file import/search/source inspection, reuse, cancellation, changed/trash rejection, separate-member isolation, revoked-grant cleanup, denial/reconnect and repeated disconnect. Recorded final owner state was disconnected with credentials/copies removed and all 55 public sources intact. See [follow-up](archive/WORKSPACE-FOLLOWUP-2026-10-17.md). Latest recorded UI release is `knowbridge-00021-tft`; as with `knowbridge-00019-cc8`, later UI releases did not repeat private import acceptance.
 
 Issues #32-#38 were recorded closed. #34/#35 used revised fictional-demo criteria accepting Picker iframe token URLs and undisclosed Drive/OAuth processing regions; original criteria were not fully satisfied. Real-data import remains prohibited. Feature flag defaults off in source. Dollar billing and full forced-failure coverage remain unverified.
 
