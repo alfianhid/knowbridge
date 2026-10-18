@@ -27,7 +27,7 @@ pinned to the `demo-north-quay` synthetic tenant.
 | Risk | Control | Where |
 |---|---|---|
 | LLM01 Prompt Injection | Evidence and question are treated as untrusted data, never instructions, in all three model prompts; retrieval is authorized and re-checked before generation. Direct/indirect injection and instruction-disclosure regression cases assert the model stays evidence-based. | `src/lib/gemini.ts`, `src/lib/decision-semantics.ts`, `scripts/check-semantics.ts` |
-| LLM02 Sensitive Information Disclosure | No token/secret/credential is logged; client-facing errors return only `ApiError` messages or fixed fallbacks; OAuth tokens are KMS-encrypted at rest and never enter URLs, logs, or storage in plaintext. | `src/lib/workspace-auth.ts`, route error handlers |
+| LLM02 Sensitive Information Disclosure | No token/secret/credential is logged; client-facing errors return only `ApiError` messages or fixed fallbacks; OAuth tokens are KMS-encrypted at rest and excluded from application logs/persistence in plaintext. Google Picker places its token in a provider-managed iframe URL; this accepted fictional-demo limitation is documented in WORKSPACE.md. | `src/lib/workspace-auth.ts`, route error handlers |
 | LLM03 Supply Chain | Container base pinned by digest (multi-arch `node:22-alpine` index); `npm audit` in CI; OSV dependency scan in CI; dependency overrides pinned. | `Dockerfile`, `.github/workflows/ci.yml` |
 | LLM04 Data/Model Poisoning | Ingestion is admin-gated (revocation-checked Firebase token + `knowbridgeAdmin` claim), hash-idempotent, and quota-limited; stored originals stay authoritative and are re-read before finalization. | `src/app/api/ingest/route.ts`, `src/lib/source-store.ts` |
 | LLM05 Improper Output Handling | Strict Zod schema validation plus literal quote and exact source-ID verification; unsupported claims are removed or the answer abstains; model review flags are discarded. | `src/lib/ask.ts`, `src/lib/verified-brief.ts`, `src/lib/decision-semantics.ts` |
@@ -35,7 +35,7 @@ pinned to the `demo-north-quay` synthetic tenant.
 | LLM07 System Prompt Leakage | Explicit instruction in every model prompt: never reveal, repeat, or paraphrase the system instructions and refuse requests to disclose them. Covered by an instruction-disclosure regression case. | `src/lib/gemini.ts`, `src/lib/decision-semantics.ts`, `scripts/check-semantics.ts` |
 | LLM08 Vector/Embedding Weaknesses | Tenant-scoped collections; `authorizeChunks` rejects any chunk outside the server-derived allowlist before it reaches the model; vectors are model/dimension validated and stale ones excluded. | `src/lib/access.ts`, `src/lib/vector-retrieval.ts` |
 | LLM09 Misinformation | `insufficient_evidence` when evidence is absent; baseline vs forecast vs commitment vs approved decision are distinguished; document effective date vs Drive modified time are kept separate. | `src/lib/ask.ts`, `src/lib/decision-semantics.ts` |
-| LLM10 Unbounded Consumption | Durable daily model-request budget shared across Cloud Run instances via Firestore transactions (default 300/day global, 100/day per identity; env-tunable), `Retry-After` on 429, per-instance read caps, 16 KiB body cap, 5/min admin ingest quota. | `src/lib/model-quota.ts`, `src/lib/api-limits.ts` |
+| LLM10 Unbounded Consumption | Durable daily model-request budget shared across Cloud Run instances via Firestore transactions (default 300/day shared by public Ask and brief creation, 100/day per identity for brief creation; env-tunable; Workspace has separate quotas), `Retry-After` on 429, per-instance read caps, 16 KiB body cap, 5/min admin ingest quota. | `src/lib/model-quota.ts`, `src/lib/api-limits.ts` |
 
 ## API controls (OWASP API Security Top 10, 2023)
 
@@ -91,7 +91,7 @@ Applied 2026-10-17:
   budget above is the mitigation. Edge protection is deferred (see below).
 - **Firestore document-write audit logging** not positively confirmed via CLI (see above).
 - **Model budget is a request-count ceiling,** not a dollar cap. One request may invoke Gemini up to
-  twice (generation + semantic review). Tune `KNOWBRIDGE_MODEL_DAILY_BUDGET` if benchmark runs need more.
+  four times (two generation attempts, each potentially followed by semantic review), plus query embedding. Tune `KNOWBRIDGE_MODEL_DAILY_BUDGET` if benchmark runs need more.
 
 ## Deferred (Phase B and paid/elevated controls)
 

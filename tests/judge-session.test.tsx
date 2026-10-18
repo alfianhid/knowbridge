@@ -17,7 +17,7 @@ function TokenProbe() {
   const [result, setResult] = React.useState('');
   return <><span>{session?.uid ?? 'anonymous'}</span><button onClick={() => { void session?.getToken().then(setResult).catch(() => setResult('denied')); }}>Request token</button><output>{result}</output></>;
 }
-function setup() { render(<JudgeSessionProvider config={config}><JudgeSignIn /><TokenProbe /></JudgeSessionProvider>); }
+function setup(demoCredential?: { email: string; password: string }) { render(<JudgeSessionProvider config={config}><JudgeSignIn demoCredential={demoCredential} /><TokenProbe /></JudgeSessionProvider>); }
 beforeEach(() => {
   vi.clearAllMocks(); sdk.auth.currentUser = null;
   sdk.claims.mockResolvedValue({ claims: { knowbridgeMember: true, knowbridgeTenant: 'demo-north-quay' } });
@@ -26,6 +26,22 @@ beforeEach(() => {
   sdk.logout.mockImplementation(async () => { sdk.auth.currentUser = null; (sdk.listener as (user: unknown) => void)(null); });
 });
 afterEach(cleanup);
+it('fills the shared judge credentials without submitting, then signs in explicitly', async () => {
+  setup({ email: 'shared@example.test', password: 'fictional-demo-password' });
+  const fill = screen.getByRole('button', { name: 'Fill judge credentials' });
+  await waitFor(() => expect((fill as HTMLButtonElement).disabled).toBe(false));
+  fireEvent.click(fill);
+  expect((screen.getByLabelText('Judge email') as HTMLInputElement).value).toBe('shared@example.test');
+  expect((screen.getByLabelText('Password') as HTMLInputElement).value).toBe('fictional-demo-password');
+  expect(sdk.login).not.toHaveBeenCalled();
+  fireEvent.click(screen.getByRole('button', { name: 'Sign in' }));
+  await screen.findByText('Signed in for protected demo features.');
+  expect(sdk.login).toHaveBeenCalledWith(sdk.auth, 'shared@example.test', 'fictional-demo-password');
+});
+it('hides autofill when no demo credential is configured', () => {
+  setup();
+  expect(screen.queryByRole('button', { name: 'Fill judge credentials' })).toBeNull();
+});
 async function login() {
   await waitFor(() => expect((screen.getByRole('button', { name: 'Sign in' }) as HTMLButtonElement).disabled).toBe(false));
   fireEvent.change(screen.getByLabelText('Judge email'), { target: { value: 'judge@example.test' } });

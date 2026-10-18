@@ -10,7 +10,7 @@ Recorded date: 2026-09-09
 Reference project baseline: 2026-11-06
 
 PROJECT CONTEXT
-The engagement is a controlled delivery project for a Singapore-based SME. The shared project ID is NTH. The client-facing milestone is 2026-11-06, initially proposed during planning. Every operational update must preserve the source date so decision reviewers can distinguish an initial forecast from a subsequent revision. The relevant stakeholders are Kiran Lim, Isabelle Wong (QA), and Darren Ng (security). Team communications are in English, and all budgets are denominated in SGD. This entry is a synthetic example, not a representation of any actual contract or customer.
+The engagement is a controlled delivery project for a Southeast Asian SME. The shared project ID is NTH. The client-facing milestone is 2026-11-06, initially proposed during planning. Every operational update must preserve the source date so decision reviewers can distinguish an initial forecast from a subsequent revision. The relevant stakeholders are Kiran Lim, Isabelle Wong (QA), and Darren Ng (security). Team communications are in English, and all budgets are denominated in SGD. This entry is a synthetic example, not a representation of any actual contract or customer.
 
 DELIVERY PLAN, REVISION 1 — 2026-09-09
 A production launch is scheduled for 2026-11-06 subject to all exit criteria. The original plan allocates five working days for final QA and one day for the release review. The plan has not incorporated the 2026-10-10 QA forecast and should be treated as a baseline. The accountable owner must publish revision 2 if release timing changes.

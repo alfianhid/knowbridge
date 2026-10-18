@@ -1,16 +1,13 @@
 # Phase 4: selected fictional Workspace files
 
-> Latest follow-up: [final dual-image deployment and issue acceptance](archive/WORKSPACE-FOLLOWUP-2026-10-17.md). Revision `knowbridge-00011-xx4`, 256 tests, real grant-loss cleanup and denial/reconnect checks supersede earlier checkpoints below. Final owner state is disconnected with credentials/copies removed; public seed count remains 55. GitHub closure and unresolved provider contracts are tracked individually.
 
-> Current 2026-10-17 audit: [pre-Phase 5 results](archive/PRE-PHASE5-AUDIT-2026-10-17.md) supersede the initial status statements below. Revision `knowbridge-00007-gfj` is deployed; OAuth/registry/KMS/logging preparation and scheduled maintenance exist. Human Google consent and complete live import acceptance are pending. Three further auth/import/maintenance defects are fixed locally and reviewed. Current local suite: 248/248 tests. No issue closure or live Picker pass is claimed.
+Status reviewed 2026-10-18. Registered fictional-file import is implemented. Expanded live verification on `knowbridge-00011-xx4` covered consent, three-file import/search/source inspection, reuse, cancellation, changed/trash rejection, separate-member isolation, revoked-grant cleanup, denial/reconnect and repeated disconnect. Recorded final owner state was disconnected with credentials/copies removed and all 55 public sources intact. See [follow-up](archive/WORKSPACE-FOLLOWUP-2026-10-17.md). Latest recorded UI release is `knowbridge-00019-cc8`; that release did not repeat private import acceptance.
 
-> Later live follow-up supersedes that checkpoint: revision `knowbridge-00009-7j5` serves five reviewed fixes; 249 tests pass. The registered fictional account completed consent, Picker, three-file import/search/source inspection, vector reuse, cancellation and confirmed repeated disconnect/deletion. [Live evidence and remaining negative scenarios](archive/WORKSPACE-LIVE-ACCEPTANCE-2026-10-17.md) distinguish the bounded pass from full release acceptance. No GitHub issue closure is claimed.
-
-Implementation authorized on 2026-10-17. The user overrode the schedule freeze and incomplete P0 reliability gate. Security, provenance and synthetic-only restrictions still apply. The connector defaults off in source. The bounded live flow is recorded above; broader negative acceptance and dollar billing remain distinct unresolved checks.
+Issues #32-#38 were recorded closed. #34/#35 used revised fictional-demo criteria accepting Picker iframe token URLs and undisclosed Drive/OAuth processing regions; original criteria were not fully satisfied. Real-data import remains prohibited. Feature flag defaults off in source. Dollar billing and full forced-failure coverage remain unverified.
 
 ## Implemented flow
 
-The separate Workspace panel accepts an existing authorized member Firebase ID token in page memory. Connect opens Google sign-in/consent and binds the verified Google subject to that member. This is not automatic Firebase enrollment; ordinary Google accounts do not gain KnowBridge membership. The operator must provision the existing fictional demo member role separately.
+The Workspace panel uses the signed-in authorized Firebase member, or manual token input when browser sign-in is disabled. Connect opens Google sign-in/consent and binds the verified Google subject to that member. This is not automatic Firebase enrollment; ordinary Google accounts do not gain KnowBridge membership. The operator must provision the existing fictional demo member role separately.
 
 OAuth uses `openid` and `https://www.googleapis.com/auth/drive.file`, online access without refresh tokens, single-use five-minute state, a same-site HttpOnly callback cookie, S256 PKCE and OIDC issuer/audience/nonce/subject verification. Access tokens are retained encrypted with Cloud KMS, bound to the member by authenticated data. Picker receives the access token in browser memory. Application tokens do not enter browser persistence or application URLs, but Google's Picker creates a provider-managed iframe URL containing `oauth_token`. The broader tokens-never-in-any-URL criterion in #34 is therefore not satisfied. Google authorization codes necessarily arrive in the callback query; see the logging prerequisite below.
 
@@ -32,7 +29,7 @@ The current Workspace path does not save imported-evidence decision briefs. Publ
 | Durable document | Validated serialized owner state capped at 850 KiB |
 | Embedding attempts | 64 per owner and 128 connector-wide per rolling 24 hours, including failures and retries |
 | Pacing | At least 31 seconds between connector embedding reservations, stricter than the proposed 13 seconds; query embeddings share this budget |
-| Provider deadline | Existing embedding SDK has a 30-second request deadline; failed/ambiguous attempts consume budget |
+| Provider deadline | Existing embedding SDK has a 60-second request deadline; failed/ambiguous attempts consume budget |
 | Retry | At most two retryable provider failures per step; valid numeric/date Retry-After honored |
 
 The connector ledger does not cover the existing public Ask or trusted indexing CLI. Provider quota may therefore still return 429. It is not a project spending cap or a guarantee against duplicate provider billing after an ambiguous timeout. Failed/paced query embedding requests return a controlled error and do not silently use local retrieval.
@@ -56,27 +53,10 @@ Google's [export API](https://developers.google.com/workspace/drive/api/referenc
 
 ## Live acceptance and rollback
 
-Bounded live passes include fictional-account consent, Doc and multi-tab Sheet selection, exact source inspection, unchanged import reuse, cancellation, disconnect/revocation and measured provider-attempt usage/latency. The complete provider lifecycle, changed/deleted/revoked-file, cross-user, forced KMS/cleanup failure and quota-exhaustion matrix is not yet established live. Local controlled tests remain separate evidence. Record deployed revision, timestamp, actual request counts and errors. Do not count local doubles or focused benchmark retries as live acceptance.
+Bounded live passes include fictional-account consent, Doc and multi-tab Sheet selection, exact source inspection, unchanged import reuse, cancellation, disconnect/revocation and measured provider-attempt usage/latency. Changed/trash, separate-member isolation, revoked-grant cleanup and denial/reconnect checks are also recorded in the follow-up. Forced KMS/cleanup failures and the complete provider/quota-exhaustion matrix are not established live. Local controlled tests remain separate evidence. Record deployed revision, timestamp, actual request counts and errors. Do not count local doubles or focused benchmark retries as live acceptance.
 
-Disable the flag to block new OAuth/import/search/Picker work. Authenticated status/disconnect/cancel remain available. Complete cleanup and revoke retained grants before restoring the previously verified Cloud Run revision. Keep the seed namespace intact and smoke-test public search, source views and saved seed briefs. Code rollback alone cannot delete retained copies. No deployment or rollback was performed in this implementation turn.
+Disable the flag to block new OAuth/import/search/Picker work. Authenticated status/disconnect/cancel remain available. Complete cleanup and revoke retained grants before restoring the previously verified Cloud Run revision. Keep the seed namespace intact and smoke-test public search, source views and saved seed briefs. Code rollback alone cannot delete retained copies. Historical deployment evidence is linked above; this procedure does not claim a rollback was executed.
 
-## Open issue acceptance
+## Acceptance boundaries
 
-#32–#38 now have local implementation covering their core access/lifecycle/import contracts, plus unit/service/API/UI tests. They remain open pending live acceptance, provider configuration, complete region/backup inventory, cleanup scheduling and measured cost/latency. #38's development schedule gate was explicitly overridden by the user; the historical P0 benchmark limitations remain unchanged.
-
-## Local verification — 2026-10-17
-
-- `python scripts/verify_seed.py`: passed; 168 documents, 24 sheets, 1,904 rows, 12 cases.
-- `npm.cmd install`: passed. Initial direct OAuth dependency addition hit sandbox network restrictions; the authorized network retry succeeded. `google-auth-library` is a direct dependency pinned to 10.9.1. Install script approval settings were preserved.
-- `npm.cmd test`: 240/240 passed across 32 files. Baseline was 188 tests. New coverage includes OAuth/state/KMS failures, file/owner isolation, literal exports, Sheets validation, stale/revoked evidence, retry budgets, Firestore vector serialization, cancellation/cleanup races, API boundaries, Picker loading failures and UI transitions. Provider and persistence tests use controlled doubles.
-- `npm.cmd run lint` and `npm.cmd run typecheck`: passed.
-- `npm.cmd run build`: passed, including TypeScript and all Workspace routes. Existing Next ESLint-plugin detection notice remains non-blocking.
-- `npm.cmd run test:e2e`: 9/9 passed, including existing seed brief/catalog/Ask journeys, mobile axe/reflow checks and disabled Workspace import rejection. Windows test-server teardown stalled after the tests; stopping that task-created server allowed Playwright to exit successfully. This does not test live Google consent or Picker.
-- Local ingestion verification: 18 queued, zero processed, 18 unchanged skipped, zero failed. Existing local seed records were preserved.
-- ECC code, React and TypeScript reviewers found no critical/high defects. Their two medium findings—stalled Picker script loading and old cleanup erasing a reconnect—were fixed with bounded loading and connection-scoped cleanup, with regression tests.
-
-Files added: `src/lib/workspace-{auth,config,import,store,query,response,picker}.ts`; `src/components/workspace-panel.tsx`; protected `src/app/api/workspace/` routes; `scripts/cleanup-workspace.ts`; six `tests/workspace-*` suites and `tests/e2e/workspace.spec.ts`; this setup document. Integration edits: page mount, middleware/CSP, middleware tests, deterministic Playwright environment, dependency manifests, `.env.example`, Phase 4 prompt and current README/API/readiness/gate documentation. Earlier uncommitted Phase 3 work was preserved. No commit, deployment, OAuth client provisioning or GitHub issue closure was performed.
-
-Next task: provision the documented fictional-account OAuth/Picker/KMS/registry configuration and maintenance/logging controls, then run and record live acceptance before enabling a deployed connector.
-
-Follow-up: [2026-10-17 cloud configuration and partial live acceptance](WORKSPACE-CONFIGURATION-2026-10-17.md) records configured Picker/KMS/Secret Manager/logging resources and the successful real runtime KMS check. OAuth, registered files, maintenance scheduling and full live acceptance remain blocked on the account/browser handoff. This supersedes “configuration absent” only for those four populated resource settings; it does not establish live connector readiness.
+See [issue closure](archive/ISSUE-CLOSURE-2026-10-17.md). Earlier implementation/configuration checkpoints are historical. Use [current readiness](READINESS.md) for next work; do not repeat provisioning because an older report calls it unfinished.

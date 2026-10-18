@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Deterministic and wholly fictional Singapore SME Workspace-like knowledge corpus.
+"""Deterministic and wholly fictional Southeast Asian SME Workspace-like knowledge corpus.
 No packages required. No imported customer/employee data. Safe to regenerate.
 """
 import argparse, csv, json, random, re
@@ -60,11 +60,11 @@ TEAM_NAMES = ['Delivery','Engineering','Product','Security','Operations','Custom
 
 def plus(value, days): return (date.fromisoformat(value)+timedelta(days=days)).isoformat()
 def slug(s): return re.sub(r'[^a-z0-9]+','-',s.lower()).strip('-')
-def save_json(path,obj): path.parent.mkdir(parents=True,exist_ok=True);path.write_text(json.dumps(obj,indent=2,ensure_ascii=False)+'\n',encoding='utf-8')
+def save_json(path,obj): path.parent.mkdir(parents=True,exist_ok=True);path.write_text(json.dumps(obj,indent=2,ensure_ascii=False)+'\n',encoding='utf-8',newline='\n')
 def save_csv(path,header,rows):
     path.parent.mkdir(parents=True,exist_ok=True)
     with path.open('w',newline='',encoding='utf-8') as f:
-        writer=csv.writer(f);writer.writerow(header);writer.writerows(rows)
+        writer=csv.writer(f,lineterminator='\n');writer.writerow(header);writer.writerows(rows)
 
 def document_body(code, name, service, client, owner, planned, qa, vendor, typ, idx):
     header=f'''KNOWBRIDGE SYNTHETIC DEMO DATA — NOT A REAL COMPANY RECORD
@@ -80,7 +80,7 @@ Reference project baseline: {planned}
 
 '''
     common=f'''PROJECT CONTEXT
-The engagement is a controlled delivery project for a Singapore-based SME. The shared project ID is {code}. The client-facing milestone is {planned}, initially proposed during planning. Every operational update must preserve the source date so decision reviewers can distinguish an initial forecast from a subsequent revision. The relevant stakeholders are {owner}, Isabelle Wong (QA), and Darren Ng (security). Team communications are in English, and all budgets are denominated in SGD. This entry is a synthetic example, not a representation of any actual contract or customer.
+The engagement is a controlled delivery project for a Southeast Asian SME. The shared project ID is {code}. The client-facing milestone is {planned}, initially proposed during planning. Every operational update must preserve the source date so decision reviewers can distinguish an initial forecast from a subsequent revision. The relevant stakeholders are {owner}, Isabelle Wong (QA), and Darren Ng (security). Team communications are in English, and all budgets are denominated in SGD. This entry is a synthetic example, not a representation of any actual contract or customer.
 
 '''
     detail={
@@ -156,7 +156,7 @@ def generate(out):
             content=document_body(code,name,service,client,owner,planned,qa,vendor,typ,j)
             name_on_disk=f'{doc_id}-{slug(typ)}.txt'
             (out/'docs').mkdir(exist_ok=True)
-            (out/'docs'/name_on_disk).write_text(content,encoding='utf-8')
+            (out/'docs'/name_on_disk).write_text(content,encoding='utf-8',newline='\n')
             docs.append(dict(id=doc_id,title=f'{name} — {typ}',kind='google_doc',project=code,
                 department=['Delivery','Engineering','Security','Operations'][j%4],owner=owner,modified_at=updated,
                 file=f'docs/{name_on_disk}',content=content,synthetic=True,visibility='internal'))
@@ -222,7 +222,7 @@ Document the relevant evidence, identify the accountable role, retain a traceabl
 STAKEHOLDER GUIDANCE
 For a cross-document question, the current approved revision is authoritative over a superseded policy draft; conflicting project facts still require human review. This is a synthetic compliance scenario, not legal advice.
 '''
-            filename=f'{did}-{slug(policy)}.txt';(out/'docs'/filename).write_text(body,encoding='utf-8')
+            filename=f'{did}-{slug(policy)}.txt';(out/'docs'/filename).write_text(body,encoding='utf-8',newline='\n')
             docs.append(dict(id=did,title=f'Company Policy — {policy} — Rev {rev}',kind='google_doc',project='CORP',
                 department='Operations Governance',owner='Elena Koh',modified_at=date_string,
                 file=f'docs/{filename}',content=body,synthetic=True,visibility='internal'))
@@ -245,7 +245,7 @@ Review outstanding project dependencies, prepare a summary for Elena Koh, docume
 CONTROL NOTE
 Each assertion is limited to the information recorded here. This is fictional company content for hackathon testing.
 '''
-        filename=f'{did}-{slug(team)}.txt';(out/'docs'/filename).write_text(content,encoding='utf-8')
+        filename=f'{did}-{slug(team)}.txt';(out/'docs'/filename).write_text(content,encoding='utf-8',newline='\n')
         docs.append(dict(id=did,title=f'{team} — Operations Brief {i+1:02d}',kind='google_doc',project='CORP',
                          department=team,owner=person,modified_at=f'2026-10-{(i%10)+1:02d}',file=f'docs/{filename}',
                          content=content,synthetic=True,visibility='internal'))

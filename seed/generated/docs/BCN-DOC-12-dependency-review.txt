@@ -10,7 +10,7 @@ Recorded date: 2026-10-08
 Reference project baseline: 2026-11-12
 
 PROJECT CONTEXT
-The engagement is a controlled delivery project for a Singapore-based SME. The shared project ID is BCN. The client-facing milestone is 2026-11-12, initially proposed during planning. Every operational update must preserve the source date so decision reviewers can distinguish an initial forecast from a subsequent revision. The relevant stakeholders are Darren Ng, Isabelle Wong (QA), and Darren Ng (security). Team communications are in English, and all budgets are denominated in SGD. This entry is a synthetic example, not a representation of any actual contract or customer.
+The engagement is a controlled delivery project for a Southeast Asian SME. The shared project ID is BCN. The client-facing milestone is 2026-11-12, initially proposed during planning. Every operational update must preserve the source date so decision reviewers can distinguish an initial forecast from a subsequent revision. The relevant stakeholders are Darren Ng, Isabelle Wong (QA), and Darren Ng (security). Team communications are in English, and all budgets are denominated in SGD. This entry is a synthetic example, not a representation of any actual contract or customer.
 
 THIRD-PARTY DEPENDENCIES — 2026-10-08
 Harbour IAM (fictional) provides a non-production service endpoint required for the identity and access consolidation. The team expects written verification of the integration contract and confirmation of a rollback procedure. Dependency status: AMBER. No confirmed completion is recorded for the external dependency review.

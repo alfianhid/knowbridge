@@ -1,8 +1,10 @@
 # KnowBridge
 
+> Status reviewed 2026-10-18. Latest recorded release: `knowbridge-00019-cc8`; 273 local tests. Full deployed benchmark reliability remains open. See [current readiness](docs/READINESS.md).
+
 [![CI](https://github.com/alfianhid/knowbridge/actions/workflows/ci.yml/badge.svg)](https://github.com/alfianhid/knowbridge/actions/workflows/ci.yml)
 
-Connecting knowledge to confident decisions. KnowBridge helps project leaders at Singapore-first, English-first SMEs using Google Workspace investigate scattered evidence, reconcile changing forecasts, and prepare explainable decision briefs. Built for **Google AI Builder Cup 2026 - Future of Work & Enterprise Productivity**.
+Connecting knowledge to confident decisions. KnowBridge helps project leaders at Southeast Asian, English-first SMEs using Google Workspace investigate scattered evidence, reconcile changing forecasts, and prepare explainable decision briefs. Built for **Google AI Builder Cup 2026 - Future of Work & Enterprise Productivity**.
 
 **Live app:** [Open KnowBridge on Cloud Run](https://knowbridge-208529907910.asia-southeast1.run.app)
 
@@ -23,7 +25,7 @@ For saved briefs, use **Judge sign-in** with credentials supplied privately by t
 
 ## The problem, and who it is for
 
-KnowBridge targets owners, project managers and operations leads at 10-100-person services SMEs using Google Workspace, starting in Singapore. This audience is a product hypothesis; real-world adoption and time savings have not been measured.
+KnowBridge targets owners, project managers and operations leads at 10-100-person services SMEs using Google Workspace across Southeast Asia. This audience is a product hypothesis; real-world adoption and time savings have not been measured.
 
 A project leader asks: **"Can Project Harbour launch on 1 Nov?"** The answer must distinguish a customer target from a newer QA forecast, inspect security approval, and establish whether anyone authorized a revised commitment. A summary that merges those facts can create a false promise.
 
@@ -91,7 +93,7 @@ Use the [documentation index](docs/README.md) for current guides. Historical rep
 
 The official [Future of Work & Enterprise Productivity theme](https://aibuildercup.com/themes.html) focuses on knowledge access, collaboration, decisions and everyday work. KnowBridge addresses this through source-backed project investigation and explainable decision briefs.
 
-The [official requirements](https://aibuildercup.com/themes.html) call for Google AI or the listed agentic platforms, deployment on Cloud Run or Firebase, English submission materials, a PDF proposal deck and a three-minute public demo video. KnowBridge uses Gemini on Vertex AI and Cloud Run. The PDF and video script are linked above; a published video is not yet recorded in the submission evidence.
+The [official requirements](https://aibuildercup.com/themes.html) call for Google AI or the listed agentic platforms, deployment on Cloud Run or Firebase, English submission materials, a PDF proposal deck and a three-minute public demo video. KnowBridge uses Gemini on Vertex AI and Cloud Run. The PDF and video script are linked above; the user confirmed on 18 October that the video has not yet been produced and will update it later. Submission confirmation and exact dashboard cutoff/timezone remain unrecorded.
 
 | Official judging criterion | Weight | KnowBridge evidence |
 |---|---|---|
@@ -205,9 +207,9 @@ The original planning documents specify team formation on 2026-10-14, internal s
 
 ## Optional Workspace selected-file demo
 
-Latest follow-up: [final deployment and acceptance](docs/archive/WORKSPACE-FOLLOWUP-2026-10-17.md). Revision `knowbridge-00011-xx4` and the matching maintenance image include the reviewed Drive-401 lifecycle fix; 256 tests pass. Registered-file import/search/source checks, changed/trash rejection, separate-member isolation, real revoked-grant cleanup, denial/reconnect and repeated disconnect are recorded with their limits. The account is left disconnected with no credentials/imported copies. #37/#38 are closed; other issue closures/provider-contract decisions are tracked in [readiness](docs/READINESS.md). Original full benchmark artifacts remain unchanged; Phase 5 clearance is not implied. The paragraph below preserves the earlier checkpoint.
+Workspace is implemented and defaults off in source. The separate panel binds Google consent to an authorized demo member and imports at most three registered fictional native Docs/first-tab Sheets. Search, literal source inspection, cancellation and disconnect cleanup are owner-scoped. Public Ask and saved briefs retain the separate seed corpus.
 
-Phase 4 is implemented and defaults off in source. The separate Workspace panel binds Google consent to an existing demo member, imports only registered fictional native Docs/first-tab Sheets, and supports scoped search, literal source inspection and disconnect cleanup. Public search and saved briefs keep using the separate seed corpus. Revision `knowbridge-00009-7j5` serves five reviewed audit/live fixes. The fictional-account consent/Picker/three-file import/search/citation/retry/cancel/disconnect path passed; cleanup removed credentials and imported copies. See [live evidence and remaining negative checks](docs/archive/WORKSPACE-LIVE-ACCEPTANCE-2026-10-17.md) and [pre-Phase 5 audit](docs/archive/PRE-PHASE5-AUDIT-2026-10-17.md). Local suite: 249 tests. Complete deployed Ask benchmark: 10/12, median 27.4 seconds including failures/source verification. Earlier full and focused runs remain separate evidence. Approved concise GitHub status comments were posted; all seven Workspace issues remain open. No real Workspace data is permitted.
+Expanded live acceptance is recorded on `knowbridge-00011-xx4` in [the follow-up](docs/archive/WORKSPACE-FOLLOWUP-2026-10-17.md). All seven Workspace issues were recorded closed, with #34/#35 using revised fictional-demo criteria accepting provider limits. Real-data import remains prohibited. Latest recorded UI release is `knowbridge-00019-cc8`; see [Workspace setup](docs/WORKSPACE.md) and [current readiness](docs/READINESS.md).
 
 ## Implementation and verification history
 
@@ -219,4 +221,4 @@ Local development uses durable files under ignored `.data/sources`. Cloud Run re
 
 Phase 2 adds `/api/ask`, Gemini 768-dimensional embeddings, scoped Firestore vector retrieval and structured answers with verified literal citations. Local mode is deterministic lexical evidence lookup with no AI synthesis. Phase 3 adds protected brief creation, saved list/detail, review acknowledgement and source inspection. The deployed app and one authenticated Harbour brief create/retry/list/reopen/source verification passed; see [current readiness](docs/READINESS.md) and [deployed brief evidence](docs/archive/CLOUD-BRIEF-VERIFICATION-2026-10-16.md). This does not establish full benchmark reliability, broad model accuracy or production readiness.
 
-Synthesized answers pass a structured semantic gate after citation checks. Eight live adversarial regressions passed. The full benchmark runs recorded 9/12 and 10/12 automated passes; focused retries passed the failed cases, but do not convert either full run into a pass. You reported successful human semantic review of all 12 cases and manual accessibility checks on 2026-10-16; reviewer and environment details were not recorded. The deployed brief still has `reviewedByHuman:false`. See [acceptance evidence](docs/ACCEPTANCE.md), [benchmark results](docs/archive/EVALUATION-RESULTS-2026-10-15.md), and [readiness](docs/READINESS.md).
+Synthesized answers pass a structured semantic gate after citation checks. Eight live adversarial regressions are recorded. Latest complete deployed benchmarks each passed 2/12; earlier complete runs and focused retries remain separate evidence. Human semantic review of all 12 cases and manual accessibility checks were user-reported on 16 October, without complete reviewer/environment details. The historical verified brief was not marked reviewed in that check. See [acceptance](docs/ACCEPTANCE.md), [benchmark results](docs/PHASE5-RESULTS.md), and [readiness](docs/READINESS.md).

@@ -1,5 +1,7 @@
 # Acceptance evidence carried forward — 2026-10-15
 
+> Historical checkpoint. Revisions, counts and open tasks describe the recorded date. See [current readiness](READINESS.md) for superseding release, benchmark and submission status.
+
 > Current update — 2026-10-16: the user reports passing human semantic review for all 12 cases and passing manual accessibility checks at 400% browser zoom, with text spacing, keyboard navigation and native screen-reader navigation. Reviewer identity, test date, browser/OS and screen-reader versions were not supplied. Treat these as user-reported passes, not independently reproduced evidence. Automated benchmark failures remain unchanged. See [issue closure](archive/ISSUE-CLOSURE-2026-10-16.md).
 
 This checklist reconciles `audit-tickets.json` with actual evidence. Historical Phase 1 fix/closure records are preserved; they do not prove every future or manual criterion. No waiver is recorded, and predecessor issue state is unchanged. [Current readiness](READINESS.md) separates later-phase deliverables.

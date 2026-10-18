@@ -24,3 +24,7 @@ Interpret results using [Phase 5 results](../PHASE5-RESULTS.md), the [Workspace 
 The deployed evaluator now writes timestamped full-run or case-specific JSON under ignored `.data/evaluations/` by default. `--out=<path>` still selects an explicit output location and creates its parent directory. Review an artifact for synthetic-data scope and credentials before deliberately adding it here. Never overwrite a recorded run to hide a failure.
 
 No live model benchmark was run as part of the repository cleanup.
+
+## UI release
+
+[UI polish verification, 18 October](UI-POLISH-2026-10-18.md) records revision `knowbridge-00019-cc8`, 273 tests and a focused cited Harbour query on the preceding UI revision. It is not a new full benchmark. See [judge access](../JUDGE-SESSION.md) for the separate sign-in checks.

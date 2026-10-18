@@ -32,6 +32,7 @@
   table { border-collapse: collapse; width: 100%; }
   th, td { border: 1px solid #293140; padding: 10px 16px; font-size: 17px; color: #c4cdd8; text-align: left; }
   th { background: #171c24; color: #e8ecf1; font-size: 16px; }
+  table.compact th, table.compact td { padding: 7px 13px; font-size: 15px; line-height: 1.4; }
   .kv { display: grid; grid-template-columns: 240px 1fr; gap: 10px 24px; font-size: 21px; }
   .kv dt { color: #7d8894; font-size: 16px; letter-spacing: 1.5px; text-transform: uppercase; padding-top: 5px; }
   .kv dd { color: #e8ecf1; font-weight: 600; }
@@ -55,6 +56,7 @@
 </style>
 </head>
 <body>
+<!-- Figures reviewed 2026-10-18. Screenshots retain their original capture date. -->
 
 <!-- ============ 1. TEAM DETAILS ============ -->
 <section class="slide">
@@ -92,11 +94,29 @@
     <li><span class="accent">How does it solve the problem?</span> &nbsp;One question replaces file archaeology: grounded retrieval → literal citation verification → temporal and conflict analysis → a decision brief with explicit unknowns. Grounding gates run <b>before and after</b> the model; if they fail, the answer is withheld (fail-closed).</li>
     <li><span class="accent">USP of the proposed solution</span> &nbsp;Temporally aware, explainable decision support: a revised forecast does not erase a customer commitment, "pending" is never shown as "approved", and every quoted excerpt must literally exist in an authorized source — verified server-side, not just prompted.</li>
   </ul>
-  <p class="foot">Market framing is stated as a testable hypothesis (Singapore services SMEs on Google Workspace) — not a validated market claim.</p>
+  <p class="foot">Market framing is stated as a testable hypothesis (Southeast Asian services SMEs on Google Workspace) — not a validated market claim.</p>
   <div class="pageno">3</div>
 </section>
 
-<!-- ============ 4. LIST OF FEATURES ============ -->
+<!-- ============ 4. COMPARISON WITH GENERAL AI ASSISTANTS ============ -->
+<section class="slide">
+  <div class="kicker">Opportunities · comparison</div>
+  <h2>Why not just ask ChatGPT, Claude or Gemini?</h2>
+  <p>Different job, not a better chatbot: what a team may commit to, from its own records — with verification a chat answer does not enforce.</p>
+  <table class="compact" style="margin-top: 12px;">
+    <tr><th style="width: 160px;">&nbsp;</th><th>General AI assistants</th><th>KnowBridge</th></tr>
+    <tr><td><b class="accent">Evidence</b></td><td>Web pages and uploaded files, summarized</td><td>Only authorized Docs / Sheets; stable source IDs, owners and recorded dates kept</td></tr>
+    <tr><td><b class="accent">Citations</b></td><td>Helpful links and quotes, not checked against the source</td><td>Every quoted excerpt must literally exist in the stored original; fabricated citations fail the answer closed</td></tr>
+    <tr><td><b class="accent">Conflicting dates</b></td><td>The newest statement usually wins the summary</td><td>Baseline / forecast / commitment / approved decision typed; effective date stays distinct from the Drive updated timestamp</td></tr>
+    <tr><td><b class="accent">Missing evidence</b></td><td>Usually still answers</td><td>Answers "insufficient evidence" — abstention is product behavior</td></tr>
+    <tr><td><b class="accent">Access</b></td><td>Depends on chat and connector permissions</td><td>Retrieval restricted to the requesting tenant / user before any context reaches the model</td></tr>
+    <tr><td><b class="accent">Output</b></td><td>Chat transcript</td><td>Saved Decision Brief with a deliberate human review acknowledgement</td></tr>
+  </table>
+  <p class="foot">General assistants are better at broad knowledge, open-web research, writing and code. KnowBridge runs Gemini on Vertex AI — the differentiator is the enforced grounding and decision semantics around the model, not the model itself. Design comparison of typical general-assistant behavior (2026), not a measured head-to-head benchmark.</p>
+  <div class="pageno">4</div>
+</section>
+
+<!-- ============ 5. LIST OF FEATURES ============ -->
 <section class="slide">
   <div class="kicker">List of features offered by the solution</div>
   <h2>Features</h2>
@@ -116,10 +136,10 @@
       <li><span class="accent">Fail-closed integrity gates</span> — fabricated excerpts, missing citations or coverage gaps block the answer.</li>
     </ul>
   </div>
-  <div class="pageno">4</div>
+  <div class="pageno">5</div>
 </section>
 
-<!-- ============ 5. PROCESS FLOW / USE-CASE DIAGRAM ============ -->
+<!-- ============ 6. PROCESS FLOW / USE-CASE DIAGRAM ============ -->
 <section class="slide">
   <div class="kicker">Process flow diagram</div>
   <h2>Use-case flow: connect → investigate → reconcile → decide</h2>
@@ -134,10 +154,10 @@
   </div>
   <div class="gatebar"><b>Grounding gates on every answer:</b> tenant-scoped retrieval → literal citation verification → decision-coverage check → semantic review → fail closed (502/503) if any gate fails.</div>
   <div class="gatebar" style="margin-top: 12px;"><b>Actors:</b> SME project lead / delivery owner (asker) · authorized Workspace member (imports, reviews briefs) · human decision-maker (approves — the app never does).</div>
-  <div class="pageno">5</div>
+  <div class="pageno">6</div>
 </section>
 
-<!-- ============ 6. WIREFRAMES / MOCK DIAGRAMS ============ -->
+<!-- ============ 7. WIREFRAMES / MOCK DIAGRAMS ============ -->
 <section class="slide">
   <div class="kicker">Wireframes / mock diagrams (optional)</div>
   <h2>Interface structure — wireframe</h2>
@@ -163,10 +183,10 @@
   </div>
   <div class="gatebar" style="margin-top: 18px;">Below the panels: <b>Source catalog</b> — list of imported records on the left, full record view on the right (stable ID, owner, recorded date, original source text).</div>
   <p class="foot">Wireframes are structural sketches; the following slides show the actual deployed prototype.</p>
-  <div class="pageno">6</div>
+  <div class="pageno">7</div>
 </section>
 
-<!-- ============ 7. ARCHITECTURE DIAGRAM ============ -->
+<!-- ============ 8. ARCHITECTURE DIAGRAM ============ -->
 <section class="slide">
   <div class="kicker">Architecture diagram of the proposed solution</div>
   <h2>Google Cloud architecture — fail-closed grounding</h2>
@@ -182,10 +202,10 @@
     <div class="card"><h3>Security basics</h3><p>Non-root container · Secret Manager secrets · revocation-checked tokens on writes · CSP · synthetic-tenant pinning · cross-tenant chunks never reach the LLM.</p></div>
   </div>
   <p class="foot warn">Honest disclosure: model processing is not Singapore-only (Gemini global endpoint; embeddings US). Real-data import is prohibited.</p>
-  <div class="pageno">7</div>
+  <div class="pageno">8</div>
 </section>
 
-<!-- ============ 8. TECHNOLOGIES ============ -->
+<!-- ============ 9. TECHNOLOGIES ============ -->
 <section class="slide">
   <div class="kicker">Technologies used in the solution</div>
   <h2>Stack</h2>
@@ -204,13 +224,13 @@
     </div>
     <div class="card"><h3>Quality &amp; evaluation</h3>
       <p><span class="pill">Vitest</span><span class="pill">Playwright</span><span class="pill">axe-core accessibility</span><span class="pill">Python seed generator</span></p>
-      <p>256 unit/integration tests, e2e flows, live adversarial semantic regressions, deterministic synthetic dataset.</p>
+      <p>273 unit/integration tests, e2e flows, live adversarial semantic regressions, deterministic synthetic dataset.</p>
     </div>
   </div>
-  <div class="pageno">8</div>
+  <div class="pageno">9</div>
 </section>
 
-<!-- ============ 9. ESTIMATED IMPLEMENTATION COST ============ -->
+<!-- ============ 10. ESTIMATED IMPLEMENTATION COST ============ -->
 <section class="slide">
   <div class="kicker">Estimated implementation cost (optional)</div>
   <h2>Running cost — rough order-of-magnitude estimates</h2>
@@ -224,10 +244,10 @@
     <tr><th>Total</th><th></th><th>≈ S$20 – 50 / month</th></tr>
   </table>
   <p class="foot">Rough estimates only — all components are usage-based and actual cost scales with query volume. Development uses free-tier / trial credits where available. No commitment or quote is implied.</p>
-  <div class="pageno">9</div>
+  <div class="pageno">10</div>
 </section>
 
-<!-- ============ 10. SNAPSHOTS OF THE PROTOTYPE (1/2) ============ -->
+<!-- ============ 11. SNAPSHOTS OF THE PROTOTYPE (1/2) ============ -->
 <section class="slide">
   <div class="kicker">Snapshots of the prototype</div>
   <h2>Deployed prototype — landing, Ask panel &amp; source catalog</h2>
@@ -235,10 +255,10 @@
     <div class="shot single"><img src="assets/shot-hero.png" alt="KnowBridge landing page with the Ask about the evidence panel and the demo question typed in"><div class="cap">Landing + Ask panel with the Project Harbour question</div></div>
     <div class="shot single"><img src="assets/shot-catalog.png" alt="Source catalog with 55 sources and a record view showing stable ID ATL-DOC-02, recorded date and original text"><div class="cap">Source catalog + record view: stable ID, recorded date, original text</div></div>
   </div>
-  <div class="pageno">10</div>
+  <div class="pageno">11</div>
 </section>
 
-<!-- ============ 11. SNAPSHOTS OF THE PROTOTYPE (2/2) ============ -->
+<!-- ============ 12. SNAPSHOTS OF THE PROTOTYPE (2/2) ============ -->
 <section class="slide">
   <div class="kicker">Snapshots of the prototype</div>
   <h2>Deployed prototype — Workspace import &amp; decision brief</h2>
@@ -246,25 +266,25 @@
     <div class="shot single"><img src="assets/shot-workspace.png" alt="Google Workspace selected files panel with Firebase ID token field and import controls"><div class="cap">Google Workspace panel: bounded selected-file import + disclosures</div></div>
     <div class="shot single"><img src="assets/shot-brief.png" alt="Decision brief panel with member token, decision question input and create brief button"><div class="cap">Decision brief panel: operator session, human decision-maker</div></div>
   </div>
-  <p class="foot">Screenshots are from the live deployed application. All records shown are fictional synthetic data.</p>
-  <div class="pageno">11</div>
+  <p class="foot">Screenshots are historical live captures, preceding the 18 October UI/sign-in release. All records shown are fictional synthetic data.</p>
+  <div class="pageno">12</div>
 </section>
 
-<!-- ============ 12. PROTOTYPE PERFORMANCE / BENCHMARKING ============ -->
+<!-- ============ 13. PROTOTYPE PERFORMANCE / BENCHMARKING ============ -->
 <section class="slide">
   <div class="kicker">Prototype performance report / benchmarking</div>
   <h2>Measured results — including failures</h2>
   <div class="grid2">
     <div class="card"><p class="stat">168 / 24 / 1,904</p><p>fictional Docs / Sheets / rows · 8 projects · 12 gold cases — seed verifier <span class="ok">PASS</span></p></div>
-    <div class="card"><p class="stat">256 / 256</p><p>unit &amp; integration tests <span class="ok">PASS</span> · lint, typecheck, build <span class="ok">PASS</span> · 8 live semantic adversarial regressions <span class="ok">PASS</span></p></div>
-    <div class="card"><p class="stat">2 / 12</p><p>both final deployed benchmark runs (before/after the reliability fix): every failure was a provider-side service error (HTTP 503), <b>never an evidence-quality failure</b>; every pass had fully valid literal citations</p></div>
+    <div class="card"><p class="stat">273 / 273</p><p>unit &amp; integration tests <span class="ok">PASS</span> · lint, typecheck, build <span class="ok">PASS</span> · 8 live semantic adversarial regressions <span class="ok">PASS</span></p></div>
+    <div class="card"><p class="stat">2 / 12</p><p>both latest recorded complete deployed benchmark runs (before/after the reliability fix): every failure was a provider-side service error (HTTP 503), <b>never an evidence-quality failure</b>; every pass had fully valid literal citations</p></div>
     <div class="card"><p class="stat">9 / 10 / 11 of 12</p><p>earlier complete runs (revision <span class="small">knowbridge-00009-7j5</span>; 11/12 local CLI). Totals are never aggregated across runs</p></div>
   </div>
   <p class="foot">Median latency of the pre-fix deployed run including failures: 49,509.5 ms. Full-suite reliability under intermittent provider-side model failures remains an open issue and is reported as such. Artifacts: <span class="small">deployed-evaluation-prefix / deployed-evaluation-postfix (2026-10-17)</span>.</p>
-  <div class="pageno">12</div>
+  <div class="pageno">13</div>
 </section>
 
-<!-- ============ 13. ADDITIONAL DETAILS / FUTURE DEVELOPMENT ============ -->
+<!-- ============ 14. ADDITIONAL DETAILS / FUTURE DEVELOPMENT ============ -->
 <section class="slide">
   <div class="kicker">Additional details / future development</div>
   <h2>What's next — and what we will not claim</h2>
@@ -287,21 +307,21 @@
     </div>
   </div>
   <p class="foot"><span class="accent">KnowBridge — Know what your sources actually say.</span></p>
-  <div class="pageno">13</div>
+  <div class="pageno">14</div>
 </section>
 
-<!-- ============ 14. LINKS ============ -->
+<!-- ============ 15. LINKS ============ -->
 <section class="slide">
   <div class="kicker">Links</div>
   <h2>Where to find everything</h2>
   <dl class="kv" style="margin: 18px 0;">
     <dt>GitHub public repository</dt><dd>https://github.com/alfianhid/knowbridge</dd>
-    <dt>Demo video (3 minutes)</dt><dd class="warn">[Demo video link — TBA: recording in progress]</dd>
+    <dt>Demo video (3 minutes)</dt><dd class="warn">[Demo video link — TBA: not yet produced (18 Oct)]</dd>
     <dt>Final product link</dt><dd>https://knowbridge-208529907910.asia-southeast1.run.app</dd>
   </dl>
   <p>Repository includes the reproducible synthetic dataset (Python seed generator + verifier), architecture notes, evaluation artifacts and run instructions.</p>
   <p class="foot">All demo companies, people, emails and records are fictional. Theme: Future of Work &amp; Enterprise Productivity. Team KARAKA · AI Builder Cup 2026.</p>
-  <div class="pageno">14</div>
+  <div class="pageno">15</div>
 </section>
 
 </body>

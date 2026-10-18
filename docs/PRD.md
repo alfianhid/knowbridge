@@ -1,6 +1,6 @@
 # KnowBridge — 1-page Product Requirements
 
-**One-line:** an evidence-backed decision copilot for Google Workspace–using SMEs, starting in Singapore.
+**One-line:** an evidence-backed decision copilot for Google Workspace–using SMEs across Southeast Asia.
 
 ## Customer hypothesis
 Owners, delivery/project managers, operations leads at 10–100-person services SMEs on Google Workspace. Knowledge is fragmented among Docs and Sheets. Users struggle to determine which statement is current and what they can actually commit to. Product-market fit is unvalidated; judge the *prototype*, do not claim real-world adoption.
@@ -23,8 +23,8 @@ As a project leader, I want to ask “Can Project Harbour launch on 1 Nov?” an
 - Persist saved briefs with questions, evidence, model and timestamp for demo; all writes idempotent if retried.
 - Non-hallucination behavior: unknown answer with missing evidence.
 
-## P1
-Google sign-in and Google Picker-based selection with narrowly scoped drive.file permission; native export of Docs and single-tab Sheets; minimal entity linking.
+## P1 status
+Judge Firebase email/password sign-in and separate Google OAuth/Picker selection are implemented. Workspace import is restricted to at most three registered fictional native Docs/first-tab Sheets. General real-data import and minimal entity linking remain outside delivered scope. See [current readiness](READINESS.md).
 
 ## Explicitly out of scope
 Gmail and Chat sync, editing real Drive files, organization-wide crawling, automated decisions/actions, production permission replication, policy compliance certification, multi-agent workflow engine, Neo4j/RDF/OWL, automated cloud billing controls.

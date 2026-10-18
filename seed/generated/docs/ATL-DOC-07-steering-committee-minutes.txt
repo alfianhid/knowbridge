@@ -10,7 +10,7 @@ Recorded date: 2026-10-11
 Reference project baseline: 2026-11-15
 
 PROJECT CONTEXT
-The engagement is a controlled delivery project for a Singapore-based SME. The shared project ID is ATL. The client-facing milestone is 2026-11-15, initially proposed during planning. Every operational update must preserve the source date so decision reviewers can distinguish an initial forecast from a subsequent revision. The relevant stakeholders are Priya Menon, Isabelle Wong (QA), and Darren Ng (security). Team communications are in English, and all budgets are denominated in SGD. This entry is a synthetic example, not a representation of any actual contract or customer.
+The engagement is a controlled delivery project for a Southeast Asian SME. The shared project ID is ATL. The client-facing milestone is 2026-11-15, initially proposed during planning. Every operational update must preserve the source date so decision reviewers can distinguish an initial forecast from a subsequent revision. The relevant stakeholders are Priya Menon, Isabelle Wong (QA), and Darren Ng (security). Team communications are in English, and all budgets are denominated in SGD. This entry is a synthetic example, not a representation of any actual contract or customer.
 
 STEERING REVIEW — 2026-10-11
 The committee reviewed the mismatch between the client expectation of 2026-11-15 and the QA team forecast of 2026-11-18. The committee requested options rather than endorsing a revised date. Priya Menon must prepare a decision brief comparing full release postponement, reduced-scope pilot, and a date renegotiation. The original target remains a customer expectation, not a currently verified feasible commitment.

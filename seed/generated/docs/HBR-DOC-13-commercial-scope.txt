@@ -10,7 +10,7 @@ Recorded date: 2026-09-12
 Reference project baseline: 2026-11-01
 
 PROJECT CONTEXT
-The engagement is a controlled delivery project for a Singapore-based SME. The shared project ID is HBR. The client-facing milestone is 2026-11-01, initially proposed during planning. Every operational update must preserve the source date so decision reviewers can distinguish an initial forecast from a subsequent revision. The relevant stakeholders are Avery Tan, Isabelle Wong (QA), and Darren Ng (security). Team communications are in English, and all budgets are denominated in SGD. This entry is a synthetic example, not a representation of any actual contract or customer.
+The engagement is a controlled delivery project for a Southeast Asian SME. The shared project ID is HBR. The client-facing milestone is 2026-11-01, initially proposed during planning. Every operational update must preserve the source date so decision reviewers can distinguish an initial forecast from a subsequent revision. The relevant stakeholders are Avery Tan, Isabelle Wong (QA), and Darren Ng (security). Team communications are in English, and all budgets are denominated in SGD. This entry is a synthetic example, not a representation of any actual contract or customer.
 
 COMMERCIAL POSITION — 2026-09-12
 Fixed-fee baseline covers full customer self-service portal at the originally planned acceptance date 2026-11-01. Additional pilot support or date extension may affect scope and cost. Mei Chen must review any material commercial change. No revised statement of work has been signed. This document does not override the delivery or security release gates.

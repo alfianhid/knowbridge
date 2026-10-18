@@ -1,7 +1,7 @@
 # Architecture and technology ADR
 
 ## Decision
-Single Next.js/TypeScript app on **Cloud Run**, server APIs with **Firebase Admin** (Firestore + optional Firebase Auth verification), **Google Gen AI SDK** with **Vertex AI/Gemini**. Documents initially loaded from `seed/generated`; live Google Picker/Drive later. Avoid extra vector DB, Kubernetes and separate Python API.
+Single Next.js/TypeScript app on **Cloud Run**, server APIs with **Firebase Admin** (Firestore + optional Firebase Auth verification), **Google Gen AI SDK** with **Vertex AI/Gemini**. Documents initially loaded from `seed/generated`; optional Google Picker/Drive selected-file import implemented for registered fictional files. Avoid extra vector DB, Kubernetes and separate Python API.
 
 ### Pipeline
 ```
@@ -33,7 +33,7 @@ The ancestor tenant document need not exist. No tenant profile document is creat
 
 Decision Brief APIs require Vertex retrieval and Firestore storage; there is no local or deterministic brief fallback. `tenants/demo-north-quay/briefs/{briefId}` stores the validated question and brief, server-generated ID/creation time, verified owner UID, `mode:"vertex"`, model, source IDs with content hashes, and `reviewedByHuman`. Review adds reviewer UID/time. `tenants/demo-north-quay/briefIdempotency/{keyHash}` stores the canonical request hash and brief ID. A Firestore transaction creates both records atomically. Identical retries return the original brief; a changed question with the same key returns 409.
 
-Creation uses verified Firebase identity and tenant membership. Retrieval source selection is derived from server-owned synthetic records; authorized chunks are rechecked before generation and originals are reread before finalization. Brief listing constrains owner in the Firestore query. Detail and review enforce owner, returning 404 for absent or foreign records. The review route records human acknowledgement only; it cannot approve a launch or trigger an action. Private Workspace sources, per-reader ACLs and ACL replication remain unimplemented.
+Creation uses verified Firebase identity and tenant membership. Retrieval source selection is derived from server-owned synthetic records; authorized chunks are rechecked before generation and originals are reread before finalization. Brief listing constrains owner in the Firestore query. Detail and review enforce owner, returning 404 for absent or foreign records. The review route records human acknowledgement only; it cannot approve a launch or trigger an action. Workspace uses a separate owner-scoped import/search path; its sources cannot enter saved seed briefs. General per-reader ACL replication remains unimplemented.
 
 Phase 2 materializes vector chunks with `sourceId`, inherited provenance, `contentHash`, `embeddingModel`, `embeddingDimensions:768`, and `embedding` (`VectorValue`). A collection-scoped composite index covers `sourceId ASCENDING` and the 768-dimensional flat `embedding` field. Tenant-scoped `embeddingCache` records reuse model/dimension/checksum-matched embeddings. Exact setup and current model choices: [retrieval setup](RETRIEVAL.md).
 
@@ -61,3 +61,7 @@ Useful docs:
 - https://developers.google.com/workspace/drive/api/reference/rest/v3/files/export
 - https://googleapis.github.io/js-genai/index.html
 - https://docs.cloud.google.com/vertex-ai/generative-ai/docs/embeddings/get-text-embeddings
+
+## Current API model budgets
+
+`tenants/demo-north-quay/modelQuotas/{key}` stores atomic UTC-day request counters for public Ask and brief creation (300 shared daily by default; brief creation also 100 per UID). Workspace retains its separate import/query-embedding ledger. See [API budgets](API.md#shared-model-request-budgets). These are request counts, not billing caps.

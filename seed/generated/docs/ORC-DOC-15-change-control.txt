@@ -10,7 +10,7 @@ Recorded date: 2026-10-10
 Reference project baseline: 2026-11-09
 
 PROJECT CONTEXT
-The engagement is a controlled delivery project for a Singapore-based SME. The shared project ID is ORC. The client-facing milestone is 2026-11-09, initially proposed during planning. Every operational update must preserve the source date so decision reviewers can distinguish an initial forecast from a subsequent revision. The relevant stakeholders are Sofia Lee, Isabelle Wong (QA), and Darren Ng (security). Team communications are in English, and all budgets are denominated in SGD. This entry is a synthetic example, not a representation of any actual contract or customer.
+The engagement is a controlled delivery project for a Southeast Asian SME. The shared project ID is ORC. The client-facing milestone is 2026-11-09, initially proposed during planning. Every operational update must preserve the source date so decision reviewers can distinguish an initial forecast from a subsequent revision. The relevant stakeholders are Sofia Lee, Isabelle Wong (QA), and Darren Ng (security). Team communications are in English, and all budgets are denominated in SGD. This entry is a synthetic example, not a representation of any actual contract or customer.
 
 CHANGE REQUEST CR-ORC-08 — 2026-10-10
 Proposal: assess a reduced-scope pilot around 2026-11-09 and a full production release after QA completion 2026-11-16. Status: DRAFT / NOT APPROVED. The request must document test scope, security acceptance, customer approval and commercial impact. Do not treat this proposal as a final decision.

@@ -1,5 +1,7 @@
 # Phase 5 results — ship, benchmark, deploy and record (2026-10-17)
 
+> The linked deck has since expanded to 14 slides and its test figures were refreshed on 18 October. Historical checkpoint. Revisions, counts and open tasks describe the recorded date. See [current readiness](READINESS.md) for superseding release, benchmark and submission status.
+
 All demo companies, people and records are fictional. Feature freeze declared; this phase contains reliability, evaluation, security, documentation and submission-artifact work only. No mock response is presented as working AI; all measured numbers below are recorded outcomes.
 
 ## 1. Freeze and gates

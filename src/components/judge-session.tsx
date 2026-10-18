@@ -73,7 +73,7 @@ export function JudgeSessionProvider({ config, children }: { config: JudgeConfig
   return <SessionContext.Provider value={value}>{children}</SessionContext.Provider>;
 }
 
-export function JudgeSignIn() {
+export function JudgeSignIn({ demoCredential }: { demoCredential?: { email: string; password: string } }) {
   const session = useContext(SessionContext);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -92,6 +92,10 @@ export function JudgeSignIn() {
     }}>
       <p>Use the judge account supplied by the demo operator. Access is limited to fictional demo data.</p>
       <p>Judge accounts remain available through 6 November 2026 (WIB). Sessions renew automatically; sign in again when using a new browser session.</p>
+      {demoCredential && <button type="button" disabled={pending || !session.ready} onClick={() => {
+        setEmail(demoCredential.email); setPassword(demoCredential.password); setError('');
+      }}>Fill judge credentials</button>}
+      {demoCredential && <p>Fill the shared fictional judge account, then click Sign in. Saved briefs are shared by judges using this account.</p>}
       <label htmlFor="judge-email">Judge email</label><input id="judge-email" type="email" autoComplete="username" required value={email} onChange={(event) => setEmail(event.target.value)} />
       <label htmlFor="judge-password">Password</label><input id="judge-password" type="password" autoComplete="current-password" required value={password} onChange={(event) => setPassword(event.target.value)} />
       <button type="submit" disabled={pending || !session.ready}>{pending ? 'Signing in…' : 'Sign in'}</button>

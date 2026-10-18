@@ -100,4 +100,8 @@ Drive metadata/export HTTP 401 disables the expected connection and removes its 
 - `GET /api/workspace/sources/:sourceId` revalidates current Drive access/version, then returns evidence text, literal export and separate historical/Drive/import provenance. No public-source fallback.
 - `POST /api/workspace/disconnect {}` disables access, discards credentials, attempts grant revocation and clears scoped copies. Remains available when disabled; partial cleanup returns 207 with `cleanup:"incomplete"`, never a false deletion claim.
 
-See [limits, operator prerequisites and remaining live acceptance](WORKSPACE.md). Revision `knowbridge-00009-7j5` includes the reviewed audit fixes and passed the bounded fictional-account consent/Picker/import/search/source/retry/cancel/disconnect path. The complete live negative matrix remains incomplete; see [actual evidence](archive/WORKSPACE-LIVE-ACCEPTANCE-2026-10-17.md) and [current audit](archive/PRE-PHASE5-AUDIT-2026-10-17.md).
+See [limits, operator prerequisites and acceptance boundaries](WORKSPACE.md). Expanded lifecycle/negative checks on `knowbridge-00011-xx4` are recorded in [follow-up evidence](archive/WORKSPACE-FOLLOWUP-2026-10-17.md). Latest recorded application release is listed in [readiness](READINESS.md). The full forced-failure/provider matrix is not claimed.
+
+## Shared model request budgets
+
+In Firestore mode, public Ask and brief creation share an atomic UTC-day budget, default 300 requests. Brief creation also has a default 100-request per-UID daily budget. Exhaustion returns 429 with `Retry-After` to the next UTC day. Configure `KNOWBRIDGE_MODEL_DAILY_BUDGET` and `KNOWBRIDGE_MODEL_IDENTITY_DAILY_BUDGET` as positive integers. Local file mode skips this shared budget. Workspace uses its separate connector ledger; trusted indexing is outside these API budgets. Multiple provider calls can occur per request; this is not a dollar cap.
