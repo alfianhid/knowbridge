@@ -4,12 +4,17 @@
 <meta charset="utf-8">
 <title>KARAKA · KnowBridge — AI Builder Cup 2026 Submission Deck</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+  /* Self-hosted STATIC Roboto TTFs. Never @import variable webfonts here: Skia/Chromium prints
+     variable fonts as Type3 glyph fonts, which many PDF viewers/converters render as EMPTY slides. */
+  @font-face { font-family: "Roboto"; font-style: normal; font-weight: 400; src: url("assets/fonts/Roboto-Regular.ttf") format("truetype"); font-display: block; }
+  @font-face { font-family: "Roboto"; font-style: normal; font-weight: 500; src: url("assets/fonts/Roboto-Medium.ttf") format("truetype"); font-display: block; }
+  @font-face { font-family: "Roboto"; font-style: normal; font-weight: 700; src: url("assets/fonts/Roboto-Bold.ttf") format("truetype"); font-display: block; }
   @page { size: 1280px 720px; margin: 0; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body { font-family: "Google Sans", "Product Sans", "Roboto", "Segoe UI", Arial, sans-serif; background: #fff; color: #000; }
-  .slide { width: 1280px; height: 720px; padding: 104px 50px 44px; display: flex; flex-direction: column; justify-content: center; page-break-after: always; overflow: hidden; position: relative; background: #fff; }
-  .slide:last-child { page-break-after: auto; }
+  .slide { width: 1280px; height: 720px; padding: 104px 50px 44px; display: flex; flex-direction: column; justify-content: center; page-break-after: always; break-after: page; page-break-inside: avoid; break-inside: avoid; overflow: hidden; position: relative; background: #fff; }
+  .slide:last-child { page-break-after: auto; break-after: auto; }
+  a { color: #1a0dab; text-decoration: underline; font-weight: 600; }
   /* template chrome: black brand bar (Google Cloud · AI Builder Cup · Hack2Skill) + thin bottom strip */
   .slide::before { content: ""; position: absolute; top: 0; left: 0; width: 1280px; height: 71px; background: #000 url("assets/banner-strip.jpg") no-repeat center / 1280px 71px; }
   .slide::after { content: ""; position: absolute; left: 0; bottom: 0; width: 1280px; height: 7px; background: #000; }
@@ -66,6 +71,10 @@
   .cover .cover-sub { font-size: 15px; color: #5f6368; margin-bottom: 12px; }
   .cover .abc { font-size: 18px; margin: 7px 0; color: #202124; }
   .cover .abc b { color: #000; }
+  /* closing slide — the template's final "Thank you" page */
+  .closing { padding: 0; display: block; }
+  .closing::before, .closing::after { display: none; }
+  .closing img { width: 1280px; height: 720px; display: block; }
 </style>
 </head>
 <body>
@@ -291,7 +300,7 @@
     <div class="shot"><img src="assets/shot-workspace.png" alt="Google Workspace panel signed in as the judge account with registered-file import controls and disclosures"><div class="cap">Google Workspace panel: bounded registered-file import; disconnect deletes every copy</div></div>
     <div class="shot"><img src="assets/shot-brief.png" alt="Decision brief panel signed in as the judge account with sample scenarios and the prefilled decision question"><div class="cap">Decision brief panel: judge session; a recommendation for a human decision-maker</div></div>
   </div>
-  <p class="foot">Captured 18 October 2026 from the deployed Cloud Run release. All records shown are fictional synthetic data.</p>
+  <p class="foot">Captured 18 October 2026 from the deployed Cloud Run release. All records shown are fictional synthetic data. See it run end-to-end in the <a href="https://youtu.be/KihSKFj2nCw">product demo video (3:30)</a>.</p>
   <div class="pageno">13</div>
 </section>
 
@@ -340,13 +349,18 @@
   <h2>Provide links to your:</h2>
   <p class="subhead">GitHub public repository · demo video (3 minutes) · final product</p>
   <dl class="kv" style="margin: 18px 0;">
-    <dt>GitHub public repository</dt><dd>https://github.com/alfianhid/knowbridge</dd>
-    <dt>Demo video (3 minutes)</dt><dd class="warn">Not yet produced as of 18 Oct 2026 — the public link will be added before submission</dd>
-    <dt>Final product link</dt><dd>https://knowbridge-208529907910.asia-southeast1.run.app</dd>
+    <dt>GitHub public repository</dt><dd><a href="https://github.com/alfianhid/knowbridge">https://github.com/alfianhid/knowbridge</a></dd>
+    <dt>Demo video (3 minutes)</dt><dd><a href="https://youtu.be/KihSKFj2nCw">https://youtu.be/KihSKFj2nCw</a> <span class="small">(3:30 product walkthrough · 1080p · YouTube)</span></dd>
+    <dt>Final product link</dt><dd><a href="https://knowbridge-208529907910.asia-southeast1.run.app">https://knowbridge-208529907910.asia-southeast1.run.app</a></dd>
   </dl>
   <p>Repository includes the reproducible synthetic dataset (Python seed generator + verifier), architecture notes, evaluation artifacts and run instructions.</p>
   <p class="foot">All demo companies, people, emails and records are fictional. Theme: Future of Work &amp; Enterprise Productivity. Team KARAKA · AI Builder Cup 2026.</p>
   <div class="pageno">16</div>
+</section>
+
+<!-- ============ 17. CLOSING — template final page ============ -->
+<section class="slide closing">
+  <img src="assets/thankyou.jpg" alt="AI Builder Cup — Thank you">
 </section>
 
 </body>

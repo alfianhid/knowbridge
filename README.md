@@ -8,7 +8,7 @@ Connecting knowledge to confident decisions. KnowBridge helps project leaders at
 
 **Live app:** [Open KnowBridge on Cloud Run](https://knowbridge-208529907910.asia-southeast1.run.app)
 
-[Presentation PDF](docs/deck/KnowBridge-Submission-Deck.pdf) | [Demo video script](docs/VIDEO-SCRIPT.md) | [Submission checklist](docs/SUBMISSION.md) | [Recorded results](docs/PHASE5-RESULTS.md)
+[Presentation PDF](docs/deck/KnowBridge-Submission-Deck.pdf) | [Demo video](https://youtu.be/KihSKFj2nCw) (3:30) | [Demo video script](docs/VIDEO-SCRIPT.md) | [Submission checklist](docs/SUBMISSION.md) | [Recorded results](docs/PHASE5-RESULTS.md)
 
 > **All demo organizations, people, emails and records are fictional.** Generated recommendations require human verification. A saved or reviewed brief is not an approved business decision. This is a controlled prototype, with unresolved model-service reliability issues.
 
@@ -102,7 +102,7 @@ Application code lives in `src/`, operator commands in `scripts/`, tests in `tes
 
 ## AI Builder Cup theme and submission
 
-KnowBridge addresses the official [Future of Work & Enterprise Productivity theme](https://aibuildercup.com/themes.html) — knowledge access, collaboration and everyday decisions — with source-backed investigation and explainable decision briefs. The [official requirements](https://aibuildercup.com/themes.html) call for Google AI, Cloud Run or Firebase deployment, English materials, a PDF deck and a three-minute demo video; KnowBridge uses Gemini on Vertex AI and Cloud Run. On 18 October the user confirmed the demo video has not yet been produced and will be updated later. Submission confirmation and exact dashboard cutoff/timezone remain unrecorded; confirm the final category and artifact links in the competition dashboard.
+KnowBridge addresses the official [Future of Work & Enterprise Productivity theme](https://aibuildercup.com/themes.html) — knowledge access, collaboration and everyday decisions — with source-backed investigation and explainable decision briefs. The [official requirements](https://aibuildercup.com/themes.html) call for Google AI, Cloud Run or Firebase deployment, English materials, a PDF deck and a 3-to-4-minute demo video; KnowBridge uses Gemini on Vertex AI and Cloud Run. The 3:30 demo video is published at https://youtu.be/KihSKFj2nCw. Submission confirmation and exact dashboard cutoff/timezone remain unrecorded; confirm the final category and artifact links in the competition dashboard.
 
 | Official judging criterion | Weight | KnowBridge evidence |
 |---|---|---|

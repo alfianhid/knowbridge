@@ -6,9 +6,9 @@ Status reviewed **2026-10-18**. The internal 17 October target has passed. The p
 
 - [x] Recorded deployed app: https://knowbridge-208529907910.asia-southeast1.run.app (latest revision `knowbridge-00021-tft`, 100% traffic, confirmed live 18 October).
 - [x] Repository recorded public: https://github.com/alfianhid/knowbridge (visibility verified 17 October).
-- [x] English [PDF deck](deck/KnowBridge-Submission-Deck.pdf) and [editable HTML](deck/KnowBridge-Submission-Deck.html) exist.
+- [x] English [PDF deck](deck/KnowBridge-Submission-Deck.pdf) and [editable HTML](deck/KnowBridge-Submission-Deck.html) exist. Regenerated 2026-10-19 against the official AI Builder Cup template: 17 slides including the template's closing "Thank you" page, all URLs clickable in the PDF, and standard embedded fonts so no slide renders blank in any viewer.
 - [x] [Video script](VIDEO-SCRIPT.md) exists.
-- [ ] Produce and publish the under-three-minute video. Production preview exists in the local video project (2:00.4 compact cut, generated narration + 55 aligned cues) and all nine genuine captures are staged at 1920×1080 (18 October, awaiting human review); final MP4 remains blocked on capture approval, narration/caption review and final review.
+- [x] Demo video produced and published: **https://youtu.be/KihSKFj2nCw** (3:30, 1080p; the competition rule window is 3 to 4 minutes). Linked from the deck's links slide and the prototype snapshots slide.
 - [ ] Record exact dashboard cutoff/timezone, final upload links and submission confirmation.
 
 Existence of artifacts does not establish upload, organizer acceptance or completed submission. Latest complete deployed benchmarks remain 2/12 each; a later focused Harbour pass does not replace those totals.
@@ -16,7 +16,7 @@ Existence of artifacts does not establish upload, organizer acceptance or comple
 ## Mandatory artifacts
 - Functional publicly reachable (or judge-accessible) deployed Cloud Run / Firebase URL.
 - Public GitHub source with instructions, architecture and reproducible synthetic dataset.
-- Demo video **3 to 4 minutes** per the competition rule (public YouTube, Vimeo or supported Drive link); the current cut is 3:30.
+- Demo video **3 to 4 minutes** per the competition rule (public YouTube, Vimeo or supported Drive link); the published cut is 3:30 — https://youtu.be/KihSKFj2nCw.
 - English presentation deck **PDF**. Official theme: **Future of Work & Enterprise Productivity**.
 
 ## Eight-slide deck outline
@@ -29,8 +29,8 @@ Existence of artifacts does not establish upload, organizer acceptance or comple
 7. Evaluation: actual pass rate across 12 synthetic benchmark cases, measured latency and citation quality; honest failures.
 8. Differentiation and roadmap: comparison with general AI assistants (verified literal citations, typed date semantics, abstention, human-review briefs); explainable, temporally aware decision briefs; SEA expansion later.
 
-## Demo storyboard (current cut 2:00.4)
-Authoritative timings: [VIDEO-SCRIPT.md](VIDEO-SCRIPT.md) and the internal edit decision list. Twelve scenes at 30 fps:
+## Demo storyboard (historical 2:00.4 compact cut)
+The published video is the later **3:30.0 / 18-scene** cut (https://youtu.be/KihSKFj2nCw) — [VIDEO-SCRIPT.md](VIDEO-SCRIPT.md) is authoritative for it. The twelve-scene timings below record the earlier compact cut at 30 fps:
 - 00:00–00:07 Opening: the question before the promise; fictional-data disclosure.
 - 00:07–00:16 Product: hero, Ask the record, Harbour evidence card.
 - 00:16–00:21 Question: exact Project Harbour launch-readiness question.
@@ -51,4 +51,4 @@ https://aibuildercup.com/themes.html
 https://aibuildercup.com/Faqs.html
 https://aibuildercup.com/
 
-Deck test figures were updated on 18 October to 279 unit/integration tests across 38 files and 11/11 adversarial semantic regressions. Deck screenshots were captured on 18 October 2026 from the deployed Cloud Run release. The deck follows the official AI Builder Cup submission template (light theme, Hack2Skill + Google Cloud branding); see the [template audit](deck/TEMPLATE-AUDIT.md).
+Deck test figures were updated on 18 October to 279 unit/integration tests across 38 files and 11/11 adversarial semantic regressions. Deck screenshots were captured on 18 October 2026 from the deployed Cloud Run release. The deck follows the official AI Builder Cup submission template (light theme, Hack2Skill + Google Cloud branding); see the [template audit](deck/TEMPLATE-AUDIT.md). On 19 October the PDF was regenerated with the template's closing page, clickable links (GitHub · demo video · live app) and viewer-safe font embedding (the earlier PDF's text fonts could render as blank slides in some viewers).

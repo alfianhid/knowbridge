@@ -20,9 +20,9 @@ Reviewed 2026-10-18. Template source: `docs/deck/Submission Template _ AI Builde
 | 12 | Prototype Performance report/Benchmarking | 14 | |
 | 13 | Additional Details/Future Development (if any) | 15 | |
 | 14 | Provide links to your: GitHub repo / demo video (3 min) / final product | 16 | |
-| 15–16 | Blank + "Thank you" closing image | — | Not reproduced; slide 16 closes the deck |
+| 15–16 | Blank + "Thank you" closing image | 17 | Slide 17 reproduces the template's closing "Thank you" page (rendered from the template PDF itself); the blank spare slide is deliberately not reproduced |
 
-All template sections are covered 1:1; deviations are additive only (one extra Opportunities slide, three snapshot slides instead of one).
+All template sections are covered 1:1 and the template's closing page is included as the final slide; deviations are additive only (one extra Opportunities slide, three snapshot slides instead of one).
 
 ## Design comparison and changes applied
 
@@ -42,7 +42,7 @@ Brand images in `docs/deck/assets/`: `banner-cover.jpg`, `banner-strip.jpg` (ext
 1. **Screenshots** — all four were pre-18-October captures: retired blue UI, old "Singapore-first" eyebrow, no judge sign-in/onboarding. Re-captured all six from the deployed Cloud Run release (`knowbridge-00021-tft`): landing hero, Ask panel (prefilled Harbour question, grounded answer via gemini-3.8-flash), literal citations with recorded/effective dates, source catalog (HBR-DOC-02), Workspace panel, Decision brief panel (judge session). The "historical live captures" caveat was removed.
 2. **Test counts** — "273 tests / 8 semantic regressions" → **279 tests across 38 files** and **11/11 adversarial semantic regressions (incl. prompt injection)**, both re-verified 18 Oct (`npm test`, `scripts/check-semantics.ts`).
 3. **Seed stats** — re-verified: 168 docs / 24 sheets / 1,904 rows / 12 cases (PASS).
-4. **Demo video link** — clarified as "not yet produced as of 18 Oct 2026 — the public link will be added before submission" (confirmed pending in `READINESS.md`).
+4. **Demo video link** — published 2026-10-19: https://youtu.be/KihSKFj2nCw (3:30, within the 3-to-4-minute rule). Clickable on the links slide (16) and the prototype snapshots slide (13); the "not yet produced" placeholder was removed.
 5. **Stale notes in docs** — the "273 tests / historical screenshots" paragraph in the deck outline, `README.md`, `SUBMISSION.md` replaced with current facts.
 
 Benchmark figures (2/12 latest complete deployed runs, 9/10/11-of-12 earlier runs, 49,509.5 ms median latency) were reviewed and left unchanged: they remain the latest recorded measurements and are labelled as historical checkpoints.
@@ -51,10 +51,14 @@ Benchmark figures (2/12 latest complete deployed runs, 9/10/11-of-12 earlier run
 
 - Slide 4 (comparison with general AI assistants) — extra slide under "Opportunities"; content required by the project working rules and backlog.
 - Three "Snapshots of the prototype" slides instead of one — keeps every screenshot legible at print size.
+- Slide 17 is the template's closing "Thank you" page (rendered from the template PDF); the template's blank spare slide (page 15) is skipped.
+- Links (GitHub, demo video, final product) are clickable URL annotations in the PDF.
 - Small semantic colors retained (green PASS, amber PENDING/missing) in an otherwise monochrome scheme for status legibility.
 
 ## Verification
 
-- PDF: 16 pages, `@page` 1280×720, programmatic bounds check — no text outside slide area on any page.
-- Page-by-page visual review of the rendered PDF (cover, brief, comparison, features, process flow, snapshots ×3, performance, roadmap, links).
+- PDF (regenerated 2026-10-19): 17 pages, `@page` 1280×720, programmatic bounds check — no text outside slide area on any page, no blank pages.
+- **Blank-slide root cause fixed 19 Oct**: the earlier PDF drew all text with Type3 glyph fonts (Skia's fallback for the Google Fonts *variable* Roboto webfont), which many PDF viewers and converters render as empty/blank slides. The deck now self-hosts static Roboto TTFs (`assets/fonts/`), so text embeds as standard PDF fonts and renders everywhere. Gate: zero `/Type3` fonts in the output PDF.
+- Link check: clickable URL annotations on slides 13 and 16 (demo video ×2, GitHub repo, live app).
+- Page-by-page visual review of the rendered PDF (cover, brief, comparison, features, process flow, snapshots ×3, performance, roadmap, links, closing).
 - Regenerate: `node .data/print-deck.cjs` (Playwright/Chromium `page.pdf`, `printBackground`, `preferCSSPageSize`).

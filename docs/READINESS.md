@@ -16,13 +16,12 @@ All demo organizations, people and records are fictional. This document separate
 | Local automated checks | 279 tests across 38 files verified on 18 October | The earlier 273/37 run is recorded in [UI release evidence](evidence/UI-POLISH-2026-10-18.md); later gates added demo-flow and seed-regen tests. Nine browser cases last passed in the [project cleanup](PROJECT-STRUCTURE.md#cleanup-verification-2026-10-18); browser sign-in and UI checks are separate bounded passes. |
 | Human semantics and accessibility | User-reported passes | Twelve cases and manual zoom/text-spacing/screen-reader checks reported; reviewer and environment metadata remain incomplete. No certification claimed. [Acceptance](ACCEPTANCE.md). |
 | Security | Implemented controls with residual risks | Owner/tenant checks, private mutations, CSP, credential rotation, shared model request budgets and separate Workspace quotas. Request budgets are not dollar caps. [Security](SECURITY.md). |
-| Submission materials | PDF and script exist; video production preview complete with captures staged, final MP4 and submission pending | Remotion preview (local video project): 2:00.4 compact cut, generated narration and 55 aligned cues; nine genuine captures staged at 1920×1080 on 18 October, all awaiting human review. Export blocked on capture approval, narration/caption review and final review. No submission confirmation or exact dashboard cutoff/timezone is recorded. [Checklist](SUBMISSION.md). |
+| Submission materials | Deck PDF regenerated 19 October; demo video published; portal upload pending | Deck follows the official AI Builder Cup submission template (17 slides including the closing "Thank you" page; all URLs clickable; standard embedded fonts — no blank slides in any viewer). Demo video published at https://youtu.be/KihSKFj2nCw (3:30, within the 3-to-4-minute rule). No submission confirmation or exact dashboard cutoff/timezone is recorded. [Checklist](SUBMISSION.md). |
 
 ## Next work
 
 1. Rehearse intended judge sign-in and protected create/save/reopen flow before recording.
-2. Review the nine staged video captures, narration and subtitles, approve them, then render and publish the under-three-minute video; add its public URL to the submission checklist.
-3. Confirm the competition dashboard cutoff/timezone, upload the PDF, and record submission confirmation.
-4. Investigate full-run provider reliability. Preserve failures and retries as separate evidence; do not claim a clean 12/12 pass.
+2. Upload the PDF deck and the published demo video (https://youtu.be/KihSKFj2nCw) to the submission portal; confirm the dashboard cutoff/timezone and record the submission confirmation.
+3. Investigate full-run provider reliability. Preserve failures and retries as separate evidence; do not claim a clean 12/12 pass.
 
 Dated reports in [archive](archive/README.md), [Phase 5 results](PHASE5-RESULTS.md) and [evidence](evidence/README.md) retain historical outcomes. Their deployment revisions, issue states and next steps describe their recorded checkpoints, not current instructions.
