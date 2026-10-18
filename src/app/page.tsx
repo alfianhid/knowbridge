@@ -7,6 +7,7 @@ import { WorkspacePanel } from '@/components/workspace-panel';
 import { workspacePublicConfig } from '@/lib/workspace-config';
 import { headers } from 'next/headers';
 import { JudgeSessionProvider, JudgeSignIn } from '@/components/judge-session';
+import { DemoFlow, SectionNav } from '@/components/demo-flow';
 
 export const dynamic = 'force-dynamic';
 
@@ -16,6 +17,10 @@ export default async function Home() {
     ? { apiKey: process.env.FIREBASE_WEB_API_KEY, authDomain: `${process.env.GOOGLE_CLOUD_PROJECT}.firebaseapp.com`, projectId: process.env.GOOGLE_CLOUD_PROJECT! }
     : null;
   const nonce = (await headers()).get('x-nonce') ?? undefined;
+  // Deliberately exposed to visitors only when the operator enables demo autofill.
+  const demoCredential = judgeConfig && process.env.KNOWBRIDGE_JUDGE_PREFILL_EMAIL && process.env.KNOWBRIDGE_JUDGE_PREFILL_PASSWORD
+    ? { email: process.env.KNOWBRIDGE_JUDGE_PREFILL_EMAIL, password: process.env.KNOWBRIDGE_JUDGE_PREFILL_PASSWORD }
+    : undefined;
   let sources: Awaited<ReturnType<typeof listSourceSummariesForTenant>> = [];
   let unavailable = false;
   try { limitPublicReads(); sources = await listSourceSummariesForTenant(DEMO_TENANT_ID); } catch { unavailable = true; }
@@ -26,13 +31,7 @@ export default async function Home() {
       <section className="hero">
         <header className="hero-top">
           <div className="brand"><span className="logo" aria-hidden="true">K</span><span>KnowBridge</span></div>
-          <nav className="hero-links" aria-label="Page sections">
-            <a href="#ask">Ask</a>
-            <a href="#judge-signin">Judge sign-in</a>
-            <a href="#workspace">Workspace</a>
-            <a href="#brief">Decision brief</a>
-            <a href="#sources">Sources</a>
-          </nav>
+          <SectionNav />
         </header>
         <div className="hero-stage">
           <h1 className="hero-headline">
@@ -48,7 +47,7 @@ export default async function Home() {
             <a className="button" href="#ask">Ask the record</a>
           </div>
           <p className="pill d-3" data-rise>
-            Fictional records · {unavailable ? 'Source catalog unavailable' : `${sources.length} imported sources`}
+            Fictional records · {unavailable ? 'Source catalog unavailable' : `${sources.length} imported sources`} · nothing here is a real company record.
           </p>
         </div>
         <div className="hero-fragment" data-ui>
@@ -68,6 +67,8 @@ export default async function Home() {
           <p className="figure-note">days the QA forecast runs past the client target in the record (HBR-DOC-02, HBR-DOC-04).</p>
         </div>
       </section>
+
+      <DemoFlow />
 
       <section className="field field--white" id="ask" tabIndex={-1}>
         <header className="section-head" data-reveal>
@@ -129,22 +130,9 @@ export default async function Home() {
         </p>
       </section>
 
-      <section className="field field--white" id="judge-signin"><JudgeSignIn /></section>
+      <section className="field field--white" id="judge-signin"><JudgeSignIn demoCredential={demoCredential} /></section>
 
-      <section className="field field--tone" id="workspace">
-        <header className="section-head" data-reveal>
-          <div className="section-copy">
-            <h2>Import is explicit, bounded and reversible.</h2>
-            <p className="section-intro">Select files, confirm the import, and disconnect to delete every copy and revoke the token. Imported evidence never reaches public search.</p>
-          </div>
-          <div className="section-meta">
-            <p className="meta-item"><b>Drive updated is not recorded</b>Both dates stay visible; neither is rewritten.</p>
-          </div>
-        </header>
-        <WorkspacePanel {...workspace} nonce={nonce} />
-      </section>
-
-      <section className="field field--white" id="brief">
+      <section className="field field--tone" id="brief">
         <header className="section-head" data-reveal>
           <div className="section-copy">
             <h2>A recommendation, never an approval.</h2>
@@ -155,6 +143,19 @@ export default async function Home() {
           </div>
         </header>
         <DecisionBriefPanel />
+      </section>
+
+      <section className="field field--white" id="workspace">
+        <header className="section-head" data-reveal>
+          <div className="section-copy">
+            <h2>Import is explicit, bounded and reversible.</h2>
+            <p className="section-intro">Select files, confirm the import, and disconnect to delete every copy and revoke the token. Imported evidence never reaches public search.</p>
+          </div>
+          <div className="section-meta">
+            <p className="meta-item"><b>Drive updated is not recorded</b>Both dates stay visible; neither is rewritten.</p>
+          </div>
+        </header>
+        <WorkspacePanel {...workspace} nonce={nonce} />
       </section>
 
       <section className="field field--tone" id="sources">
