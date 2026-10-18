@@ -1,22 +1,28 @@
+# Upload filter for `gcloud run deploy --source .` (Cloud Build then runs the Dockerfile).
+# Keep in sync with .dockerignore. The image build needs only app sources (src/),
+# public/, tokens.css and seed/generated — the seed is traced into the standalone
+# output via next.config.mjs outputFileTracingIncludes, so never exclude it.
 .gcloudignore
 .git
 .gitignore
-.env
-.env.*
-!.env.example
-*.log
-coverage
-.DS_Store
-.next-env.d.ts.bak
-*.tsbuildinfo
-service-account*.json
-credentials*.json
-oauth*.json
-secrets/
-.secrets/
-.data/
-.taste-skill/
-playwright-report/
-test-results/
+
+# Reuse the gitignore rules (secrets, .data/, node_modules, .next, logs, coverage).
+# .gitignore's `!.env.example` negation is preserved by this include.
+#!include:.gitignore
+
+# Restated explicitly so these stay excluded even if .gitignore changes.
+# Both are rebuilt inside the container and must never be uploaded.
 node_modules/
 .next/
+
+# Repo-only content the image build never reads. Excluding these keeps the
+# source upload small (video/ alone is hundreds of MB with its captures and
+# nested node_modules) and keeps doc/video-only changes from busting the
+# Docker layer cache for `npm ci` / `npm run build`.
+.github/
+apps-script/
+assets/
+docs/
+prompts/
+tests/
+video/

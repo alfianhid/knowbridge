@@ -1,18 +1,42 @@
+# Build-context filter for the Cloud Run image (Dockerfile: npm ci + npm run build).
+# Keep in sync with .gcloudignore. Never exclude seed/generated (traced into the
+# standalone output via next.config.mjs outputFileTracingIncludes), tokens.css
+# (imported by the app) or public/ (copied into the final image).
+
+# Dependencies and build output are rebuilt inside the container.
 node_modules
-video/
+**/node_modules
 .next
+
+# VCS, CI and editor state
 .git
+.github
+.DS_Store
+*.tsbuildinfo
+.next-env.d.ts.bak
+
+# Secrets and local state (defense in depth: never bake into images)
 .env
 .env.*
 !.env.example
-*.log
-coverage
-credentials*.json
-service-account*.json
 secrets/
 .secrets/
 .data/
+*.log
+coverage
+service-account*.json
+credentials*.json
+oauth*.json
+
+# Test and tool output
 playwright-report/
 test-results/
 .taste-skill/
-*.tsbuildinfo
+
+# Repo-only content the image build never reads
+apps-script/
+assets/
+docs/
+prompts/
+tests/
+video/
