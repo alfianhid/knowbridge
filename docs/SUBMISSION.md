@@ -8,7 +8,7 @@ Status reviewed **2026-10-18**. The internal 17 October target has passed. The p
 - [x] Repository recorded public: https://github.com/alfianhid/knowbridge (visibility verified 17 October).
 - [x] English [PDF deck](deck/KnowBridge-Submission-Deck.pdf) and [editable HTML](deck/KnowBridge-Submission-Deck.html) exist.
 - [x] [Video script](VIDEO-SCRIPT.md) exists.
-- [ ] Produce and publish the under-three-minute video. Production preview exists in [`video/`](../video/README.md) (2:00.4 compact cut, generated narration + 55 aligned cues) and all nine genuine captures are staged at 1920×1080 (18 October, awaiting human review); final MP4 remains blocked on capture approval, narration/caption review and final review.
+- [ ] Produce and publish the under-three-minute video. Production preview exists in the local video project (2:00.4 compact cut, generated narration + 55 aligned cues) and all nine genuine captures are staged at 1920×1080 (18 October, awaiting human review); final MP4 remains blocked on capture approval, narration/caption review and final review.
 - [ ] Record exact dashboard cutoff/timezone, final upload links and submission confirmation.
 
 Existence of artifacts does not establish upload, organizer acceptance or completed submission. Latest complete deployed benchmarks remain 2/12 each; a later focused Harbour pass does not replace those totals.
@@ -30,7 +30,7 @@ Existence of artifacts does not establish upload, organizer acceptance or comple
 8. Differentiation and roadmap: comparison with general AI assistants (verified literal citations, typed date semantics, abstention, human-review briefs); explainable, temporally aware decision briefs; SEA expansion later.
 
 ## Demo storyboard (current cut 2:00.4)
-Authoritative timings: [VIDEO-SCRIPT.md](VIDEO-SCRIPT.md) and the compact edit decision list ([video/EDIT-NOTES.md](../video/EDIT-NOTES.md), `video/src/edl.json`). Twelve scenes at 30 fps:
+Authoritative timings: [VIDEO-SCRIPT.md](VIDEO-SCRIPT.md) and the internal edit decision list. Twelve scenes at 30 fps:
 - 00:00–00:07 Opening: the question before the promise; fictional-data disclosure.
 - 00:07–00:16 Product: hero, Ask the record, Harbour evidence card.
 - 00:16–00:21 Question: exact Project Harbour launch-readiness question.

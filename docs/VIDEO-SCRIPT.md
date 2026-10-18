@@ -1,8 +1,8 @@
 # KnowBridge demo video - Evidence, attached.
 
-Production plan reviewed **18 October 2026** against the [live application](https://knowbridge-208529907910.asia-southeast1.run.app/) through BrowserOS neo MCP, repository design tokens, and the installed official Remotion skills. **Production status: the Remotion project is implemented in [`video/`](../video/) with a 3:30 cut (18 scenes, 6300 frames) matching the competition's 3-to-4-minute video rule. The six added scenes are storyboarded from the submission deck. Human re-review of the regenerated narration and captions is pending; final MP4 export remains held at the owner's request.**
+Production plan reviewed **18 October 2026** against the [live application](https://knowbridge-208529907910.asia-southeast1.run.app/) through BrowserOS neo MCP, repository design tokens, and the installed official Remotion skills. **Production status: the Remotion project is implemented in the internal video project with a 3:30 cut (18 scenes, 6300 frames) matching the competition's 3-to-4-minute video rule. The six added scenes are storyboarded from the submission deck. Human re-review of the regenerated narration and captions is pending; final MP4 export remains held at the owner's request.**
 
-**Deliverable:** English, 16:9, **3 to 4 minutes** per the competition video rule (current cut 3:30 / 6300 frames per [edit notes](../video/EDIT-NOTES.md); earlier 2:50 and 2:00.4 assemblies sat below the rule's 3-minute floor and are superseded). Audience: AI Builder Cup judges and project leaders at Southeast Asian Google Workspace SMEs. Story: before promising a launch date, inspect what the evidence actually authorizes.
+**Deliverable:** English, 16:9, **3 to 4 minutes** per the competition video rule (current cut 3:30 / 6300 frames per the internal edit notes; earlier 2:50 and 2:00.4 assemblies sat below the rule's 3-minute floor and are superseded). Audience: AI Builder Cup judges and project leaders at Southeast Asian Google Workspace SMEs. Story: before promising a launch date, inspect what the evidence actually authorizes.
 
 ## Creative direction
 
@@ -13,7 +13,7 @@ Follow one fictional project. Avoid an exhaustive feature tour, stock office mon
 | Element | Production direction |
 |---|---|
 | Canvas | Edit at 1920x1080, 30 fps. Capture real UI at that resolution or higher; confirm actual capture dimensions. |
-| Palette | Soot #0f0f0f, white #ffffff, warm paper #f5f5f2, lime #dafa9c, gray #555555. See [design](../design.md) and [tokens](../tokens.css). |
+| Palette | Soot #0f0f0f, white #ffffff, warm paper #f5f5f2, lime #dafa9c, gray #555555. See [tokens](../tokens.css). |
 | Type | Switzer if available; otherwise one consistent clean sans-serif. Monospace for source IDs and original text. |
 | Framing | Crop to the task. Never shrink the whole long page into frame. Leave 96 px side margins and bottom 140 px clear for captions. |
 | Motion | One focal action per shot. Straight cuts, restrained 200-300 ms dissolves, screenshot pushes from 100% to 106% over 5-8 seconds. No perspective tilt on evidence text. |
@@ -29,7 +29,7 @@ Show **Fictional demo data - Human verification required** on opening and closin
 
 Use Remotion to compose genuine app recordings, screenshots, editable graphics, narration and captions into one deterministic timeline. Preserve captured source evidence; never recreate an application result as an illustrative React screen. Abstract paper-card bridges can be simple React/SVG animations, without generative video.
 
-**Status: implemented.** The Remotion project lives in [`video/`](../video/) with its own package manifest and lockfile, isolated from the deployed Next.js application. No production video dependency was added to the web app. Frame counts in this document describe the original 170-second assembly and are preserved as the production specification; the user-requested compact edit (120.4 s / 3613 frames, same narration wording and factual safeguards) supersedes them — see [EDIT-NOTES.md](../video/EDIT-NOTES.md) and `video/src/edl.json` for authoritative current timings.
+**Status: implemented.** The Remotion project lives in [`video/`](../video/) with its own package manifest and lockfile, isolated from the deployed Next.js application. No production video dependency was added to the web app. Frame counts in this document describe the original 170-second assembly and are preserved as the production specification; the user-requested compact edit (120.4 s / 3613 frames, same narration wording and factual safeguards) supersedes them — see the internal edit decision list for authoritative current timings.
 
 ### Composition contract
 
@@ -254,7 +254,7 @@ Fictional demo data - Human verification required
 
 ## Screenshot and recording manifest
 
-All nine assets below were captured at 1920×1080 (18 October capture round) and human-approved the same day; see [ASSETS.md](../video/ASSETS.md). Older [deck screenshots](deck/assets/) predate the current UI. Keep raw captures locally under ignored `.data/video/raw/`. Review selected captures before copying to the isolated video project's `public/captures/`. Never copy raw sessions or credentials into a public asset directory.
+All nine assets below were captured at 1920×1080 (18 October capture round) and human-approved the same day; the inventory is recorded in the internal asset list. Older [deck screenshots](deck/assets/) predate the current UI. Keep raw captures locally under ignored `.data/video/raw/`. Review selected captures before copying to the isolated video project's `public/captures/`. Never copy raw sessions or credentials into a public asset directory.
 
 | Planned asset | Capture instructions and required proof | Scene |
 |---|---|---|
@@ -413,7 +413,7 @@ Production note: composed with Remotion using actual application captures and ed
 
 BrowserOS neo inspection on 18 October confirmed live hero styling, 55-source disclosure, Ask sample controls/multiline question, four-row table, Judge access, Workspace disclosures/controls, brief form and Harbour QA catalog selection. This planning pass did **not** submit new model queries, sign in, import files, create a brief or acknowledge review. Result/authenticated shots remain capture tasks. Screenshots inspected during planning are visual references, not a delivered asset pack.
 
-Project references: [design](../design.md), [readiness](READINESS.md), [judge access](JUDGE-SESSION.md), [Workspace boundaries](WORKSPACE.md), [Phase 5 benchmark evidence](PHASE5-RESULTS.md), [UI release](evidence/UI-POLISH-2026-10-18.md).
+Project references: [readiness](READINESS.md), [Workspace boundaries](WORKSPACE.md), [Phase 5 benchmark evidence](PHASE5-RESULTS.md), [UI release](evidence/UI-POLISH-2026-10-18.md).
 
 Remotion guidance: installed official skills `remotion-best-practices`, `remotion-markup`, `remotion-render` and `remotion-captions`, plus markup references for multi-scene videos and editable clip timelines. Their current guidance informs the composition plan; verify API availability against the pinned version during implementation.
 

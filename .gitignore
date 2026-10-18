@@ -17,3 +17,16 @@ secrets/
 .taste-skill/
 playwright-report/
 test-results/
+
+# Internal AI-workflow, planning and operations material — never publish.
+AGENTS.md
+design.md
+prompts/
+assets/
+docs/archive/
+docs/BACKLOG.md
+docs/DECK-OUTLINE.md
+docs/JUDGE-SESSION.md
+docs/ROADMAP.md
+docs/WORKSPACE-CONFIGURATION-*.md
+video/

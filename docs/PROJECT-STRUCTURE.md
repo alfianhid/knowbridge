@@ -27,11 +27,11 @@ seed/generated/        Deterministic fictional corpus and gold fixtures
 public/                Browser-served fonts and images
 assets/credits.json    Attribution for the public images
 apps-script/           Optional native Docs/Sheets seeding
-prompts/               Staged engineering task sequence
+prompts/               Staged engineering task sequence (internal, not published)
 docs/
   README.md            Documentation navigation
   *.md                 Product contracts, current guides and shipping results
-  archive/             Historical reports and original audit tickets
+  archive/             Historical reports and original audit tickets (internal, not published)
   evidence/evaluation/ Recorded benchmark runs, retries and diagnostics
   evidence/workspace/  Recorded isolation evidence
   deck/                Submission PDF, editable HTML, screenshots and template

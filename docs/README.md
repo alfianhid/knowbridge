@@ -11,7 +11,6 @@ Start with the [project README](../README.md) for the demo and local commands. U
 | [Dataset](DATASET.md) | Fictional corpus, reproducibility and exact Harbour facts |
 | [API](API.md) | Routes, authentication and response contracts |
 | [Project structure](PROJECT-STRUCTURE.md) | Folder ownership, research and cleanup policy |
-| [Backlog](BACKLOG.md) | Current delivery status and historical sizing |
 
 ## Run and verify
 
@@ -22,7 +21,6 @@ Start with the [project README](../README.md) for the demo and local commands. U
 | [Retrieval](RETRIEVAL.md) | Corpus profiles, Vertex embeddings and vector indexing |
 | [Security](SECURITY.md) | Implemented controls and remaining risks |
 | [Workspace](WORKSPACE.md) | Optional selected-file connector and fictional-data limits |
-| [Workspace configuration](WORKSPACE-CONFIGURATION-2026-10-17.md) | Recorded operator configuration procedure |
 | [Evaluation](EVALUATION.md) | Fixture methodology and interpretation |
 | [Acceptance](ACCEPTANCE.md) | Human review and accessibility evidence limits |
 
@@ -30,10 +28,9 @@ Start with the [project README](../README.md) for the demo and local commands. U
 
 - [Phase 5 results](PHASE5-RESULTS.md): latest recorded shipping and deployed benchmark results; provider reliability remains open.
 - [Readiness](READINESS.md): consolidated current status and outstanding work.
-- [Submission checklist](SUBMISSION.md), [deck outline](DECK-OUTLINE.md), [presentation PDF](deck/KnowBridge-Submission-Deck.pdf), and [video script](VIDEO-SCRIPT.md).
+- [Submission checklist](SUBMISSION.md), [presentation PDF](deck/KnowBridge-Submission-Deck.pdf), and [video script](VIDEO-SCRIPT.md).
 - [Evidence index](evidence/README.md): unchanged machine-readable evaluation and isolation records.
-- [Archive index](archive/README.md): historical implementation, audit, deployment and issue-closure reports.
 
-The [staged prompts](../prompts/00-START-HERE.md) remain the task sequence. Run them only when current entry gates apply.
+The staged work plan is retained internally; run remaining work only when current entry gates apply.
 
 Deck test figures were updated on 18 October to 279 unit/integration tests across 38 files and 11/11 adversarial semantic regressions. Deck screenshots were captured on 18 October 2026 from the deployed Cloud Run release. The deck follows the official AI Builder Cup submission template (light theme, Hack2Skill + Google Cloud branding); see the [template audit](deck/TEMPLATE-AUDIT.md).

@@ -43,13 +43,13 @@ Brand images in `docs/deck/assets/`: `banner-cover.jpg`, `banner-strip.jpg` (ext
 2. **Test counts** — "273 tests / 8 semantic regressions" → **279 tests across 38 files** and **11/11 adversarial semantic regressions (incl. prompt injection)**, both re-verified 18 Oct (`npm test`, `scripts/check-semantics.ts`).
 3. **Seed stats** — re-verified: 168 docs / 24 sheets / 1,904 rows / 12 cases (PASS).
 4. **Demo video link** — clarified as "not yet produced as of 18 Oct 2026 — the public link will be added before submission" (confirmed pending in `READINESS.md`).
-5. **Stale notes in docs** — the "273 tests / historical screenshots" paragraph in `DECK-OUTLINE.md`, `README.md`, `SUBMISSION.md` replaced with current facts.
+5. **Stale notes in docs** — the "273 tests / historical screenshots" paragraph in the deck outline, `README.md`, `SUBMISSION.md` replaced with current facts.
 
 Benchmark figures (2/12 latest complete deployed runs, 9/10/11-of-12 earlier runs, 49,509.5 ms median latency) were reviewed and left unchanged: they remain the latest recorded measurements and are labelled as historical checkpoints.
 
 ## Intentional deviations from the template
 
-- Slide 4 (comparison with general AI assistants) — extra slide under "Opportunities"; content required by `AGENTS.md`/backlog.
+- Slide 4 (comparison with general AI assistants) — extra slide under "Opportunities"; content required by the project working rules and backlog.
 - Three "Snapshots of the prototype" slides instead of one — keeps every screenshot legible at print size.
 - Small semantic colors retained (green PASS, amber PENDING/missing) in an otherwise monochrome scheme for status legibility.
 

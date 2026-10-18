@@ -14,7 +14,7 @@ Connecting knowledge to confident decisions. KnowBridge helps project leaders at
 
 ## For judges: 60 seconds
 
-For saved briefs, use **Judge sign-in** with credentials supplied privately by the submitter. Accounts remain usable through 6 November 2026 (WIB); sessions renew automatically. Public Ask needs no login. Workspace import requires a separate approved fictional demo Google account. See [judge access](docs/JUDGE-SESSION.md).
+For saved briefs, use **Judge sign-in** with credentials supplied privately by the submitter. Accounts remain usable through 6 November 2026 (WIB); sessions renew automatically. Public Ask needs no login. Workspace import requires a separate approved fictional demo Google account. Judge access details are supplied privately by the submitter.
 
 - **Problem:** client expectations, QA forecasts and approval records live in different Docs and Sheets. A newer date alone cannot tell a project leader what they may commit to.
 - **What we built:** a source catalog, grounded questions with inspectable citations, temporal/conflict analysis, and protected saved decision briefs with human review acknowledgement.
@@ -98,7 +98,7 @@ Cloud Run location does not imply Singapore-only model processing. Recorded gene
 
 ## Repository guide
 
-Application code lives in `src/`, operator commands in `scripts/`, tests in `tests/`, and the reproducible fictional corpus in `seed/generated/`. Start with the [documentation index](docs/README.md); historical reports live in [the archive](docs/archive/README.md) and raw benchmark/isolation records in [evidence](docs/evidence/README.md). See [project structure](docs/PROJECT-STRUCTURE.md) for folder ownership.
+Application code lives in `src/`, operator commands in `scripts/`, tests in `tests/`, and the reproducible fictional corpus in `seed/generated/`. Start with the [documentation index](docs/README.md); raw benchmark and isolation records live in [evidence](docs/evidence/README.md). See [project structure](docs/PROJECT-STRUCTURE.md) for folder ownership.
 
 ## AI Builder Cup theme and submission
 
@@ -211,14 +211,14 @@ The public `/api/ask` route enforces a durable daily model-call budget with `Ret
 
 ## Workflow and tracking
 
-Use [current readiness](docs/READINESS.md) as the status source; Phase 1/2/3 result files are historical snapshots, and the staged prompts should only run when their entry gates match current readiness. The [audit tracker](https://github.com/alfianhid/knowbridge/issues/21) records findings and verification; local plans/results live under `docs/archive/`. Planning targeted team formation 2026-10-14, internal submission 2026-10-17 and final submission 2026-10-18; the registration checkpoint was confirmed, and the exact dashboard cutoff remains a dashboard fact.
+Use [current readiness](docs/READINESS.md) as the status source; Phase 1/2/3 result files are historical snapshots. The [audit tracker](https://github.com/alfianhid/knowbridge/issues/21) records findings and verification. Planning targeted team formation 2026-10-14, internal submission 2026-10-17 and final submission 2026-10-18; the registration checkpoint was confirmed, and the exact dashboard cutoff remains a dashboard fact.
 
 ## Optional Workspace selected-file demo
 
-Workspace is implemented and defaults off in source. The panel binds Google consent to an authorized demo member and imports at most three registered fictional native Docs/first-tab Sheets; search, literal source inspection, cancellation and disconnect cleanup are owner-scoped, and public Ask and saved briefs retain the separate seed corpus. Real-data import remains prohibited. All seven Workspace issues were recorded closed on `knowbridge-00011-xx4` ([follow-up](docs/archive/WORKSPACE-FOLLOWUP-2026-10-17.md)); see [Workspace setup](docs/WORKSPACE.md) and [current readiness](docs/READINESS.md).
+Workspace is implemented and defaults off in source. The panel binds Google consent to an authorized demo member and imports at most three registered fictional native Docs/first-tab Sheets; search, literal source inspection, cancellation and disconnect cleanup are owner-scoped, and public Ask and saved briefs retain the separate seed corpus. Real-data import remains prohibited. All seven Workspace issues were recorded closed on `knowbridge-00011-xx4` (internal follow-up report); see [Workspace setup](docs/WORKSPACE.md) and [current readiness](docs/READINESS.md).
 
 ## Implementation and verification history
 
-Phase 1 delivers a bounded synthetic catalog with durable ingestion and provenance (source IDs, recorded/effective dates, literal text, chunks, SHA-256 checksums) over local files (`.data/sources`) or Firestore, with the same store for ingestion and reads ([retrieval setup](docs/RETRIEVAL.md)). Phase 2 adds `/api/ask` with Gemini 768-dimensional embeddings, scoped vector retrieval and structured answers with verified literal citations; local mode is deterministic lexical lookup with no AI synthesis. Phase 3 adds protected brief creation, saved list/detail, review acknowledgement and source inspection ([deployed brief evidence](docs/archive/CLOUD-BRIEF-VERIFICATION-2026-10-16.md)).
+Phase 1 delivers a bounded synthetic catalog with durable ingestion and provenance (source IDs, recorded/effective dates, literal text, chunks, SHA-256 checksums) over local files (`.data/sources`) or Firestore, with the same store for ingestion and reads ([retrieval setup](docs/RETRIEVAL.md)). Phase 2 adds `/api/ask` with Gemini 768-dimensional embeddings, scoped vector retrieval and structured answers with verified literal citations; local mode is deterministic lexical lookup with no AI synthesis. Phase 3 adds protected brief creation, saved list/detail, review acknowledgement and source inspection (internal deployed-brief evidence).
 
 Phase 5 shipping work is recorded in [Phase 5 results](docs/PHASE5-RESULTS.md): 12-case benchmark artifacts (full runs and separate focused retries), a Cloud Run permission review, the deck PDF and the demo video script, plus unresolved issues. Synthesized answers pass a structured semantic gate after citation checks; eight live adversarial regressions are recorded. Latest complete deployed benchmarks each passed 2/12, with earlier runs and focused retries as separate evidence; human semantic review of all 12 cases and manual accessibility checks were user-reported on 16 October without complete reviewer/environment details. None of this establishes full benchmark reliability, broad model accuracy or production readiness. See [acceptance](docs/ACCEPTANCE.md) and [readiness](docs/READINESS.md).

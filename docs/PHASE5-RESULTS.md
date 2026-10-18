@@ -68,7 +68,7 @@ Updated with exact instructions: [benchmark evaluation commands](../README.md#be
 
 ## 8. Submission artifacts
 
-- 8-slide deck outline with actual screens/results: [DECK-OUTLINE.md](DECK-OUTLINE.md); rendered 8-page PDF: [deck/KnowBridge-Submission-Deck.pdf](deck/KnowBridge-Submission-Deck.pdf) (source [deck/KnowBridge-Submission-Deck.html](deck/KnowBridge-Submission-Deck.html)).
+- 8-slide deck outline with actual screens/results (internal deck outline); rendered 8-page PDF: [deck/KnowBridge-Submission-Deck.pdf](deck/KnowBridge-Submission-Deck.pdf) (source [deck/KnowBridge-Submission-Deck.html](deck/KnowBridge-Submission-Deck.html)).
 - Under-3-minute video script (2:50) with actual screens and results: [VIDEO-SCRIPT.md](VIDEO-SCRIPT.md).
 
 ## 9. Artifact URL checklist
