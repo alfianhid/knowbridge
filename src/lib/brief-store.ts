@@ -2,6 +2,7 @@ import { FieldValue } from 'firebase-admin/firestore';
 import type { Firestore } from 'firebase-admin/firestore';
 import { z } from 'zod';
 import { ApiError } from './access';
+import { BriefQualityGateSchema } from './brief-quality';
 import { DecisionBriefSchema } from './contracts';
 import { getDatabase } from './firebase';
 import { DEMO_TENANT_ID } from './sources';
@@ -28,6 +29,8 @@ export const StoredBriefSchema = z.object({
     contentHash: z.string().regex(/^sha256:[a-f0-9]{64}$/),
   })),
   brief: DecisionBriefSchema,
+  // Deterministic R6/R7 quality gate result recorded before human review (docs/ROADMAP.md).
+  qualityGate: BriefQualityGateSchema.optional(),
   reviewedByHuman: z.boolean(),
   reviewerUid: z.string().min(1).optional(),
   reviewedAt: z.iso.datetime().optional(),

@@ -2,6 +2,7 @@ import { createHash, randomUUID } from 'node:crypto';
 import { ApiError, authorizeChunks, type AccessScope, type BriefIdentity } from './access';
 import { assertBriefOwner, briefIdempotencyId } from './brief-access';
 import { getBriefStore, type BriefStore, type StoredBrief } from './brief-store';
+import { evaluateBriefQuality, runBriefGate, type BriefGateRuleId } from './brief-quality';
 import { DecisionCoverageError, requireDecisionCoverage } from './decision-semantics';
 import { DecisionBriefSchema, type DecisionBrief } from './contracts';
 import { finalizeVerifiedDecisionBrief } from './verified-brief';
@@ -68,6 +69,8 @@ export async function createDecisionBrief(identity: BriefIdentity, input: Create
   }
 
   const now = (dependencies.now ?? (() => new Date()))();
+  // R6 rubric + R7 rules are evaluated on the finalized brief before anything is saved or reviewed.
+  const qualityGate = evaluateBriefQuality(brief, sources, scope.sourceIds);
   const record: StoredBrief = {
     id: (dependencies.newId ?? randomUUID)(),
     tenantId: DEMO_TENANT_ID,
@@ -78,6 +81,7 @@ export async function createDecisionBrief(identity: BriefIdentity, input: Create
     model: config.model,
     sourceAttribution: attribution(brief, sources),
     brief,
+    qualityGate,
     reviewedByHuman: false,
   };
   const { brief: saved } = await briefs.createOnce(record, idempotencyId, hash);
@@ -96,7 +100,9 @@ function abstention(question: string): DecisionBrief {
 async function generateVerified(question: string, chunks: SourceChunk[], sources: Map<string, SourceRecord>,
   store: IngestionStore, scope: AccessScope, dependencies: BriefDependencies): Promise<DecisionBrief> {
   let diagnostics: string | undefined;
+  let blockedRules: BriefGateRuleId[] = [];
   for (let attempt = 0; attempt < 2; attempt += 1) {
+    blockedRules = [];
     // Re-read originals before generation and again before saving; changed sources fail closed.
     const current = await refreshSources(store, scope, chunks);
     const generated = await (dependencies.generate ?? generateDecisionBrief)(question, chunks, diagnostics);
@@ -108,6 +114,13 @@ async function generateVerified(question: string, chunks: SourceChunk[], sources
       }
       const finalized = await finalizeVerifiedDecisionBrief(modelBrief, sourceMap, dependencies.assess ?? assessSemantics, chunks);
       requireDecisionCoverage(question, finalized.supportingClaims.map(claim => ({ text: claim.claim, evidence: claim.evidence })), [...sources.values()], chunks);
+      // R7 deterministic gate: flags and blocks only; it never auto-fixes evidence or auto-approves.
+      const gate = runBriefGate(finalized, sourceMap, scope.sourceIds);
+      if (!gate.passed) {
+        blockedRules = gate.violations;
+        diagnostics = `Brief blocked by the deterministic evidence gate. ${gate.rules.filter(rule => !rule.passed).map(rule => rule.message).join(' ')} Correct the wording and citations to match recorded evidence only; never state approvals, completion, or autonomous decisions that the evidence does not record.`;
+        continue;
+      }
       await refreshSources(store, scope, chunks);
       return finalized;
     } catch (error) {
@@ -115,6 +128,10 @@ async function generateVerified(question: string, chunks: SourceChunk[], sources
       if (error instanceof DecisionCoverageError) { diagnostics = error.message; continue; }
       diagnostics = 'Brief failed schema, literal citation or semantic evidence validation. Use only supplied source IDs and exact excerpts. Preserve client expectation, QA forecast, pending approval and authority. Do not state approvals, completion or revised commitments that the evidence does not record.';
     }
+  }
+  if (blockedRules.length) {
+    // A blocked brief reaches no reviewer; the failing rules are listed for the human requester.
+    throw new ApiError(502, `Generated brief blocked by evidence gate rules: ${blockedRules.join(', ')}. No brief was saved; a human must resolve the failing rules before retrying.`);
   }
   throw new ApiError(502, 'Generated brief failed evidence validation. Please retry.');
 }
@@ -150,6 +167,10 @@ export async function getDecisionBrief(identity: BriefIdentity, briefId: string,
 
 export async function reviewDecisionBrief(identity: BriefIdentity, briefId: string, briefs: BriefStore = getBriefStore()): Promise<StoredBrief> {
   const brief = await getDecisionBrief(identity, briefId, briefs);
+  // Defense in depth: a brief whose evidence gate rules are failing cannot be acknowledged.
+  if (brief.qualityGate && !brief.qualityGate.passed) {
+    throw new ApiError(409, 'Brief cannot be acknowledged while evidence gate rules are failing. A human must resolve the listed findings first.');
+  }
   if (brief.reviewedByHuman) return brief;
   const reviewedAt = new Date().toISOString();
   const updated = await briefs.markReviewed(identity.tenantId, briefId, { reviewerUid: identity.uid, reviewedAt });

@@ -13,6 +13,8 @@ export function briefResponse(brief: StoredBrief) {
     reviewedAt: brief.reviewedAt ?? null,
     brief: brief.brief,
     sourceAttribution: brief.sourceAttribution,
+    // Quality gate findings travel with the brief; a score is never approval.
+    qualityGate: brief.qualityGate ?? null,
     synthetic: true as const,
   };
 }
