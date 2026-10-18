@@ -1,6 +1,6 @@
 # KnowBridge
 
-> Status reviewed 2026-10-18. Latest recorded release: `knowbridge-00021-tft`; 279 local tests. Full deployed benchmark reliability remains open. See [current readiness](docs/READINESS.md).
+> Status reviewed 2026-10-18. Latest recorded release: `knowbridge-00021-tft`; 294 local tests across 39 files. Full deployed benchmark reliability remains open. See [current readiness](docs/READINESS.md).
 
 [![CI](https://github.com/alfianhid/knowbridge/actions/workflows/ci.yml/badge.svg)](https://github.com/alfianhid/knowbridge/actions/workflows/ci.yml)
 
@@ -23,15 +23,13 @@ For saved briefs, use **Judge sign-in** with credentials supplied privately by t
 - **Reproducible evidence:** the seed contains 168 documents, 24 sheets, 1,904 rows and 12 gold cases. The bounded evaluation profile indexes 55 sources, not the entire corpus.
 - **Honest results:** both latest recorded complete deployed benchmark runs passed **2/12**, with ten HTTP 503 service failures each. Earlier complete runs and focused retries remain separate evidence. Full-suite reliability remains open; see [Phase 5 results](docs/PHASE5-RESULTS.md).
 
-## The problem, and who it is for
-
-KnowBridge targets owners, project managers and operations leads at 10-100-person services SMEs using Google Workspace across Southeast Asia. This audience is a product hypothesis; real-world adoption and time savings have not been measured.
+## The problem
 
 A project leader asks: **"Can Project Harbour launch on 1 Nov?"** The answer must distinguish a customer target from a newer QA forecast, inspect security approval, and establish whether anyone authorized a revised commitment. A summary that merges those facts can create a false promise.
 
-KnowBridge brings the evidence together with source IDs, literal excerpts and historical dates. Missing evidence is reported as **insufficient evidence**. Document effective dates remain distinct from Drive update timestamps.
+KnowBridge brings the evidence together with source IDs, literal excerpts and historical dates. Missing evidence is reported as **insufficient evidence**; document effective dates stay distinct from Drive update timestamps. The target audience — owners, project managers and operations leads at 10-100-person services SMEs using Google Workspace across Southeast Asia — is a product hypothesis; adoption and time savings have not been measured.
 
-## What it does: three steps
+## What it does
 
 | Step | What happens | Access |
 |---|---|---|
@@ -39,7 +37,7 @@ KnowBridge brings the evidence together with source IDs, literal excerpts and hi
 | 2. Ask and reconcile | Ask a project question; inspect citations, forecast changes, pending approvals and unknowns. | Public synthetic demo; real Gemini in cloud mode |
 | 3. Prepare and review | Generate a decision brief, save it, reopen it and deliberately acknowledge human review. | Authorized demo member; Firebase ID token required |
 
-Start at the [live app](https://knowbridge-208529907910.asia-southeast1.run.app) and ask the Harbour question. The facts to verify are:
+Ask the Harbour question on the [live app](https://knowbridge-208529907910.asia-southeast1.run.app) — the facts to verify are:
 
 | Evidence | Meaning | Source |
 |---|---|---|
@@ -100,15 +98,11 @@ Cloud Run location does not imply Singapore-only model processing. Recorded gene
 
 ## Repository guide
 
-Application code lives in `src/`, operator commands in `scripts/`, tests in `tests/`, and the reproducible fictional corpus in `seed/generated/`.
-
-Use the [documentation index](docs/README.md) for current guides. Historical reports live in [the archive](docs/archive/README.md); raw benchmark and isolation records live in [evidence](docs/evidence/README.md). See [project structure and cleanup policy](docs/PROJECT-STRUCTURE.md) for folder ownership and the research behind this layout.
+Application code lives in `src/`, operator commands in `scripts/`, tests in `tests/`, and the reproducible fictional corpus in `seed/generated/`. Start with the [documentation index](docs/README.md); historical reports live in [the archive](docs/archive/README.md) and raw benchmark/isolation records in [evidence](docs/evidence/README.md). See [project structure](docs/PROJECT-STRUCTURE.md) for folder ownership.
 
 ## AI Builder Cup theme and submission
 
-The official [Future of Work & Enterprise Productivity theme](https://aibuildercup.com/themes.html) focuses on knowledge access, collaboration, decisions and everyday work. KnowBridge addresses this through source-backed project investigation and explainable decision briefs.
-
-The [official requirements](https://aibuildercup.com/themes.html) call for Google AI or the listed agentic platforms, deployment on Cloud Run or Firebase, English submission materials, a PDF proposal deck and a three-minute public demo video. KnowBridge uses Gemini on Vertex AI and Cloud Run. The PDF and video script are linked above; the user confirmed on 18 October that the video has not yet been produced and will update it later. Submission confirmation and exact dashboard cutoff/timezone remain unrecorded.
+KnowBridge addresses the official [Future of Work & Enterprise Productivity theme](https://aibuildercup.com/themes.html) — knowledge access, collaboration and everyday decisions — with source-backed investigation and explainable decision briefs. The [official requirements](https://aibuildercup.com/themes.html) call for Google AI, Cloud Run or Firebase deployment, English materials, a PDF deck and a three-minute demo video; KnowBridge uses Gemini on Vertex AI and Cloud Run. On 18 October the user confirmed the demo video has not yet been produced and will be updated later. Submission confirmation and exact dashboard cutoff/timezone remain unrecorded; confirm the final category and artifact links in the competition dashboard.
 
 | Official judging criterion | Weight | KnowBridge evidence |
 |---|---|---|
@@ -117,53 +111,60 @@ The [official requirements](https://aibuildercup.com/themes.html) call for Googl
 | Innovation & Creativity | 25% | Temporal distinctions, approval scope, literal citations and explicit unknowns |
 | User Experience & Solution Design | 10% | Source inspection, saved/reviewed briefs and [accessibility acceptance limits](docs/ACCEPTANCE.md) |
 
-Confirm the final category, artifact links and exact cutoff in the competition dashboard. This README does not assert completed submission or organizer approval.
+This README does not assert completed submission or organizer approval.
 
 ## Run locally
 
-Requires Node.js 22.18+ and Python 3.11+. On PowerShell use `npm.cmd` if script policy blocks `npm.ps1`.
+Requires Node.js 22.18+ and Python 3.11+.
+
+**macOS / Linux:**
+
+```bash
+npm ci
+python3 scripts/verify_seed.py
+export KNOWBRIDGE_STORE=file
+export KNOWBRIDGE_RETRIEVAL=local
+npm run ingest:local
+npm run dev
+```
+
+**Windows (PowerShell):**
 
 ```powershell
 npm.cmd ci
-python scripts/verify_seed.py
+python scripts\verify_seed.py
 $env:KNOWBRIDGE_STORE="file"
 $env:KNOWBRIDGE_RETRIEVAL="local"
 npm.cmd run ingest:local
 npm.cmd run dev
 ```
 
-Open http://localhost:3000. Empty storage shows an empty catalog until ingestion runs. The trusted local ingestion CLI does not open an unauthenticated HTTP mutation path.
+Open http://localhost:3000. Empty storage shows an empty catalog until ingestion runs. Keep both mode variables set in the same shell for ingestion and the app; shell settings override `.env` settings, including an existing cloud profile. The trusted local ingestion CLI does not open an unauthenticated HTTP mutation path, and `ingest:local` is a script name, not a forced storage backend.
 
-Keep both mode variables set in the same shell for ingestion and the app. Shell settings override Next.js `.env` settings, including an existing cloud profile. `ingest:local` is a script name, not a forced storage backend. For Firestore/Vertex CLI commands, load the cloud profile explicitly as shown in [retrieval setup](docs/RETRIEVAL.md).
+Ask “Can Project Harbour launch on 1 Nov?” to inspect client expectations, newer QA forecasts, pending security and decision records. Local responses quote evidence; they do not generate recommendations, and absent evidence returns `insufficient_evidence`. Health reports configuration readiness, never verified connectivity.
 
-Ask “Can Project Harbour launch on 1 Nov?” to inspect client expectations, newer QA forecasts, pending security and decision records. Local responses quote evidence; they do not generate recommendations. Absent evidence returns `insufficient_evidence`.
-
-For cloud settings, vector schema, the exact one-time index command and indexing instructions, see [Phase 2 setup](docs/RETRIEVAL.md). `npm.cmd run index:vectors` is a trusted operator step after cloud source ingestion. Health reports configuration readiness, never verified connectivity.
-
-If the Python launcher cannot locate the user installation:
-```powershell
-& "$env:LOCALAPPDATA\Programs\Python\Python311\python.exe" scripts/verify_seed.py
-```
+Notes:
+- On Windows, use `npm.cmd` if script policy blocks `npm.ps1`; if `python` is not on PATH, try `& "$env:LOCALAPPDATA\Programs\Python\Python311\python.exe" scripts/verify_seed.py`. On macOS/Linux use `python3` (or `python` if that is your Python 3).
+- For cloud settings, the vector schema and the exact one-time index command, see [retrieval setup](docs/RETRIEVAL.md). Load the cloud profile explicitly for Firestore/Vertex CLI commands; `npm run index:vectors` is a trusted operator step after cloud source ingestion.
 
 ## Verify
 
-```powershell
-npm.cmd run lint
-npm.cmd run typecheck
-npm.cmd test
-npm.cmd run build
-npx.cmd playwright install chromium
-npm.cmd run test:e2e
-npm.cmd audit
+```bash
+npm run lint && npm run typecheck && npm test && npm run build
+npx playwright install chromium
+npm run test:e2e
+npm audit
 ```
 
-Browser tests require a production build and the local 18-source import. Playwright starts its own local server. Tests cover mobile reflow, keyboard access, forced colors, source selection, retry and axe checks. These checks do not certify complete accessibility. You reported successful manual 400% zoom, text-spacing, screen-reader and 12-case semantic reviews; details are limited as described in [acceptance evidence](docs/ACCEPTANCE.md). Automated full-run reliability remains open. See [current readiness](docs/READINESS.md).
+On Windows PowerShell, use `npm.cmd run lint; npm.cmd run typecheck; npm.cmd test; npm.cmd run build`, `npx.cmd playwright install chromium`, `npm.cmd run test:e2e`, `npm.cmd audit`.
+
+The suite covers 294 unit/integration tests across 39 files. Browser tests require a production build and the local 18-source import; Playwright starts its own local server. Tests cover mobile reflow, keyboard access, forced colors, source selection, retry and axe checks. These checks do not certify complete accessibility. You reported successful manual 400% zoom, text-spacing, screen-reader and 12-case semantic reviews; details are limited as described in [acceptance evidence](docs/ACCEPTANCE.md). Automated full-run reliability remains open. See [current readiness](docs/READINESS.md).
 
 ## Benchmark evaluation
 
-The 12 gold cases live in `seed/generated/evaluation.json`. Three run modes exist and their totals are never aggregated:
+The 12 gold cases live in `seed/generated/evaluation.json`. These `node` commands work the same on Windows, macOS and Linux. Three run modes exist; their totals are never aggregated:
 
-```powershell
+```
 # 1. Local CLI suite against Firestore/Vertex (15s case pacing for shared embedding quota)
 node --env-file=.env scripts/run-typescript.cjs scripts/evaluate.ts
 # Focused retry of one case; writes a separate artifact and never replaces full-run totals
@@ -174,13 +175,11 @@ node scripts/run-typescript.cjs scripts/evaluate-deployed.ts --revision=<serving
 node --env-file=.env scripts/run-typescript.cjs scripts/check-semantics.ts
 ```
 
-The deployed evaluator writes timestamped full-run or case-specific reports under ignored `.data/evaluations/`. Use `--out=<path>` to select another destination; preserve reviewed records under [evaluation evidence](docs/evidence/README.md).
-
-An automated pass requires the expected status (`supported`, or `insufficient_evidence` for empty-evidence cases), every required source ID cited, every excerpt literally present in its verified source, and fact coverage (exact target/QA dates and security status appear in answer text). Reports record per-case outcomes, failures, latency and request counts; the harness does not measure dollar billing. See [evaluation methodology](docs/EVALUATION.md) and recorded results in [readiness](docs/READINESS.md).
+The deployed evaluator writes timestamped full-run or case-specific reports under ignored `.data/evaluations/` (use `--out=<path>` for another destination); preserve reviewed records under [evaluation evidence](docs/evidence/README.md). A pass requires the expected status (`supported`, or `insufficient_evidence` for empty-evidence cases), every required source ID cited, every excerpt literally present in its verified source, and fact coverage (exact target/QA dates and security status appear in answer text). Reports record per-case outcomes, failures, latency and request counts; the harness does not measure billing. See [evaluation methodology](docs/EVALUATION.md) and recorded results in [readiness](docs/READINESS.md).
 
 ## Deploy
 
-```powershell
+```
 gcloud auth application-default login
 gcloud config set project YOUR_GCP_PROJECT_ID
 gcloud services enable firestore.googleapis.com identitytoolkit.googleapis.com run.googleapis.com
@@ -200,40 +199,26 @@ Harbour customer target: 2026-11-01 (`HBR-DOC-02`). QA forecast: 2026-11-11, rec
 
 ## Access and cloud setup
 
-Decision briefs require Vertex AI, Firestore and a valid Firebase ID token with `knowbridgeMember:true` (or ingestion admin) plus `knowbridgeTenant:"demo-north-quay"`. Judges use the browser email/password sign-in supplied privately by the operator. The SDK renews short-lived tokens automatically and preserves sign-in across reloads within the browser session. Judge account access ends after 6 November 2026 (WIB), enforced on the server. Manual token input remains an operator fallback when browser sign-in is disabled. Create saves automatically; refresh/reopen saved briefs, inspect source text, then deliberately record human review. Review is acknowledgement, never launch approval. Local mode retains public synthetic search but cannot generate briefs. See [brief setup](docs/DEPLOYMENT.md#decision-brief-setup).
-
-Public reads expose only `demo-north-quay` synthetic records. Caller headers cannot select private tenants. `POST /api/ingest` requires a verified, revocation-checked Firebase ID token with `knowbridgeAdmin:true` and `knowbridgeTenant:"demo-north-quay"`. Static ingestion tokens are no longer supported. Body size is capped at 16 KiB; each admin can ingest five times per minute. The shared store enforces the ingestion quota.
-
-Set cloud variables from `.env.example`; use ADC locally and the assigned managed service identity on Cloud Run. Never commit keys or bake them into images. Both `secrets/` and `.secrets/` are excluded from Git and Docker. See `docs/DEPLOYMENT.md` for required API/database/IAM setup.
-
-The container uses `npm ci`, standalone Next output and a non-root runtime. A nonce-based CSP protects production scripts. Dependency overrides are pinned and must be rechecked on upgrades. Mutation endpoints are protected: brief creation requires a revocation-checked Firebase ID token and `Idempotency-Key`, ingestion requires the ingestion-admin claim, and Workspace routes require the connected owner session. Public invocation on Cloud Run is intentional; authorization is enforced in the application and public reads are pinned to the synthetic demo tenant.
+- **Saved briefs** require Vertex AI, Firestore and a verified, revocation-checked Firebase ID token with `knowbridgeMember:true` (or ingestion admin) plus `knowbridgeTenant:"demo-north-quay"`. Judges use the browser email/password sign-in supplied privately by the operator; the SDK renews tokens automatically and judge access ends after 6 November 2026 (WIB), enforced on the server. Create saves automatically; then reopen the brief, inspect source text and deliberately record human review — review is acknowledgement, never launch approval. Local mode retains public synthetic search but cannot generate briefs. See [brief setup](docs/DEPLOYMENT.md#decision-brief-setup).
+- **Public reads** expose only `demo-north-quay` synthetic records; caller headers cannot select private tenants. Public invocation on Cloud Run is intentional — authorization is enforced in the application.
+- **Ingestion** (`POST /api/ingest`) requires a verified, revocation-checked Firebase ID token with `knowbridgeAdmin:true` and `knowbridgeTenant:"demo-north-quay"`; static ingestion tokens are unsupported. Body size is capped at 16 KiB; each admin can ingest five times per minute, enforced by the shared store.
+- **Mutations are protected:** brief creation also requires `Idempotency-Key`, and Workspace routes require the connected owner session.
+- **Secrets:** set cloud variables from `.env.example`; use ADC locally and the assigned managed service identity on Cloud Run. Never commit keys or bake them into images; `secrets/` and `.secrets/` are excluded from Git and Docker. The container uses `npm ci`, standalone Next output and a non-root runtime. See [deployment](docs/DEPLOYMENT.md) for required API/database/IAM setup.
 
 ## Security
 
-Security posture, the OWASP GenAI/API control mapping, least-privilege IAM, the durable model-call budget, and residual risks are documented in [security](docs/SECURITY.md). Key points: the public `/api/ask` route enforces a durable daily model-call budget with `Retry-After`, system prompts forbid prompt disclosure, the container base image is digest-pinned, and the runtime service account is least-privileged. Hardening reduces risk; it does not make this demo production-compliant.
+The public `/api/ask` route enforces a durable daily model-call budget with `Retry-After`; system prompts forbid prompt disclosure; the container base image is digest-pinned; the runtime service account is least-privileged. Full security posture, the OWASP GenAI/API control mapping and residual risks: [security](docs/SECURITY.md). Hardening reduces risk; it does not make this demo production-compliant.
 
 ## Workflow and tracking
 
-[Audit tracker](https://github.com/alfianhid/knowbridge/issues/21) records findings and verification. Local plan/results: `docs/archive/AUDIT-REMEDIATION-PLAN.md`, `docs/archive/AUDIT-TRACKER.md`.
-
-Use [current readiness](docs/READINESS.md) as the status source; Phase 1/2/3 result files are historical snapshots. Follow the staged prompts only when their entry gates match current readiness. Phase 4 Workspace integration remains optional and should stay on synthetic files until its authorization, lifecycle and residency issues are resolved.
-
-The original planning documents specify team formation on 2026-10-14, internal submission on 2026-10-17 and final submission on 2026-10-18. The user confirmed the registration checkpoint; exact competition-dashboard cutoff remains a dashboard fact.
+Use [current readiness](docs/READINESS.md) as the status source; Phase 1/2/3 result files are historical snapshots, and the staged prompts should only run when their entry gates match current readiness. The [audit tracker](https://github.com/alfianhid/knowbridge/issues/21) records findings and verification; local plans/results live under `docs/archive/`. Planning targeted team formation 2026-10-14, internal submission 2026-10-17 and final submission 2026-10-18; the registration checkpoint was confirmed, and the exact dashboard cutoff remains a dashboard fact.
 
 ## Optional Workspace selected-file demo
 
-Workspace is implemented and defaults off in source. The separate panel binds Google consent to an authorized demo member and imports at most three registered fictional native Docs/first-tab Sheets. Search, literal source inspection, cancellation and disconnect cleanup are owner-scoped. Public Ask and saved briefs retain the separate seed corpus.
-
-Expanded live acceptance is recorded on `knowbridge-00011-xx4` in [the follow-up](docs/archive/WORKSPACE-FOLLOWUP-2026-10-17.md). All seven Workspace issues were recorded closed, with #34/#35 using revised fictional-demo criteria accepting provider limits. Real-data import remains prohibited. Latest recorded UI release is `knowbridge-00021-tft`; see [Workspace setup](docs/WORKSPACE.md) and [current readiness](docs/READINESS.md).
+Workspace is implemented and defaults off in source. The panel binds Google consent to an authorized demo member and imports at most three registered fictional native Docs/first-tab Sheets; search, literal source inspection, cancellation and disconnect cleanup are owner-scoped, and public Ask and saved briefs retain the separate seed corpus. Real-data import remains prohibited. All seven Workspace issues were recorded closed on `knowbridge-00011-xx4` ([follow-up](docs/archive/WORKSPACE-FOLLOWUP-2026-10-17.md)); see [Workspace setup](docs/WORKSPACE.md) and [current readiness](docs/READINESS.md).
 
 ## Implementation and verification history
 
-Phase 5 shipping work is recorded in [Phase 5 results](docs/PHASE5-RESULTS.md): recorded 12-case benchmark artifacts (full runs and separate focused retries), a Cloud Run permission review with live mutation probes, the public-repo confirmation, exact evaluation/deploy instructions, the deck PDF and the demo video script, plus the artifact-URL checklist and unresolved issues. Full-suite benchmark reliability under intermittent provider-side failures remains open and is reported honestly there.
+Phase 1 delivers a bounded synthetic catalog with durable ingestion and provenance (source IDs, recorded/effective dates, literal text, chunks, SHA-256 checksums) over local files (`.data/sources`) or Firestore, with the same store for ingestion and reads ([retrieval setup](docs/RETRIEVAL.md)). Phase 2 adds `/api/ask` with Gemini 768-dimensional embeddings, scoped vector retrieval and structured answers with verified literal citations; local mode is deterministic lexical lookup with no AI synthesis. Phase 3 adds protected brief creation, saved list/detail, review acknowledgement and source inspection ([deployed brief evidence](docs/archive/CLOUD-BRIEF-VERIFICATION-2026-10-16.md)).
 
-Phase 1 implements a bounded synthetic source catalog, durable ingestion and provenance. Default import contains 16 Harbour documents and 2 sheets. The explicit evaluation profile contains 55 sources across eight projects and both launch-readiness policy revisions; see [retrieval setup](docs/RETRIEVAL.md). Source IDs, historical recorded/effective dates, literal text, chunks and SHA-256 checksums are retained.
-
-Local development uses durable files under ignored `.data/sources`. Cloud Run requires Firestore. Ingestion and catalog/detail reads use the same store. Imports survive restart, concurrent retries skip unchanged records, and metadata changes refresh stored records. Failed imports report actual failure counts.
-
-Phase 2 adds `/api/ask`, Gemini 768-dimensional embeddings, scoped Firestore vector retrieval and structured answers with verified literal citations. Local mode is deterministic lexical evidence lookup with no AI synthesis. Phase 3 adds protected brief creation, saved list/detail, review acknowledgement and source inspection. The deployed app and one authenticated Harbour brief create/retry/list/reopen/source verification passed; see [current readiness](docs/READINESS.md) and [deployed brief evidence](docs/archive/CLOUD-BRIEF-VERIFICATION-2026-10-16.md). This does not establish full benchmark reliability, broad model accuracy or production readiness.
-
-Synthesized answers pass a structured semantic gate after citation checks. Eight live adversarial regressions are recorded. Latest complete deployed benchmarks each passed 2/12; earlier complete runs and focused retries remain separate evidence. Human semantic review of all 12 cases and manual accessibility checks were user-reported on 16 October, without complete reviewer/environment details. The historical verified brief was not marked reviewed in that check. See [acceptance](docs/ACCEPTANCE.md), [benchmark results](docs/PHASE5-RESULTS.md), and [readiness](docs/READINESS.md).
+Phase 5 shipping work is recorded in [Phase 5 results](docs/PHASE5-RESULTS.md): 12-case benchmark artifacts (full runs and separate focused retries), a Cloud Run permission review, the deck PDF and the demo video script, plus unresolved issues. Synthesized answers pass a structured semantic gate after citation checks; eight live adversarial regressions are recorded. Latest complete deployed benchmarks each passed 2/12, with earlier runs and focused retries as separate evidence; human semantic review of all 12 cases and manual accessibility checks were user-reported on 16 October without complete reviewer/environment details. None of this establishes full benchmark reliability, broad model accuracy or production readiness. See [acceptance](docs/ACCEPTANCE.md) and [readiness](docs/READINESS.md).
