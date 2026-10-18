@@ -1,8 +1,8 @@
 # KnowBridge demo video - Evidence, attached.
 
-Production plan reviewed **18 October 2026** against the [live application](https://knowbridge-208529907910.asia-southeast1.run.app/) through BrowserOS neo MCP, repository design tokens, and the installed official Remotion skills. **Production status: the Remotion project is implemented in [`video/`](../video/) with a 2:00.4 compact cut, generated preview narration and aligned subtitles. Final MP4 export remains blocked on genuine recordings and human review; publication and submission of the video remain pending.**
+Production plan reviewed **18 October 2026** against the [live application](https://knowbridge-208529907910.asia-southeast1.run.app/) through BrowserOS neo MCP, repository design tokens, and the installed official Remotion skills. **Production status: the Remotion project is implemented in [`video/`](../video/) with a 3:30 cut (18 scenes, 6300 frames) matching the competition's 3-to-4-minute video rule. The six added scenes are storyboarded from the submission deck. Human re-review of the regenerated narration and captions is pending; final MP4 export remains held at the owner's request.**
 
-**Deliverable:** English, 16:9, under three minutes (original assembly 2:50; current compact cut 2:00.4 per [edit notes](../video/EDIT-NOTES.md)). Audience: AI Builder Cup judges and project leaders at Southeast Asian Google Workspace SMEs. Story: before promising a launch date, inspect what the evidence actually authorizes.
+**Deliverable:** English, 16:9, **3 to 4 minutes** per the competition video rule (current cut 3:30 / 6300 frames per [edit notes](../video/EDIT-NOTES.md); earlier 2:50 and 2:00.4 assemblies sat below the rule's 3-minute floor and are superseded). Audience: AI Builder Cup judges and project leaders at Southeast Asian Google Workspace SMEs. Story: before promising a launch date, inspect what the evidence actually authorizes.
 
 ## Creative direction
 
@@ -33,7 +33,7 @@ Use Remotion to compose genuine app recordings, screenshots, editable graphics, 
 
 ### Composition contract
 
-- Main composition ID: `KnowBridgeDemo`; 1920x1080; 30 fps; **5100 frames** in the original assembly, representing [0, 5100), with last visible frame 5099. Current compact edit: **3613 frames**, [0, 3613), last visible frame 3612.
+- Main composition ID: `KnowBridgeDemo`; 1920x1080; 30 fps; **6300 frames** in the current cut, representing [0, 6300), last visible frame 6299 (3:30.0, inside the competition 3-to-4-minute window). Historical: original assembly 5100 frames (2:50) and compact edit 3613 frames (2:00.4), both below the rule's 3-minute floor and superseded.
 - In scene components, derive fps with `useVideoConfig()`. Express seconds-to-frames timing using that fps. Drive animation with `useCurrentFrame()` and clamped `interpolate()`; use easing deliberately. No CSS transitions/keyframes, wall-clock timers or browser autoplay to drive animation.
 - Follow the installed skill's successive-scene pattern: named `Track`, distinct scene instances, and `Interactive.create()` scenes registered as connected compositions. Give each independently editable scene, clip and overlay its own JSX node with inline timing/props. Avoid a `.map()` that makes independently editable clips share one source node.
 - Use straight cuts as the baseline. If using overlapping `TransitionSeries` transitions, subtract the overlaps from total duration and recalculate narration/caption alignment. The frame table below assumes no scene overlap. Fades within a scene do not change its length.
@@ -44,30 +44,36 @@ Use Remotion to compose genuine app recordings, screenshots, editable graphics, 
 
 ### Frame-accurate edit decision list
 
-Ranges are start-inclusive, end-exclusive. Timings match the narration sections below at 30 fps. This table is the original 170-second assembly; the authoritative current cut is the compact EDL in [EDIT-NOTES.md](../video/EDIT-NOTES.md) (`video/src/edl.json`).
+Ranges are start-inclusive, end-exclusive. Timings match the narration sections below at 30 fps. This table is the authoritative current cut and matches `video/src/edl.json`.
 
 | Scene | From (seconds) | Start frame | Duration frames | End frame exclusive |
 |---|---:|---:|---:|---:|
-| 01 Opening | 0 | 0 | 240 | 240 |
-| 02 Product | 8 | 240 | 360 | 600 |
-| 03 Question | 20 | 600 | 300 | 900 |
-| 04 Answer | 30 | 900 | 480 | 1380 |
-| 05 Date gap | 46 | 1380 | 480 | 1860 |
-| 06 Source proof | 62 | 1860 | 600 | 2460 |
-| 07 Abstention | 82 | 2460 | 420 | 2880 |
-| 08 Brief | 96 | 2880 | 720 | 3600 |
-| 09 Workspace | 120 | 3600 | 360 | 3960 |
-| 10 Architecture | 132 | 3960 | 420 | 4380 |
-| 11 Results | 146 | 4380 | 480 | 4860 |
-| 12 End card | 162 | 4860 | 240 | 5100 |
+| 01 Opening | 0.0 | 0 | 204 | 204 |
+| 02 Problem | 6.8 | 204 | 360 | 564 |
+| 03 Workflow | 18.8 | 564 | 330 | 894 |
+| 04 Product | 29.8 | 894 | 300 | 1194 |
+| 05 Question | 39.8 | 1194 | 300 | 1494 |
+| 06 Answer | 49.8 | 1494 | 450 | 1944 |
+| 07 Decision semantics | 64.8 | 1944 | 330 | 2274 |
+| 08 Date gap | 75.8 | 2274 | 330 | 2604 |
+| 09 Source proof | 86.8 | 2604 | 480 | 3084 |
+| 10 Catalog | 102.8 | 3084 | 330 | 3414 |
+| 11 Abstention | 113.8 | 3414 | 288 | 3702 |
+| 12 Brief | 123.4 | 3702 | 520 | 4222 |
+| 13 Workspace | 140.7 | 4222 | 384 | 4606 |
+| 14 Architecture | 153.5 | 4606 | 333 | 4939 |
+| 15 Differentiation | 164.6 | 4939 | 420 | 5359 |
+| 16 Results | 178.6 | 5359 | 392 | 5751 |
+| 17 Roadmap | 191.7 | 5751 | 330 | 6081 |
+| 18 End card | 202.7 | 6081 | 219 | 6300 |
 
 Use these literal frame counts for a 30-fps edit, or derive them from seconds using the composition fps. Do not change fps without regenerating this table and verifying every trim, animation and caption boundary.
 
 ## Master storyboard and exact voiceover
 
-These twelve scenes total **170 seconds** in the original assembly (the current compact cut runs 120.4 seconds). Read only the blockquoted narration. Timing includes silent reading and cursor actions. All product actions below are **capture requirements**, not claims this planning session performed them.
+These eighteen scenes total **210 seconds (3:30)**, inside the competition's 3-to-4-minute requirement. Read only the blockquoted narration. Timing includes silent reading and cursor actions. All product actions below are **capture requirements**, not claims this planning session performed them.
 
-### 01 - 00:00-00:08 - The question before the promise
+### 01 - 00:00-00:07 - The question before the promise
 
 **Picture:** soot background; three blank paper rectangles sit slightly out of alignment. A fine lime line links them. At 00:03, cut to the real hero headline. Show fictional-data disclosure immediately.
 
@@ -75,7 +81,23 @@ These twelve scenes total **170 seconds** in the original assembly (the current 
 
 **Motion/audio:** optional React/SVG paper-card bridge for first three seconds. One quiet paper sound. Let the word evidence land on the real hero. Add every word in editing.
 
-### 02 - 00:08-00:20 - Meet KnowBridge
+### 02 - 00:07-00:19 - The cost of a wrong commitment
+
+**Picture:** warm-paper storyboard built in Remotion: three white record cards - customer target **2026-11-01** (`HBR-DOC-02`), QA forecast **2026-11-11** (`HBR-DOC-04`), security sign-off **PENDING** (`HBR-DOC-06`) - appear one by one, then the line **Nothing reconciles them.** Keep the fictional-data disclosure visible.
+
+> Project commitments are scattered across files: a customer target in one document, a QA forecast in another, a security sign-off in a third. Nothing reconciles them.
+
+**Motion/audio:** staggered card reveals, about a quarter second each. Fixed example records only; no generated answer appears in this scene.
+
+### 03 - 00:19-00:30 - One workflow
+
+**Picture:** Remotion-built workflow strip on warm paper: **Connect - Investigate - Reconcile - Decide** with one-line descriptors (selected files; grounded questions with citations; dates, conflicts, authority; a brief for human review). One lime connector advances through the four stages.
+
+> KnowBridge follows one workflow: connect selected files, investigate with grounded questions, reconcile dates and conflicts, then decide from a reviewable brief.
+
+**Motion/audio:** connector advances over the first eight seconds. This diagram explains the workflow; it is not a live request trace.
+
+### 04 - 00:30-00:40 - Meet KnowBridge
 
 **Picture:** real hero screenshot or recording. Establish wordmark, headline, Ask the record action and fictional-source count. Move toward the white Harbour evidence card, retaining its date and source link.
 
@@ -83,7 +105,7 @@ These twelve scenes total **170 seconds** in the original assembly (the current 
 
 **Motion:** 4% push toward the card, then hold. The hero card is a fixed illustrative example, not a response just generated by the user.
 
-### 03 - 00:20-00:30 - Ask one consequential question
+### 05 - 00:40-00:50 - Ask one consequential question
 
 **Picture:** click **Ask the record**. Choose **Launch readiness**, show the populated multiline **Question** field, then click **Ask**. Preserve a short genuine loading state.
 
@@ -97,7 +119,7 @@ Can we commit to launching Project Harbour on 2026-11-01? Identify conflicting e
 
 **Edit:** shorten waiting with a visible **Processing time shortened** label. Never imply an instantaneous response or splice in a result from another question.
 
-### 04 - 00:30-00:46 - An answer you can inspect
+### 06 - 00:50-01:05 - An answer you can inspect
 
 **Picture:** actual successful answer from that recorded request. Establish the response, then crop to one supported claim and its evidence control. Retain the real mode/model disclosure if shown. Keep the question visible in the establishing shot.
 
@@ -105,7 +127,15 @@ Can we commit to launching Project Harbour on 2026-11-01? Identify conflicting e
 
 **Motion:** cursor pauses on one citation. Add the editorial label **Inspect the evidence** outside the app boundary. Do not overlay a fabricated answer. If generation fails, use the recovery plan below.
 
-### 05 - 00:46-01:02 - The ten-day gap
+### 07 - 01:05-01:16 - Four kinds of date
+
+**Picture:** Remotion-built comparison on warm paper listing the four typed semantics with their Harbour records: **Baseline** (client target 2026-11-01, HBR-DOC-02), **Forecast** (2026-11-11, HBR-DOC-04), **Commitment** (none authorized, HBR-DOC-09), **Approved decision** (approval pending, HBR-DOC-06).
+
+> Not all dates carry equal authority. A baseline, a forecast, a commitment, and an approved decision are different things. KnowBridge keeps those types distinct.
+
+**Motion/audio:** rows reveal in order. Fixed example records; do not label the difference a proven impossibility of launch.
+
+### 08 - 01:16-01:27 - The ten-day gap
 
 **Picture:** real lime **What the record shows** table. Highlight first and second rows sequentially. Add an Remotion-built comparison beside the recording:
 
@@ -119,7 +149,7 @@ Can we commit to launching Project Harbour on 2026-11-01? Identify conflicting e
 
 **Motion:** target, then forecast, then gap. Hold for at least four seconds. This fixed example table is not the generated answer. Do not label the difference a proven impossibility of launch.
 
-### 06 - 01:02-01:22 - Prove the distinction
+### 09 - 01:27-01:43 - Prove the distinction
 
 **Picture:** one complete real citation interaction from answer to source content. Then inspect **Project Harbour - QA Forecast** in the catalog and expand **Original source text**. Keep **HBR-DOC-04**, recorded date **2026-10-10**, and the literal forecast sentence readable. Cut to security and decision-log table rows or originals.
 
@@ -127,7 +157,15 @@ Can we commit to launching Project Harbour on 2026-11-01? Identify conflicting e
 
 **Motion:** thin lime underline under actual forecast text. Never replace or retype a quotation. Briefly label **Source recorded date**, then **Approval status**. Do not imply that the security record's body date is a launch date.
 
-### 07 - 01:22-01:36 - Absence is an answer
+### 10 - 01:43-01:54 - Every source stays inspectable
+
+**Picture:** the catalogue portion of the genuine citation-to-original recording: registered sources with identifiers and recorded dates, **Project Harbour - QA Forecast** selected, **Original source text** expanded. Annotations: **HBR-DOC-04 - recorded 2026-10-10**, **Original source text - literal excerpt**.
+
+> Every registered source stays inspectable: identifiers, recorded dates, and original source text, so you can check what the record actually says.
+
+**Motion/audio:** gentle push toward the expanded original text. Never replace or retype a quotation.
+
+### 11 - 01:54-02:03 - Absence is an answer
 
 **Picture:** choose **Absent evidence** in Ask, submit, and show an actual **insufficient evidence** result. Read the selected question before capture; use the seeded missing personal-information scenario. Hold the actual abstention.
 
@@ -135,7 +173,7 @@ Can we commit to launching Project Harbour on 2026-11-01? Identify conflicting e
 
 **Motion/audio:** direct cut; remove the music pulse for one beat. Result must come from the actual request. If unavailable, use the honest alternate below.
 
-### 08 - 01:36-02:00 - From evidence to a reviewable brief
+### 12 - 02:03-02:21 - From evidence to a reviewable brief
 
 **Picture:** cut to an already authenticated judge session, credentials outside frame. Establish **A recommendation, never an approval.** Enter the same Harbour question in **Decision question**, click **Create brief**, and capture a genuine completed brief. Show recommendation, options/risks, unknowns and evidence. Refresh the saved list and reopen the same saved item.
 
@@ -143,7 +181,7 @@ Can we commit to launching Project Harbour on 2026-11-01? Identify conflicting e
 
 **Motion:** two readable crops instead of a rapid full-page scroll. Capture save/reopen continuity. If including **Mark evidence reviewed**, inspect the evidence first and click deliberately. Do not stage an approval state.
 
-### 09 - 02:00-02:12 - Controlled connection
+### 13 - 02:21-02:34 - Controlled connection
 
 **Picture:** current **Import is explicit, bounded and reversible.** section. Show Workspace disclosures and controls. Add editorial label **Optional connector - registered fictional files only**.
 
@@ -151,7 +189,7 @@ Can we commit to launching Project Harbour on 2026-11-01? Identify conflicting e
 
 **Motion:** slow crop across disclosure and disconnect control. Do not click disconnect for decoration. Default shot demonstrates the panel, not completed import. Substitute genuine verified import footage only if recorded; never imply imported files produced Scene 08's seed-based brief.
 
-### 10 - 02:12-02:26 - Google AI with a clear boundary
+### 14 - 02:34-02:45 - Google AI with a clear boundary
 
 **Picture:** Remotion-built diagram on warm paper:
 
@@ -166,7 +204,15 @@ Cloud Run: Singapore | Generation: global | Embeddings: US
 
 **Motion:** one lime connector advances through five stages. Use editable shapes and exact text. This diagram explains architecture; it is not a live request trace.
 
-### 11 - 02:26-02:42 - Honest results
+### 15 - 02:45-02:59 - Why not just ask a general assistant?
+
+**Picture:** Remotion-built two-column comparison on warm paper: **General assistants** (broad knowledge, open-ended work, fast drafts) versus **KnowBridge adds** (verified literal citations, typed date semantics, abstention on absent evidence, tenant-scoped retrieval before the model, a saved brief with human review). Disclose: **KnowBridge itself runs on Gemini.**
+
+> Why not just ask a general assistant? General models win on broad knowledge. KnowBridge adds the workflow around the model: verified literal citations, typed date semantics, abstention, and tenant-scoped retrieval.
+
+**Motion/audio:** columns reveal in sequence. Frame this as a design comparison of typical general-assistant behaviour, not a measured head-to-head benchmark.
+
+### 16 - 02:59-03:12 - Honest results
 
 **Picture:** readable evidence card with both columns equally prominent:
 
@@ -181,9 +227,17 @@ Recorded evidence: 17-18 October 2026 | Full-suite reliability remains open
 
 > Two hundred seventy-nine local tests pass. Model reliability remains open: both latest complete deployed benchmarks passed two of twelve, with ten service failures each. We report those limits openly.
 
-**Motion:** hold card throughout the sixteen seconds. No green benchmark badge, combined retry score, or success-percentage animation. Sources: [Phase 5 results](PHASE5-RESULTS.md), [readiness](READINESS.md), [UI release evidence](evidence/UI-POLISH-2026-10-18.md). Refresh only when newer comparable evidence exists.
+**Motion:** hold the card throughout the scene. No green benchmark badge, combined retry score, or success-percentage animation. Sources: [Phase 5 results](PHASE5-RESULTS.md), [readiness](READINESS.md), [UI release evidence](evidence/UI-POLISH-2026-10-18.md). Refresh only when newer comparable evidence exists.
 
-### 12 - 02:42-02:50 - Close on the promise
+### 17 - 03:12-03:23 - What comes next
+
+**Picture:** Remotion-built roadmap card on warm paper: **P1 - enterprise Workspace depth (approved scope only)** and **P2 - Gmail, Chat and Calendar connectors, SSO (post-hackathon)**, closing on the CTA **Know what your sources actually say.**
+
+> Next is deeper Google Workspace integration within approved scope, then Gmail, Chat and Calendar connectors after the hackathon. Know what your sources actually say.
+
+**Motion/audio:** planned scope only; label it **Planned scope - not shipped functionality**. Do not imply these features exist today.
+
+### 18 - 03:23-03:30 - Close on the promise
 
 **Picture:** real hero, then soot end card with wordmark and lime rule. Full live URL on screen; repository link in published description.
 
@@ -200,7 +254,7 @@ Fictional demo data - Human verification required
 
 ## Screenshot and recording manifest
 
-All nine assets below are now captured at 1920×1080 (18 October capture round) and await human review; see [ASSETS.md](../video/ASSETS.md). Older [deck screenshots](deck/assets/) predate the current UI. Keep raw captures locally under ignored `.data/video/raw/`. Review selected captures before copying to the isolated video project's `public/captures/`. Never copy raw sessions or credentials into a public asset directory.
+All nine assets below were captured at 1920×1080 (18 October capture round) and human-approved the same day; see [ASSETS.md](../video/ASSETS.md). Older [deck screenshots](deck/assets/) predate the current UI. Keep raw captures locally under ignored `.data/video/raw/`. Review selected captures before copying to the isolated video project's `public/captures/`. Never copy raw sessions or credentials into a public asset directory.
 
 | Planned asset | Capture instructions and required proof | Scene |
 |---|---|---|

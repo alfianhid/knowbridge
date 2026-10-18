@@ -16,7 +16,7 @@ Existence of artifacts does not establish upload, organizer acceptance or comple
 ## Mandatory artifacts
 - Functional publicly reachable (or judge-accessible) deployed Cloud Run / Firebase URL.
 - Public GitHub source with instructions, architecture and reproducible synthetic dataset.
-- Demo video **under three minutes** (public YouTube, Vimeo or supported Drive link).
+- Demo video **3 to 4 minutes** per the competition rule (public YouTube, Vimeo or supported Drive link); the current cut is 3:30.
 - English presentation deck **PDF**. Official theme: **Future of Work & Enterprise Productivity**.
 
 ## Eight-slide deck outline
